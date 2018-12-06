@@ -34,6 +34,7 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { CategoriesComponent } from './Buyer/categories/categories.component';
 import { SousCategoriesComponent } from './Buyer/categories/sous-categories/sous-categories.component';
 import { SousSousCategoriesComponent } from './Buyer/categories/sous-categories/sous-sous-categories/sous-sous-categories.component';
+import { HomeBackgroundComponent } from './Buyer/home-background/home-background.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { SousSousCategoriesComponent } from './Buyer/categories/sous-categories/
     MotdepasseComponent,
     CategoriesComponent,
     SousCategoriesComponent,
-    SousSousCategoriesComponent
+    SousSousCategoriesComponent,
+    HomeBackgroundComponent
   ],
   imports: [
     BrowserModule,

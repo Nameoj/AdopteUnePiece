@@ -1,49 +1,24 @@
 <div class="container-fluid">
   <nav class="navbar navbar-expand-lg navbar-light bg-warning row">
-    <a
-      class="navbar-brand col-1"
-      routerLink="/"
-    >
-      <img
-        class="websiteLogo"
-        src="../../../assets/moto.png"
-        alt="logo"
-      >
+    <a class="navbar-brand col-1" routerLink="/">
+      <img class="websiteLogo" src="../../../assets/moto.png" alt="logo">
     </a>
 
     <form class="my-lg-0 col-8 col-sm-2">
-      <input
-        class="form-control-plaintext mr-sm-2 adoptPieceSearch"
-        type="search"
-        placeholder="Adopter une pièce"
-        aria-label="Search"
-      />
+      <input class="form-control-plaintext mr-sm-2 adoptPieceSearch" type="search" placeholder="Adopter une pièce"
+        aria-label="Search" />
     </form>
 
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div
-      class="collapse navbar-collapse offset-6"
-      id="navbarSupportedContent"
-    >
+    <div class="collapse navbar-collapse offset-6" id="navbarSupportedContent">
       <ul class="navbar-nav row rightLinks">
         <li class="nav-item active col-6">
-          <a
-            class="nav-link"
-            routerLink="/panier"
-          >
+          <a class="nav-link" routerLink="/panier">
             Panier
-
             <span class="numberOfArticles">{{mockNumberOfArticles}}</span>
           </a>
         </li>
@@ -51,20 +26,13 @@
         <!-- TODO: *ngIf on the two next li for connected people and not connected people -->
 
         <li class="nav-item col-6">
-          <a
-            class="nav-link"
-            data-toggle="modal"
-            data-target="#myModal"
-          >Connexion</a>
+          <a class="nav-link" data-toggle="modal" data-target="#myModal">Connexion</a>
         </li>
 
         <li class="nav-item d-none col-6">
           <!-- Delete d-none when ngIf added -->
 
-          <a
-            class="nav-link disabled"
-            href="#"
-          >Profil</a>
+          <a class="nav-link disabled" href="#">Profil</a>
         </li>
       </ul>
     </div>
@@ -73,21 +41,13 @@
 
 <!-- Modal -->
 
-<div
-  class="modal fade marge-top"
-  id="myModal"
-  role="dialog"
->
+<div class="modal fade marge-top" id="myModal" role="dialog">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-body row">
         <div class="col-md-6 modal-left">
           <div class="logo">
-            <img
-              class="websiteLogo"
-              src="../../../assets/moto.png"
-              alt="logo"
-            >
+            <img class="websiteLogo" src="../../../assets/moto.png" alt="logo">
           </div>
 
           <div class="text-inscription">
@@ -96,68 +56,39 @@
             </p>
           </div>
 
-          <button
-            type="button"
-            class="btn btn-warning"
-            data-dismiss="modal"
-            routerLink="/creationCompte"
-          >Inscription</button>
+          <button type="button" class="btn btn-warning" data-dismiss="modal" routerLink="/creationCompte">Inscription</button>
         </div>
 
         <div class="col-md-6  modal-right">
-          <button
-            type="button"
-            class="close"
-            data-dismiss="modal"
-          >&times;</button>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
 
           <div class="facebook">
-            <button
-              type="button"
-              class="btn btn-facebook"
-            >Connexion avec Facebook</button>
+            <button type="button" class="btn btn-facebook">Connexion avec Facebook</button>
           </div>
 
           <div class="ligne"></div>
 
-          <form
-            class="form-horizontal"
-            role="form"
-          >
+          <form class="form-horizontal" role="form">
             <div class="form-group">
-              <input
-                type="email"
-                class="form-control"
-                id="inputEmail3"
-                placeholder="Email"
-              />
+              <input type="email" class="form-control" id="inputEmail3" placeholder="Email" />
             </div>
 
             <div class="form-group">
-              <input
-                type="password"
-                class="form-control"
-                id="inputPassword3"
-                placeholder="Password"
-              />
+              <input type="password" class="form-control" id="inputPassword3" placeholder="Password" />
             </div>
 
             <div class="form-group">
               <div class="checkbox">
                 <label>
-                  <input type="checkbox"/>
+                  <input type="checkbox" />
                   Se souvenir de moi
                 </label>
               </div>
             </div>
 
             <div class="form-group">
-              <button
-                type="submit"
-                data-dismiss="modal"
-                class="btn btn-warning btn-connex"
-                routerLink="/myaccount/infosperso"
-              >Se connecter</button>
+              <button type="submit" data-dismiss="modal" class="btn btn-warning btn-connex" routerLink="/myaccount/infosperso">Se
+                connecter</button>
             </div>
           </form>
         </div>

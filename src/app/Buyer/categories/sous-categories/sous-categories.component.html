@@ -1,0 +1,9 @@
+<div *ngFor="let sousCategories of categories.sousCategories; let index=index">
+  <li *ngIf="sousCategories.sousSousCategories" class="list-group-item list-group-item-action arrowHead" (click)="collapse(index+overIndex)">
+    {{sousCategories.name}}
+  </li>
+  <li *ngIf="sousCategories.sousSousCategories==undefined" class="list-group-item list-group-item-action" (click)="collapse(index+overIndex)">
+      {{sousCategories.name}}
+    </li>
+  <app-sous-sous-categories id="list{{index+overIndex}}" class="list" [sousCategories]="sousCategories"></app-sous-sous-categories>
+</div>

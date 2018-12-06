@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { BuyerHomeComponent } from './Buyer/buyer-home/buyer-home.component';
 import { SearchVhlComponent } from './Buyer/buyer-home/search-vhl/search-vhl.component';
@@ -31,7 +32,9 @@ import { MotdepasseComponent } from './Sign-up/my-account/motdepasse/motdepasse.
 import { CommandesComponent } from './Sign-up/my-account/commandes/commandes.component';
 import { AdressesComponent } from './Sign-up/my-account/adresses/adresses.component';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { CategoriesComponent } from './Buyer/categories/categories.component';
+import { SousCategoriesComponent } from './Buyer/categories/sous-categories/sous-categories.component';
+import { SousSousCategoriesComponent } from './Buyer/categories/sous-categories/sous-sous-categories/sous-sous-categories.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     AdressesComponent,
     CommandesComponent,
     InfospersoComponent,
-    MotdepasseComponent
+    MotdepasseComponent,
+    CategoriesComponent,
+    SousCategoriesComponent,
+    SousSousCategoriesComponent
   ],
   imports: [
     BrowserModule,

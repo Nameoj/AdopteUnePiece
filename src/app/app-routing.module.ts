@@ -19,6 +19,11 @@ import { AdressesComponent } from './Sign-up/my-account/adresses/adresses.compon
 import { CommandesComponent } from './Sign-up/my-account/commandes/commandes.component';
 import { InfospersoComponent } from './Sign-up/my-account/infosperso/infosperso.component';
 import { MotdepasseComponent } from './Sign-up/my-account/motdepasse/motdepasse.component';
+import { AdminHomeComponent } from './PageAdmin/admin-home/admin-home.component';
+import { AdminBuyerListComponent } from './PageAdmin/admin-buyer-list/admin-buyer-list.component';
+import { AdminCompanyListComponent } from './PageAdmin/admin-company-list/admin-company-list.component';
+import { AdminAnnounceListComponent } from './PageAdmin/admin-announce-list/admin-announce-list.component';
+import { DataBaseManagmentComponent } from './PageAdmin/data-base-managment/data-base-managment.component';
 
 const routes: Routes = [
   { path: '', component: BuyerHomeComponent },
@@ -38,7 +43,16 @@ const routes: Routes = [
   { path: 'announce-piece', component: AnnouncePieceComponent},
   { path: 'announce-list', component: AnnounceListComponent},
   { path: 'announce-list', component: AnnounceListComponent},
+<<<<<<< HEAD
   { path: 'announce-list-seller', component: PageAnnounceProComponent},
+=======
+  { path: 'admin-home', component: AdminHomeComponent, children : [
+    { path: 'admin-buyer-list', component: AdminBuyerListComponent},
+    { path: 'admin-company-list', component: AdminCompanyListComponent},
+    { path: 'admin-announce-list', component: AdminAnnounceListComponent},
+    { path: 'db_manager', component: DataBaseManagmentComponent}]
+},
+>>>>>>> 1da421fa0d5a581a3db78256e9ad931d3dea9190
 ];
 
 @NgModule({

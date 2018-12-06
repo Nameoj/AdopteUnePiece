@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { CustomValidators } from './custom-validators';
-// import { Buyer } from 'src/app/models/buyer.model';
+import { Buyer } from 'src/app/models/buyer.models';
 
 
 @Component({
@@ -46,21 +46,21 @@ export class CreationCompteComponent implements OnInit {
     }
 
     const formValue = this.registerForm.value;
-    // const newBuyer = new Buyer(
-    //   formValue['email'],
-    //   formValue['password'],
-    //   formValue['civilite'],
-    //   formValue['prenom'],
-    //   formValue['nom'],
-    //   formValue['telephone'],
-    //   formValue['adresse1'],
-    //   formValue['adresse2'],
-    //   formValue['codepostal'],
-    //   formValue['ville']
-    // );
+     const newBuyer = new Buyer(
+       formValue['email'],
+       formValue['password'],
+       formValue['civilite'],
+       formValue['prenom'],
+       formValue['nom'],
+       formValue['telephone'],
+       formValue['adresse1'],
+       formValue['adresse2'],
+       formValue['codepostal'],
+       formValue['ville']
+     );
     alert('SUCCESS!! :-)');
     console.log(this.registerForm.value);
-    // console.log(newBuyer);
+     console.log(newBuyer);
 
 }
 

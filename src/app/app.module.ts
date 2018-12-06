@@ -31,6 +31,7 @@ import { MotdepasseComponent } from './Sign-up/my-account/motdepasse/motdepasse.
 import { CommandesComponent } from './Sign-up/my-account/commandes/commandes.component';
 import { AdressesComponent } from './Sign-up/my-account/adresses/adresses.component';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    NgbModule,
     FormsModule,
     MatTableModule,
     ReactiveFormsModule,

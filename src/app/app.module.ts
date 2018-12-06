@@ -31,6 +31,7 @@ import { MotdepasseComponent } from './Sign-up/my-account/motdepasse/motdepasse.
 import { CommandesComponent } from './Sign-up/my-account/commandes/commandes.component';
 import { AdressesComponent } from './Sign-up/my-account/adresses/adresses.component';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
+import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { AdminHomeComponent } from './PageAdmin/admin-home/admin-home.component';
 import { AdminBuyerListComponent } from './PageAdmin/admin-buyer-list/admin-buyer-list.component';
 import { AdminCompanyListComponent } from './PageAdmin/admin-company-list/admin-company-list.component';
@@ -85,7 +86,8 @@ import { DataBaseManagmentComponent } from './PageAdmin/data-base-managment/data
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    ScrollDispatchModule
   ],
   providers: [],
   bootstrap: [AppComponent]

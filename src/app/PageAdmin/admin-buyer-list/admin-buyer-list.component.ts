@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminBuyerListComponent implements OnInit {
 
-  constructor() { }
+  numbers: number[] = [];
+
+  constructor() {
+    for (let index = 0; index < 10000; index++) {
+      this.numbers.push(index);
+    }
+  }
 
   ngOnInit() {
   }

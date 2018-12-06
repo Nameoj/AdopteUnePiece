@@ -33,12 +33,9 @@ import { CommandesComponent } from './Sign-up/my-account/commandes/commandes.com
 import { AdressesComponent } from './Sign-up/my-account/adresses/adresses.component';
 import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
-<<<<<<< HEAD
 import { TabCreationComponent } from './Seller/page-announce-pro/tab-creation/tab-creation.component';
 import { TabAnnounceComponent } from './Seller/page-announce-pro/tab-announce/tab-announce.component';
 import { TabHistoriqueComponent } from './Seller/page-announce-pro/tab-historique/tab-historique.component';
-=======
->>>>>>> 5ab554258de61a1b54b3ccc173986901b957e77e
 import { CategoriesComponent } from './Buyer/categories/categories.component';
 import { SousCategoriesComponent } from './Buyer/categories/sous-categories/sous-categories.component';
 import { SousSousCategoriesComponent } from './Buyer/categories/sous-categories/sous-sous-categories/sous-sous-categories.component';
@@ -72,12 +69,9 @@ import { DataBaseManagmentComponent } from './PageAdmin/data-base-managment/data
     CommandesComponent,
     InfospersoComponent,
     MotdepasseComponent,
-<<<<<<< HEAD
     TabCreationComponent,
     TabAnnounceComponent,
     TabHistoriqueComponent,
-=======
->>>>>>> 5ab554258de61a1b54b3ccc173986901b957e77e
     CategoriesComponent,
     SousCategoriesComponent,
     SousSousCategoriesComponent,

@@ -1,0 +1,62 @@
+<div class="col-md-8">
+    <cdk-virtual-scroll-viewport itemSize="100" class="VSviewport">
+      <table class="table table-hover table-striped list">
+        <thead class="head sticky">
+          <tr>
+            <th>
+              #
+            </th>
+            <th>
+              Titre
+            </th>
+            <th>
+              Pièce
+            </th>
+            <th>
+              Vendeur
+            </th>
+            <th>
+              Prix
+            </th>
+            <th>
+              Status
+            </th>
+            <th>
+              Editer
+            </th>
+            <th>
+              Supprimer
+            </th>
+          </tr>
+        </thead>
+        <ng-container *cdkVirtualFor="let n of numbers">
+          <tr>
+            <td>
+              {{ n }}
+            </td>
+            <td>
+              Axe moteur CB 500
+            </td>
+            <td>
+              Axe moteur
+            </td>
+            <td>
+              Lyon casse moto
+            </td>
+            <td>
+              90€
+            </td>
+            <td>
+              En vente
+            </td>
+            <td>
+              <i class="material-icons">edit</i>
+            </td>
+            <td>
+              <i class="material-icons">delete_sweep</i>
+            </td>
+          </tr>
+        </ng-container>
+      </table>
+    </cdk-virtual-scroll-viewport>
+</div>

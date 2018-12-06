@@ -35,6 +35,13 @@ import { CategoriesComponent } from './Buyer/categories/categories.component';
 import { SousCategoriesComponent } from './Buyer/categories/sous-categories/sous-categories.component';
 import { SousSousCategoriesComponent } from './Buyer/categories/sous-categories/sous-sous-categories/sous-sous-categories.component';
 import { HomeBackgroundComponent } from './Buyer/home-background/home-background.component';
+import { ScrollDispatchModule } from '@angular/cdk/scrolling';
+import { AdminHomeComponent } from './PageAdmin/admin-home/admin-home.component';
+import { AdminBuyerListComponent } from './PageAdmin/admin-buyer-list/admin-buyer-list.component';
+import { AdminCompanyListComponent } from './PageAdmin/admin-company-list/admin-company-list.component';
+import { AdminAnnounceListComponent } from './PageAdmin/admin-announce-list/admin-announce-list.component';
+import { DataBaseManagmentComponent } from './PageAdmin/data-base-managment/data-base-managment.component';
+
 
 @NgModule({
   declarations: [
@@ -60,7 +67,12 @@ import { HomeBackgroundComponent } from './Buyer/home-background/home-background
     CategoriesComponent,
     SousCategoriesComponent,
     SousSousCategoriesComponent,
-    HomeBackgroundComponent
+    HomeBackgroundComponent,
+    AdminHomeComponent,
+    AdminBuyerListComponent,
+    AdminCompanyListComponent,
+    AdminAnnounceListComponent,
+    DataBaseManagmentComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +95,8 @@ import { HomeBackgroundComponent } from './Buyer/home-background/home-background
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    ScrollDispatchModule
   ],
   providers: [],
   bootstrap: [AppComponent]

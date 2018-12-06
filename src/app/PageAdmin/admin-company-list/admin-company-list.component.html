@@ -1,0 +1,56 @@
+<div class="col-md-8">
+    <cdk-virtual-scroll-viewport itemSize="100" class="VSviewport">
+      <table class="table table-hover table-striped list">
+        <thead class="head sticky">
+          <tr>
+            <th>
+              #
+            </th>
+            <th>
+              Raison Sociale
+            </th>
+            <th>
+              SIRET
+            </th>
+            <th>
+              Adresse
+            </th>
+            <th>
+              Tel
+            </th>
+            <th>
+              Editer
+            </th>
+            <th>
+              Supprimer
+            </th>
+          </tr>
+        </thead>
+        <ng-container *cdkVirtualFor="let n of numbers">
+          <tr>
+            <td>
+              {{ n }}
+            </td>
+            <td>
+              Lyon Casse Moto
+            </td>
+            <td>
+              123456789
+            </td>
+            <td>
+              17 rue Delandine
+            </td>
+            <td>
+              0606060606
+            </td>
+            <td>
+              <i class="material-icons">edit</i>
+            </td>
+            <td>
+              <i class="material-icons">delete_sweep</i>
+            </td>
+          </tr>
+        </ng-container>
+      </table>
+    </cdk-virtual-scroll-viewport>
+</div>

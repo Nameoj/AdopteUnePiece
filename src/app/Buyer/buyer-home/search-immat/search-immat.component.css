@@ -1,0 +1,9 @@
+.arrow {
+    font-size: 1em;
+    margin-bottom: 0;
+    font-weight: 900;
+}
+.card-header{
+    background-color: black;
+    color: white;
+}

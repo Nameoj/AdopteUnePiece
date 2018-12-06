@@ -1,0 +1,126 @@
+.navbar {
+    z-index: 600000;
+}
+
+@media screen and (max-width: 8000px)
+
+{
+    
+    a{
+        font-size:1.5em;
+        font-weight:bold;
+    }
+}
+
+@media screen and (max-width: 600px)
+
+{
+    a{
+        font-size:1.3em;
+        font-weight:bold;
+    }
+}
+
+.websiteLogo {
+    width:2em !important;
+}
+
+.adoptPieceSearch {
+    /*TODO: CHANGE IMAGE COLOR, SUPPR THIS COMMENT WHEN DONE*/
+    background: url(../../../assets/musica-searcher.png);
+    opacity:0.4;
+    background-position: center left 17ch;
+    background-repeat: no-repeat;
+    background-size: 1em;
+    background-color:#F0F0F0;
+    border-radius:20px;
+    border:1px solid #FFC419;
+}
+.adoptPieceSearch::placeholder {
+    color:black;
+    opacity:1.0;
+}
+.container-fluid {
+    margin: 0px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
+}
+
+.row {
+    margin: 0px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
+}
+
+.rightLinks {
+    font-size:0.7em;
+    font-weight:normal;
+}
+
+.numberOfArticles {
+    font-size:0.5em;
+    background-color:black;
+    color: white;
+    border-radius: 50px;
+    padding:2px 5px 2px 5px;
+    position: relative;
+    bottom: 1.3em;
+}
+
+.marge-top {
+    margin-top: 15vh;
+}
+/* .modal-left {
+    height : 70vh;
+} */
+
+.modal-right {
+    background-color:#F0F0F0;
+}
+.logo {
+    
+    margin-top: 12%;
+    margin-left:5vw;
+}
+.text-inscription {
+    margin-left: 25%;
+    width : 50%;
+    margin-top: 10%;
+    font-size: 1.3em;
+}
+.btn-warning {
+    margin-left: 25%;
+    margin-bottom: 10%;
+    background-color:#FFC419;
+    color: white;
+}
+.modal-dialog{
+  max-width: 1000px;
+}
+.facebook {
+    margin : 10% 10% 5% 10%;
+    background-color: #3963C7;
+    color: white;
+    width: 80%;
+    height: 50px;
+    border-radius: .25rem;
+    text-align : center;
+}
+
+.btn-facebook {
+    margin-bottom:0;
+    padding-top : 2%;
+    background-color: #3963C7;
+    color: white; 
+}
+
+.ligne {
+    margin : 5% 10%;
+    height: 3px;
+    background-color: #E5E5E5;
+
+}
+.form-group {
+    margin: 5% 10%;
+}
+.btn-connex {
+    margin: 0%;
+}

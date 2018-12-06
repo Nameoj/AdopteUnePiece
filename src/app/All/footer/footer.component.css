@@ -1,0 +1,60 @@
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+ @media screen and (max-width: 8000px)
+
+{
+    footer {
+        position: static;
+        bottom: 0;
+        width: 100%;
+        /* Set the fixed height of the footer here */
+        background-color: orange;
+      }
+    
+    .col-md-2 {
+        margin:1em auto;
+    }
+    
+    h6 {
+        margin:0;
+    }
+
+    .footerLink a {
+        font-size: 0.8em;
+        color: white;
+    }
+}
+
+@media screen and (max-width: 600px)
+
+{
+    footer {
+        position: static;
+        bottom: 0;
+        width: 100%;
+        /* Set the fixed height of the footer here */
+        background-color: orange;
+      }
+    
+    .col-md-2 {
+        margin:1em auto;
+    }
+    
+    h6 {
+        margin:0;
+    }
+
+    .footerLink a {
+        font-size: 0.7em;
+        color: white;
+    }
+}
+
+
+.row {
+    margin: 0px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
+}

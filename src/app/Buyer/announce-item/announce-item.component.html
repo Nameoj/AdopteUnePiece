@@ -1,0 +1,37 @@
+<div class="announceItem row">
+  <img class="col-4 announceImage" src="{{placeholderForDBAnnounce.image}}" placeholder="image">
+  <div class="col-8 announceText">
+    <p>
+      <span class="float-right announcePrice">
+        {{placeholderForDBAnnounce.prix}} €
+      </span>
+
+      <br class="d-none d-block">
+
+      <span class="font-weight-bold announceTitle">
+        <a routerLink="/announce-piece">
+          {{placeholderForDBAnnounce.titre}}
+        </a>
+      </span>
+
+      <br class="d-block">
+
+      <span class="font-italic descParagraph">
+        Aprilia: RS125, année: 1991
+      </span>
+
+      <br class="d-block">
+
+      vendeur:
+      <a href="#" class="descParagraph">
+       {{placeholderForDBAnnounce.vendeur}}
+      </a>
+
+      <br class="d-block">
+
+      <span class="descParagraph">
+        Posté le: {{placeholderForDBAnnounce.postDate}}
+      </span>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+
+.btn-success:focus {
+    outline:0;
+    background-color: #28a745;
+}
+.btn-success{
+    border:none;
+    background-color: #28a745;
+}
+.btn-success:active {
+    background-color: #28a745 !important;
+}
+.btn-success:hover {
+    background-color: #28a745;
+    cursor:default;
+}
+
+
+
+.announcePiecePage {
+margin-bottom: 20px;
+}
+
+.announcePrice {
+margin-top: 18px !important;
+font-size: 1.9em;
+}
+
+.announceTitle {
+margin-top: 15px;
+margin-bottom: 20px;
+font-size: 2.2em;
+}
+
+.announceImage {
+width: 80vw;
+}
+
+@media screen and (min-width: 769px) {
+    .announceImageDiv {
+    margin-bottom: 25px;
+    }
+    .announceDescription {
+    margin-left: 15%;
+    max-width: 70%;
+    }
+    .announceDispo {
+    position: absolute;
+    right: 25px;
+    }
+}
+
+
+
+.sautAnnonce {
+margin-bottom: 15px;
+}
+
+.pieceTitle {
+margin-top: 15px;
+}
+
+.announcePrice {
+margin-top: 10px;
+color: red;
+}
+
+.announceRating {
+color: #FF8C00;
+font-size: 1.5em;
+}
+
+.bottomButtons {
+margin-top: 15px;
+margin-bottom: 15px;
+}

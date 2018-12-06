@@ -1,0 +1,58 @@
+<div class="container">
+
+  <div class="row text-center announcePiecePage">
+
+    <div class="col-12 offset-sm-6 col-sm-4 text-center announceTitle">
+      {{placeholderForDBAnnounce.titre}}
+      <hr />
+    </div>
+    <p class="announcePrice col-sm-2 d-none d-sm-block">{{placeholderForDBAnnounce.prix}}€</p>
+
+    <div class="col-12 float-sm-left col-sm-4 announceImageDiv">
+      <img class="announceImage col-sm-12" src="{{placeholderForDBAnnounce.image}}" placeholder="{{placeholderForDBAnnounce.titre">
+    </div>
+  
+    <div class="col-sm-8">
+      <div class="pieceTitle font-italic font-weight-bold">
+      {{placeholderForDBPiece.titre}}
+      </div>
+      
+      <div class="
+            col-12 text-sm-left announceDescription">
+        <p class="announcePrice d-sm-none">
+          {{placeholderForDBAnnounce.prix}}€
+        </p>
+
+        <p class="announceDesc font-weight-bold">
+          <br>
+          - {{placeholderForDBPiece.marque}} - {{placeholderForDBPiece.cylindree}}
+          <br>
+          - {{placeholderForDBPiece.annee}}
+        </p>
+
+        <p> Description: {{placeholderForDBAnnounce.description}}</p>
+
+        <p class="announceState">
+          <span class="announceRating" *ngFor="let numberOfStarts of arrayForRating">★</span>
+          <br class="d-sm-none sautAnnonce">
+          <span class="announceDispo btn btn-success">{{placeholderForDBAnnounce.etat}}</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="btn-group col-12 d-sm-none bottomButtons" data-toggle="buttons">
+      <label type="button" class="btn btn-warning col-6">
+        Signaler
+      </label>
+      <label type="button" class="btn btn-warning col-6">
+        Ajouter au panier
+      </label>
+    </div>
+
+    <div class="d-none d-sm-block col-12">
+      <label type="button" class="btn btn-warning offset-4 col-2">Signaler</label>
+      <label type="button" class="btn btn-warning offset-2 col-2">Ajouter au panier</label>
+    </div>
+
+  </div>
+</div>

@@ -38,6 +38,7 @@ const routes: Routes = [
   { path: 'announce-piece', component: AnnouncePieceComponent},
   { path: 'announce-list', component: AnnounceListComponent},
   { path: 'announce-list', component: AnnounceListComponent},
+  { path: 'page-announce-pro', component: PageAnnounceProComponent},
 ];
 
 @NgModule({

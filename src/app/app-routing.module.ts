@@ -43,16 +43,13 @@ const routes: Routes = [
   { path: 'announce-piece', component: AnnouncePieceComponent},
   { path: 'announce-list', component: AnnounceListComponent},
   { path: 'announce-list', component: AnnounceListComponent},
-<<<<<<< HEAD
   { path: 'announce-list-seller', component: PageAnnounceProComponent},
-=======
   { path: 'admin-home', component: AdminHomeComponent, children : [
     { path: 'admin-buyer-list', component: AdminBuyerListComponent},
     { path: 'admin-company-list', component: AdminCompanyListComponent},
     { path: 'admin-announce-list', component: AdminAnnounceListComponent},
     { path: 'db_manager', component: DataBaseManagmentComponent}]
 },
->>>>>>> 1da421fa0d5a581a3db78256e9ad931d3dea9190
 ];
 
 @NgModule({

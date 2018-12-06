@@ -28,6 +28,7 @@ import { AdressesComponent } from './Sign-up/my-account/adresses/adresses.compon
 import { CategoriesComponent } from './Buyer/categories/categories.component';
 import { SousCategoriesComponent } from './Buyer/categories/sous-categories/sous-categories.component';
 import { SousSousCategoriesComponent } from './Buyer/categories/sous-categories/sous-sous-categories/sous-sous-categories.component';
+import { HomeBackgroundComponent } from './Buyer/home-background/home-background.component';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { AdminHomeComponent } from './PageAdmin/admin-home/admin-home.component';
 import { AdminBuyerListComponent } from './PageAdmin/admin-buyer-list/admin-buyer-list.component';
@@ -49,6 +50,7 @@ import { MatToolbarModule,
   MatCheckboxModule,
   MatExpansionModule,
 } from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -74,6 +76,7 @@ import { MatToolbarModule,
     CategoriesComponent,
     SousCategoriesComponent,
     SousSousCategoriesComponent,
+    HomeBackgroundComponent,
     AdminHomeComponent,
     AdminBuyerListComponent,
     AdminCompanyListComponent,

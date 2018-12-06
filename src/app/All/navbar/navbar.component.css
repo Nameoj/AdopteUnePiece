@@ -29,12 +29,13 @@
     /*TODO: CHANGE IMAGE COLOR, SUPPR THIS COMMENT WHEN DONE*/
     background: url(../../../assets/musica-searcher.png);
     opacity:0.4;
-    background-position: center left 17ch;
+    background-position: center right 2ch;
     background-repeat: no-repeat;
     background-size: 1em;
     background-color:#F0F0F0;
     border-radius:20px;
     border:1px solid #FFC419;
+    padding-left:12px;
 }
 .adoptPieceSearch::placeholder {
     color:black;

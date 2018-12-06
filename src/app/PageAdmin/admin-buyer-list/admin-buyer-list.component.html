@@ -1,0 +1,50 @@
+<div class="col-md-8">
+    <cdk-virtual-scroll-viewport itemSize="100" class="VSviewport">
+      <table class="table table-hover table-striped list">
+        <thead class="head sticky">
+          <tr>
+            <th>
+              #
+            </th>
+            <th>
+              Nom
+            </th>
+            <th>
+              Prénom
+            </th>
+            <th>
+              Adresse
+            </th>
+            <th>
+              Editer
+            </th>
+            <th>
+              Supprimer
+            </th>
+          </tr>
+        </thead>
+        <ng-container *cdkVirtualFor="let n of numbers">
+          <tr>
+            <td>
+              {{ n }}
+            </td>
+            <td>
+              Aymeric
+            </td>
+            <td>
+              Neuman
+            </td>
+            <td>
+              17 rue Delandine
+            </td>
+            <td>
+              <i class="material-icons">edit</i>
+            </td>
+            <td>
+              <i class="material-icons">delete_sweep</i>
+            </td>
+          </tr>
+        </ng-container>
+      </table>
+    </cdk-virtual-scroll-viewport>
+</div>

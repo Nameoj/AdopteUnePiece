@@ -36,6 +36,17 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { TabCreationComponent } from './Seller/page-announce-pro/tab-creation/tab-creation.component';
 import { TabAnnounceComponent } from './Seller/page-announce-pro/tab-announce/tab-announce.component';
 import { TabHistoriqueComponent } from './Seller/page-announce-pro/tab-historique/tab-historique.component';
+import { CategoriesComponent } from './Buyer/categories/categories.component';
+import { SousCategoriesComponent } from './Buyer/categories/sous-categories/sous-categories.component';
+import { SousSousCategoriesComponent } from './Buyer/categories/sous-categories/sous-sous-categories/sous-sous-categories.component';
+import { HomeBackgroundComponent } from './Buyer/home-background/home-background.component';
+import { ScrollDispatchModule } from '@angular/cdk/scrolling';
+import { AdminHomeComponent } from './PageAdmin/admin-home/admin-home.component';
+import { AdminBuyerListComponent } from './PageAdmin/admin-buyer-list/admin-buyer-list.component';
+import { AdminCompanyListComponent } from './PageAdmin/admin-company-list/admin-company-list.component';
+import { AdminAnnounceListComponent } from './PageAdmin/admin-announce-list/admin-announce-list.component';
+import { DataBaseManagmentComponent } from './PageAdmin/data-base-managment/data-base-managment.component';
+
 
 @NgModule({
   declarations: [
@@ -60,7 +71,16 @@ import { TabHistoriqueComponent } from './Seller/page-announce-pro/tab-historiqu
     MotdepasseComponent,
     TabCreationComponent,
     TabAnnounceComponent,
-    TabHistoriqueComponent
+    TabHistoriqueComponent,
+    CategoriesComponent,
+    SousCategoriesComponent,
+    SousSousCategoriesComponent,
+    HomeBackgroundComponent,
+    AdminHomeComponent,
+    AdminBuyerListComponent,
+    AdminCompanyListComponent,
+    AdminAnnounceListComponent,
+    DataBaseManagmentComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +106,8 @@ import { TabHistoriqueComponent } from './Seller/page-announce-pro/tab-historiqu
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    ScrollDispatchModule
   ],
   providers: [],
   bootstrap: [AppComponent]

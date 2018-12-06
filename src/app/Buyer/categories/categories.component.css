@@ -1,0 +1,71 @@
+.categories {
+    background-color: #1a1a1a;
+    width: 15ch;
+    height: 2em;
+    text-align: end;
+    padding-top:3px;
+    color: #F0F0F0;
+    padding-right: 3.5ch;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+.categ {
+    display: none;
+}
+
+.arrowHead {
+    background-image: url('../../../assets/down-arrow-white.png');
+    background-size: 15px;
+    background-position: center right 5px;
+    background-repeat: no-repeat;
+}
+.sidenav {
+    width:100%;
+    position:relative
+}
+@media screen and (max-width: 768px) {
+    .sidenav {
+        height: 100vh;
+        width: 0;
+        position: fixed;
+        z-index: 6;
+        left: 0;
+        background-color: #FAFAFA;
+        overflow-x: hidden;
+        transition: 0.5s;
+        top:0;
+        padding-top:12vh;
+    }
+    .sidenav .closebtn {
+        position: absolute;
+        float: left;
+        top: 15vh;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    .menuButton {
+        top: 16vh;
+        float: left;
+        position: fixed;
+        z-index: 3;
+        border: none;
+        background-color: none;
+        background-image: url('../../../assets/menuIcon.png');
+        background-size: 30px;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 40px;
+        width: 40px;
+    }
+    .menuButton:hover {
+        border: none;
+        background-color: #F0F0F0;
+    }
+}

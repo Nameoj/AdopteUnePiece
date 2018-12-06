@@ -1,0 +1,41 @@
+.sideNavBtn {
+    background-color: #212123;
+    display: block;
+    margin: 2vh auto;
+    color: white;
+}
+
+
+/*DEFAULT CSS - MOBILE VERSION  DEFAULT CSS - MOBILE VERSION  DEFAULT CSS - MOBILE VERSION  DEFAULT CSS - MOBILE VERSION*/
+@media (max-width: 576px) {
+    .sideNavBtn {
+        width: 60%;
+        height: 8vh;
+    }
+}
+
+/*LANDSCAPE PHONE*/
+@media (min-width: 576px) {
+    .sideNavBtn {
+        width: 40%;
+        height: 12vh;
+    }
+}
+
+/*TABLET VERSION*/
+@media (min-width: 768px) {
+    .sideNavBtn {
+        width: 100%;
+        height: 8vh;
+    }
+}
+
+/*DESKTOP VERSION*/
+@media (min-width: 1200px) {
+    .sideNavBtn {
+        width: 60%;
+        height: 15vh;
+        display: block;
+        margin: 2vh auto;
+    }
+}

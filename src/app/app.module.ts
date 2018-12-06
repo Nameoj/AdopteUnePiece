@@ -31,6 +31,11 @@ import { MotdepasseComponent } from './Sign-up/my-account/motdepasse/motdepasse.
 import { CommandesComponent } from './Sign-up/my-account/commandes/commandes.component';
 import { AdressesComponent } from './Sign-up/my-account/adresses/adresses.component';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
+import { AdminHomeComponent } from './PageAdmin/admin-home/admin-home.component';
+import { AdminBuyerListComponent } from './PageAdmin/admin-buyer-list/admin-buyer-list.component';
+import { AdminCompanyListComponent } from './PageAdmin/admin-company-list/admin-company-list.component';
+import { AdminAnnounceListComponent } from './PageAdmin/admin-announce-list/admin-announce-list.component';
+import { DataBaseManagmentComponent } from './PageAdmin/data-base-managment/data-base-managment.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +57,12 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
     AdressesComponent,
     CommandesComponent,
     InfospersoComponent,
-    MotdepasseComponent
+    MotdepasseComponent,
+    AdminHomeComponent,
+    AdminBuyerListComponent,
+    AdminCompanyListComponent,
+    AdminAnnounceListComponent,
+    DataBaseManagmentComponent
   ],
   imports: [
     BrowserModule,

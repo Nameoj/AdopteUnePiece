@@ -27,7 +27,7 @@ import { PageAnnounceProComponent } from './Seller/page-announce-pro/page-announ
 import { AnnounceItemComponent } from './Buyer/announce-item/announce-item.component';
 import { MyAccountComponent } from './Sign-up/my-account/my-account.component';
 import { InfospersoComponent } from './Sign-up/my-account/infosperso/infosperso.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MotdepasseComponent } from './Sign-up/my-account/motdepasse/motdepasse.component';
 import { CommandesComponent } from './Sign-up/my-account/commandes/commandes.component';
 import { AdressesComponent } from './Sign-up/my-account/adresses/adresses.component';
@@ -86,12 +86,12 @@ import { DataBaseManagmentComponent } from './PageAdmin/data-base-managment/data
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    NgbModule,
     FormsModule,
     MatTableModule,
     ReactiveFormsModule,
     MatCheckboxModule,
     MatInputModule,
-    NgbModule,
     MatFormFieldModule,
     HttpClientModule,
     BrowserAnimationsModule,

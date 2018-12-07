@@ -3,6 +3,8 @@
     height:90vh;
     transition:all 0.4s linear;
 }
+
+
 .backgroundImage {
     width:100%;
     height:90vh;
@@ -12,17 +14,18 @@
 
 .closeButton {
     position:absolute;
-    left:47%;
     bottom:8%;
+    left:46vw;
     background-image:url('../../../assets/up-arrow.png');
-    width:6vw;
-    height:3vw;
+    width:8ch;
+    height:6ch;
     border:none;
     background:none;
     text-align:center;
     display:inline-block;
     opacity:0.6
 }
+
 .img {
     width:3em;
 }

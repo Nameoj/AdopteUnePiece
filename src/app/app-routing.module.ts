@@ -43,6 +43,7 @@ const routes: Routes = [
   { path: 'announce-piece', component: AnnouncePieceComponent},
   { path: 'announce-list', component: AnnounceListComponent},
   { path: 'announce-list', component: AnnounceListComponent},
+  { path: 'page-announce-pro', component: PageAnnounceProComponent},
   { path: 'announce-list-seller', component: PageAnnounceProComponent},
   { path: 'admin-home', component: AdminHomeComponent, children : [
     { path: 'admin-buyer-list', component: AdminBuyerListComponent},

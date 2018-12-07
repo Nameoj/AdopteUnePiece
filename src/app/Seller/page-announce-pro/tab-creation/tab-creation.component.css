@@ -1,0 +1,54 @@
+label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+input, label {
+    margin: .4rem 0;
+}
+
+.note {
+    font-size: .8rem;
+    color: #FFCA47;
+}
+
+.star {
+    font-size: 2rem;
+}
+
+pre {
+    font-size: 1rem;
+}
+
+.categories {
+    background-color: #1a1a1a;
+    text-align: end;
+    padding-top:3px;
+    color: #F0F0F0;
+    padding-right: 3.5ch;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+.categ {
+    display: none;
+}
+
+.arrowHead {
+    background-image: url('../../../../assets/down-arrow-white.png');
+    background-size: 15px;
+    background-position: center right 5px;
+    background-repeat: no-repeat;
+}
+.sidenav {
+    width:100%;
+    display: flex;
+}
+@media screen and (max-width: 768px) {
+    .sidenav {
+    width: 100%;
+    display: inline;
+    }
+}

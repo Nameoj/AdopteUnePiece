@@ -1,5 +1,7 @@
 export class Buyer {
-    constructor( public email: string,
+    constructor(
+     public id: number, 
+     public email: string,
      public password: string,
      public civilite: string,
      public prenom: string,
@@ -8,6 +10,6 @@ export class Buyer {
      public adresse1: string,
      public adresse2: string,
      public codepostal: string,
-     public ville: string
+     public ville: string,
      ) {}
  }

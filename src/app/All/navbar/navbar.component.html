@@ -26,7 +26,8 @@
         <!-- TODO: *ngIf on the two next li for connected people and not connected people -->
 
         <li class="nav-item col-6">
-          <a class="nav-link" data-toggle="modal" data-target="#myModal">Connexion</a>
+          <a class="nav-link" (click)="click()" data-toggle= modal  [attr.data-target]="'#' + modal" data-target="#myModal"><p *ngIf="buyerConnected==undefined">Connexion</p><p *ngIf="buyerConnected!=undefined">Mon Compte</p>
+          </a>
         </li>
 
         <li class="nav-item d-none col-6">

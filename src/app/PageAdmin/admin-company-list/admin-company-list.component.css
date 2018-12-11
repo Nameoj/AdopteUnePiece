@@ -4,7 +4,13 @@
 }
 
 .VSviewport {
-    margin: 5vh auto;
+    margin: 1vh auto;
+}
+
+.crtSellerBtn {
+    width: 8vw;
+    height: 8vh;
+    font-weight: bold;
 }
 
 /*DEFAULT CSS - MOBILE VERSION  DEFAULT CSS - MOBILE VERSION  DEFAULT CSS - MOBILE VERSION  DEFAULT CSS - MOBILE VERSION*/

@@ -24,6 +24,7 @@ import { AdminBuyerListComponent } from './PageAdmin/admin-buyer-list/admin-buye
 import { AdminCompanyListComponent } from './PageAdmin/admin-company-list/admin-company-list.component';
 import { AdminAnnounceListComponent } from './PageAdmin/admin-announce-list/admin-announce-list.component';
 import { DataBaseManagmentComponent } from './PageAdmin/data-base-managment/data-base-managment.component';
+import { AdminCompanyCreateComponent } from './PageAdmin/admin-company-create/admin-company-create.component'
 
 const routes: Routes = [
   { path: '', component: BuyerHomeComponent },
@@ -49,8 +50,9 @@ const routes: Routes = [
     { path: 'admin-buyer-list', component: AdminBuyerListComponent},
     { path: 'admin-company-list', component: AdminCompanyListComponent},
     { path: 'admin-announce-list', component: AdminAnnounceListComponent},
-    { path: 'db_manager', component: DataBaseManagmentComponent}]
-},
+    { path: 'db_manager', component: DataBaseManagmentComponent},
+    { path: 'admin-company-create', component: AdminCompanyCreateComponent}]
+  },
 ];
 
 @NgModule({

@@ -46,6 +46,8 @@ import { AdminBuyerListComponent } from './PageAdmin/admin-buyer-list/admin-buye
 import { AdminCompanyListComponent } from './PageAdmin/admin-company-list/admin-company-list.component';
 import { AdminAnnounceListComponent } from './PageAdmin/admin-announce-list/admin-announce-list.component';
 import { DataBaseManagmentComponent } from './PageAdmin/data-base-managment/data-base-managment.component';
+import { AdminCompanyCreateComponent } from './PageAdmin/admin-company-create/admin-company-create.component';
+
 
 
 @NgModule({
@@ -80,7 +82,8 @@ import { DataBaseManagmentComponent } from './PageAdmin/data-base-managment/data
     AdminBuyerListComponent,
     AdminCompanyListComponent,
     AdminAnnounceListComponent,
-    DataBaseManagmentComponent
+    DataBaseManagmentComponent,
+    AdminCompanyCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -107,7 +110,7 @@ import { DataBaseManagmentComponent } from './PageAdmin/data-base-managment/data
     MatIconModule,
     MatListModule,
     MatCardModule,
-    ScrollDispatchModule
+    ScrollDispatchModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

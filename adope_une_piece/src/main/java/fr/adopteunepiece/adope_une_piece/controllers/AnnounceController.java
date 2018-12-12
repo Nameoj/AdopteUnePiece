@@ -24,7 +24,7 @@ public class AnnounceController {
 	
 	theAnnounce.setId(0);
 	Announce _announce = announceDao.save(new Announce(theAnnounce.getTitle(), theAnnounce.getSeller(), theAnnounce.getImage(), 
-			theAnnounce.getDescription(), theAnnounce.getNote(), theAnnounce.getPostDate()));
+			theAnnounce.getDescription(), theAnnounce.getNote(), theAnnounce.getPostDate(), theAnnounce.getPrice()));
 		return  _announce;
 	}
 

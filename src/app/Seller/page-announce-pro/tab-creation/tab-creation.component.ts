@@ -1,9 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
 import { CategoriesService } from '../../../Services/categories.service';
-import { Announce } from '../../../models/announce.models';
-import { AnnounceService } from '../../../Services/announce.service';
-import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,15 +11,9 @@ import { Router } from '@angular/router';
 })
 export class TabCreationComponent implements OnInit {
 
-  @Input() announce: Announce;
-
   currentRate = 0;
 
-  constructor(
-    config: NgbRatingConfig, private categoriesService: CategoriesService,
-    private announceService: AnnounceService,
-    private router: Router
-    ) {
+  constructor(config: NgbRatingConfig, private categoriesService: CategoriesService) {
     // customize default values of ratings used by this component tree
     config.max = 5;
   }
@@ -31,8 +22,6 @@ export class TabCreationComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  updateActive(is)
 
   openNav() {
     let sideNav=document.getElementById("sidenav");

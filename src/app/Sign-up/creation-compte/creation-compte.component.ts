@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { CustomValidators } from './custom-validators';
-import { Buyer } from 'src/app/models/buyer.models';
-import { BuyerService } from 'src/app/Services/buyer.service';
 import { Router } from '@angular/router';
+import { BuyerService } from '../../Services/buyer.service';
+import { Buyer } from '../../models/buyer.models';
 
 
 @Component({

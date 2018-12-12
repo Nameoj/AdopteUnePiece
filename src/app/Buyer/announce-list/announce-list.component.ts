@@ -56,7 +56,7 @@ export class AnnounceListComponent implements OnInit {
     note:4,
     postDate:"5 Dec 2018"
     },
-    {
+    { 
       prix:5,
     titre:"AXE APRILIA 125",
     vendeur:"Lyon pièces auto Recycling",

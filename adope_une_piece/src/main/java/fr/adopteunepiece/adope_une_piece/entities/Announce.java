@@ -26,19 +26,22 @@ public class Announce {
 	private String note;
 	@Column(name="postDate")
 	private String postDate;
+	@Column(name="price")
+	private Double price;
 	
 	public Announce() {
 		
 	}
 	
 	public Announce(String title, String seller, String image, String description, String note,
-			String postDate) {
+			String postDate, Double price) {
 		this.title = title;
 		this.seller = seller;
 		this.image = image;
 		this.description = description;
 		this.note = note;
 		this.postDate = postDate;
+		this.price = price;
 	}
 
 	public long getId() {
@@ -97,10 +100,18 @@ public class Announce {
 		this.postDate = postDate;
 	}
 	
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setId(Double price) {
+		this.price = price;
+	}
+	
 	@Override
 	public String toString() {
-		return "Announce [id=" + id + ", title=" + title + ", seller" + seller + ", image" + image +", description"+ description 
-				+ ", note" + ", postDate" + postDate + "]";
+		return "Announce [id=" + id + ", title=" + title + ", seller=" + seller + ", image=" + image + ", description="+ description 
+				+ ", note=" + ", postDate=" + postDate + ", price=" + price + "]";
 	}
 	
 }

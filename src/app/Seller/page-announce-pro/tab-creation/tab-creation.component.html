@@ -1,27 +1,14 @@
 <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
 
 <div class="container mt-3">
-  <form [announceForm]="createAnnonce" (ngSubmit)="onSubmit()">
   <!-- Ajout d'un champ pour le titre de l'annonce -->
   <div class="input-group mt-3">  
-    <input
-      formControlName="title"
-      type="text" 
-      class="form-control"
-      id="title"
-      aria-label="Sizing example input" 
-      aria-describedby="inputGroup-sizing-default" 
-      placeholder="Entrez le titre de votre annonce ...">
+    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Entrez le titre de votre annonce ...">
   </div>
   <!-- Ajout bouton pour importer les photos de l'annonce -->
   <div class="ajoutPhoto mt-3">
     <h5><label for="Photo">Choisir une photo :</label></h5>
-    <input 
-      formControlName="image"
-      type="file" 
-      id="image"
-      name="photo" 
-      accept="image/png, image/jpeg">
+    <input type="file" id="Photo" name="photo" accept="image/png, image/jpeg">
   </div>
   <div class="categorie mt-4">
     <h5>Préciser la catégorie :</h5>
@@ -55,5 +42,4 @@
     </div>
   </div> 
 </div>
-</form>
 </div>

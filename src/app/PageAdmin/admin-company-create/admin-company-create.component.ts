@@ -29,7 +29,7 @@ export class AdminCompanyCreateComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       nomG: ['', Validators.required],
       prenomG: ['', Validators.required],
-      telephoneG: ['', Validators.required],
+      telephoneG: ['', [Validators.required, Validators.pattern('[0][0-9]{9}') ]],
       password:['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', Validators.required],
     },
@@ -65,6 +65,7 @@ export class AdminCompanyCreateComponent implements OnInit {
        formValue['password'],
       
      );
+    
     alert('SUCCESS!! :-)');
     console.log(this.createCompanyForm.value);
      console.log(newSeller);
@@ -73,7 +74,6 @@ export class AdminCompanyCreateComponent implements OnInit {
     .subscribe(data => (console.log(data), error => console.log(error), this.sellerService.sellerConnected = data,
     console.log(this.sellerService.sellerConnected.nom),
     this.router.navigate(['/'])),
-    
     );
     
   }

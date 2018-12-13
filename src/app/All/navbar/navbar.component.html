@@ -26,7 +26,7 @@
         <!-- TODO: *ngIf on the two next li for connected people and not connected people -->
 
         <li class="nav-item col-6">
-          <a class="nav-link" (click)="click()" data-toggle= modal  [attr.data-target]="'#' + modal" data-target="#myModal"><p *ngIf="buyerConnected==undefined">Connexion</p><p *ngIf="buyerConnected!=undefined">Mon Compte</p>
+          <a class="nav-link" (click)="click()" data-toggle= modal  [attr.data-target]="'#' + modal" data-target="#myModal"><p *ngIf="!buyerConnected">Connexion</p><p *ngIf="buyerConnected">Mon Compte</p>
           </a>
         </li>
 
@@ -69,14 +69,45 @@
 
           <div class="ligne"></div>
 
-          <form class="form-horizontal" role="form">
+          <form class="form-horizontal" role="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
-              <input type="email" class="form-control" id="inputEmail3" placeholder="Email" />
+              <input
+                  formControlName="email"
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="Email"
+                  [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                  <div
+                  *ngIf="submitted && f.email.errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f.email.errors.required">champ requis</div>
+                  <div *ngIf="f.email.errors.email">
+                    un email valide est requis
+                  </div>
+            </div>
             </div>
 
             <div class="form-group">
-              <input type="password" class="form-control" id="inputPassword3" placeholder="Password" />
-            </div>
+              <input
+                  formControlName="password"
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  placeholder="Password"
+                  [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+            
+            <div
+                  *ngIf="submitted && f.password.errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f.password.errors.required">champs requis</div>
+                  <div *ngIf="f.password.errors.minlength">
+                    Le mot de passe doit avoir au moins 8 caractères
+                  </div>
+                </div>
+              </div>
 
             <div class="form-group">
               <div class="checkbox">
@@ -88,7 +119,7 @@
             </div>
 
             <div class="form-group">
-              <button type="submit" data-dismiss="modal" class="btn btn-warning btn-connex" routerLink="/myaccount/infosperso">Se
+              <button type="submit"  class="btn btn-warning btn-connex" (click)="onSubmit()">Se
                 connecter</button>
             </div>
           </form>

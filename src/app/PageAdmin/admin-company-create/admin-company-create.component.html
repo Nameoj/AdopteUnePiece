@@ -1,5 +1,5 @@
 <div class="col-md-8 mt-5">
-  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="createCompanyForm" (ngSubmit)="onSubmit()">
     <!--RAISON SOCIALE-->
     <div class="form-group row">
       <label for="colFormLabel" class="label col-md-2 col-form-label"
@@ -324,6 +324,10 @@
           </div>
         </div>
       </div>
-
   </form>
+  <div>
+    <button type="submit" class="btn btn-warning  mb-2">
+      Créer Compte
+    </button>
+  </div>
 </div>

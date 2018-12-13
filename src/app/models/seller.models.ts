@@ -1,5 +1,6 @@
 export class Seller {
     constructor(
+
      public id: number,
      public email: string,
      public password: string,
@@ -12,6 +13,6 @@ export class Seller {
      public ville: string,
      public managingDirectorName: string,
      public managingDirectorSurname: string,
-     public managingDirectorPhone: string,
+     public managingDirectorPhone: string
     ) {}
 }

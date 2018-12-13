@@ -31,6 +31,7 @@ export class AdminCompanyCreateComponent implements OnInit {
       prenomG: ['', Validators.required],
       telephoneG: ['', Validators.required],
       password:['', [Validators.required, Validators.minLength(8)]],
+      confirmPassword: ['', Validators.required],
     },
     {
       // check whether our password and confirm password match

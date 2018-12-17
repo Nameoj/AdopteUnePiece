@@ -51,19 +51,18 @@ export class AdminCompanyCreateComponent implements OnInit {
     const formValue = this.createCompanyForm.value;
      const newSeller = new Seller(
         0,
-       formValue['RaisonSociale'],
-       formValue['Adressse'],
-       formValue['CodePostal'],
-       formValue['Ville'],
-       formValue['telephone'],
-       formValue['Siret'],
-       formValue['Siren'],
-       formValue['email'],
-       formValue['nomG'],
-       formValue['prenomG'],
-       formValue['telephoneG'],
-       formValue['password'],
-      
+        formValue['email'],
+        formValue['password'],
+        formValue['RaisonSociale'],
+        formValue['Siret'],
+        formValue['Siren'],
+        formValue['telephone'],
+        formValue['Adressse'],
+        formValue['CodePostal'],
+        formValue['Ville'],
+        formValue['nomG'],
+        formValue['prenomG'],
+        formValue['telephoneG'],
      );
     
     alert('SUCCESS!! :-)');

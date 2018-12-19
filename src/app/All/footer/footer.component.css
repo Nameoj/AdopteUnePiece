@@ -1,6 +1,7 @@
 .row {
     margin-left: 0px;
     margin-right: 0px;
+    height: 45vh;
 }
 
  @media screen and (max-width: 8000px)

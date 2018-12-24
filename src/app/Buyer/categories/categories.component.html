@@ -1,11 +1,13 @@
-<div id="sidenav" class="sidenav">
-  <button *ngIf="phoneScreen==true" class="closebtn" (click)="closeNav()">&times;</button>
-<div *ngFor="let categories of motoCategories.categories; let index=index">
-  <div class="categories arrowHead" (click)="collapse(index)">
-    {{categories.name}}
+<div class="container">
+  <div id="sidenav" class="sidenav">
+    <button *ngIf="phoneScreen==true" class="closebtn" (click)="closeNav()">&times;</button>
+  <div *ngFor="let categories of motoCategories.categories; let index=index">
+    <div class="categories arrowHead" (click)="collapse(index)">
+      <p class="categoriesName">{{categories.name}}</p>
+    </div>
+    <app-sous-categories id="categ{{index}}" class="categ" [overIndex]="index*100" [categories]="categories"></app-sous-categories>
   </div>
-  <app-sous-categories id="categ{{index}}" class="categ" [overIndex]="index*100" [categories]="categories"></app-sous-categories>
-</div>
-</div>
+  </div>
 
-<button *ngIf="phoneScreen==true" type="button" class="menuButton" (click)="openNav()"></button>
+  <button *ngIf="phoneScreen==true" type="button" class="menuButton" (click)="openNav()"></button>
+</div>

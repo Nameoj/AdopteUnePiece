@@ -1,15 +1,21 @@
 .categories {
     background-color: #1a1a1a;
-    width: 15ch;
-    height: 2em;
+    width: 18vw;
+    height: 7vh;
     text-align: end;
-    padding-top:3px;
-    color: #F0F0F0;
-    padding-right: 3.5ch;
-    border-radius: 2px;
+    border-radius: 4px;
     cursor: pointer;
     margin-top: 20px;
     margin-left: 5px;
+}
+
+.categoriesName {
+    font-weight: bold;
+    font-size: 1.1em;
+    padding-right: 2vw;
+    vertical-align: middle;
+    color: #F0F0F0;
+    line-height: 7vh;
 }
 
 .categ {

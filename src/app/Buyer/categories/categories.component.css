@@ -1,3 +1,8 @@
+.categoriesContainer {
+    border: 1px solid red;
+    width: 30vw;
+}
+
 .categories {
     background-color: #1a1a1a;
     width: 18vw;

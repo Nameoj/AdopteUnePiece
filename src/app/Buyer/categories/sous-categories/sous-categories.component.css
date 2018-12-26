@@ -1,3 +1,7 @@
+.bikeSubscetionContainer{
+    border: 2px solid blue;
+}
+
 .list-group-item {
     width: 20vw;
     margin-top:5px;

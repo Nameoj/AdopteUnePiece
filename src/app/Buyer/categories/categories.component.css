@@ -1,6 +1,5 @@
 .categoriesContainer {
     border: 1px solid red;
-    width: 30vw;
 }
 
 .categories {
@@ -10,7 +9,7 @@
     text-align: end;
     border-radius: 4px;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 2vh;
     margin-left: 5px;
 }
 

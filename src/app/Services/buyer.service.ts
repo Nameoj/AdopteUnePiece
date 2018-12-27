@@ -11,6 +11,7 @@ import { Buyer } from '../models/buyer.models';
 export class BuyerService {
 
   public buyerConnected
+ 
 
   private baseUrl = 'http://localhost:8080/api/buyers';
 
@@ -19,6 +20,11 @@ export class BuyerService {
   createBuyer(buyer: Object): Observable<Object> {
     console.log("creation compte");
     return this.http.post(`${this.baseUrl}`, buyer);
+  };
+
+  updateBuyer(buyer, id): Observable<Object> {
+    console.log("creation compte");
+    return this.http.put(`${this.baseUrl}/${id}`, buyer);
   };
   
 }

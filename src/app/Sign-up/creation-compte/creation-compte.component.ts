@@ -15,6 +15,7 @@ export class CreationCompteComponent implements OnInit {
 
   registerForm: FormGroup;
   submitted: boolean = false;
+  emailExistant: boolean = false;
   
 
   constructor(private formBuilder: FormBuilder, private buyerService: BuyerService, private router: Router) { }
@@ -68,14 +69,12 @@ export class CreationCompteComponent implements OnInit {
      console.log(newBuyer);
 
     this.buyerService.createBuyer(newBuyer)
-    .subscribe(data => (console.log(data), error => console.log(error), this.buyerService.buyerConnected = data,
-    console.log(this.buyerService.buyerConnected.nom),
-    this.router.navigate(['/'])),
-    
+    .subscribe(data => 
+                      {console.log(data), this.buyerService.buyerConnected = data,
+    console.log("buyer connected" + this.buyerService.buyerConnected.nom),
+    this.router.navigate(['/'])},
+               error=>{ this.submitted=false,
+                      console.log("erreur!!!"),console.log(error.status), this.emailExistant=true}
     );
-    
-
-
-}
-
+  }
 }

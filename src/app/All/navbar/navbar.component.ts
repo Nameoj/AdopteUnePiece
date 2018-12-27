@@ -46,7 +46,7 @@ export class NavbarComponent implements OnInit {
     }
 
     const formValue = this.registerForm.value;
-     const newUserConnection = new UserConnection(
+    const newUserConnection = new UserConnection(
         0,
        formValue['email'],
        formValue['password'],

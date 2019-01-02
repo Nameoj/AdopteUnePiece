@@ -6,3 +6,15 @@
     margin:0;
     padding:0;
 }
+
+
+.filtersAndAnnouces {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 992px) {
+    .filtersAndAnnouces {
+        flex-direction: row;
+    }
+}

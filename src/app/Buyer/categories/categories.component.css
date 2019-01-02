@@ -1,12 +1,9 @@
 .categoriesContainer {
     border: 1px solid red;
-    width: 100%;
 }
 
 .categories {
     background-color: #1a1a1a;
-    width: 18vw;
-    height: 7vh;
     text-align: end;
     border-radius: 4px;
     cursor: pointer;
@@ -76,6 +73,7 @@
         width: 30vw;
         height: 8vh;
         line-height: 8vh;
+        margin-left: 10vw;
     }
 
     .mat-button {
@@ -86,11 +84,15 @@
 
 /*Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) {
+    .categoriesContainer {
+        width: 30vw;
+    }
+
     .categories {
         width: 15vw;
-        margin-left: 5vw;
         height: 10vh;
         line-height: 10vh;
+        margin-left: 5vw;
     }
 
     .mat-button {

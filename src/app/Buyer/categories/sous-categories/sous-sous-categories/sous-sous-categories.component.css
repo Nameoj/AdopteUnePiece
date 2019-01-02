@@ -1,11 +1,15 @@
 .bikePartContainer {
     border: 1px solid green;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .partsBtn{
     margin-top: 2vh;
-    margin-left: 5vw;
+    margin-left: 2vw;
     border: 1px solid black;
     background-color: transparent;
     font-size: 1.1em;
+    display: inline;
 }

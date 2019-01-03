@@ -66,6 +66,7 @@ export class NavbarComponent implements OnInit {
     // this.hidden = "hidden";
     this.dismiss="modal";
      this.modal="";
+
      this.router.navigate(['/'])},
                 error=>{ this.submitted=false,
                        console.log("erreur!!!"),console.log(error.status), this.erreurConnection = true}

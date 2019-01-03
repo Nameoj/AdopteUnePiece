@@ -1,9 +1,13 @@
+.bikeSubscetionContainer{
+    border: 2px solid blue;
+}
+
 .list-group-item {
-    width:30ch;
-    margin-top:5px;
-    margin-left:10px;
-    font-size:0.8em;
+    margin-top:2vh;
+    margin-left:5vw;
+    font-size:1.2em;
     cursor: pointer;
+    text-align: end;
 }
 
 .list {
@@ -15,4 +19,56 @@
     background-size: 15px;
     background-position: center right 14px;
     background-repeat: no-repeat;
+}
+
+.mat-button {
+    outline: 0;
+    text-align: end;
+}
+
+/*Mobile*/
+@media (max-width: 576px) {
+    .list-group-item {
+        width: 50vw;
+    }    
+
+    .mat-button {
+        width: 45vw;
+    }
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+    .list-group-item {
+        width: 35vw;
+    }    
+
+    .mat-button {
+        width: 25vw;
+    }
+
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+    .list-group-item {
+        width: 40vw;
+    }   
+
+    .mat-button {
+        width: 35vw;
+        font-size: 1em;
+    }
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+    .list-group-item {
+        width: 20vw;
+    }   
+
+    .mat-button {
+        width: 15vw;
+        font-size: 1em;
+    }
 }

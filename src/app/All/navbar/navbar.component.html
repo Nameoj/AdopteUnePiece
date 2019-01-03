@@ -26,14 +26,9 @@
         <!-- TODO: *ngIf on the two next li for connected people and not connected people -->
 
         <li class="nav-item col-6">
-          <a class="nav-link" (click)="click()" data-toggle= modal  [attr.data-target]="'#' + modal" data-target="#myModal"><p *ngIf="!buyerConnected">Connexion</p><p *ngIf="buyerConnected">Mon Compte</p>
-          </a>
-        </li>
-
-        <li class="nav-item d-none col-6">
-          <!-- Delete d-none when ngIf added -->
-
-          <a class="nav-link disabled" href="#">Profil</a>
+          <a class="nav-link" (click)="click()" data-toggle= "modal"  [attr.data-target]="'#' + modal"  
+          ><p >Votre Compte</p></a>
+          <a><p *ngIf="buyerService.isUserLoggedIn()" (click)="logout()" routerLink="/">Deconnexion</p></a>
         </li>
       </ul>
     </div>
@@ -48,7 +43,7 @@
       <div class="modal-body row">
         <div class="col-md-6 modal-left">
           <div class="logo">
-            <img class="websiteLogo" src="../../../assets/moto.png" alt="logo">
+            <img class="websiteLogo" src="../../../assets/ADP_symbole_logo_noir.png" alt="logo">
           </div>
 
           <div class="text-inscription">
@@ -98,7 +93,7 @@
                   placeholder="Password"
                   [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
             
-            <div
+                <div
                   *ngIf="submitted && f.password.errors"
                   class="invalid-feedback"
                 >
@@ -107,7 +102,10 @@
                     Le mot de passe doit avoir au moins 8 caractères
                   </div>
                 </div>
-              </div>
+                <div *ngIf="erreurConnection" class="erreurConnection">
+                  email et/ou mot de passe erroné
+                </div>
+            </div>
 
             <div class="form-group">
               <div class="checkbox">
@@ -119,8 +117,8 @@
             </div>
 
             <div class="form-group">
-              <button type="submit"  class="btn btn-warning btn-connex" (click)="onSubmit()">Se
-                connecter</button>
+              <button type="submit"  data-dismiss="dismiss" class="btn btn-warning btn-connex">Se
+                connecter </button>
             </div>
           </form>
         </div>

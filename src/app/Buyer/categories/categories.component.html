@@ -1,11 +1,8 @@
-<div id="sidenav" class="sidenav">
-  <button *ngIf="phoneScreen==true" class="closebtn" (click)="closeNav()">&times;</button>
-<div *ngFor="let categories of motoCategories.categories; let index=index">
-  <div class="categories arrowHead" (click)="collapse(index)">
-    {{categories.name}}
+<div class="categoriesContainer">
+  <div *ngFor="let categories of motoCategories.categories; let index=index">
+    <div class="categories" (click)="collapse(index)">
+      <button mat-button routerLink="">{{categories.name}}<i class="material-icons">arrow_drop_down</i></button>
+    </div>
+    <app-sous-categories id="categ{{index}}" class="categ" [overIndex]="index*100" [categories]="categories"></app-sous-categories>
   </div>
-  <app-sous-categories id="categ{{index}}" class="categ" [overIndex]="index*100" [categories]="categories"></app-sous-categories>
 </div>
-</div>
-
-<button *ngIf="phoneScreen==true" type="button" class="menuButton" (click)="openNav()"></button>

@@ -1,71 +1,107 @@
+.categoriesContainer {
+    border: 1px solid red;
+}
+
 .categories {
     background-color: #1a1a1a;
-    width: 15ch;
-    height: 2em;
     text-align: end;
-    padding-top:3px;
-    color: #F0F0F0;
-    padding-right: 3.5ch;
-    border-radius: 2px;
+    border-radius: 4px;
     cursor: pointer;
-    margin-top: 20px;
-    margin-left: 5px;
+    margin-top: 2vh;
+    margin-right: 1vw;
+    color: white;
+}
+
+.categoriesName {
+    font-weight: bold;
+    font-size: 1.1em;
+    padding-right: 2vw;
+    vertical-align: middle;
+    color: #F0F0F0;
+    line-height: 7vh;
 }
 
 .categ {
     display: none;
 }
 
-.arrowHead {
-    background-image: url('../../../assets/down-arrow-white.png');
+.mat-button {
+    outline: 0;
+}
+
+.arrowHead{
+    background-image:url('../../../assets/down-arrow.png');
     background-size: 15px;
-    background-position: center right 5px;
+    background-position: center right 14px;
     background-repeat: no-repeat;
 }
-.sidenav {
-    width:100%;
-    position:relative
+
+/*Mobile*/
+@media (max-width: 576px) { 
+    .categoriesContainer {
+        border: 1px solid red;
+        width: 100%;
+    }
+
+    .categories {
+        width: 50vw;
+        height: 7vh;
+    }
+    
+    .mat-button {
+        height: 7vh;
+    }
 }
-@media screen and (max-width: 768px) {
-    .sidenav {
-        height: 100vh;
-        width: 0;
-        position: fixed;
-        z-index: 6;
-        left: 0;
-        background-color: #FAFAFA;
-        overflow-x: hidden;
-        transition: 0.5s;
-        top:0;
-        padding-top:12vh;
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+    .categories {
+        width: 30vw;
+        height: 12vh;
+        line-height: 12vh;
     }
-    .sidenav .closebtn {
-        position: absolute;
-        float: left;
-        top: 15vh;
-        right: 25px;
-        font-size: 36px;
-        margin-left: 50px;
-        background: none;
-        border: none;
-        cursor: pointer;
+
+    .mat-button {
+        height: 12vh;
     }
-    .menuButton {
-        top: 16vh;
-        float: left;
-        position: fixed;
-        z-index: 3;
-        border: none;
-        background-color: none;
-        background-image: url('../../../assets/menuIcon.png');
-        background-size: 30px;
-        background-position: center;
-        background-repeat: no-repeat;
-        height: 40px;
-        width: 40px;
+
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+    .categories {
+        width: 30vw;
+        height: 8vh;
+        line-height: 8vh;
+        margin-left: 10vw;
     }
-    .menuButton:hover {
-        border: none;
-        background-color: #F0F0F0;
+
+    .mat-button {
+        height: 8vh;
     }
+
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+    .categoriesContainer {
+        width: 30vw;
+    }
+
+    .categories {
+        width: 15vw;
+        height: 10vh;
+        line-height: 10vh;
+        margin-left: 5vw;
+    }
+
+    .mat-button {
+        height: 10vh;
+        font-size: 1em;
+    }
+
+    .material-icons {
+        font-size: 2.5em;
+    }
+
 }

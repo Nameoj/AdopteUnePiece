@@ -36,6 +36,7 @@
     border-radius:20px;
     border:1px solid #FFC419;
     padding-left:12px;
+    min-width:20ch;
 }
 .adoptPieceSearch::placeholder {
     color:black;

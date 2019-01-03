@@ -11,6 +11,7 @@ import { UserConnection } from 'src/app/models/user.connection.model';
 })
 export class NavbarComponent implements OnInit {
 
+  dismiss = "";
   mockNumberOfArticles=1;
   modal;
   registerForm : FormGroup;
@@ -39,7 +40,7 @@ export class NavbarComponent implements OnInit {
 
   get f() { return this.registerForm.controls; }
 
-  login() {
+  onSubmit() {
     this.submitted = true;
     this.erreurConnection = false;
     // stop here if form is invalid
@@ -62,7 +63,9 @@ export class NavbarComponent implements OnInit {
                        {console.log(data), this.buyerService.buyerConnected = data;
      console.log("buyer logged" + this.buyerService.buyerConnected.username);
     
-    $("#myModal").modal("hide");
+    // this.hidden = "hidden";
+    this.dismiss="modal";
+     this.modal="";
      this.router.navigate(['/'])},
                 error=>{ this.submitted=false,
                        console.log("erreur!!!"),console.log(error.status), this.erreurConnection = true}

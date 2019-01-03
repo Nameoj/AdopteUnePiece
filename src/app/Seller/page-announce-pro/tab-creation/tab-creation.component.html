@@ -2,44 +2,54 @@
 
 <div class="container mt-3">
   <!-- Ajout d'un champ pour le titre de l'annonce -->
-  <div class="input-group mt-3">  
-    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Entrez le titre de votre annonce ...">
+  <div class="input-group mt-3">
+    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
+      placeholder="Entrez le titre de votre annonce ...">
   </div>
   <!-- Ajout bouton pour importer les photos de l'annonce -->
   <div class="ajoutPhoto mt-3">
-    <h5><label for="Photo">Choisir une photo :</label></h5>
-    <input type="file" id="Photo" name="photo" accept="image/png, image/jpeg">
+    <div class="single-upload">
+      <h3>Choisir une photo :</h3>
+      <form id="singleUploadForm" name="singleUploadForm">
+        <input id="singleFileUploadInput" type="file" name="file" class="file-input" required />
+        <button type="submit" class="primary submit-btn">Valider</button>
+      </form>
+      <div class="upload-response">
+        <div id="singleFileUploadError"></div>
+        <div id="singleFileUploadSuccess"></div>
+      </div>
+    </div>
   </div>
   <div class="categorie mt-4">
     <h5>Préciser la catégorie :</h5>
     <!-- dropdown pour choisir dans qu'elle catégorie va la pièce -->
     <div class="row">
-    <div id="sidenav" class="sidenav mb-5 ml-3">
-      <button *ngIf="phoneScreen==true" class="closebtn" (click)="closeNav()">&times;</button>
-    <div class="col-lg-3" *ngFor="let categories of motoCategories.categories; let index=index">
-      <div class="categories arrowHead mr-4" (click)="collapse(index)">
-        {{categories.name}}
+      <div id="sidenav" class="sidenav mb-5 ml-3">
+        <button *ngIf="phoneScreen==true" class="closebtn" (click)="closeNav()">&times;</button>
+        <div class="col-lg-3" *ngFor="let categories of motoCategories.categories; let index=index">
+          <div class="categories arrowHead mr-4" (click)="collapse(index)">
+            {{categories.name}}
+          </div>
+          <app-sous-categories id="categ{{index}}" class="categ" [overIndex]="index*100" [categories]="categories"></app-sous-categories>
+        </div>
       </div>
-      <app-sous-categories id="categ{{index}}" class="categ" [overIndex]="index*100" [categories]="categories"></app-sous-categories>
     </div>
-    </div>
-  </div>
-    
+
     <button *ngIf="phoneScreen==true" type="button" class="menuButton" (click)="openNav()"></button>
-  <div>
-    <h5>Description de votre pièce :</h5>
-    <!-- ajpout champ pour décrire l'état de la pièce -->
-    <textarea class="form-control" rows="5" aria-label="With textarea"></textarea>
-  </div>
-  <div class="note mt-3">
-    <ngb-rating [(rate)]="currentRate" class="star"></ngb-rating>
-    <hr>
-    <pre>Etat de la pièce : <b>{{currentRate}}</b></pre>
-  </div>
-  <div class="row mt-5 mb-3">
-    <div class="col-lg-12 text-center">
-        <button type="submit" class="btn btn-primary">Valider votre annonce</button>
+    <div>
+      <h5>Description de votre pièce :</h5>
+      <!-- ajpout champ pour décrire l'état de la pièce -->
+      <textarea class="form-control" rows="5" aria-label="With textarea"></textarea>
     </div>
-  </div> 
-</div>
+    <div class="note mt-3">
+      <ngb-rating [(rate)]="currentRate" class="star"></ngb-rating>
+      <hr>
+      <pre>Etat de la pièce : <b>{{currentRate}}</b></pre>
+    </div>
+    <div class="row mt-5 mb-3">
+      <div class="col-lg-12 text-center">
+        <button type="submit" class="btn btn-primary">Valider votre annonce</button>
+      </div>
+    </div>
+  </div>
 </div>

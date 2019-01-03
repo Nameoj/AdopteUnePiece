@@ -47,11 +47,8 @@ import { AdminCompanyListComponent } from './PageAdmin/admin-company-list/admin-
 import { AdminAnnounceListComponent } from './PageAdmin/admin-announce-list/admin-announce-list.component';
 import { DataBaseManagmentComponent } from './PageAdmin/data-base-managment/data-base-managment.component';
 import { AdminCompanyCreateComponent } from './PageAdmin/admin-company-create/admin-company-create.component';
-<<<<<<< HEAD
 import { HomeAnnounceComponent } from './Buyer/buyer-home/home-announce/home-announce.component';
-=======
 import { HttpIntercepterService, httpInterceptorProviders } from './Services/http-intercepter.service';
->>>>>>> dev
 
 
 

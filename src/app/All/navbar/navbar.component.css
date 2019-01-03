@@ -129,3 +129,9 @@
 .nav-link{
     cursor:pointer;
     }
+
+.erreurConnection{
+margin-top: .25rem;
+font-size: 80%;
+color: #dc3545;
+}

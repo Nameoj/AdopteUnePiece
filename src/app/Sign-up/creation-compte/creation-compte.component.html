@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="container margetop">
   <div class=" row">
     <div class="col-12">
@@ -26,7 +27,7 @@
                   [ngClass]="{ 'is-invalid': (submitted && f.email.errors) || emailExistant }"
                 />
                 <div
-                  *ngIf="(submitted && f.email.errors) || emailExistant"
+                  *ngIf="(submitted && f.email.errors)"
                   class="invalid-feedback"
                 >
                   <div *ngIf="f.email.errors.required">champ requis</div>

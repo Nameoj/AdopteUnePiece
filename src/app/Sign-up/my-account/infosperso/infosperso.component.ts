@@ -20,14 +20,19 @@ export class InfospersoComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private buyerService: BuyerService, private router: Router) { }
 
   ngOnInit() {
-    this.buyerConnected = this.buyerService.buyerConnected;
 
-    this.registerForm = this.formBuilder.group ({
-      email: [this.buyerConnected.email, [Validators.required, Validators.email]],
+    this.buyerService.getBuyerDetails(this.buyerService.getAuthenticatedUser()).
+    subscribe( data => {this.buyerConnected = data; this.buyerService.buyerConnected = this.buyerConnected
+
+    console.log(this.buyerConnected);
+
+    this.registerForm  = this.formBuilder.group ({
+      email: [this.buyerConnected.username, [Validators.required, Validators.email]],
       prenom: [this.buyerConnected.prenom, Validators.required],
       nom: [this.buyerConnected.nom, Validators.required],
       telephone: [this.buyerConnected.telephone, [Validators.required, Validators.pattern('[0][0-9]{9}') ]],
     })
+  });
   }
 
     // convenience getter for easy access to form fields
@@ -39,10 +44,13 @@ export class InfospersoComponent implements OnInit {
       if (this.registerForm.invalid) {
           return;
       }
+
+
       const formValue = this.registerForm.value;
       const newBuyer = new Buyer(
         this.buyerConnected.id,
-        formValue['email'] == null? this.buyerConnected.email : formValue['email'],
+        this.buyerConnected.email,
+        this.buyerConnected.email,
         this.buyerConnected.password,
         this.buyerConnected.civilite,
         formValue['prenom'],
@@ -54,17 +62,16 @@ export class InfospersoComponent implements OnInit {
         this.buyerConnected.ville,
 
       );
-     alert('SUCCESS!! :-)');
      console.log(this.registerForm.value);
       console.log(newBuyer);
  
-     this.buyerService.updateBuyer(newBuyer, this.buyerConnected.id)
+     this.buyerService.updateBuyer(newBuyer, this.buyerService.getAuthenticatedUser())
      .subscribe(data => 
                        {console.log(data), this.buyerService.buyerConnected = data,
      console.log("buyer updated" + this.buyerService.buyerConnected.nom),
      this.router.navigate(['/'])},
                 error=>{ this.submitted=false,
-                       console.log("erreur!!!"),console.log(error.status), this.emailExistant=true}
+                       console.log("erreur!!!"),console.log(error.status)}
      );
    }
 

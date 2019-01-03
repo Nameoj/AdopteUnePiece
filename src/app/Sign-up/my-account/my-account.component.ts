@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BuyerService } from 'src/app/Services/buyer.service';
 
 @Component({
 selector: 'app-my-account',
@@ -13,7 +14,7 @@ adresses: boolean= true;
 commandes: boolean= true;
 
 
-constructor() { }
+constructor(private buyerService: BuyerService) { }
 
 getMotdePasse(){
 this.motDePasse = false;

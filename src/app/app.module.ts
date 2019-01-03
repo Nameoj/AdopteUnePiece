@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BuyerHomeComponent } from './Buyer/buyer-home/buyer-home.component';
 import { SearchVhlComponent } from './Buyer/buyer-home/search-vhl/search-vhl.component';
 import { SearchImmatComponent } from './Buyer/buyer-home/search-immat/search-immat.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './All/navbar/navbar.component';
 import { SearchBarComponent } from './Buyer/buyer-home/search-bar/search-bar.component';
@@ -19,7 +19,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { ConnexionComponent } from './Sign-up/connexion/connexion.component';
+// import { ConnexionComponent } from './Sign-up/connexion/connexion.component';
 import { CreationCompteComponent } from './Sign-up/creation-compte/creation-compte.component';
 import { AnnouncePieceComponent } from './Buyer/announce-piece/announce-piece.component';
 import { AnnounceListComponent } from './Buyer/announce-list/announce-list.component';
@@ -47,6 +47,7 @@ import { AdminCompanyListComponent } from './PageAdmin/admin-company-list/admin-
 import { AdminAnnounceListComponent } from './PageAdmin/admin-announce-list/admin-announce-list.component';
 import { DataBaseManagmentComponent } from './PageAdmin/data-base-managment/data-base-managment.component';
 import { AdminCompanyCreateComponent } from './PageAdmin/admin-company-create/admin-company-create.component';
+import { HttpIntercepterService, httpInterceptorProviders } from './Services/http-intercepter.service';
 
 
 
@@ -63,7 +64,7 @@ import { AdminCompanyCreateComponent } from './PageAdmin/admin-company-create/ad
     SearchBarComponent,
     SearchVhlComponent,
     PageAnnounceProComponent,
-    ConnexionComponent,
+    // ConnexionComponent,
     CreationCompteComponent,
     MyAccountComponent,
     SearchImmatComponent,
@@ -112,7 +113,9 @@ import { AdminCompanyCreateComponent } from './PageAdmin/admin-company-create/ad
     MatCardModule,
     ScrollDispatchModule,
   ],
-  providers: [],
+  providers: [
+   httpInterceptorProviders,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

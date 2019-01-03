@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+
 <div class="margetop">
   <div class=" row">
     <div class="col-12">
@@ -10,6 +10,7 @@
 
 <div class="row">
   <div class="col-12">
+    <div *ngIf="registerForm">
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <div class="account__box ">
         <div class="box_inner">
@@ -23,15 +24,16 @@
          
           <div class="col-md-6">
             <input
-              formControlName="email"
               type="email"
+              formControlName="email"
               class="form-control"
               id="email"
               [ngClass]="{ 'is-invalid': (submitted && f.email.errors) || emailExistant }"
               [placeholder]="buyerConnected.email"
+              disabled="disabled"
             />
             <div
-              *ngIf="(submitted && f.email.errors) || emailExistant"
+              *ngIf="(submitted && f.email.errors)"
               class="invalid-feedback"
             >
               <div *ngIf="f.email.errors.required">champ requis</div>
@@ -125,6 +127,7 @@
         </div>
       </div>
     </form>
+  </div>
   </div>
 </div>
 

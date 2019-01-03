@@ -1,5 +1,5 @@
 <div id="sidenav" class="sidenav">
-  <button *ngIf="phoneScreen==true" class="closebtn" (click)="closeNav()">&times;</button>
+  <button class="closebtn" (click)="closeNav()">&times;</button>
 <div *ngFor="let categories of motoCategories.categories; let index=index">
   <div class="categories arrowHead" (click)="collapse(index)">
     {{categories.name}}
@@ -8,4 +8,4 @@
 </div>
 </div>
 
-<button *ngIf="phoneScreen==true" type="button" class="menuButton" (click)="openNav()"></button>
+<button type="button" class="menuButton" (click)="openNav()"></button>

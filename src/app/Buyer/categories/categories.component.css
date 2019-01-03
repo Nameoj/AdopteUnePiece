@@ -26,6 +26,14 @@
     width:100%;
     position:relative
 }
+
+.menuButton {
+    display:none;
+}
+
+.closebtn {
+    display:none;
+}
 @media screen and (max-width: 768px) {
     .sidenav {
         height: 100vh;
@@ -49,6 +57,7 @@
         background: none;
         border: none;
         cursor: pointer;
+        display:block;
     }
     .menuButton {
         top: 16vh;
@@ -63,9 +72,12 @@
         background-repeat: no-repeat;
         height: 40px;
         width: 40px;
+        display:block;
     }
     .menuButton:hover {
         border: none;
         background-color: #F0F0F0;
     }
+
+
 }

@@ -11,7 +11,8 @@
     <div class="single-upload">
       <h3>Choisir une photo :</h3>
       <form id="singleUploadForm" name="singleUploadForm">
-        <input id="singleFileUploadInput" type="file" name="file" class="file-input" required />
+        <img [src]="url" height="200">
+        <input id="singleFileUploadInput" type="file" name="file" class="file-input" required (change)="onSelectFile($event)"/>
         <button type="submit" class="primary submit-btn">Valider</button>
       </form>
       <div class="upload-response">

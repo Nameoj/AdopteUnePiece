@@ -14,6 +14,19 @@ export class TabCreationComponent implements OnInit {
   title = 'UploadImg';
   selectedFile: File = null;
   currentRate = 0;
+  url = '';
+
+  onSelectFile(event) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+      reader.onload = (event) => { // called once readAsDataURL is completed
+        this.url = event.target.result;
+      }
+    }
+  }
 
   constructor(config: NgbRatingConfig, private categoriesService: CategoriesService, private http: HttpClient) {
     // customize default values of ratings used by this component tree
@@ -22,6 +35,7 @@ export class TabCreationComponent implements OnInit {
 
   onFileSelected(event) {
     this.selectedFile = <File>event.target.files[0];
+
   }
 
   onUpload() {

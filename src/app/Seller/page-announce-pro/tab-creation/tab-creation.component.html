@@ -11,8 +11,8 @@
     <div class="single-upload">
       <h3>Choisir une photo :</h3>
       <form id="singleUploadForm" name="singleUploadForm">
-        <img [src]="url" height="200">
-        <input id="singleFileUploadInput" type="file" name="file" class="file-input" required (change)="onSelectFile($event)"/>
+        <img [src]="url" height="150">
+        <input id="singleFileUploadInput" type="file" name="file" class="file-input" required (change)="onSelectFile($event)" />
         <button type="submit" class="primary submit-btn">Valider</button>
       </form>
       <div class="upload-response">
@@ -23,20 +23,8 @@
   </div>
   <div class="categorie mt-4">
     <h5>Préciser la catégorie :</h5>
+    <app-tab-categories></app-tab-categories>
     <!-- dropdown pour choisir dans qu'elle catégorie va la pièce -->
-    <div class="row">
-      <div id="sidenav" class="sidenav mb-5 ml-3">
-        <button *ngIf="phoneScreen==true" class="closebtn" (click)="closeNav()">&times;</button>
-        <div class="col-lg-3" *ngFor="let categories of motoCategories.categories; let index=index">
-          <div class="categories arrowHead mr-4" (click)="collapse(index)">
-            {{categories.name}}
-          </div>
-          <app-sous-categories id="categ{{index}}" class="categ" [overIndex]="index*100" [categories]="categories"></app-sous-categories>
-        </div>
-      </div>
-    </div>
-
-    <button *ngIf="phoneScreen==true" type="button" class="menuButton" (click)="openNav()"></button>
     <div>
       <h5>Description de votre pièce :</h5>
       <!-- ajpout champ pour décrire l'état de la pièce -->

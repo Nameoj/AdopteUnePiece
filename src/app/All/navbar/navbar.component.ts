@@ -62,7 +62,6 @@ export class NavbarComponent implements OnInit {
                        {console.log(data), this.buyerService.buyerConnected = data;
      console.log("buyer logged" + this.buyerService.buyerConnected.username);
     
-    $("#myModal").modal("hide");
      this.router.navigate(['/'])},
                 error=>{ this.submitted=false,
                        console.log("erreur!!!"),console.log(error.status), this.erreurConnection = true}

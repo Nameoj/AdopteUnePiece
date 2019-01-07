@@ -12,7 +12,7 @@
     transition:all 0.4s linear;
 }
 .backgroundLogo  {
-    width:350px;
+    width:30%;
     position:absolute;
     z-index:1;
     left:37%;

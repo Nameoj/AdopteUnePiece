@@ -1,13 +1,16 @@
 .list-group-item {
-    width:30ch;
+    width:26ch;
     margin-top:5px;
-    margin-left:10px;
-    font-size:0.8em;
+    margin-left:40px;
+    font-size:1em;
     cursor: pointer;
+    font-family:Rubik, Arial, Helvetica, sans-serif;
 }
 
 .list {
     display:none;
+    width:28ch;
+    margin-left: 7ch;
 }
 
 .arrowHead{

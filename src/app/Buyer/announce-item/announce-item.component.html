@@ -1,37 +1,47 @@
-<div class="announceItem row">
-  <img class="col-4 announceImage" src="{{placeholderForDBAnnounce.image}}" placeholder="image">
-  <div class="col-8 announceText">
-    <p>
-      <span class="float-right announcePrice">
-        {{placeholderForDBAnnounce.prix}} €
-      </span>
+<div class="card">
+  <div class="card-body">
+    <div class="announceItem row">
+      <div class="col-4 announceImage">
+        <img src="{{placeholderForDBAnnounce.image}}" placeholder="image" class="image">
+      </div>
+      <div class="col-4 announceText text">
+        <div class="groupOfText">
+          <div>
+            Année:
+            <div class="text-muted">
+              {{placeholderForDBAnnounce.annee}}
+            </div>
+          </div>
+        </div>
 
-      <br class="d-none d-block">
+        <div class="groupOfText">
+          <div>
+            Moto:
+          </div>
+          <div class="text-muted">
+            {{placeholderForDBAnnounce.moto}}
+          </div>
+        </div>
 
-      <span class="font-weight-bold announceTitle">
-        <a routerLink="/announce-piece">
-          {{placeholderForDBAnnounce.titre}}
-        </a>
-      </span>
+        <div class="groupOfText">
+          <div>
+            Type:
+          </div>
+          <div class="text-muted">
+            {{placeholderForDBAnnounce.titre}}
+          </div>
+        </div>
+      </div>
 
-      <br class="d-block">
+      <div class="col-4 accessMore">
+        <div class="price">
+          {{placeholderForDBAnnounce.prix}}€
+        </div>
+        <div class="btn btn-warning">
+          Voir
+        </div>
+      </div>
 
-      <span class="font-italic descParagraph">
-        Aprilia: RS125, année: 1991
-      </span>
-
-      <br class="d-block">
-
-      vendeur:
-      <a href="#" class="descParagraph">
-       {{placeholderForDBAnnounce.vendeur}}
-      </a>
-
-      <br class="d-block">
-
-      <span class="descParagraph">
-        Posté le: {{placeholderForDBAnnounce.postDate}}
-      </span>
-    </p>
+    </div>
   </div>
 </div>

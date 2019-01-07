@@ -1,4 +1,16 @@
 .badge {
-    margin-left:15px;
-    font-size: 0.7em;
+    margin-left:4px;
+    font-size: 0.9em;
+}
+
+.badge-outline {
+    color: #343a40;
+    border: 1px solid #343a40;
+    background-color: transparent;
+}
+
+.badge:active {
+    color: #fff;
+    text-decoration: none;
+    background-color: #1d2124;
 }

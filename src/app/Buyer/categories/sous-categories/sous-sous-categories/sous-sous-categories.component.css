@@ -1,15 +1,20 @@
-.bikePartContainer {
-    border: 1px solid green;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.badge {
+    margin-left:4px;
+    font-size: 0.9em;
+    margin-top:3px;
+    margin-bottom:3px;
+    padding-top:7px;
+    padding-bottom:7px;
 }
 
-.partsBtn{
-    margin-top: 2vh;
-    margin-left: 2vw;
-    border: 1px solid black;
+.badge-outline {
+    color: #343a40;
+    border: 1px solid #343a40;
     background-color: transparent;
-    font-size: 1.1em;
-    display: inline;
+}
+
+.badge:active {
+    color: #fff;
+    text-decoration: none;
+    background-color: #1d2124;
 }

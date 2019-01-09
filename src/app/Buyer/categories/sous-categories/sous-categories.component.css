@@ -3,15 +3,18 @@
 }
 
 .list-group-item {
-    margin-top:2vh;
-    margin-left:5vw;
-    font-size:1.2em;
+    width:80%;
+    margin-top:5px;
+    margin-left:15px;
+    font-size:1em;
     cursor: pointer;
-    text-align: end;
+    font-family:Rubik, Arial, Helvetica, sans-serif;
 }
 
 .list {
     display:none;
+    width:76%;
+    margin-left: 25px;
 }
 
 .arrowHead{

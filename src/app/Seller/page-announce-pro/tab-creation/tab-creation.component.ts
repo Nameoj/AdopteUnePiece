@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { CategoriesService } from '../../../Services/categories.service';
 import { HttpClient, HttpEventType } from '@angular/common/http';
-import * as $ from 'jquery';
+import * as $ from  'jquery';
+import { listenToElementOutputs } from '@angular/core/src/view/element';
 
 @Component({
   selector: 'app-tab-creation',
@@ -59,17 +60,18 @@ export class TabCreationComponent implements OnInit {
 
   ngOnInit() {
     $('#singleUploadForm').submit(function (event) {
-      var formElement = this;
+      let formElement = this;
       // You can directly create form data from the form element
       // (Or you could get the files from input element and append them to FormData as we did in vanilla javascript)
-      var formData = new FormData(formElement);
+      let formData = new FormData(formElement);
 
       $.ajax({
         type: "POST",
-        enctype: 'multipart/form-data',
+        enctype: "multipart/form-data",
         url: "http://localhost:8080/api/uploadFile",
         data: formData,
         processData: false,
+        acceptCharset:false,
         contentType: false,
         success: function (response) {
           console.log(response);

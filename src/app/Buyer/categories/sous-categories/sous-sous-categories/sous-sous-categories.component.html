@@ -1,5 +1,3 @@
-<div class="bikePartContainer">
-  <div *ngFor="let sousSousCategories of sousCategories.sousSousCategories">
-    <button mat-raised-button class="partsBtn" routerLink="">{{sousSousCategories.name}}</button>
-  </div>
-</div>
+<span *ngFor="let sousSousCategories of sousCategories.sousSousCategories">
+  <a href="#" class="badge badge-outline badge-dark">{{sousSousCategories.name}}</a>
+</span>

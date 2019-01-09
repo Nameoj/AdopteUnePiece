@@ -1,24 +1,24 @@
-.categoriesContainer {
-    border: 1px solid red;
+.container {
+    padding-right:0;
 }
 
+.row {
+    display:block;
+}
 .categories {
     background-color: #1a1a1a;
+    width: 85%;
+    height:3rem;
     text-align: end;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 2vh;
-    margin-right: 1vw;
-    color: white;
-}
-
-.categoriesName {
-    font-weight: bold;
-    font-size: 1.1em;
-    padding-right: 2vw;
-    vertical-align: middle;
+    padding:13px 22px 0px 0px;
     color: #F0F0F0;
-    line-height: 7vh;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: 5px;
+    font-family:Rubik, Arial, Helvetica, sans-serif;
+    text-transform:uppercase;
+    font-size: 1em;
 }
 
 .categ {
@@ -55,12 +55,19 @@
 
 .menuButton {
     display:none;
+    left:0;
 }
 
 .closebtn {
     display:none;
 }
 @media screen and (max-width: 768px) {
+    .categories {
+        margin-left:15px;
+    }
+    .container {
+        padding-left:0;
+    }
     .sidenav {
         height: 100vh;
         width: 0;
@@ -76,8 +83,8 @@
     .sidenav .closebtn {
         position: absolute;
         float: left;
-        top: 15vh;
-        right: 25px;
+        top: 7.5vh;
+        right: 3px;
         font-size: 36px;
         margin-left: 50px;
         background: none;
@@ -92,22 +99,24 @@
         z-index: 3;
         border: none;
         background-color: none;
-        background-image: url('../../../assets/menuIcon.png');
-        background-size: 30px;
-        background-position: center;
+        background-image: url('../../../assets/right-arrow.png');
+        background-size: 20px;
+        background-position: left;
         background-repeat: no-repeat;
-        height: 40px;
-        width: 40px;
+        height: 50px;
+        width: 25px;
+        border-radius:0px 50px 50px 0px;
         display:block;
+        transition:all 0.3s;
+        opacity:0;
+    }
+    .menuButton:disabled:hover {
+        cursor: default;
+    }
+    .menuButton:hover {
+        border: none;
+        background-color: #F0F0F0;
+        cursor: pointer;
     }
 
 }
-
-/*Large devices (desktops, 992px and up)*/
-@media (min-width: 992px) {
-    .categoriesContainer {
-        width: 30vw;
-    }
-
-}
-

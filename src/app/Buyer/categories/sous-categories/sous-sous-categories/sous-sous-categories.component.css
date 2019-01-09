@@ -1,6 +1,10 @@
 .badge {
     margin-left:4px;
     font-size: 0.9em;
+    margin-top:3px;
+    margin-bottom:3px;
+    padding-top:7px;
+    padding-bottom:7px;
 }
 
 .badge-outline {

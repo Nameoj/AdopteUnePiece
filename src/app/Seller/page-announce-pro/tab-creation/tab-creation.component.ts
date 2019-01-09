@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { CategoriesService } from '../../../Services/categories.service';
 import { HttpClient, HttpEventType } from '@angular/common/http';
@@ -15,6 +17,11 @@ export class TabCreationComponent implements OnInit {
   selectedFile: File = null;
   currentRate = 0;
   url = '';
+  choixMarque: boolean = false;
+  choixCylindree: boolean = false;
+  choixModele: boolean = false;
+  creationAnnounceForm: FormGroup;
+  nrSelect = "";
 
   onSelectFile(event) {
     if (event.target.files && event.target.files[0]) {
@@ -28,7 +35,11 @@ export class TabCreationComponent implements OnInit {
     }
   }
 
-  constructor(config: NgbRatingConfig, private categoriesService: CategoriesService, private http: HttpClient) {
+  constructor(config: NgbRatingConfig, 
+    private categoriesService: CategoriesService, 
+    private http: HttpClient,
+    private formBuilder: FormBuilder,
+    private router: Router) {
     // customize default values of ratings used by this component tree
     config.max = 5;
   }
@@ -58,6 +69,8 @@ export class TabCreationComponent implements OnInit {
   motoCategories = this.categoriesService.mockMotoCategories;
 
   ngOnInit() {
+
+    // selection photos
     $('#singleUploadForm').submit(function (event) {
       var formElement = this;
       // You can directly create form data from the form element
@@ -80,28 +93,30 @@ export class TabCreationComponent implements OnInit {
           // process error
         }
       });
-
       event.preventDefault();
     });
+
+    this.creationAnnounceForm = this.formBuilder.group ({
+      brand: ['', Validators.required],
+      modele: ['', Validators.required],
+      image: ['', Validators.required],
+      price: ['', Validators.required],
+      year: ['', Validators.required],
+      cylinder: ['', Validators.required],
+      pieceType: ['', Validators.required],
+      description: ['', Validators.required],
+      note: ['', Validators.required],
+    })
   }
 
-  openNav() {
-    let sideNav = document.getElementById("sidenav");
-    sideNav.style.width = "300px";
+  getMarque(){
+    this.choixMarque = true;
   }
-
-  closeNav() {
-    document.getElementById("sidenav").style.width = "0";
+  getCylindree(){
+    this.choixCylindree = true;
+    console.log(this.nrSelect);
   }
-
-  collapse(index) {
-    let categ = document.getElementById('categ' + index)
-    if (categ.style.display == "block") {
-      categ.style.display = "none";
-    }
-    else {
-      categ.style.display = "block";
-    }
+  getModele(){
+    this.choixModele = true;
   }
-
 }

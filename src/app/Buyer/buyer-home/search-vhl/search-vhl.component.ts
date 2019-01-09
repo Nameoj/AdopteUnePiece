@@ -22,7 +22,6 @@ getMarque(){
 getCylindree(){
   this.choixCylindree = true;
 }
-
 getModele(){
   this.choixModele = true;
 }

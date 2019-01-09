@@ -6,6 +6,15 @@ export class Announce {
         public image: string,
         public description: string,
         public note: string,
-        public postDate: string
+        public postDate: string,
+        public price: string,
+        public pieceType: string,
+        public modele: string,
+        public brand: string,
+        public cylinder: string,
+        public year: string,
+        public startDateModele: string,
+        public endDateModele: string,
     ) {}
 }
+

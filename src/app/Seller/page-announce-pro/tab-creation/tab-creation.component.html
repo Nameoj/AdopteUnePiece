@@ -1,44 +1,351 @@
 <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
 
 <div class="container mt-3">
-  <!-- Ajout d'un champ pour le titre de l'annonce -->
-  <div class="input-group mt-3">
-    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
-      placeholder="Entrez le titre de votre annonce ...">
-  </div>
-  <!-- Ajout bouton pour importer les photos de l'annonce -->
-  <div class="ajoutPhoto mt-3">
-    <div class="single-upload">
-      <h3>Choisir une photo :</h3>
-      <form id="singleUploadForm" name="singleUploadForm">
-        <img [src]="url" height="150">
-        <input id="singleFileUploadInput" type="file" name="file" class="file-input" required (change)="onSelectFile($event)" />
-        <button type="submit" class="primary submit-btn">Valider</button>
-      </form>
-      <div class="upload-response">
-        <div id="singleFileUploadError"></div>
-        <div id="singleFileUploadSuccess"></div>
+  <form [formGroup]="creationAnnounceForm" (ngSubmit)="onSubmit()">
+    <div class="row mt-1">
+      <div class="col-md-5 mt-5">
+        <div id="card-74095">
+          <div class="card">
+            <a class="card-link collapsed" data-toggle="collapse" data-parent="#card-74095" href="#card-element-616950">
+              <div class="card-header">
+                Véhicule
+
+                <p class="float-right arrow">&#8964;</p>
+              </div>
+            </a>
+
+            <div id="card-element-616950" class="collapse">
+              <div class="card-body">
+                  
+                <div class="input-group mb-3">
+                  <select [ngModel]="value" class="custom-select" id="selectMarque" (click)="getMarque()">
+                    <option selected="">Marque...</option>
+
+                    <option value="243">ACTION BIKE</option>
+
+                    <option value="160">ADLY</option>
+
+                    <option value="3">APRILIA</option>
+
+                    <option value="165">AZTRAL</option>
+
+                    <option value="70">BAOTIAN</option>
+
+                    <option value="6">BAROSSA</option>
+
+                    <option value="214">BEMI</option>
+
+                    <option value="118">BENDA</option>
+
+                    <option value="7">BENELLI</option>
+
+                    <option value="8">BETA</option>
+
+                    <option value="12">BMW</option>
+
+                    <option value="14">CAGIVA</option>
+
+                    <option value="125">CF MOTO</option>
+
+                    <option value="102">CONTI</option>
+
+                    <option value="88">CPI</option>
+
+                    <option value="17">DAELIM</option>
+
+                    <option value="18">DERBI</option>
+
+                    <option value="19">DUCATI</option>
+
+                    <option value="237">EGLMOTOR</option>
+
+                    <option value="134">EUROCKA</option>
+
+                    <option value="135">FANTIC</option>
+
+                    <option value="250">FASPIDER</option>
+
+                    <option value="1">GENERIC</option>
+
+                    <option value="21">GILERA</option>
+
+                    <option value="139">GOWINN</option>
+
+                    <option value="22">HARLEY DAVIDSON</option>
+
+                    <option value="218">HI BIRD</option>
+
+                    <option value="23">HM</option>
+
+                    <option value="25">HONDA</option>
+
+                    <option value="26">HRD</option>
+
+                    <option value="213">HUIBANG</option>
+
+                    <option value="28">HUSQVARNA</option>
+
+                    <option value="29">HYOSUNG</option>
+
+                    <option value="110">HYTRACK</option>
+
+                    <option value="147">IMF</option>
+
+                    <option value="252">INDIAN</option>
+
+                    <option value="150">JIAJUE</option>
+
+                    <option value="151">JIALING</option>
+
+                    <option value="68">JINCHENG</option>
+
+                    <option value="107">JINLUN</option>
+
+                    <option value="247">JM MOTORS</option>
+
+                    <option value="76">JONWAY</option>
+
+                    <option value="212">JORDON</option>
+
+                    <option value="32">KAWASAKI</option>
+
+                    <option value="33">KEEWAY</option>
+
+                    <option value="156">KREIDLER</option>
+
+                    <option value="34">KTM</option>
+
+                    <option value="35">KYMCO</option>
+
+                    <option value="233">LEONE</option>
+
+                    <option value="175">LIFAN</option>
+
+                    <option value="159">LINGBEN</option>
+
+                    <option value="86">LINHAI</option>
+
+                    <option value="207">LINTEX</option>
+
+                    <option value="170">LML</option>
+
+                    <option value="96">LONGJIA</option>
+
+                    <option value="225">MAG POWER</option>
+
+                    <option value="37">MALAGUTI</option>
+
+                    <option value="38">MASAI</option>
+
+                    <option value="210">MASH</option>
+
+                    <option value="202">MATRA</option>
+
+                    <option value="39">MBK</option>
+
+                    <option value="41">MOTO GUZZI</option>
+
+                    <option value="221">MOTO MORINI</option>
+
+                    <option value="79">MOTOBECANE</option>
+
+                    <option value="42">MV AGUSTA</option>
+
+                    <option value="43">MZ</option>
+
+                    <option value="167">NECO</option>
+
+                    <option value="219">OMING</option>
+
+                    <option value="194">ORCAL</option>
+
+                    <option value="44">PEUGEOT</option>
+
+                    <option value="45">PGO</option>
+
+                    <option value="46">PIAGGIO</option>
+
+                    <option value="94">PIONEER</option>
+
+                    <option value="95">QINGQI</option>
+
+                    <option value="199">QUADRO</option>
+
+                    <option value="174">RAZZ STEED</option>
+
+                    <option value="84">RENAULT</option>
+
+                    <option value="66">REVATTO</option>
+
+                    <option value="166">RIDE</option>
+
+                    <option value="49">RIEJU</option>
+
+                    <option value="65">ROADSIGN</option>
+
+                    <option value="198">SAMPO</option>
+
+                    <option value="104">SANLI</option>
+
+                    <option value="249">SCOMADI</option>
+
+                    <option value="101">SHENKE</option>
+
+                    <option value="53">SHERCO</option>
+
+                    <option value="69">SKYTEAM</option>
+
+                    <option value="189">SMC</option>
+
+                    <option value="217">SONIK</option>
+
+                    <option value="241">SPEEDCOOL</option>
+
+                    <option value="54">SUZUKI</option>
+
+                    <option value="197">SWEETY</option>
+
+                    <option value="55">SYM</option>
+
+                    <option value="240">TAIZHOU</option>
+
+                    <option value="209">TAOTAO</option>
+
+                    <option value="56">TGB</option>
+
+                    <option value="119">TNT</option>
+
+                    <option value="73">TRITON</option>
+
+                    <option value="58">TRIUMPH</option>
+
+                    <option value="90">VASTRO</option>
+
+                    <option value="162">VECTRIX</option>
+
+                    <option value="61">VESPA</option>
+
+                    <option value="188">WANGYE</option>
+
+                    <option value="63">YAMAHA</option>
+
+                    <option value="226">YAMASAKI</option>
+
+                    <option value="67">YIYING</option>
+
+                    <option value="193">ZHENHUA</option>
+
+                    <option value="245">ZHONGNENG</option>
+
+                    <option value="185">ZNEN</option>
+
+                    <option value="77">ZONGSHEN</option>
+                  </select>
+                </div>
+
+                <div class="input-group mb-3">
+                  <select class="custom-select" id="cylindré" (click)="getCylindree()" [disabled]="!choixMarque">
+                    <option selected="selected">Cylindré</option>
+
+                    <option value="1">100 CC</option>
+
+                    <option value="2">300 CC</option>
+
+                    <option value="3">500 CC</option>
+                  </select>
+                </div>
+
+                <div class="input-group mb-3">
+                  <select class="custom-select" id="modele" (click)="getModele()" [disabled]="!choixCylindree">
+                    <option selected="selected">Modèle</option>
+
+                    <option value="1">Phantom</option>
+
+                    <option value="2">Tenerife</option>
+
+                    <option value="3">Odyssey</option>
+                  </select>
+                </div>
+
+                <div class="input-group mb-3">
+                  <select class="custom-select" id="annee" [disabled]="!choixModele">
+                    <option selected="selected">Année</option>
+
+                    <option value="1">1978</option>
+
+                    <option value="2">2012</option>
+
+                    <option value="3">2030</option>
+                  </select>
+
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Vroum...</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mt-5">
+        <app-search-immat></app-search-immat>
+      </div>
+
+      <div class="col-md-3 mt-5">
+        <div class="card">
+          <div class="card-header">
+            <p class="card-text">Votre moto</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="categorie mt-4">
-    <h5>Préciser la catégorie :</h5>
-    <app-tab-categories></app-tab-categories>
-    <!-- dropdown pour choisir dans qu'elle catégorie va la pièce -->
-    <div>
-      <h5>Description de votre pièce :</h5>
-      <!-- ajpout champ pour décrire l'état de la pièce -->
-      <textarea class="form-control" rows="5" aria-label="With textarea"></textarea>
+    <!-- Ajout d'un champ pour le titre de l'annonce -->
+    <div class="input-group mt-3">
+      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
+        placeholder="Entrez le titre de votre annonce ...">
     </div>
-    <div class="note mt-3">
-      <ngb-rating [(rate)]="currentRate" class="star"></ngb-rating>
-      <hr>
-      <pre>Etat de la pièce : <b>{{currentRate}}</b></pre>
-    </div>
-    <div class="row mt-5 mb-3">
-      <div class="col-lg-12 text-center">
-        <button type="submit" class="btn btn-primary">Valider votre annonce</button>
+    <!-- Ajout bouton pour importer les photos de l'annonce -->
+    <div class="ajoutPhoto mt-3">
+      <div class="single-upload">
+        <h3>Choisir une photo :</h3>
+        <form id="singleUploadForm" name="singleUploadForm">
+          <img [src]="url" height="150">
+          <input id="singleFileUploadInput" type="file" name="file" class="file-input" required (change)="onSelectFile($event)" />
+          <button type="submit" class="primary submit-btn">Valider</button>
+        </form>
+        <div class="upload-response">
+          <div id="singleFileUploadError"></div>
+          <div id="singleFileUploadSuccess"></div>
+        </div>
       </div>
     </div>
-  </div>
+    <div class="categorie mt-4">
+      <h5>Préciser la catégorie :</h5>
+      <app-tab-categories></app-tab-categories>
+      <!-- dropdown pour choisir dans qu'elle catégorie va la pièce -->
+      <div>
+        <h5>Description de votre pièce :</h5>
+        <!-- ajout champ pour décrire l'état de la pièce -->
+        <textarea class="form-control" rows="5" aria-label="With textarea"></textarea>
+      </div>
+      <!-- ajout champ pour donner la plage de compatibilité de la pièce-->
+      <div class="input-group mt-3">
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
+          placeholder="Entrez le titre de votre annonce ...">
+      </div>
+      <div class="note mt-3">
+        <ngb-rating [(rate)]="currentRate" class="star"></ngb-rating>
+        <hr>
+        <pre>Etat de la pièce : <b>{{currentRate}}</b></pre>
+      </div>
+      <div class="row mt-5 mb-3">
+        <div class="col-lg-12 text-center">
+          <button type="submit" class="btn btn-primary">Valider votre annonce</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <p>Selected option: {{ value }}</p>
 </div>

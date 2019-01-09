@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class CategoriesService {
   mockMotoCategories= {
     categories: [{
-      name:"Cycle",
+      name:"PARTIE CYCLE",
       sousCategories: [{
         name:"Cadre",
         sousSousCategories: [{
@@ -177,7 +177,7 @@ export class CategoriesService {
       }]
     },
     {
-      name: "Moteur",
+      name: "PARTIE MOTEUR",
       sousCategories:[{
         name: "Moteur",
         sousSousCategories: [{
@@ -279,7 +279,7 @@ export class CategoriesService {
       }]
     },
     {
-      name: "Electrique",
+      name: "PARTIE ELECTRIQUE",
       sousCategories: [{
         name:"Faisceaux électriques",
         sousSousCategories:[{
@@ -365,7 +365,7 @@ export class CategoriesService {
       }]
     },
     {
-      name:"Habillage",
+      name:"PARTIE HABILLAGE",
       sousCategories: [{
         name:"Réservoir",
         sousSousCategories:[{

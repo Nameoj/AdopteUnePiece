@@ -11,8 +11,8 @@
     <div class="single-upload">
       <h3>Choisir une photo :</h3>
       <form id="singleUploadForm" name="singleUploadForm">
-        <img [src]="url" height="100">
-        <input id="singleFileUploadInput" type="file" name="file" class="file-input" required (change)="onSelectFile($event)"/>
+        <img [src]="url" height="150">
+        <input id="singleFileUploadInput" type="file" name="file" class="file-input" required (change)="onSelectFile($event)" />
         <button type="submit" class="primary submit-btn">Valider</button>
       </form>
       <div class="upload-response">
@@ -21,6 +21,11 @@
       </div>
     </div>
   </div>
+  <div class="categorie mt-4">
+    <h5>Préciser la catégorie :</h5>
+    <app-tab-categories></app-tab-categories>
+    <!-- dropdown pour choisir dans qu'elle catégorie va la pièce -->
+    <div>
       <h5>Description de votre pièce :</h5>
       <!-- ajpout champ pour décrire l'état de la pièce -->
       <textarea class="form-control" rows="5" aria-label="With textarea"></textarea>

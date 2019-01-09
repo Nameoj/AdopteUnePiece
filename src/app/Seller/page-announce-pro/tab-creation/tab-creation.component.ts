@@ -3,6 +3,10 @@ import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { CategoriesService } from '../../../Services/categories.service';
 import { HttpClient, HttpEventType } from '@angular/common/http';
 import * as $ from 'jquery';
+import { Announce } from 'src/app/models/announce.models';
+import { AnnounceService } from 'src/app/Services/announce.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab-creation',
@@ -15,6 +19,8 @@ export class TabCreationComponent implements OnInit {
   selectedFile: File = null;
   currentRate = 0;
   url = '';
+  annonceForm: FormGroup;
+  submitted: boolean = false;
 
   onSelectFile(event) {
     if (event.target.files && event.target.files[0]) {
@@ -28,7 +34,12 @@ export class TabCreationComponent implements OnInit {
     }
   }
 
-  constructor(config: NgbRatingConfig, private categoriesService: CategoriesService, private http: HttpClient) {
+  constructor(config: NgbRatingConfig, 
+              private categoriesService: CategoriesService, 
+              private http: HttpClient,
+              private formBuilder: FormBuilder,
+              private announceService: AnnounceService,
+              private router: Router) {
     // customize default values of ratings used by this component tree
     config.max = 5;
   }
@@ -59,10 +70,10 @@ export class TabCreationComponent implements OnInit {
 
   ngOnInit() {
     $('#singleUploadForm').submit(function (event) {
-      var formElement = this;
+      let formElement = this;
       // You can directly create form data from the form element
       // (Or you could get the files from input element and append them to FormData as we did in vanilla javascript)
-      var formData = new FormData(formElement);
+      let formData = new FormData(formElement);
 
       $.ajax({
         type: "POST",
@@ -83,25 +94,43 @@ export class TabCreationComponent implements OnInit {
 
       event.preventDefault();
     });
+
+    this.annonceForm = this.formBuilder.group ({
+      id: [''],
+      title: [''],
+      seller: [''],
+      image: [''],
+      description: [''],
+      note: [''],
+      postDate: [''],
+      price: ['']
+    })
   }
 
-  openNav() {
-    let sideNav = document.getElementById("sidenav");
-    sideNav.style.width = "300px";
-  }
-
-  closeNav() {
-    document.getElementById("sidenav").style.width = "0";
-  }
-
-  collapse(index) {
-    let categ = document.getElementById('categ' + index)
-    if (categ.style.display == "block") {
-      categ.style.display = "none";
+  get f() { return this.annonceForm.controls; }
+  onSubmit() {
+    this.submitted = true;
+    // stop here if form is invalid
+    if (this.annonceForm.invalid) {
+        return;
     }
-    else {
-      categ.style.display = "block";
-    }
-  }
 
+    const formValue = this.annonceForm.value;
+      const newAnnonce = new Announce(
+        0,
+        formValue['title'],
+        formValue['seller'],
+        formValue['image'],
+        formValue['description'],
+        formValue['note'],
+        formValue['postDate'],
+        formValue['price']
+      );
+
+      console.log(this.annonceForm.value);
+     console.log(newAnnonce);
+
+     this.announceService.createAnnounce(newAnnonce)
+     this.router.navigate(['/'])
+    }
 }

@@ -63,13 +63,10 @@ export class NavbarComponent implements OnInit {
                        {console.log(data), this.buyerService.buyerConnected = data;
      console.log("buyer logged" + this.buyerService.buyerConnected.username);
     
-<<<<<<< HEAD
-=======
     // this.hidden = "hidden";
     this.dismiss="modal";
      this.modal="";
 
->>>>>>> ccc4f05b17abcff6f4c1c54af7de290c892fd1e3
      this.router.navigate(['/'])},
                 error=>{ this.submitted=false,
                        console.log("erreur!!!"),console.log(error.status), this.erreurConnection = true}

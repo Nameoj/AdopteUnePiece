@@ -6,6 +6,7 @@ export class Announce {
         public image: string,
         public description: string,
         public note: string,
-        public postDate: string
+        public postDate: string,
+        public price: number
     ) {}
 }

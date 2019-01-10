@@ -1,5 +1,6 @@
+import { Announce } from 'src/app/models/announce.models';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl, FormsModule, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { CategoriesService } from '../../../Services/categories.service';
@@ -13,6 +14,11 @@ import * as $ from 'jquery';
   providers: [NgbRatingConfig]
 })
 export class TabCreationComponent implements OnInit {
+
+  creationAnnounceB = new FormGroup({
+    brand: new FormControl()
+  })
+
   title = 'UploadImg';
   selectedFile: File = null;
   currentRate = 0;
@@ -20,8 +26,8 @@ export class TabCreationComponent implements OnInit {
   choixMarque: boolean = false;
   choixCylindree: boolean = false;
   choixModele: boolean = false;
-  creationAnnounceForm: FormGroup;
-  nrSelect = "";
+
+  motos = ["Honda","Kawasaki","SUzuki","Yamaha"]
 
   onSelectFile(event) {
     if (event.target.files && event.target.files[0]) {
@@ -96,17 +102,17 @@ export class TabCreationComponent implements OnInit {
       event.preventDefault();
     });
 
-    this.creationAnnounceForm = this.formBuilder.group ({
-      brand: ['', Validators.required],
-      modele: ['', Validators.required],
-      image: ['', Validators.required],
-      price: ['', Validators.required],
-      year: ['', Validators.required],
-      cylinder: ['', Validators.required],
-      pieceType: ['', Validators.required],
-      description: ['', Validators.required],
-      note: ['', Validators.required],
-    })
+    // this.creationAnnounceB = this.formBuilder.group ({
+    //   brand: ['', Validators.required],
+    //   modele: ['', Validators.required],
+    //   image: ['', Validators.required],
+    //   price: ['', Validators.required],
+    //   year: ['', Validators.required],
+    //   cylinder: ['', Validators.required],
+    //   pieceType: ['', Validators.required],
+    //   description: ['', Validators.required],
+    //   note: ['', Validators.required],
+    // })
   }
 
   getMarque(){
@@ -114,9 +120,13 @@ export class TabCreationComponent implements OnInit {
   }
   getCylindree(){
     this.choixCylindree = true;
-    console.log(this.nrSelect);
   }
   getModele(){
     this.choixModele = true;
+  }
+
+  onSubmit(){
+    const marque : Announce = this.creationAnnounceB.value;
+    console.log(marque)
   }
 }

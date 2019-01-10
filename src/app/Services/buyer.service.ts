@@ -20,6 +20,11 @@ export class BuyerService {
 
   constructor(private http: HttpClient) { }
 
+  getAllBuyers (){
+    console.log("retreiving buyers");
+    return this.http.get<Buyer[]>(`${this.baseUrl}buyers`)
+  }
+
   createBuyer(buyer: Object): Observable<Object> {
     console.log("creation compte");
     return this.http.post<any>(`${this.baseUrl}signup`, buyer)

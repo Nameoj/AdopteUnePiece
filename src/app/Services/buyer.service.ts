@@ -15,7 +15,6 @@ export class BuyerService {
 
   public buyerConnected;
 
-
   private baseUrl = 'http://localhost:8080/api/';
 
   constructor(private http: HttpClient) { }
@@ -28,17 +27,18 @@ export class BuyerService {
   createBuyer(buyer: Object): Observable<Object> {
     console.log('creation compte');
     return this.http.post<any>(`${this.baseUrl}signup`, buyer)
-      .pipe(
-        map(
-          data => {
-            sessionStorage.setItem(AUTHENTICATED_USER, data.username);
-            sessionStorage.setItem(TOKEN, `Bearer ${data.accessToken}`);
-            console.log('token enregistré' + data.accessToken + ' ' + data.username);
-            return data;
-          }
-        )
-      );
-  }
+    
+    .pipe(
+      map(
+        data => {
+          sessionStorage.setItem(AUTHENTICATED_USER, data.username);
+          sessionStorage.setItem(TOKEN, `Bearer ${data.accessToken}`);
+          console.log("token enregistré" + data.accessToken +" "+ data.username)
+          return data;
+        }
+      )
+    );
+  };
 
   login(buyer: Object): Observable<Object> {
     console.log('signin process....');
@@ -72,8 +72,8 @@ export class BuyerService {
   }
 
   isUserLoggedIn() {
-    const user = sessionStorage.getItem(AUTHENTICATED_USER);
-    return !(user === null);
+    const user = sessionStorage.getItem(AUTHENTICATED_USER)
+    return !(user === null)
   }
 
   logout() {

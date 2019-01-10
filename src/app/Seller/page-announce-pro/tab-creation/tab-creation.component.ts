@@ -6,6 +6,8 @@ import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { CategoriesService } from '../../../Services/categories.service';
 import { HttpClient, HttpEventType } from '@angular/common/http';
 import * as $ from 'jquery';
+import { AnnounceService } from 'src/app/Services/announce.service';
+
 
 @Component({
   selector: 'app-tab-creation',
@@ -15,7 +17,7 @@ import * as $ from 'jquery';
 })
 export class TabCreationComponent implements OnInit {
 
-  creationAnnounceB = new FormGroup({
+  creationAnnounce = new FormGroup({
     brand: new FormControl()
   })
 
@@ -28,6 +30,8 @@ export class TabCreationComponent implements OnInit {
   choixModele: boolean = false;
 
   motos = ["Honda","Kawasaki","SUzuki","Yamaha"]
+  annonceForm: FormGroup;
+  submitted: boolean = false;
 
   onSelectFile(event) {
     if (event.target.files && event.target.files[0]) {
@@ -45,10 +49,11 @@ export class TabCreationComponent implements OnInit {
     private categoriesService: CategoriesService, 
     private http: HttpClient,
     private formBuilder: FormBuilder,
-    private router: Router) {
+    private announceService: AnnounceService,
+    private router: Router) 
+    {config.max = 5;
     // customize default values of ratings used by this component tree
-    config.max = 5;
-  }
+    }
 
   onFileSelected(event) {
     this.selectedFile = <File>event.target.files[0];
@@ -78,10 +83,10 @@ export class TabCreationComponent implements OnInit {
 
     // selection photos
     $('#singleUploadForm').submit(function (event) {
-      var formElement = this;
+      let formElement = this;
       // You can directly create form data from the form element
       // (Or you could get the files from input element and append them to FormData as we did in vanilla javascript)
-      var formData = new FormData(formElement);
+      let formData = new FormData(formElement);
 
       $.ajax({
         type: "POST",
@@ -126,7 +131,13 @@ export class TabCreationComponent implements OnInit {
   }
 
   onSubmit(){
-    const marque : Announce = this.creationAnnounceB.value;
+    const marque : Announce = this.creationAnnounce.value;
     console.log(marque)
   }
+
+    // console.log(this.annonceForm.value);
+    // console.log(newAnnonce);
+
+    //  this.announceService.createAnnounce(newAnnonce)
+    //  this.router.navigate(['/']);
 }

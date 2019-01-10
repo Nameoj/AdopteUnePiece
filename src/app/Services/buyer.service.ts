@@ -13,7 +13,7 @@ export const AUTHENTICATED_USER = 'authenticaterUser'
 
 export class BuyerService {
 
-  public buyerConnected
+  public buyerConnected;
  
   
   private baseUrl = 'http://localhost:8080/api/';
@@ -37,7 +37,7 @@ export class BuyerService {
           return data;
         }
       )
-    );;
+    );
   };
 
   login(buyer: Object): Observable<Object> {
@@ -71,7 +71,7 @@ export class BuyerService {
   }
 
   isUserLoggedIn() {
-    let user = sessionStorage.getItem(AUTHENTICATED_USER)
+    const user = sessionStorage.getItem(AUTHENTICATED_USER)
     return !(user === null)
   }
 

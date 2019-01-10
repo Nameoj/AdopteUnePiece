@@ -10,12 +10,12 @@ export class SellerService {
 
   public sellerConnected;
 
-  private baseUrl = 'http://localhost:8080/api/sellers';
+  private baseUrl = 'http://localhost:8080/api/signup/seller';
 
   constructor(private http: HttpClient) { }
 
   createSeller(seller: Object): Observable<Object> {
-    console.log("creation compte");
+    console.log("creation compte seller");
     return this.http.post(`${this.baseUrl}`, seller);
   };
 }

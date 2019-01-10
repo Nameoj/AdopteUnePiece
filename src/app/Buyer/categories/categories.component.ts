@@ -49,5 +49,12 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit() {
   }
+  openNav() {
+    let sideNav=document.getElementById("sidenav");
+    sideNav.style.width="300px";
+    }
+    closeNav() {
+    document.getElementById("sidenav").style.width = "0";
+    }
 
 }

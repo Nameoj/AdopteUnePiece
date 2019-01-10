@@ -3,6 +3,7 @@ import { BuyerService } from 'src/app/Services/buyer.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { UserConnection } from 'src/app/models/user.connection.model';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-navbar',
@@ -17,6 +18,7 @@ export class NavbarComponent implements OnInit {
   registerForm : FormGroup;
   submitted: boolean = false;
   erreurConnection: boolean = false;
+//   x =document.getElementById("myModal");
   
   constructor(private buyerService: BuyerService, private router: Router, private formBuilder: FormBuilder) { }
 
@@ -57,17 +59,21 @@ export class NavbarComponent implements OnInit {
      );
     console.log(this.registerForm.value);
      console.log(newUserConnection);
-
+     
      this.buyerService.login(newUserConnection)
      .subscribe(data => 
                        {console.log(data), this.buyerService.buyerConnected = data;
-     console.log("buyer logged" + this.buyerService.buyerConnected.username);
+     console.log("buyer logged" + this.buyerService.buyerConnected.username + " " + this.buyerService.buyerConnected.authorities[0].authority);
     
-    // this.hidden = "hidden";
-    this.dismiss="modal";
-     this.modal="";
 
-     this.router.navigate(['/'])},
+     $("#myModal .close").click();
+    
+    if (this.buyerService.buyerConnected.authorities[0].authority == "ROLE_ADMIN"){
+      this.router.navigate(['/admin-home'])
+    }
+    else{
+    this.router.navigate(['/'])}
+  },
                 error=>{ this.submitted=false,
                        console.log("erreur!!!"),console.log(error.status), this.erreurConnection = true}
      );

@@ -7,23 +7,18 @@
       >
       <div class="col-md-10">
         <input
-          formControlName="RaisonSociale"
+          formControlName="raisonSociale"
           type="text"
           class="form-control"
-          id="RaisonSociale"
-          [ngClass]="{ 'is-invalid': submitted && f.RaisonSociale.errors }"
+          id="raisonSociale"
+          [ngClass]="{ 'is-invalid': submitted && f.raisonSociale.errors }"
           />
           <div
-            *ngIf="submitted && f.RaisonSociale.errors"
-            class="invalid-feedback"
-          >
-          <div
-                *ngIf="submitted && f.RaisonSociale.errors"
+                *ngIf="submitted && f.raisonSociale.errors"
                 class="invalid-feedback"
               >
-                <div *ngIf="f.RaisonSociale.errors.required">champs requis</div>
+                <div *ngIf="f.raisonSociale.errors.required">champs requis</div>
               </div>
-          </div>
       </div>
     </div>
 
@@ -34,25 +29,41 @@
       >
       <div class="col-md-10">
         <input
-          formControlName="Adressse"
+          formControlName="adresse1"
           type="text"
           class="form-control"
-          id="Adressse"
-          [ngClass]="{ 'is-invalid': submitted && f.Adressse.errors }"
+          id="adresse1"
+          [ngClass]="{ 'is-invalid': submitted && f.adresse1.errors }"
           />
           <div
-            *ngIf="submitted && f.Adressse.errors"
-            class="invalid-feedback"
-          >
-          <div
-                *ngIf="submitted && f.Adressse.errors"
+                *ngIf="submitted && f.adresse1.errors"
                 class="invalid-feedback"
               >
-                <div *ngIf="f.Adressse.errors.required">champs requis</div>
+                <div *ngIf="f.adresse1.errors.required">champs requis</div>
               </div>
-          </div>
       </div>
     </div>
+
+    <div class="form-group row">
+        <label for="colFormLabel" class="label col-md-2 col-form-label"
+          >Adresse 2</label
+        >
+        <div class="col-md-10">
+          <input
+            formControlName="adresse2"
+            type="text"
+            class="form-control"
+            id="adresse2"
+            [ngClass]="{ 'is-invalid': submitted && f.adresse2.errors }"
+            />
+            <div
+                  *ngIf="submitted && f.adresse2.errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f.adresse2.errors.required">champs requis</div>
+                </div>
+        </div>
+      </div>
 
     <!--CODE POSTAL-->
     <div class="form-group row">
@@ -61,22 +72,17 @@
         >
         <div class="col-md-6">
           <input
-            formControlName="CodePostal"
+            formControlName="codePostal"
             type="text"
             class="form-control"
-            id="CodePostal"
-            [ngClass]="{ 'is-invalid': submitted && f.CodePostal.errors }"
+            id="codePostal"
+            [ngClass]="{ 'is-invalid': submitted && f.codePostal.errors }"
             />
             <div
-              *ngIf="submitted && f.CodePostal.errors"
-              class="invalid-feedback"
-            >
-            <div
-                  *ngIf="submitted && f.CodePostal.errors"
+                  *ngIf="submitted && f.codePostal.errors"
                   class="invalid-feedback"
                 >
-                  <div *ngIf="f.CodePostal.errors.required">champs requis</div>
-                </div>
+                  <div *ngIf="f.codePostal.errors.required">champs requis</div>
             </div>
         </div>
       </div>
@@ -88,23 +94,18 @@
       >
       <div class="col-md-10">
         <input
-          formControlName="Ville"
+          formControlName="ville"
           type="text"
           class="form-control"
-          id="Ville"
-          [ngClass]="{ 'is-invalid': submitted && f.Ville.errors }"
+          id="ville"
+          [ngClass]="{ 'is-invalid': submitted && f.ville.errors }"
           />
           <div
-            *ngIf="submitted && f.Ville.errors"
-            class="invalid-feedback"
-          >
-          <div
-                *ngIf="submitted && f.Ville.errors"
+                *ngIf="submitted && f.ville.errors"
                 class="invalid-feedback"
               >
-                <div *ngIf="f.Ville.errors.required">champs requis</div>
+                <div *ngIf="f.ville.errors.required">champs requis</div>
               </div>
-          </div>
       </div>
     </div>
 
@@ -131,33 +132,6 @@
       </div>
     </div>
 
-    <!--SIRET-->
-    <div class="form-group row">
-      <label for="colFormLabel" class="label col-md-2 col-form-label"
-        >SIRET</label
-      >
-      <div class="col-md-4">
-        <input
-          formControlName="Siret"
-          type="text"
-          class="form-control"
-          id="Siret"
-          [ngClass]="{ 'is-invalid': submitted && f.Siret.errors }"
-          />
-          <div
-            *ngIf="submitted && f.Siret.errors"
-            class="invalid-feedback"
-          >
-          <div
-                *ngIf="submitted && f.Siret.errors"
-                class="invalid-feedback"
-              >
-                <div *ngIf="f.Siret.errors.required">champs requis</div>
-              </div>
-          </div>
-      </div>
-    </div>
-
     <!--SIREN-->
     <div class="form-group row">
       <label for="colFormLabel" class="label col-md-2 col-form-label"
@@ -165,23 +139,18 @@
       >
       <div class="col-md-4">
         <input
-          formControlName="Siren"
+          formControlName="siren"
           type="text"
           class="form-control"
-          id="Siren"
-          [ngClass]="{ 'is-invalid': submitted && f.Siren.errors }"
+          id="siren"
+          [ngClass]="{ 'is-invalid': submitted && f.siren.errors }"
           />
           <div
-            *ngIf="submitted && f.Siren.errors"
-            class="invalid-feedback"
-          >
-          <div
-                *ngIf="submitted && f.Siren.errors"
+                *ngIf="submitted && f.siren.errors"
                 class="invalid-feedback"
               >
-                <div *ngIf="f.Siren.errors.required">champs requis</div>
+                <div *ngIf="f.siren.errors.required">champs requis</div>
               </div>
-          </div>
       </div>
     </div>
 
@@ -196,7 +165,7 @@
           type="email"
           class="form-control"
           id="email"
-          [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+          [ngClass]="{ 'is-invalid': (submitted && f.email.errors) || emailExistant }"
           />
           <div
             *ngIf="submitted && f.email.errors"
@@ -206,6 +175,9 @@
             <div *ngIf="f.email.errors.email">
               un email valide est requis
             </div>
+          </div>
+          <div *ngIf="emailExistant" class="invalid-feedback">
+            cet email est déjà utilisé
           </div>
       </div>
     </div>
@@ -325,9 +297,15 @@
         </div>
       </div>
       <div>
-        <button type="submit" class="btn btn-warning  mb-2">
+        <button *ngIf=(!vendeurCree) type="submit" class="btn btn-warning  mb-2">
           Créer Compte
         </button>
       </div>
   </form>
+  <div *ngIf=(vendeurCree)>
+    <p>La casse {{sellerService.sellerConnected.raisonSociale}} a bien été crée</p>
+    <button (click)="relance()" class="btn btn-warning  mb-2">
+      Créer un nouveau compte
+    </button>
+  </div>
 </div>

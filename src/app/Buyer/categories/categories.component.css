@@ -1,24 +1,25 @@
-.categoriesContainer {
-    border: 1px solid red;
+
+.container {
+    padding-right:0;
 }
 
+.row {
+    display:block;
+}
 .categories {
     background-color: #1a1a1a;
+    width: 85%;
+    height:3rem;
     text-align: end;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 2vh;
-    margin-right: 1vw;
-    color: white;
-}
-
-.categoriesName {
-    font-weight: bold;
-    font-size: 1.1em;
-    padding-right: 2vw;
-    vertical-align: middle;
+    padding:13px 22px 0px 0px;
     color: #F0F0F0;
-    line-height: 7vh;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: 5px;
+    font-family:Rubik, Arial, Helvetica, sans-serif;
+    text-transform:uppercase;
+    font-size: 1em;
 }
 
 .categ {
@@ -53,55 +54,71 @@
     }
 }
 
-/*Small devices (landscape phones, 576px and up)*/
-@media (min-width: 576px) {
-    .categories {
-        width: 30vw;
-        height: 12vh;
-        line-height: 12vh;
-    }
+.menuButton {
+    display:none;
+    left:0;
+}
 
-    .mat-button {
-        height: 12vh;
+.closebtn {
+    display:none;
+}
+@media screen and (max-width: 768px) {
+    .categories {
+        margin-left:15px;
+    }
+    .container {
+        padding-left:0;
+    }
+    .sidenav {
+        height: 100vh;
+        width: 0;
+        position: fixed;
+        z-index: 6;
+        left: 0;
+        background-color: #FAFAFA;
+        overflow-x: hidden;
+        transition: 0.5s;
+        top:0;
+        padding-top:12vh;
+    }
+    .sidenav .closebtn {
+        position: absolute;
+        float: left;
+        top: 7.5vh;
+        right: 3px;
+        font-size: 36px;
+        margin-left: 50px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        display:block;
+    }
+    .menuButton {
+        top: 16vh;
+        float: left;
+        position: fixed;
+        z-index: 3;
+        border: none;
+        background-color: none;
+        background-image: url('../../../assets/right-arrow.png');
+        background-size: 20px;
+        background-position: left;
+        background-repeat: no-repeat;
+        height: 50px;
+        width: 25px;
+        border-radius:0px 50px 50px 0px;
+        display:block;
+        transition:all 0.3s;
+        opacity:0;
+    }
+    .menuButton:disabled:hover {
+        cursor: default;
+    }
+    .menuButton:hover {
+        border: none;
+        background-color: #F0F0F0;
+        cursor: pointer;
     }
 
 }
 
-/*Medium devices (tablets, 768px and up)*/
-@media (min-width: 768px) {
-    .categories {
-        width: 30vw;
-        height: 8vh;
-        line-height: 8vh;
-        margin-left: 10vw;
-    }
-
-    .mat-button {
-        height: 8vh;
-    }
-
-}
-
-/*Large devices (desktops, 992px and up)*/
-@media (min-width: 992px) {
-    .categoriesContainer {
-        width: 30vw;
-    }
-
-    .categories {
-        width: 15vw;
-        height: 10vh;
-        line-height: 10vh;
-        margin-left: 5vw;
-    }
-
-    .mat-button {
-        height: 10vh;
-        font-size: 1em;
-    }
-
-    .material-icons {
-        font-size: 2.5em;
-    }
-
-}

@@ -12,6 +12,7 @@ export class AdminBuyerListComponent implements OnInit {
 
   numbers: number[] = [];
   buyers: Buyer[];
+  buyer: Buyer;
 
   constructor(private buyerService: BuyerService, private router: Router) { }
 
@@ -29,6 +30,14 @@ export class AdminBuyerListComponent implements OnInit {
         console.log(this.buyerService.buyerConnected); this.router.navigate(['/myaccount/infosperso']);
       }
       );
+  }
+
+  delete(buyer){
+    this.buyerService.deleteBuyer(buyer).subscribe(data => {this.buyerService.buyerConnected = data; console.log(this.buyerService.buyerConnected); 
+      this.buyerService.getAllBuyers().subscribe(
+        response =>  this.buyers = response
+      )
+    })
   }
 
 }

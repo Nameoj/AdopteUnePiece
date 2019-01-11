@@ -10,7 +10,7 @@
               Raison Sociale
             </th>
             <th>
-              SIRET
+              SIREN
             </th>
             <th>
               Adresse
@@ -26,30 +26,30 @@
             </th>
           </tr>
         </thead>
-        <ng-container *cdkVirtualFor="let n of numbers">
-          <tr>
-            <td>
-              {{ n }}
-            </td>
-            <td>
-              Lyon Casse Moto
-            </td>
-            <td>
-              123456789
-            </td>
-            <td>
-              17 rue Delandine, 69002 Lyon
-            </td>
-            <td>
-              0606060606
-            </td>
-            <td>
-              <i class="material-icons">edit</i>
-            </td>
-            <td>
-              <i class="material-icons">delete_sweep</i>
-            </td>
-          </tr>
+        <ng-container *cdkVirtualFor="let seller of sellers">
+            <tr>
+                <th>
+                  {{seller.id}}
+                </th>
+                <th>
+                  {{seller.raisonSociale}}
+                </th>
+                <th>
+                  {{seller.siren}}
+                </th>
+                <th>
+                  {{seller.adresse1}}
+                </th>
+                <th>
+                  {{seller.telephone}}
+                </th>
+                <th>
+                  <i class="material-icons">edit</i>
+                </th>
+                <th>
+                  <i class="material-icons">delete_sweep</i>
+                </th>
+              </tr>
         </ng-container>
       </table>
     </cdk-virtual-scroll-viewport>

@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6722d302940469dbaf6a70a5245154e8ece86c49
 .container {
     padding-right:0;
 }
@@ -42,6 +46,7 @@
     }
     .container {
         padding-left:0;
+        padding-right:0;
     }
     .sidenav {
         height: 100vh;

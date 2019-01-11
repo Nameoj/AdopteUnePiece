@@ -20,21 +20,27 @@ export class InfospersoComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private buyerService: BuyerService, private router: Router) { }
 
   ngOnInit() {
-
+    this.submitted = false;
+    console.log(this.buyerService.getAuthenticatedRole());
+    if (this.buyerService.getAuthenticatedRole() == "ROLE_BUYER"){
     this.buyerService.getBuyerDetails(this.buyerService.getAuthenticatedUser()).
-    subscribe( data => {this.buyerConnected = data; this.buyerService.buyerConnected = this.buyerConnected
-
-    console.log(this.buyerConnected);
-
+    subscribe( data => {this.buyerConnected = data; this.buyerService.buyerConnected = this.buyerConnected;
+    console.log(this.buyerConnected); 
+    this.formInit()
+  });
+  }
+  else {this.buyerConnected = this.buyerService.buyerConnected;
+    this.formInit()
+  }
+  }
+  formInit(){
     this.registerForm  = this.formBuilder.group ({
       email: [this.buyerConnected.username, [Validators.required, Validators.email]],
       prenom: [this.buyerConnected.prenom, Validators.required],
       nom: [this.buyerConnected.nom, Validators.required],
       telephone: [this.buyerConnected.telephone, [Validators.required, Validators.pattern('[0][0-9]{9}') ]],
     })
-  });
   }
-
     // convenience getter for easy access to form fields
     get f() { return this.registerForm.controls; }
 
@@ -65,11 +71,11 @@ export class InfospersoComponent implements OnInit {
      console.log(this.registerForm.value);
       console.log(newBuyer);
  
-     this.buyerService.updateBuyer(newBuyer, this.buyerService.getAuthenticatedUser())
+     this.buyerService.updateBuyer(newBuyer, this.buyerService.buyerConnected.username)
      .subscribe(data => 
                        {console.log(data), this.buyerService.buyerConnected = data,
      console.log("buyer updated" + this.buyerService.buyerConnected.nom),
-     this.router.navigate(['/'])},
+     this.router.navigate(['/myaccount/infosperso'])},
                 error=>{ this.submitted=false,
                        console.log("erreur!!!"),console.log(error.status)}
      );

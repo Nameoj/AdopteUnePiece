@@ -28,7 +28,6 @@ export class BuyerService {
   createBuyer(buyer: Object): Observable<Object> {
     console.log('creation compte');
     return this.http.post<any>(`${this.baseUrl}signup`, buyer)
-    
     .pipe(
       map(
         data => {
@@ -94,7 +93,10 @@ export class BuyerService {
 
   updateBuyer(buyer, username): Observable<Object> {
     console.log('creation compte');
-    return this.http.put(`${this.baseUrl}buyer/${username}`, buyer);
+    return this.http.get(`${this.baseUrl}buyer/${username}`, buyer);
+  }
+  deleteBuyer(username: String): Observable<Object> {
+    return this.http.get<Buyer>(`${this.baseUrl}deletebuyer/${username}`);
   }
 
 }

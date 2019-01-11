@@ -13,17 +13,22 @@ export class AdminBuyerListComponent implements OnInit {
   numbers: number[] = [];
   buyers: Buyer[];
 
-  constructor(private buyerService: BuyerService, private router: Router) {}
+  constructor(private buyerService: BuyerService, private router: Router) { }
 
   ngOnInit() {
     this.buyerService.getAllBuyers().subscribe(
-      response =>  this.buyers = response
+      response => this.buyers = response
     );
   }
 
-  edit(buyer){
+  edit(buyer) {
     console.log(buyer);
-    this.buyerService.getBuyerDetails(buyer).subscribe( data => {this.buyerService.buyerConnected = data; console.log(this.buyerService.buyerConnected); this.router.navigate(['/myaccount/infosperso'])}
-  )}
+    this.buyerService.getBuyerDetails(buyer)
+      .subscribe(data => {
+        this.buyerService.buyerConnected = data;
+        console.log(this.buyerService.buyerConnected); this.router.navigate(['/myaccount/infosperso']);
+      }
+      );
+  }
 
 }

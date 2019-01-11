@@ -59,33 +59,7 @@ export class TabCreationComponent implements OnInit {
   motoCategories = this.categoriesService.mockMotoCategories;
 
   ngOnInit() {
-    $('#singleUploadForm').submit(function (event) {
-      let formElement = this;
-      // You can directly create form data from the form element
-      // (Or you could get the files from input element and append them to FormData as we did in vanilla javascript)
-      let formData = new FormData(formElement);
-
-      $.ajax({
-        type: "POST",
-        enctype: "multipart/form-data",
-        url: "http://localhost:8080/api/uploadFile",
-        data: formData,
-        processData: false,
-        acceptCharset:false,
-        contentType: false,
-        success: function (response) {
-          console.log(response);
-          // process response
-        },
-        error: function (error) {
-          console.log(error);
-          // process error
-        }
-      });
-
-      event.preventDefault();
-    });
-  }
+    }
 
   openNav() {
     let sideNav = document.getElementById("sidenav");

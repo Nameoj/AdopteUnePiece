@@ -10,7 +10,7 @@
     width: 85%;
     height:3rem;
     text-align: end;
-    padding:13px 22px 0px 0px;
+    padding:13px 20px 0px 0px;
     color: #F0F0F0;
     border-radius: 3px;
     cursor: pointer;
@@ -24,42 +24,17 @@
 .categ {
     display: none;
 }
-
-.mat-button {
-    outline: 0;
-}
-
-.arrowHead{
-    background-image:url('../../../assets/down-arrow.png');
-    background-size: 15px;
-    background-position: center right 14px;
-    background-repeat: no-repeat;
-}
-
-/*Mobile*/
-@media (max-width: 576px) { 
-    .categoriesContainer {
-        border: 1px solid red;
-        width: 100%;
-    }
-
-    .categories {
-        width: 50vw;
-        height: 7vh;
-    }
-    
-    .mat-button {
-        height: 7vh;
-    }
-}
-
-.menuButton {
-    display:none;
-    left:0;
-}
-
 .closebtn {
     display:none;
+}
+.menuButton {
+    display:none;
+}
+.arrowHead{
+    background-image:url('../../../assets/down-arrow-white.png');
+    background-size: 12px;
+    background-position: center right 5px;
+    background-repeat: no-repeat;
 }
 @media screen and (max-width: 768px) {
     .categories {
@@ -95,6 +70,7 @@
     .menuButton {
         top: 16vh;
         float: left;
+        left:0;
         position: fixed;
         z-index: 3;
         border: none;

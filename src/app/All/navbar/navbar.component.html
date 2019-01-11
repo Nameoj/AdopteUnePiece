@@ -27,7 +27,7 @@
 
         <li class="nav-item col-6">
           <a class="nav-link" (click)="click()" data-toggle= "modal"  [attr.data-target]="'#' + modal"  
-          ><p >Votre Compte</p></a>
+          ><p *ngIf="buyerService.getAuthenticatedRole() != 'ROLE_ADMIN'">Votre Compte</p></a>
           <a><p *ngIf="buyerService.isUserLoggedIn()" (click)="logout()" routerLink="/">Deconnexion</p></a>
         </li>
       </ul>

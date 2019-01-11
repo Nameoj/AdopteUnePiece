@@ -6,6 +6,7 @@ import {map} from 'rxjs/operators';
 
 export const TOKEN = 'token'
 export const AUTHENTICATED_USER = 'authenticaterUser'
+export const ROLE = 'role'
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,7 @@ export class BuyerService {
         data => {
           sessionStorage.setItem(AUTHENTICATED_USER, data.username);
           sessionStorage.setItem(TOKEN, `Bearer ${data.accessToken}`);
+          sessionStorage.setItem(ROLE, data.authorities[0].authority);
           console.log("token enregistré" + data.accessToken +" "+ data.username)
           return data;
         }
@@ -48,6 +50,7 @@ export class BuyerService {
         data => {
           sessionStorage.setItem(AUTHENTICATED_USER, data.username);
           sessionStorage.setItem(TOKEN, `Bearer ${data.accessToken}`);
+          sessionStorage.setItem(ROLE, data.authorities[0].authority);
           console.log("token enregistré" + data.accessToken +" "+ data.username)
           return data;
         }
@@ -70,6 +73,11 @@ export class BuyerService {
       return sessionStorage.getItem(TOKEN)
   }
 
+  getAuthenticatedRole() {
+    if(this.getAuthenticatedUser())
+      return sessionStorage.getItem(ROLE)
+  }
+
   isUserLoggedIn() {
     let user = sessionStorage.getItem(AUTHENTICATED_USER)
     return !(user === null)
@@ -77,7 +85,8 @@ export class BuyerService {
 
   logout(){
     sessionStorage.removeItem(AUTHENTICATED_USER)
-    sessionStorage.removeItem(TOKEN)
+    sessionStorage.removeItem(TOKEN);
+    sessionStorage.removeItem(ROLE)
   }
 
   updateBuyer(buyer, username): Observable<Object> {

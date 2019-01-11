@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BuyerService } from 'src/app/Services/buyer.service';
 import { Buyer } from 'src/app/models/buyer.models';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-buyer-list',
@@ -12,16 +13,17 @@ export class AdminBuyerListComponent implements OnInit {
   numbers: number[] = [];
   buyers: Buyer[];
 
-  constructor(private buyerService: BuyerService) {
-    for (let index = 0; index < 10000; index++) {
-      this.numbers.push(index);
-    }
-  }
+  constructor(private buyerService: BuyerService, private router: Router) {}
 
   ngOnInit() {
     this.buyerService.getAllBuyers().subscribe(
-      response => {this.buyers = response}
+      response => {this.buyers = response; console.log(this.buyers)}
     )
   }
+
+  edit(buyer){
+    console.log(buyer);
+    this.buyerService.getBuyerDetails(buyer).subscribe( data => {this.buyerService.buyerConnected = data; console.log(this.buyerService.buyerConnected); this.router.navigate(['/myaccount/infosperso'])}
+  )}
 
 }

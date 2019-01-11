@@ -16,12 +16,12 @@ export class SellerService {
   constructor(private http: HttpClient) { }
 
   createSeller(seller: Object): Observable<Object> {
-    console.log("creation compte seller");
+    console.log('creation compte seller');
     return this.http.post(`${this.baseUrl}`, seller);
-  };
+  }
 
-  getAllSellers (){
-    console.log("retreiving sellers");
+  getAllSellers() {
+    console.log('retreiving sellers');
     return this.http.get<Seller[]>(`${this.baseUrl2}sellers`);
   }
 }

@@ -21,7 +21,7 @@ export class AdminBuyerListComponent implements OnInit {
   ngOnInit() {
     this.buyerService.getAllBuyers().subscribe(
       response => {this.buyers = response}
-    )
+    );
   }
 
 }

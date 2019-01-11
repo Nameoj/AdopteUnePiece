@@ -17,6 +17,7 @@ export class AdressesComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private buyerService: BuyerService, private router: Router) { }
 
   ngOnInit() {
+    this.submitted = false
     this.registerForm = this.formBuilder.group ({
       adresse1: [this.buyerService.buyerConnected.adresse1, Validators.required],
       adresse2: [this.buyerService.buyerConnected.adresse2],
@@ -53,11 +54,11 @@ export class AdressesComponent implements OnInit {
  console.log(this.registerForm.value);
   console.log(newBuyer);
 
-  this.buyerService.updateBuyer(newBuyer, this.buyerService.getAuthenticatedUser())
+  this.buyerService.updateBuyer(newBuyer, this.buyerService.buyerConnected.username)
   .subscribe(data => 
                     {console.log(data), this.buyerService.buyerConnected = data,
   console.log("buyer adress updated" + this.buyerService.buyerConnected.nom),
-  this.router.navigate(['/'])},
+  this.router.navigate(['/myaccount/adresse'])},
              error=>{ this.submitted=false,
                     console.log("erreur!!!"),console.log(error.status)}
  );

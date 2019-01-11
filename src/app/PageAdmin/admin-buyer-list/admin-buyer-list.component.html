@@ -4,7 +4,7 @@
         <thead class="head sticky">
           <tr>
             <th>
-              #
+              Id
             </th>
             <th>
               Nom
@@ -13,7 +13,7 @@
               Prénom
             </th>
             <th>
-              Adresse
+              Ville
             </th>
             <th>
               Editer
@@ -23,22 +23,22 @@
             </th>
           </tr>
         </thead>
-        <ng-container *cdkVirtualFor="let n of numbers">
+        <ng-container *cdkVirtualFor="let buyer of buyers">
           <tr>
             <td>
-              {{ n }}
+              {{buyer.id}}
             </td>
             <td>
-              Aymeric
+              {{buyer.nom}}
             </td>
             <td>
-              Neuman
+              {{buyer.prenom}}
             </td>
             <td>
-              17 rue Delandine
+              {{buyer.ville}}
             </td>
             <td>
-              <i class="material-icons">edit</i>
+              <a (click)="edit(buyer.username)"><i class="material-icons">edit</i></a>
             </td>
             <td>
               <i class="material-icons">delete_sweep</i>

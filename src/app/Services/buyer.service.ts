@@ -4,8 +4,9 @@ import { Observable } from 'rxjs';
 import { Buyer } from '../models/buyer.models';
 import { map } from 'rxjs/operators';
 
-export const TOKEN = 'token';
-export const AUTHENTICATED_USER = 'authenticaterUser';
+export const TOKEN = 'token'
+export const AUTHENTICATED_USER = 'authenticaterUser'
+export const ROLE = 'role'
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,7 @@ export class BuyerService {
         data => {
           sessionStorage.setItem(AUTHENTICATED_USER, data.username);
           sessionStorage.setItem(TOKEN, `Bearer ${data.accessToken}`);
+          sessionStorage.setItem(ROLE, data.authorities[0].authority);
           console.log("token enregistré" + data.accessToken +" "+ data.username)
           return data;
         }
@@ -43,17 +45,19 @@ export class BuyerService {
   login(buyer: Object): Observable<Object> {
     console.log('signin process....');
     return this.http.post<any>(`${this.baseUrl}signin`, buyer)
-      .pipe(
-        map(
-          data => {
-            sessionStorage.setItem(AUTHENTICATED_USER, data.username);
-            sessionStorage.setItem(TOKEN, `Bearer ${data.accessToken}`);
-            console.log('token enregistré' + data.accessToken + ' ' + data.username);
-            return data;
-          }
-        )
-      );
-  }
+
+    .pipe(
+      map(
+        data => {
+          sessionStorage.setItem(AUTHENTICATED_USER, data.username);
+          sessionStorage.setItem(TOKEN, `Bearer ${data.accessToken}`);
+          sessionStorage.setItem(ROLE, data.authorities[0].authority);
+          console.log("token enregistré" + data.accessToken +" "+ data.username)
+          return data;
+        }
+      )
+    );;
+  };
 
   getBuyerDetails(username): Observable<Object> {
     console.log('buyer details retreiving');
@@ -71,14 +75,21 @@ export class BuyerService {
     }
   }
 
+  getAuthenticatedRole() {
+    if(this.getAuthenticatedUser())
+      return sessionStorage.getItem(ROLE)
+  }
+
   isUserLoggedIn() {
     const user = sessionStorage.getItem(AUTHENTICATED_USER)
     return !(user === null)
   }
 
-  logout() {
-    sessionStorage.removeItem(AUTHENTICATED_USER);
+  logout(){
+    sessionStorage.removeItem(AUTHENTICATED_USER)
     sessionStorage.removeItem(TOKEN);
+    sessionStorage.removeItem(ROLE)
+
   }
 
   updateBuyer(buyer, username): Observable<Object> {

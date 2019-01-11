@@ -121,12 +121,18 @@
                 </div>
               </div>
           </div>
+          <div *ngIf="submitted" class="form-group row">
+            <div class="col-md-6 offset-md-3">
+            <p>Mise à jour effectuée</p>
+          </div>
+        </div>
           <div>
               <button type="submit" class="btn btn-warning text-white  mb-2">Validez</button>
           </div>
         </div>
       </div>
     </form>
+
   </div>
   </div>
 </div>

@@ -18,6 +18,7 @@ export class MotdepasseComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private buyerService: BuyerService, private router: Router) { }
 
   ngOnInit() {
+    this.submitted = false;
     this.registerForm = this.formBuilder.group ({
       password:['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', Validators.required],
@@ -56,11 +57,11 @@ export class MotdepasseComponent implements OnInit {
  console.log(this.registerForm.value);
   console.log(newBuyer);
 
-  this.buyerService.updateBuyer(newBuyer, this.buyerService.getAuthenticatedUser())
+  this.buyerService.updateBuyer(newBuyer, this.buyerService.buyerConnected.username)
   .subscribe(data => 
                     {console.log(data), this.buyerService.buyerConnected = data,
   console.log("buyer password updated" + this.buyerService.buyerConnected.nom),
-  this.router.navigate(['/'])},
+  this.router.navigate(['/myaccount/motdepasse'])},
              error=>{ this.submitted=false,
                     console.log("erreur!!!"),console.log(error.status)}
  );

@@ -19,46 +19,29 @@
                   
                 <div class="input-group mb-3 form-group">
                   <select  class="custom-select" id="brand" formControlName="brand" (click)="getMarque()">
-                    <!-- <option selected="">Kawasaki</option>
-                    <option selected="">Honda</option>
-                    <option selected="">Yamaha</option> -->
-                    <option *ngFor="let moto of motos">{{moto}}</option>
+                    <option selected="">Marque</option>
+                    <option *ngFor="let brand of brands">{{brand}}</option>
                   </select>
                 </div>
 
                 <div class="input-group mb-3">
-                  <select class="custom-select" id="cylindré" (click)="getCylindree()" [disabled]="!choixMarque">
+                  <select class="custom-select" id="cylinder" formControlName="cylinder" (click)="getCylindree()" [disabled]="!choixMarque">
                     <option selected="selected">Cylindré</option>
-
-                    <option value="1">100 CC</option>
-
-                    <option value="2">300 CC</option>
-
-                    <option value="3">500 CC</option>
+                    <option *ngFor="let cylinder of cylinders">{{cylinder}}</option>
                   </select>
                 </div>
 
                 <div class="input-group mb-3">
-                  <select class="custom-select" id="modele" (click)="getModele()" [disabled]="!choixCylindree">
+                  <select class="custom-select" id="model" formControlName="model" (click)="getModele()" [disabled]="!choixCylindree">
                     <option selected="selected">Modèle</option>
-
-                    <option value="1">Phantom</option>
-
-                    <option value="2">Tenerife</option>
-
-                    <option value="3">Odyssey</option>
+                    <option *ngFor="let motoModel of motoModels">{{motoModel}}</option>
                   </select>
                 </div>
 
                 <div class="input-group mb-3">
-                  <select class="custom-select" id="annee" [disabled]="!choixModele">
+                  <select class="custom-select" id="year" formControlName="year"  [disabled]="!choixModele">
                     <option selected="selected">Année</option>
-
-                    <option value="1">1978</option>
-
-                    <option value="2">2012</option>
-
-                    <option value="3">2030</option>
+                    <option *ngFor="let year of years">{{year}}</option>
                   </select>
 
                   <div class="input-group-append">
@@ -93,7 +76,7 @@
     <div class="ajoutPhoto mt-3">
       <div class="single-upload">
         <h3>Choisir une photo :</h3>
-        <form id="singleUploadForm" name="singleUploadForm">
+        <form id="singleUploadForm" name="singleUploadForm"> 
           <img [src]="url" height="150">
           <input id="singleFileUploadInput" type="file" name="file" class="file-input" required (change)="onSelectFile($event)" />
           <button type="submit" class="primary submit-btn">Valider</button>
@@ -105,23 +88,457 @@
       </div>
     </div>
     <div class="categorie mt-4">
-      <h5>Préciser la catégorie :</h5>
-      <app-tab-categories></app-tab-categories>
+      <div class="row mb-4">
+      <h5 class="col-6">Préciser la catégorie :</h5>
+      <div class="col-6">Vous avez choisi le type :
+          <button *ngIf="pieceType != null" type="button" class="btn btn-success">{{pieceType}}</button>
+      </div>
+      </div>  
+      <div class="container-fluid">
+          <div class="row">
+            <!--PARTIE CYCLE-->
+            <div class="col-md-3">
+              <p>
+                <a class="btn sectionBtn" data-toggle="collapse" href="#collapseCycle" role="button" aria-expanded="false"
+                  aria-controls="collapseCycle">
+                  Partie Cycle
+                </a>
+              </p>
+        
+              <div class="collapse" id="collapseCycle">
+                <div class="card card-body">
+                  <p>
+                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseCadre" role="button" aria-expanded="false"
+                      aria-controls="collapseCadre">
+                      Cadre <i class="material-icons">arrow_drop_down</i>
+                    </a>
+                  </p>
+                  <div class="collapse" id="collapseCadre">
+                    <div *ngFor="let cadre of cadres" (click)="doSomething($event.target.innerText)" class="buttonAspect" >{{cadre}}</div>
+                  </div>
+        
+                  <p>
+                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseFourche" role="button" aria-expanded="false"
+                      aria-controls="collapseFourche">
+                      Fourche <i class="material-icons">arrow_drop_down</i>
+                    </a>
+                  </p>
+                  <div class="collapse" id="collapseFourche">
+                      <button type ="button" class="btn partBtn">Fourche Complète</button>
+                      <button class="btn partBtn">Tube de Fourche Gauche</button>
+                      <button class="btn partBtn">Tube de Fourche Droit</button>
+                      <button class="btn partBtn">Té supérieur</button>
+                      <button class="btn partBtn">Té inférieur</button>
+                  </div>
+        
+                  <p>
+                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseBrasOscillant" role="button" aria-expanded="false"
+                      aria-controls="collapseBrasOscillant">
+                      Bras Oscillant <i class="material-icons">arrow_drop_down</i>
+                    </a>
+                  </p>
+                  <div class="collapse" id="collapseBrasOscillant">
+                      <button class="btn partBtn">Bras Oscillant Complet</button>
+                      <button class="btn partBtn">Axe de Bras Oscillant</button>
+                      <button class="btn partBtn">Tendeur de chaine</button>
+                  </div>
+        
+                  <p>
+                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseBequille" role="button" aria-expanded="false"
+                      aria-controls="collapseBequille">
+                      Béquille <i class="material-icons">arrow_drop_down</i>
+                    </a>
+                  </p>
+                  <div class="collapse" id="collapseBequille">
+                      <button class="btn partBtn">Béquille Latérale</button>
+                      <button class="btn partBtn">Béquille Centrale</button>
+                  </div>
+        
+        
+                  <p>
+                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseAmortArr" role="button" aria-expanded="false"
+                      aria-controls="collapseAmortArr">
+                      Amortisseur Arrière <i class="material-icons">arrow_drop_down</i>
+                    </a>
+                  </p>
+                  <div class="collapse" id="collapseAmortArr">
+                      <button class="btn partBtn">Amortisseur Complet</button>
+                      <button class="btn partBtn">Biellette d'Amortisseur</button>
+                  </div>
+        
+                  <p>
+                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseGuidon" role="button" aria-expanded="false"
+                      aria-controls="collapseGuidon">
+                      Guidon <i class="material-icons">arrow_drop_down</i>
+                    </a>
+                  </p>
+                  <div class="collapse" id="collapseGuidon">
+                      <button class="btn partBtn">Guidon</button>
+                      <button class="btn partBtn">Rétroviseur Gauche</button>
+                      <button class="btn partBtn">Rétroviseur Droit</button>
+                      <button class="btn partBtn">Poignée de Gaz</button>
+                      <button class="btn partBtn">Cocotte d'Embrayage</button>
+                      <button class="btn partBtn">Levier d'Embrayage</button>
+                      <button class="btn partBtn">Levier de frein</button>
+                      <button class="btn partBtn">Embout de guidon</button>
+                  </div>
+        
+                  <p>
+                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapsePlatineReposePied" role="button" aria-expanded="false"
+                      aria-controls="collapsePlatineReposePied">
+                      Platine Repose Pied <i class="material-icons">arrow_drop_down</i>
+                    </a>
+                  </p>
+                  <div class="collapse" id="collapsePlatineReposePied">
+                      <button class="btn partBtn">Platine Avant Gauche</button>
+                      <button class="btn partBtn">Platine Avant Droite</button>
+                      <button class="btn partBtn">Platine Arrière Gauche</button>
+                      <button class="btn partBtn">Platine Arrière Droite</button>
+                      <button class="btn partBtn">Repose Pied Avant Gauche</button>
+                      <button class="btn partBtn">Repose Pied Avant Droite</button>
+                      <button class="btn partBtn">Repose Pied Arrière Gauche</button>
+                      <button class="btn partBtn">Repose Pied Arrière Droite</button>
+                      <button class="btn partBtn">Pédale de frein</button>
+                      <button class="btn partBtn">Sélecteur de vitesse</button>
+                  </div>
+        
+                  <p>
+                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseFreinAvant" role="button" aria-expanded="false"
+                      aria-controls="collapseFreinAvant">
+                      Frein Avant <i class="material-icons">arrow_drop_down</i>
+                    </a>
+                  </p>
+                  <div class="collapse" id="collapseFreinAvant">
+                      <button class="btn partBtn">Frein Avant Complet</button>
+                      <button class="btn partBtn">Maire Cylindre</button>
+                      <button class="btn partBtn">Disque de Frein</button>
+                      <button class="btn partBtn">Durite de Frein</button>
+                  </div>
+        
+                  <p>
+                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseFreinArriere" role="button" aria-expanded="false"
+                      aria-controls="collapseFreinArriere">
+                      Frein Arrière <i class="material-icons">arrow_drop_down</i>
+                    </a>
+                  </p>
+                  <div class="collapse" id="collapseFreinArriere">
+                      <button class="btn partBtn">Frein Arrière Complet</button>
+                      <button class="btn partBtn">Maire Cylindre</button>
+                      <button class="btn partBtn">Disque de Frein</button>
+                      <button class="btn partBtn">Durite de Frein</button>
+                  </div>
+        
+                  <p>
+                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseJantes" role="button" aria-expanded="false"
+                      aria-controls="collapseJantes">
+                      Jantes <i class="material-icons">arrow_drop_down</i>
+                    </a>
+                  </p>
+                  <div class="collapse" id="collapseJantes">
+                      <button class="btn partBtn">Jantes Avant</button>
+                      <button class="btn partBtn">Jantes Arrière</button>
+                      <button class="btn partBtn">Axe de Roue Avant</button>
+                      <button class="btn partBtn">Axe de Roue Arrière</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <!--PARTIE MOTEUR-->
+            <div class="col-md-3">
+              <p>
+                <a class="btn sectionBtn" data-toggle="collapse" href="#collapseMoteur" role="button" aria-expanded="false"
+                  aria-controls="collapseMoteur">
+                  Partie Moteur
+                </a>
+              </p>
+              <div class="collapse" id="collapseMoteur">
+                <div class="card card-body">
+                  <p>
+                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseMoteurSub" role="button" aria-expanded="false"
+                      aria-controls="collapseMoteurSub">
+                      Moteur <i class="material-icons">arrow_drop_down</i>
+                    </a>
+                  </p>
+                  <div class="collapse" id="collapseMoteurSub">
+                    <button class="btn partBtn">Moteur Complet</button>
+                    <button class="btn partBtn">Carter Gauche</button>
+                    <button class="btn partBtn">Carter Droit</button>
+                    <button class="btn partBtn">Pièces moteur au détail</button>
+                    <button class="btn partBtn">Axe moteur</button>
+                  </div>
+        
+                  <p>
+                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseCarb" role="button" aria-expanded="false"
+                      aria-controls="collapseCarb">
+                      Carburation/Injection <i class="material-icons">arrow_drop_down</i>
+                    </a>
+                  </p>
+                  <div class="collapse" id="collapseCarb">
+                    <button class="btn partBtn">Carburateur</button>
+                    <button class="btn partBtn">Pipe Admission</button>
+                    <button class="btn partBtn">Bride</button>
+                    <button class="btn partBtn">Injection</button>
+                  </div>
+        
+                  <p>
+                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseBoiteAir" role="button" aria-expanded="false"
+                      aria-controls="collapseBoiteAir">
+                      Boite A Air <i class="material-icons">arrow_drop_down</i>
+                    </a>
+                  </p>
+                  <div class="collapse" id="collapseBoiteAir">
+                    <button class="btn partBtn">Boite A Air</button>
+                    <button class="btn partBtn">Filtre A Air</button>
+                  </div>
+        
+                  <p>
+                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseDemarreur" role="button" aria-expanded="false"
+                      aria-controls="collapseDemarreur">
+                      Démarreur <i class="material-icons">arrow_drop_down</i>
+                    </a>
+                  </p>
+                  <div class="collapse" id="collapseDemarreur">
+                    <button class="btn partBtn">Démarreur</button>
+                    <button class="btn partBtn">Roue Libre Démarreur</button>
+                  </div>
+        
+                  <p>
+                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseEchappement" role="button" aria-expanded="false"
+                      aria-controls="collapseEchappement">
+                      Echappement <i class="material-icons">arrow_drop_down</i>
+                    </a>
+                  </p>
+                  <div class="collapse" id="collapseEchappement">
+                    <button class="btn partBtn">Collecteur Echappement</button>
+                    <button class="btn partBtn">Pot Echappement</button>
+                    <button class="btn partBtn">Sonde Echappement</button>
+                  </div>
+        
+                  <p>
+                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseRadiateur" role="button" aria-expanded="false"
+                      aria-controls="collapseRadiateur">
+                      Radiateur <i class="material-icons">arrow_drop_down</i>
+                    </a>
+                  </p>
+                  <div class="collapse" id="collapseRadiateur">
+                    <button class="btn partBtn">Radiateur Complet</button>
+                    <button class="btn partBtn">Radiateur</button>
+                    <button class="btn partBtn">Calorstat</button>
+                    <button class="btn partBtn">Durite Refroidissement</button>
+                    <button class="btn partBtn">Bouchon de Radiateur</button>
+                    <button class="btn partBtn">Ventilateur</button>
+                    <button class="btn partBtn">Vase Expansion</button>
+                  </div>
+        
+                  <p>
+                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseCables" role="button" aria-expanded="false"
+                      aria-controls="collapseCables">
+                      Câbles <i class="material-icons">arrow_drop_down</i>
+                    </a>
+                  </p>
+                  <div class="collapse" id="collapseCables">
+                    <button class="btn partBtn">Câbles Accélérateur</button>
+                    <button class="btn partBtn">Câbles Starter</button>
+                    <button class="btn partBtn">Câbles Embrayage</button>
+                  </div>
+        
+                </div>
+              </div>
+        
+            </div>
+        
+            <!--PARTIE ELEC-->
+            <div class="col-md-3">
+              <p>
+                <a class="btn sectionBtn" data-toggle="collapse" href="#collapseElectrique" role="button" aria-expanded="false"
+                  aria-controls="collapseElectrique">
+                  Partie Electrique
+                </a>
+              </p>
+              <div class="collapse" id="collapseElectrique">
+                <div class="card card-body">
+                  <p>
+                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseFaisceaux" role="button" aria-expanded="false"
+                      aria-controls="collapseFaisceaux">
+                      Faisceaux Electrique <i class="material-icons">arrow_drop_down</i>
+                    </a>
+                  </p>
+                  <div class="collapse" id="collapseFaisceaux">
+                    <button class="btn partBtn">Faisceaux</button>
+                    <button class="btn partBtn">Capteurs divers</button>
+                    <button class="btn partBtn">Klaxon</button>
+                    <button class="btn partBtn">Boîtier CDI</button>
+                  </div>
+        
+                  <p>
+                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseEclairage" role="button" aria-expanded="false"
+                      aria-controls="collapseEclairage">
+                      Eclairage <i class="material-icons">arrow_drop_down</i>
+                    </a>
+                  </p>
+                  <div class="collapse" id="collapseEclairage">
+                    <button class="btn partBtn">Phare avant</button>
+                    <button class="btn partBtn">Phare arrière</button>
+                    <button class="btn partBtn">Eclairage Plaque</button>
+                    <button class="btn partBtn">Clignotant</button>
+                  </div>
+        
+                  <p>
+                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseCompteur" role="button" aria-expanded="false"
+                      aria-controls="collapseCompteur">
+                      Compteur <i class="material-icons">arrow_drop_down</i>
+                    </a>
+                  </p>
+                  <div class="collapse" id="collapseCompteur">
+                    <button class="btn partBtn">Compteur Complet</button>
+                    <button class="btn partBtn">Cables Compteur</button>
+                    <button class="btn partBtn">Entraineur Compteur</button>
+                    <button class="btn partBtn">Pièces Compteur Divers</button>
+                  </div>
+        
+                  <p>
+                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseSerrure" role="button" aria-expanded="false"
+                      aria-controls="collapseSerrure">
+                      Serrure/Kit Neiman <i class="material-icons">arrow_drop_down</i>
+                    </a>
+                  </p>
+                  <div class="collapse" id="collapseSerrure">
+                    <button class="btn partBtn">Kit Neiman Complet</button>
+                    <button class="btn partBtn">Neiman</button>
+                    <button class="btn partBtn">Serrure Réservoir</button>
+                    <button class="btn partBtn">Serrure Arrière</button>
+                  </div>
+        
+                  <p>
+                    <button type="button" class="btn btn-primary">Régulateur Tension</button>
+                  </p>
+        
+                  <p>
+                    <button type="button" class="btn btn-primary">Relais Démarreur</button>
+                  </p>
+        
+                  <p>
+                    <button type="button" class="btn btn-primary">Alternateur</button>
+                  </p>
+        
+                  <p>
+                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseCommodo" role="button" aria-expanded="false"
+                      aria-controls="collapseCommodo">
+                      Commodo <i class="material-icons">arrow_drop_down</i>
+                    </a>
+                  </p>
+                  <div class="collapse" id="collapseCommodo">
+                    <button class="btn partBtn">Commodo Gauche</button>
+                    <button class="btn partBtn">Commodo Droit</button>
+                  </div>
+        
+                </div>
+              </div>
+            </div>
+        
+            <!--PARTIE HABILLAGE-->
+            <div class="col-md-3">
+              <p>
+                <a class="btn sectionBtn" data-toggle="collapse" href="#collapseHabillage" role="button" aria-expanded="false"
+                  aria-controls="collapseHabillage">
+                  Partie Habillage 
+                </a>
+              </p>
+              <div class="collapse" id="collapseHabillage">
+                <div class="card card-body">
+                  <p>
+                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseReservoir" role="button" aria-expanded="false"
+                      aria-controls="collapseReservoir">
+                      Reservoir <i class="material-icons">arrow_drop_down</i>
+                    </a>
+                  </p>
+                  <div class="collapse" id="collapseReservoir">
+                    <button class="btn partBtn">Réservoir</button>
+                    <button class="btn partBtn">Robinet/Pompe Essence</button>
+                    <button class="btn partBtn">Jauge Essence</button>
+                  </div>
+        
+                  <p>
+                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseSelle" role="button" aria-expanded="false"
+                      aria-controls="collapseSelle">
+                      Selle <i class="material-icons">arrow_drop_down</i>
+                    </a>
+                  </p>
+                  <div class="collapse" id="collapseSelle">
+                    <button class="btn partBtn">Selle</button>
+                    <button class="btn partBtn">Capot Selle</button>
+                    <button class="btn partBtn">Fermeture Selle</button>
+                  </div>
+                  
+                  <p>
+                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseCarénages" role="button" aria-expanded="false"
+                      aria-controls="collapseCarénages">
+                      Carénages Divers <i class="material-icons">arrow_drop_down</i>
+                    </a>
+                  </p>
+                  <div class="collapse" id="collapseCarénages">
+                    <button class="btn partBtn">Carénages avant gauche</button>
+                    <button class="btn partBtn">Carénages avant droit</button>
+                    <button class="btn partBtn">Bulle/Saut de vent</button>
+                    <button class="btn partBtn">Tête Fourche</button>
+                    <button class="btn partBtn">Entourage Compteur</button>
+                    <button class="btn partBtn">Carénages Divers</button>
+                  </div>
+        
+                  <p>
+                    <button type="button" class="btn btn-primary">Poignée Arrière</button>
+                  </p>
+        
+                  <p>
+                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseGarde" role="button" aria-expanded="false"
+                      aria-controls="collapseGarde">
+                      Garde Boue <i class="material-icons">arrow_drop_down</i>
+                    </a>
+                  </p>
+                  <div class="collapse" id="collapseGarde">
+                    <button class="btn partBtn">Garde Boue Avant</button>
+                    <button class="btn partBtn">Garde Boue Arrière</button>
+                  </div>
+        
+                  <p>
+                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseCoque" role="button" aria-expanded="false"
+                      aria-controls="collapseCoque">
+                      Coque Arrière <i class="material-icons">arrow_drop_down</i>
+                    </a>
+                  </p>
+                  <div class="collapse" id="collapseCoque">
+                    <button class="btn partBtn">Coque Arrière Complète</button>
+                    <button class="btn partBtn">Coque Arrière Gauche</button>
+                    <button class="btn partBtn">Coque Arrière Droite</button>
+                    <button class="btn partBtn">Diverses Coque Arrière</button>
+                  </div>
+        
+                  <p>
+                    <button type="button" class="btn btn-primary">Protège Chaine</button>
+                  </p>
+                  
+                  <p>
+                    <button type="button" class="btn btn-primary">Protège Roue</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+        
+          </div>
+        </div>
       <!-- dropdown pour choisir dans qu'elle catégorie va la pièce -->
       <div>
         <h5>Description de votre pièce :</h5>
         <!-- ajout champ pour décrire l'état de la pièce -->
-        <textarea class="form-control" rows="5" aria-label="With textarea"></textarea>
+        <textarea id="description" class="form-control" formControlName="description" rows="5" aria-label="With textarea"></textarea>
       </div>
       <!-- ajout champ pour donner la plage de compatibilité de la pièce-->
-      <div class="input-group mt-3">
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
-          placeholder="Entrez le titre de votre annonce ...">
-      </div>
+
       <div class="note mt-3">
-        <ngb-rating [(rate)]="currentRate" class="star"></ngb-rating>
+        <ngb-rating id="note" class="form-control" formControlName="note" [(rate)]="rateChoice" class="star"></ngb-rating>
         <hr>
-        <pre>Etat de la pièce : <b>{{currentRate}}</b></pre>
+        <pre>Etat de la pièce : <b>{{rateChoice}}</b></pre>
       </div>
       <div class="row mt-5 mb-3">
         <div class="col-lg-12 text-center">

@@ -5,9 +5,10 @@ import { Router } from '@angular/router';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { CategoriesService } from '../../../Services/categories.service';
 import { HttpClient, HttpEventType } from '@angular/common/http';
-import * as $ from 'jquery';
 import { Announce } from '../../../models/announce.models';
 import { AnnounceService } from '../../../Services/announce.service';
+import * as $ from  'jquery';
+import { listenToElementOutputs } from '@angular/core/src/view/element';
 
 
 @Component({
@@ -134,6 +135,7 @@ export class TabCreationComponent implements OnInit {
 
 // ----   -----------------------  -------------   METHODS FOR FORM -----------------------------  ---------------------- -------- --------- --------
 
+
   getMarque(){
     this.choixMarque = true;
   }
@@ -142,6 +144,11 @@ export class TabCreationComponent implements OnInit {
   }
   getModele(){
     this.choixModele = true;
+
+  openNav() {
+    let sideNav = document.getElementById("sidenav");
+    sideNav.style.width = "300px";
+
   }
 
   getPieceType(pieceType) {

@@ -14,18 +14,26 @@ export class AdminCompanyCreateComponent implements OnInit {
 
   createCompanyForm: FormGroup;
   submitted: boolean = false;
+  emailExistant: boolean = false;
+  vendeurCree: boolean = false;
 
   constructor(private formBuilder: FormBuilder, private sellerService: SellerService, private router: Router) { }
 
   ngOnInit() {
+    this.initialisationForm()
+  }
+
+  initialisationForm() {
+    this.submitted = false;
+    this.vendeurCree = false;
     this.createCompanyForm = this.formBuilder.group ({
-      RaisonSociale: ['', Validators.required],
-      Adressse: ['', Validators.required],
-      CodePostal: ['', Validators.required],
-      Ville: ['', Validators.required],
+      raisonSociale: ['', Validators.required],
+      adresse1: ['', Validators.required],
+      adresse2: [''],
+      codePostal: ['', Validators.required],
+      ville: ['', Validators.required],
       telephone: ['', [Validators.required, Validators.pattern('[0][0-9]{9}') ]],
-      Siret: ['', Validators.required],
-      Siren: ['', Validators.required],
+      siren: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       nomG: ['', Validators.required],
       prenomG: ['', Validators.required],
@@ -51,18 +59,19 @@ export class AdminCompanyCreateComponent implements OnInit {
     const formValue = this.createCompanyForm.value;
      const newSeller = new Seller(
         0,
-        formValue['email'],
-        formValue['password'],
-        formValue['RaisonSociale'],
-        formValue['Siret'],
-        formValue['Siren'],
+        formValue['raisonSociale'],
+        formValue['adresse1'],
+        formValue['adresse2'],
+        formValue['codePostal'],
+        formValue['ville'],
         formValue['telephone'],
-        formValue['Adressse'],
-        formValue['CodePostal'],
-        formValue['Ville'],
+        formValue['siren'],
+        formValue['email'],
+        formValue['email'],
         formValue['nomG'],
         formValue['prenomG'],
         formValue['telephoneG'],
+        formValue['password']
      );
     
     alert('SUCCESS!! :-)');
@@ -70,10 +79,16 @@ export class AdminCompanyCreateComponent implements OnInit {
      console.log(newSeller);
 
     this.sellerService.createSeller(newSeller)
-    .subscribe(data => (console.log(data), error => console.log(error), this.sellerService.sellerConnected = data,
-    console.log(this.sellerService.sellerConnected.nom),
-    this.router.navigate(['/'])),
-    );
-    
-  }
+    .subscribe(data => 
+      {console.log(data), this.sellerService.sellerConnected = data,
+console.log("seller created" + this.sellerService.sellerConnected.raisonSociale, this.vendeurCree = true)
+},
+
+    error=>{ this.submitted=false,
+    console.log("erreur!!!"),console.log(error.status), this.emailExistant=true}
+);}
+
+relance() {
+  this.initialisationForm();
+}
 }

@@ -13,7 +13,7 @@ import * as $ from 'jquery';
 export class NavbarComponent implements OnInit {
 
   dismiss = "";
-  mockNumberOfArticles=1;
+  mockNumberOfArticles=0;
   modal;
   registerForm : FormGroup;
   submitted: boolean = false;
@@ -34,8 +34,12 @@ export class NavbarComponent implements OnInit {
   click() {
   
   console.log(this.buyerService.isUserLoggedIn()); 
-  if (this.buyerService.isUserLoggedIn()) {
+  if (this.buyerService.isUserLoggedIn() && this.buyerService.getAuthenticatedRole() == 'ROLE_BUYER') {
     this.router.navigate(['/myaccount/infosperso'])
+  }
+  else if (this.buyerService.isUserLoggedIn() && this.buyerService.getAuthenticatedRole() == 'ROLE_SELLER') 
+  {
+    this.router.navigate(['/page-announce-pro'])
   }
   else{this.modal="myModal"}
   }
@@ -71,6 +75,11 @@ export class NavbarComponent implements OnInit {
     if (this.buyerService.buyerConnected.authorities[0].authority == "ROLE_ADMIN"){
       this.router.navigate(['/admin-home'])
     }
+    else if (this.buyerService.isUserLoggedIn() && this.buyerService.getAuthenticatedRole() == 'ROLE_SELLER') 
+  {
+    this.router.navigate(['/page-announce-pro'])
+  }
+    
     else{
     this.router.navigate(['/'])}
   },

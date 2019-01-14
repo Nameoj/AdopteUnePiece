@@ -1,4 +1,4 @@
-
+import { BuyerService } from './../../../Services/buyer.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl, FormsModule, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -18,20 +18,13 @@ import { AnnounceService } from '../../../Services/announce.service';
 })
 export class TabCreationComponent implements OnInit {
 
-    creationAnnounce = new FormGroup({
-    brand: new FormControl(),
-    cylinder: new FormControl(),
-    model: new FormControl(),
-    year: new FormControl(),
-    pieceType: new FormControl(),
-    description: new FormControl(),
-    note: new FormControl(),
-  })
+  creationAnnounce: FormGroup;
 
   title = 'UploadImg';
   selectedFile: File = null;
   rateChoice = 0;
-  url = '';
+  uri : string;
+  url: string = '';
   choixMarque: boolean = false;
   choixCylindree: boolean = false;
   choixModele: boolean = false;
@@ -42,6 +35,7 @@ export class TabCreationComponent implements OnInit {
   years = ["1990","1991","1992","1993","1994","1995","1996"]
   cadres = ["Cadre", "Arraignée avant", "Boucle arrière", "Divers cadre"]
   pieceType : string;
+  seller : string;
   annonceForm: FormGroup;
   submitted: boolean = false;
 
@@ -51,6 +45,7 @@ export class TabCreationComponent implements OnInit {
     private categoriesService: CategoriesService, 
     private http: HttpClient,
     private formBuilder: FormBuilder,
+    private buyerService: BuyerService,
     private announceService: AnnounceService,
     private router: Router) 
     {config.max = 5;
@@ -60,6 +55,17 @@ export class TabCreationComponent implements OnInit {
   motoCategories = this.categoriesService.mockMotoCategories;
 
   ngOnInit() {
+
+    this.creationAnnounce = this.formBuilder.group ({
+      brand: ['', Validators.required],
+      cylinder: ['', Validators.required],
+      model: ['', Validators.required],
+      year: ['', Validators.required],
+      pieceType: ['', Validators.required],
+      description: ['', Validators.required],
+      note: ['', Validators.required],
+      price: ['', Validators.required],
+    })
 
     // selection photos
     $('#singleUploadForm').submit(function (event) {
@@ -76,6 +82,7 @@ export class TabCreationComponent implements OnInit {
         processData: false,
         contentType: false,
         success: function (response) {
+          this.uri = response.fileDownloadUri
           console.log(response);
           // process response
         },
@@ -86,18 +93,6 @@ export class TabCreationComponent implements OnInit {
       });
       event.preventDefault();
     });
-
-    // this.creationAnnounceB = this.formBuilder.group ({
-    //   brand: ['', Validators.required],
-    //   modele: ['', Validators.required],
-    //   image: ['', Validators.required],
-    //   price: ['', Validators.required],
-    //   year: ['', Validators.required],
-    //   cylinder: ['', Validators.required],
-    //   pieceType: ['', Validators.required],
-    //   description: ['', Validators.required],
-    //   note: ['', Validators.required],
-    // })
   }
 
   //  -------   ----------------   ---------------    METHODS FOR FILE UPLOADER --------    ---------------   -------------- ------------
@@ -118,21 +113,21 @@ export class TabCreationComponent implements OnInit {
     this.selectedFile = <File>event.target.files[0];
   }
 
-  onUpload() {
-    const fd = new FormData();
-    fd.append('image', this.selectedFile, this.selectedFile.name);
-    this.http.post('http://localhost:8080/api/uploadFile', fd, {
-      reportProgress: true,
-      observe: 'events'
-    })
-      .subscribe(event => {
-        if (event.type === HttpEventType.UploadProgress) {
-          console.log('Upload Progress: ' + Math.round(event.loaded / event.total * 100) + '%');
-        } else if (event.type === HttpEventType.Response) {
-          console.log(event);
-        }
-      });
-  }
+  // onUpload() {
+  //   const fd = new FormData();
+  //   fd.append('image', this.selectedFile, this.selectedFile.name);
+  //   this.http.post('http://localhost:8080/api/uploadFile', fd, {
+  //     reportProgress: true,
+  //     observe: 'events'
+  //   })
+  //     .subscribe(event => {
+  //       if (event.type === HttpEventType.UploadProgress) {
+  //         console.log('Upload Progress: ' + Math.round(event.loaded / event.total * 100) + '%');
+  //       } else if (event.type === HttpEventType.Response) {
+  //         console.log(event);
+  //       }
+  //     });
+  // }
 
 // ----   -----------------------  -------------   METHODS FOR FORM -----------------------------  ---------------------- -------- --------- --------
 
@@ -146,19 +141,28 @@ export class TabCreationComponent implements OnInit {
     this.choixModele = true;
   }
 
-  doSomething(pieceType) {
+  getPieceType(pieceType) {
     this.pieceType = pieceType;
   }
 
   onSubmit(){
-    const announce : Announce = this.creationAnnounce.value;
-    console.log(announce)
-    console.log(this.pieceType);
+    const formValue = this.creationAnnounce.value;
+    const newAnnounce = new Announce(
+      0,
+     this.buyerService.getAuthenticatedUser(),
+     this.uri,
+     formValue['description'],
+     formValue['note'],
+     this.pieceType,
+     formValue['model'],
+     formValue['brand'],
+     formValue['cylinder'],
+     formValue['year'],
+     formValue['price'],);
+
+    console.log(newAnnounce)
+
   }
 
-    // console.log(this.annonceForm.value);
-    // console.log(newAnnonce);
-
-    //  this.announceService.createAnnounce(newAnnonce)
-    //  this.router.navigate(['/']);
+  
 }

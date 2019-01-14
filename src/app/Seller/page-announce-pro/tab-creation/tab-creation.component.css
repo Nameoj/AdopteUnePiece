@@ -84,4 +84,13 @@ pre {
     background-color: darkgrey;
     text-align:center;
     margin-bottom: 0.5vh;
+    color:black;
+}
+
+.price{
+    width: 8em;
+}
+
+.priceSign{
+    font-size:1.5em;
 }

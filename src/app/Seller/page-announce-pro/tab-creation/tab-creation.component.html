@@ -114,7 +114,7 @@
                     </a>
                   </p>
                   <div class="collapse" id="collapseCadre">
-                    <div *ngFor="let cadre of cadres" (click)="doSomething($event.target.innerText)" class="buttonAspect" >{{cadre}}</div>
+                    <button class="buttonAspect" type="button" *ngFor="let cadre of cadres" (click)="getPieceType($event.target.innerText)">{{cadre}}</button>
                   </div>
         
                   <p>
@@ -527,18 +527,23 @@
         
           </div>
         </div>
-      <!-- dropdown pour choisir dans qu'elle catégorie va la pièce -->
+
       <div>
         <h5>Description de votre pièce :</h5>
         <!-- ajout champ pour décrire l'état de la pièce -->
         <textarea id="description" class="form-control" formControlName="description" rows="5" aria-label="With textarea"></textarea>
       </div>
       <!-- ajout champ pour donner la plage de compatibilité de la pièce-->
-
-      <div class="note mt-3">
+      <h5 class="mt-5">Choix de l'état de la pièce:</h5>
+      <div class="note mt-1">
         <ngb-rating id="note" class="form-control" formControlName="note" [(rate)]="rateChoice" class="star"></ngb-rating>
         <hr>
         <pre>Etat de la pièce : <b>{{rateChoice}}</b></pre>
+      </div>
+      <!-- ----------- ---------------------- ----------------- CHOIX DU PRIX DE LA PIECE -------------- -------------- ----------------- -->
+      <div>
+        <h5>Choix du prix de vente:</h5>
+        <input id="price" class="form-control" formControlName="price" class="price"><span class="priceSign ml-2">€</span>
       </div>
       <div class="row mt-5 mb-3">
         <div class="col-lg-12 text-center">

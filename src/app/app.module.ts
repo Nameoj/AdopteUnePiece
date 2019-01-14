@@ -50,7 +50,8 @@ import { AdminCompanyCreateComponent } from './PageAdmin/admin-company-create/ad
 import { HomeAnnounceComponent } from './Buyer/buyer-home/home-announce/home-announce.component';
 import { HttpIntercepterService, httpInterceptorProviders } from './Services/http-intercepter.service';
 import { TabCategoriesComponent } from './Seller/page-announce-pro/tab-categories/tab-categories.component';
-import {MatTabsModule} from '@angular/material/tabs'
+import {MatTabsModule} from '@angular/material/tabs';
+
 
 
 
@@ -118,6 +119,7 @@ import {MatTabsModule} from '@angular/material/tabs'
     MatCardModule,
     ScrollDispatchModule,
     MatTabsModule,
+
   ],
   providers: [
    httpInterceptorProviders,

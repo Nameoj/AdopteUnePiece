@@ -14,16 +14,15 @@ import { Buyer } from '../../models/buyer.models';
 export class CreationCompteComponent implements OnInit {
 
   registerForm: FormGroup;
-  submitted: boolean = false;
-  emailExistant: boolean = false;
-  
+  submitted = false;
+  emailExistant = false;
 
   constructor(private formBuilder: FormBuilder, private buyerService: BuyerService, private router: Router) { }
 
   ngOnInit() {
-    this.registerForm = this.formBuilder.group ({
+    this.registerForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password:['', [Validators.required, Validators.minLength(8)]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', Validators.required],
       civilite: ['monsieur', Validators.required],
       prenom: ['', Validators.required],
@@ -31,13 +30,13 @@ export class CreationCompteComponent implements OnInit {
       adresse1: ['', Validators.required],
       adresse2: [''],
       codepostal: ['', Validators.required],
-      telephone: ['', [Validators.required, Validators.pattern('[0][0-9]{9}') ]],
+      telephone: ['', [Validators.required, Validators.pattern('[0][0-9]{9}')]],
       ville: ['', Validators.required]
     },
-    {
-      // check whether our password and confirm password match
-      validator: CustomValidators.passwordMatchValidator
-    })
+      {
+        // check whether our password and confirm password match
+        validator: CustomValidators.passwordMatchValidator
+      });
   }
   // convenience getter for easy access to form fields
   get f() { return this.registerForm.controls; }
@@ -46,35 +45,38 @@ export class CreationCompteComponent implements OnInit {
     this.submitted = true;
     // stop here if form is invalid
     if (this.registerForm.invalid) {
-        return;
+      return;
     }
 
     const formValue = this.registerForm.value;
-     const newBuyer = new Buyer(
-        0,
-       formValue['email'],
-       formValue['email'],
-       formValue['password'],
-       formValue['civilite'],
-       formValue['prenom'],
-       formValue['nom'],
-       formValue['telephone'],
-       formValue['adresse1'],
-       formValue['adresse2'],
-       formValue['codepostal'],
-       formValue['ville'],
-      
-     );
+    const newBuyer = new Buyer(
+      0,
+      formValue['email'],
+      formValue['email'],
+      formValue['password'],
+      formValue['civilite'],
+      formValue['prenom'],
+      formValue['nom'],
+      formValue['telephone'],
+      formValue['adresse1'],
+      formValue['adresse2'],
+      formValue['codepostal'],
+      formValue['ville'],
+
+    );
     console.log(this.registerForm.value);
-     console.log(newBuyer);
+    console.log(newBuyer);
 
     this.buyerService.createBuyer(newBuyer)
-    .subscribe(data => 
-                      {console.log(data), this.buyerService.buyerConnected = data,
-    console.log("buyer created" + this.buyerService.buyerConnected.nom),
-    this.router.navigate(['/'])},
-               error=>{ this.submitted=false,
-                      console.log("erreur!!!"),console.log(error.status), this.emailExistant=true}
-    );
+      .subscribe(data => {
+        console.log(data), this.buyerService.buyerConnected = data,
+        console.log('buyer created' + this.buyerService.buyerConnected.nom),
+        this.router.navigate(['/']);
+      },
+        error => {
+        this.submitted = false,
+          console.log('erreur!!!'), console.log(error.status), this.emailExistant = true;
+        }
+      );
   }
 }

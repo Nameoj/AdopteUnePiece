@@ -9,6 +9,7 @@ import { Seller } from '../models/seller.models';
 export class SellerService {
 
   public sellerConnected;
+  public sellerEdit;
 
   private baseUrl = 'http://localhost:8080/api/signup/seller';
   private baseUrl2 = 'http://localhost:8080/api/';
@@ -23,5 +24,10 @@ export class SellerService {
   getAllSellers() {
     console.log('retreiving sellers');
     return this.http.get<Seller[]>(`${this.baseUrl2}sellers`);
+  }
+
+  updateSeller(seller, username): Observable<Object> {
+    console.log('update seller from seller service called');
+    return this.http.put(`${this.baseUrl2}update/${username}`, seller);
   }
 }

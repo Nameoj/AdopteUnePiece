@@ -1,56 +1,56 @@
 <div class="col-md-8">
-    <cdk-virtual-scroll-viewport itemSize="100" class="VSviewport">
-      <table class="table table-hover table-striped list">
-        <thead class="head sticky">
-          <tr>
-            <th>
-              #
-            </th>
-            <th>
-              Raison Sociale
-            </th>
-            <th>
-              SIREN
-            </th>
-            <th>
-              Adresse
-            </th>
-            <th>
-              Tel
-            </th>
-            <th>
-              Editer
-            </th>
-            <th>
-              Supprimer
-            </th>
-          </tr>
-        </thead>
-        <ng-container *cdkVirtualFor="let seller of sellers">
-            <tr>
-                <th>
-                  {{seller.id}}
-                </th>
-                <th>
-                  {{seller.raisonSociale}}
-                </th>
-                <th>
-                  {{seller.siren}}
-                </th>
-                <th>
-                  {{seller.adresse1}}
-                </th>
-                <th>
-                  {{seller.telephone}}
-                </th>
-                <th>
-                  <i class="material-icons">edit</i>
-                </th>
-                <th>
-                  <i class="material-icons">delete_sweep</i>
-                </th>
-              </tr>
-        </ng-container>
-      </table>
-    </cdk-virtual-scroll-viewport>
+  <cdk-virtual-scroll-viewport itemSize="100" class="VSviewport">
+    <table class="table table-hover table-striped list">
+      <thead class="head sticky">
+        <tr>
+          <th>
+            #
+          </th>
+          <th>
+            Raison Sociale
+          </th>
+          <th>
+            SIREN
+          </th>
+          <th>
+            Adresse
+          </th>
+          <th>
+            Tel
+          </th>
+          <th>
+            Editer
+          </th>
+          <th>
+            Supprimer
+          </th>
+        </tr>
+      </thead>
+      <ng-container *cdkVirtualFor="let seller of sellers">
+        <tr>
+          <th>
+            {{seller.id}}
+          </th>
+          <th>
+            {{seller.raisonSociale}}
+          </th>
+          <th>
+            {{seller.siren}}
+          </th>
+          <th>
+            {{seller.adresse1}}
+          </th>
+          <th>
+            {{seller.telephone}}
+          </th>
+          <th>
+            <a (click)="edit(seller)"><i class="material-icons icons">edit</i></a>
+          </th>
+          <th>
+            <i class="material-icons">delete_sweep</i>
+          </th>
+        </tr>
+      </ng-container>
+    </table>
+  </cdk-virtual-scroll-viewport>
 </div>

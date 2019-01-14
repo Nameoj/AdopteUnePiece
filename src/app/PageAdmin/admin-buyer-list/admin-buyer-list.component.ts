@@ -32,12 +32,15 @@ export class AdminBuyerListComponent implements OnInit {
       );
   }
 
-  delete(buyer){
-    this.buyerService.deleteBuyer(buyer).subscribe(data => {this.buyerService.buyerConnected = data; console.log(this.buyerService.buyerConnected); 
-      this.buyerService.getAllBuyers().subscribe(
-        response =>  this.buyers = response
-      )
-    })
+  delete(buyer) {
+    this.buyerService.deleteBuyer(buyer)
+      .subscribe(data => {
+        this.buyerService.buyerConnected = data;
+        console.log(this.buyerService.buyerConnected);
+        this.buyerService.getAllBuyers().subscribe(
+          response => this.buyers = response
+        );
+      });
   }
 
 }

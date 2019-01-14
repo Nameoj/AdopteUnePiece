@@ -24,33 +24,37 @@ import { AdminBuyerListComponent } from './PageAdmin/admin-buyer-list/admin-buye
 import { AdminCompanyListComponent } from './PageAdmin/admin-company-list/admin-company-list.component';
 import { AdminAnnounceListComponent } from './PageAdmin/admin-announce-list/admin-announce-list.component';
 import { DataBaseManagmentComponent } from './PageAdmin/data-base-managment/data-base-managment.component';
-import { AdminCompanyCreateComponent } from './PageAdmin/admin-company-create/admin-company-create.component'
+import { AdminCompanyCreateComponent } from './PageAdmin/admin-company-create/admin-company-create.component';
+import { AdminCompanyEditComponent } from './PageAdmin/admin-company-edit/admin-company-edit.component';
 
 const routes: Routes = [
   { path: '', component: BuyerHomeComponent },
-  { path: 'panier', component: PanierComponent},
+  { path: 'panier', component: PanierComponent },
   // { path: 'connexion', component: ConnexionComponent},
-  { path: 'creation-compte', component: CreationCompteComponent},
+  { path: 'creation-compte', component: CreationCompteComponent },
   { path: 'announce-piece', component: AnnouncePieceComponent },
-  // { path: 'connexion', component: ConnexionComponent},  
-  { path: 'announcelist', component: AnnounceListComponent},
-  { path: 'myaccount', component: MyAccountComponent, children : [
-      { path: 'infosperso', component: InfospersoComponent},
-      { path: 'motdepasse', component: MotdepasseComponent},
-      { path: 'commandes', component: AdressesComponent},
-      { path: 'adresses', component: CommandesComponent}]
+  // { path: 'connexion', component: ConnexionComponent},
+  { path: 'announcelist', component: AnnounceListComponent },
+  {
+    path: 'myaccount', component: MyAccountComponent, children: [
+      { path: 'infosperso', component: InfospersoComponent },
+      { path: 'motdepasse', component: MotdepasseComponent },
+      { path: 'commandes', component: AdressesComponent },
+      { path: 'adresses', component: CommandesComponent }]
   },
-  { path: 'creationCompte', component: CreationCompteComponent},
-  { path: 'announce-piece', component: AnnouncePieceComponent},
-  { path: 'announce-list', component: AnnounceListComponent},
-  { path: 'page-announce-pro', component: PageAnnounceProComponent},
-  { path: 'announce-list-seller', component: PageAnnounceProComponent},
-  { path: 'admin-home', component: AdminHomeComponent, children : [
-    { path: 'admin-buyer-list', component: AdminBuyerListComponent},
-    { path: 'admin-company-list', component: AdminCompanyListComponent},
-    { path: 'admin-announce-list', component: AdminAnnounceListComponent},
-    { path: 'db_manager', component: DataBaseManagmentComponent},
-    { path: 'admin-company-create', component: AdminCompanyCreateComponent}]
+  { path: 'creationCompte', component: CreationCompteComponent },
+  { path: 'announce-piece', component: AnnouncePieceComponent },
+  { path: 'announce-list', component: AnnounceListComponent },
+  { path: 'page-announce-pro', component: PageAnnounceProComponent },
+  { path: 'announce-list-seller', component: PageAnnounceProComponent },
+  {
+    path: 'admin-home', component: AdminHomeComponent, children: [
+      { path: 'admin-buyer-list', component: AdminBuyerListComponent },
+      { path: 'admin-company-list', component: AdminCompanyListComponent },
+      { path: 'admin-announce-list', component: AdminAnnounceListComponent },
+      { path: 'db_manager', component: DataBaseManagmentComponent },
+      { path: 'admin-company-edit', component: AdminCompanyEditComponent },
+      { path: 'admin-company-create', component: AdminCompanyCreateComponent }]
   },
 ];
 

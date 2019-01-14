@@ -52,3 +52,45 @@ pre {
     display: inline;
     }
 }
+
+.arrow {
+    font-size: 1em;
+    margin-bottom: 0;
+    font-weight: 900;
+}
+.card-header{
+    background-color: black;
+    color: white;
+}
+
+.sectionBtn {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+
+.subsectionBtn {
+    background-color: grey;
+    color: white;
+    margin: auto;
+}
+
+.material-icons {
+    vertical-align: text-top;
+}
+
+.buttonAspect{
+    border-radius: 5px;
+    background-color: darkgrey;
+    text-align:center;
+    margin-bottom: 0.5vh;
+    color:black;
+}
+
+.price{
+    width: 8em;
+}
+
+.priceSign{
+    font-size:1.5em;
+}

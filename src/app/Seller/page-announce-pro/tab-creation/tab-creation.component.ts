@@ -23,7 +23,7 @@ export class TabCreationComponent implements OnInit {
   title = 'UploadImg';
   selectedFile: File = null;
   rateChoice = 0;
-  uri : string;
+  uri : string ='';
   url: string = '';
   choixMarque: boolean = false;
   choixCylindree: boolean = false;
@@ -56,6 +56,8 @@ export class TabCreationComponent implements OnInit {
 
   ngOnInit() {
 
+    const _this = this;
+
     this.creationAnnounce = this.formBuilder.group ({
       brand: ['', Validators.required],
       cylinder: ['', Validators.required],
@@ -82,13 +84,14 @@ export class TabCreationComponent implements OnInit {
         processData: false,
         contentType: false,
         success: function (response) {
-          this.uri = response.fileDownloadUri
-          console.log(response);
+          _this.uri = response.fileDownloadUri;
+          console.log(response + "  " + response.fileDownloadUri);
+          console.log(_this.uri);
           // process response
         },
         error: function (error) {
           console.log(error);
-          // process error
+          // process erro
         }
       });
       event.preventDefault();
@@ -107,27 +110,27 @@ export class TabCreationComponent implements OnInit {
         this.url = event.target['result'];
       }
     }
-  }
+}
 
   onFileSelected(event) {
     this.selectedFile = <File>event.target.files[0];
   }
 
-  // onUpload() {
-  //   const fd = new FormData();
-  //   fd.append('image', this.selectedFile, this.selectedFile.name);
-  //   this.http.post('http://localhost:8080/api/uploadFile', fd, {
-  //     reportProgress: true,
-  //     observe: 'events'
-  //   })
-  //     .subscribe(event => {
-  //       if (event.type === HttpEventType.UploadProgress) {
-  //         console.log('Upload Progress: ' + Math.round(event.loaded / event.total * 100) + '%');
-  //       } else if (event.type === HttpEventType.Response) {
-  //         console.log(event);
-  //       }
-  //     });
-  // }
+  onUpload() {
+    const fd = new FormData();
+    fd.append('image', this.selectedFile, this.selectedFile.name);
+    this.http.post('http://localhost:8080/api/uploadFile', fd, {
+      reportProgress: true,
+      observe: 'events'
+    })
+      .subscribe(event => {
+        if (event.type === HttpEventType.UploadProgress) {
+          console.log('Upload Progress: ' + Math.round(event.loaded / event.total * 100) + '%');
+        } else if (event.type === HttpEventType.Response) {
+          console.log(event);
+        }
+      });
+} 
 
 // ----   -----------------------  -------------   METHODS FOR FORM -----------------------------  ---------------------- -------- --------- --------
 
@@ -147,6 +150,7 @@ export class TabCreationComponent implements OnInit {
 
   onSubmit(){
     const formValue = this.creationAnnounce.value;
+    console.log(this.uri)
     const newAnnounce = new Announce(
       0,
      this.buyerService.getAuthenticatedUser(),

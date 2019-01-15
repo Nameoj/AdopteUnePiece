@@ -7,7 +7,7 @@ import { CategoriesService } from '../../../Services/categories.service';
 import { HttpClient, HttpEventType } from '@angular/common/http';
 import { Announce } from '../../../models/announce.models';
 import { AnnounceService } from '../../../Services/announce.service';
-import * as $ from  'jquery';
+import * as $ from 'jquery';
 import { listenToElementOutputs } from '@angular/core/src/view/element';
 
 @Component({
@@ -68,25 +68,27 @@ export class TabCreationComponent implements OnInit {
       description: ['', Validators.required],
       note: ['', Validators.required],
       price: ['', Validators.required],
-    })
+    });
 
     // selection photos
     $('#singleUploadForm').submit(function (event) {
-      let formElement = this;
+      const formElement = this;
       // You can directly create form data from the form element
       // (Or you could get the files from input element and append them to FormData as we did in vanilla javascript)
-      let formData = new FormData(formElement);
+      const formData = new FormData(formElement);
 
       $.ajax({
-        type: "POST",
+        type: 'POST',
         enctype: 'multipart/form-data',
-        url: "http://localhost:8080/api/uploadFile",
+        url: 'http://localhost:8080/api/uploadFile',
         data: formData,
         processData: false,
         contentType: false,
         success: function (response) {
           _this.uri = response.fileDownloadUri;
+
           console.log(response);
+
           console.log(_this.uri);
           // process response
         },
@@ -100,7 +102,6 @@ export class TabCreationComponent implements OnInit {
   }
 
   //  -------   ----------------   ---------------    METHODS FOR FILE UPLOADER --------    ---------------   -------------- ------------
-  
   onSelectFile(event) {
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();

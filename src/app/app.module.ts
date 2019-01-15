@@ -51,7 +51,8 @@ import { HomeAnnounceComponent } from './Buyer/buyer-home/home-announce/home-ann
 import { HttpIntercepterService, httpInterceptorProviders } from './Services/http-intercepter.service';
 import { TabCategoriesComponent } from './Seller/page-announce-pro/tab-categories/tab-categories.component';
 import {MatTabsModule} from '@angular/material/tabs';
-import { AdminCompanyEditComponent } from './PageAdmin/admin-company-edit/admin-company-edit.component'
+import { AdminCompanyEditComponent } from './PageAdmin/admin-company-edit/admin-company-edit.component';
+import { AdminCompanyPasswordComponent } from './PageAdmin/admin-company-edit/admin-company-password/admin-company-password.component'
 
 
 
@@ -92,6 +93,7 @@ import { AdminCompanyEditComponent } from './PageAdmin/admin-company-edit/admin-
     HomeAnnounceComponent,
     TabCategoriesComponent,
     AdminCompanyEditComponent,
+    AdminCompanyPasswordComponent,
   ],
   imports: [
     BrowserModule,

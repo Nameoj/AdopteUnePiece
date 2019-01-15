@@ -30,4 +30,9 @@ export class SellerService {
     console.log('update seller from seller service called');
     return this.http.put(`${this.baseUrl2}update/${username}`, seller);
   }
+
+  updateSellerMdp(seller, username): Observable<Object> {
+    console.log('update seller MDP from seller service called');
+    return this.http.put(`${this.baseUrl2}updatemdp/${username}`, seller);
+  }
 }

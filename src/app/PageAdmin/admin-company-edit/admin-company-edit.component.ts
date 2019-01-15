@@ -61,16 +61,16 @@ export class AdminCompanyEditComponent implements OnInit {
       formValue['password']
     );
 
+    alert('SUCCESS!! :-)');
+
     console.log('On submit sending info to sellerService.updateSeller');
     this.sellerService.updateSeller(this.sellerEdit, this.sellerEdit.username)
       .subscribe(data => {
         console.log(data), this.sellerService.sellerConnected = data,
           console.log('seller updated' + this.sellerService.sellerConnected.raisonSociale);
       });
-  }
-
-  returnList() {
     console.log('Return List Seller');
     this.router.navigate(['/admin-home/admin-company-list/']);
+    location.reload();
   }
 }

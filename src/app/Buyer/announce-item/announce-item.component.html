@@ -2,14 +2,14 @@
   <div class="card-body">
     <div class="announceItem row">
       <div class="col-4 announceImage">
-        <img src="{{placeholderForDBAnnounce.image}}" placeholder="image" class="image">
+        <img [src]="announce.image" placeholder="image" class="image">
       </div>
       <div class="col-4 announceText text">
         <div class="groupOfText">
           <div>
             Année:
             <div class="text-muted">
-              {{placeholderForDBAnnounce.annee}}
+              {{announce.year}}
             </div>
           </div>
         </div>
@@ -19,7 +19,7 @@
             Moto:
           </div>
           <div class="text-muted">
-            {{placeholderForDBAnnounce.moto}}
+            {{announce.brand}}
           </div>
         </div>
 
@@ -28,14 +28,14 @@
             Type:
           </div>
           <div class="text-muted">
-            {{placeholderForDBAnnounce.titre}}
+            {{announce.pieceName}}
           </div>
         </div>
       </div>
 
       <div class="col-4 accessMore">
         <div class="price">
-          {{placeholderForDBAnnounce.prix}}€
+          {{announce.price}}€
         </div>
         <div class="btn btn-warning">
           Voir

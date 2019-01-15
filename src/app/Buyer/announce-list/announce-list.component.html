@@ -1,5 +1,5 @@
 
   <div class="row announceContainer">
-        <app-announce-item class="col-12" *ngFor="let placeholderForDBAnnounce of placeholderForDBListOfAnnounces.results"
-              [placeholderForDBAnnounce]="placeholderForDBAnnounce"></app-announce-item>
+        <app-announce-item class="col-12" *ngFor="let announce of listAnnonces"
+              [announce]="announce"></app-announce-item>
   </div>

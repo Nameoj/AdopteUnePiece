@@ -16,6 +16,10 @@ export class AnnounceService {
 
   createAnnounce(announce: Object): Observable<Object> {
     console.log("creation annonce");
-    return this.http.post(`${this.baseUrl}`, announce);
+    return this.http.post<any>(`${this.baseUrl}/postAnnounce`, announce);
   };
+
+  getAnnounces() {
+    return this.http.get(`${this.baseUrl}`);
+  }
 }

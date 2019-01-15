@@ -7,7 +7,7 @@ import { CategoriesService } from '../../../Services/categories.service';
 import { HttpClient, HttpEventType } from '@angular/common/http';
 import { Announce } from '../../../models/announce.models';
 import { AnnounceService } from '../../../Services/announce.service';
-import * as $ from  'jquery';
+import * as $ from 'jquery';
 import { listenToElementOutputs } from '@angular/core/src/view/element';
 
 @Component({
@@ -67,7 +67,7 @@ export class TabCreationComponent implements OnInit {
       description: ['', Validators.required],
       note: ['', Validators.required],
       price: ['', Validators.required],
-    })
+    });
 
     // selection photos
     $('#singleUploadForm').submit(function (event) {
@@ -77,15 +77,15 @@ export class TabCreationComponent implements OnInit {
       const formData = new FormData(formElement);
 
       $.ajax({
-        type: "POST",
+        type: 'POST',
         enctype: 'multipart/form-data',
-        url: "http://localhost:8080/api/uploadFile",
+        url: 'http://localhost:8080/api/uploadFile',
         data: formData,
         processData: false,
         contentType: false,
         success: function (response) {
           _this.uri = response.fileDownloadUri;
-          console.log(response + "  " + response.fileDownloadUri);
+          console.log(response + ' ' + response.fileDownloadUri);
           console.log(_this.uri);
           // process response
         },
@@ -99,7 +99,6 @@ export class TabCreationComponent implements OnInit {
   }
 
   //  -------   ----------------   ---------------    METHODS FOR FILE UPLOADER --------    ---------------   -------------- ------------
-  
   onSelectFile(event) {
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();

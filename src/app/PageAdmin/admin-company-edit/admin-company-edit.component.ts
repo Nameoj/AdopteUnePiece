@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CustomValidators } from 'src/app/Sign-up/creation-compte/custom-validators';
-import { Seller } from 'src/app/models/seller.models';
+import { Seller, SellerEditModel } from 'src/app/models/seller.models';
 import { SellerService } from 'src/app/Services/seller.service';
 import { Router } from '@angular/router';
 
@@ -15,27 +15,31 @@ export class AdminCompanyEditComponent implements OnInit {
   editCompanyForm: FormGroup;
   sellerEdit: Seller;
   submitted = false;
+  displayMdp = false;
 
   constructor(private formBuilder: FormBuilder, private sellerService: SellerService, private router: Router) { }
 
   ngOnInit() {
     this.sellerEdit = this.sellerService.sellerEdit;
     this.editCompanyForm = this.formBuilder.group({
-      raisonSociale: [this.sellerEdit.raisonSociale],
-      adresse1: [this.sellerEdit.adresse1],
+      raisonSociale: [this.sellerService.sellerEdit.raisonSociale],
+      adresse1: [this.sellerEdit.adresse1, Validators.required],
       adresse2: [this.sellerEdit.adresse2],
-      codePostal: [this.sellerEdit.codePostal],
-      ville: [this.sellerEdit.ville],
-      telephone: [this.sellerEdit.telephone],
-      siren: [this.sellerEdit.siren],
-      email: [this.sellerEdit.email],
-      nomG: [this.sellerEdit.nomG],
-      prenomG: [this.sellerEdit.prenomG],
-      telephoneG: [this.sellerEdit.telephoneG],
-      password: [this.sellerEdit.password],
-      confirmPassword: [''],
+      codePostal: [this.sellerEdit.codePostal, Validators.required],
+      ville: [this.sellerEdit.ville, Validators.required],
+      telephone: [this.sellerEdit.telephone, [Validators.required, Validators.pattern('[0][0-9]{9}')]],
+      siren: [this.sellerEdit.siren, Validators.required],
+      email: [this.sellerEdit.email, [Validators.required, Validators.email]],
+      nomG: [this.sellerEdit.nomG, Validators.required],
+      prenomG: [this.sellerEdit.prenomG, Validators.required],
+      telephoneG: [this.sellerEdit.telephoneG, [Validators.required, Validators.pattern('[0][0-9]{9}')]],
     });
   }
+
+
+  // convenience getter for easy access to form fields
+  get f() { return this.editCompanyForm.controls; }
+
 
   onSubmit() {
     this.submitted = true;
@@ -44,7 +48,7 @@ export class AdminCompanyEditComponent implements OnInit {
     }
 
     const formValue = this.editCompanyForm.value;
-    this.sellerEdit = new Seller(
+    const updatedSellerEdit = new SellerEditModel(
       this.sellerEdit.id,
       formValue['raisonSociale'],
       formValue['adresse1'],
@@ -58,19 +62,22 @@ export class AdminCompanyEditComponent implements OnInit {
       formValue['nomG'],
       formValue['prenomG'],
       formValue['telephoneG'],
-      formValue['password']
     );
 
-    alert('SUCCESS!! :-)');
-
     console.log('On submit sending info to sellerService.updateSeller');
-    this.sellerService.updateSeller(this.sellerEdit, this.sellerEdit.username)
+    this.sellerService.updateSeller(updatedSellerEdit, this.sellerEdit.username)
       .subscribe(data => {
-        console.log(data), this.sellerService.sellerConnected = data,
-          console.log('seller updated' + this.sellerService.sellerConnected.raisonSociale);
+        console.log(data), this.sellerService.sellerEdit = data,
+          console.log('seller updated' + this.sellerService.sellerEdit.raisonSociale);
       });
+
+    alert('SUCCESS!! :-)');
     console.log('Return List Seller');
     this.router.navigate(['/admin-home/admin-company-list/']);
-    location.reload();
+    console.log('SellerEditPassword ' + this.sellerEdit.password);
+  }
+
+  displayMdpControl() {
+    this.displayMdp = !this.displayMdp;
   }
 }

@@ -20,6 +20,7 @@ export class TabCreationComponent implements OnInit {
 
   creationAnnounce: FormGroup;
 
+  date=  new Date(Date.now());
   title = 'UploadImg';
   selectedFile: File = null;
   rateChoice = 0;
@@ -85,7 +86,7 @@ export class TabCreationComponent implements OnInit {
         contentType: false,
         success: function (response) {
           _this.uri = response.fileDownloadUri;
-          console.log(response + "  " + response.fileDownloadUri);
+          console.log(response);
           console.log(_this.uri);
           // process response
         },
@@ -158,14 +159,18 @@ export class TabCreationComponent implements OnInit {
      this.uri,
      formValue['description'],
      formValue['note'],
+     this.date,
      this.pieceType,
      formValue['model'],
      formValue['brand'],
      formValue['cylinder'],
      formValue['year'],
-     formValue['price'],);
-
+     formValue['price'],
+     20,);
+     
     console.log(newAnnounce)
+
+    this.announceService.createAnnounce(newAnnounce).subscribe( data => console.log(data));
 
   }
 }

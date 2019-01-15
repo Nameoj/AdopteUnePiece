@@ -8,7 +8,7 @@ import { AnnouncePieceComponent } from '../announce-piece/announce-piece.compone
 })
 export class AnnounceItemComponent implements OnInit {
 
-  @Input()placeholderForDBAnnounce;
+  @Input()announce;
 
   constructor() { }
 

@@ -160,14 +160,9 @@
       </div>
     </div>
     <div>
-      <button *ngIf="!vendeurUdpate" type="submit" class="btn btn-warning mb-2">
+      <button (click)="returnList()" type="submit" class="btn btn-warning mb-2">
         Modifier Compte
       </button>
     </div>
   </form>
-  <div *ngIf="vendeurUdpate">
-    <button (click)="relance()" class="btn btn-warning mb-2">
-      Réinitialiser
-    </button>
-  </div>
 </div>

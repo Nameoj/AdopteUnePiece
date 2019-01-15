@@ -71,10 +71,10 @@ export class TabCreationComponent implements OnInit {
 
     // selection photos
     $('#singleUploadForm').submit(function (event) {
-      let formElement = this;
+      const formElement = this;
       // You can directly create form data from the form element
       // (Or you could get the files from input element and append them to FormData as we did in vanilla javascript)
-      let formData = new FormData(formElement);
+      const formData = new FormData(formElement);
 
       $.ajax({
         type: "POST",

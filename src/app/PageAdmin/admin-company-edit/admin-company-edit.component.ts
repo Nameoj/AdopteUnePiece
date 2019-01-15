@@ -15,7 +15,6 @@ export class AdminCompanyEditComponent implements OnInit {
   editCompanyForm: FormGroup;
   sellerEdit: Seller;
   submitted = false;
-  vendeurUdpate = false;
 
   constructor(private formBuilder: FormBuilder, private sellerService: SellerService, private router: Router) { }
 
@@ -68,8 +67,10 @@ export class AdminCompanyEditComponent implements OnInit {
         console.log(data), this.sellerService.sellerConnected = data,
           console.log('seller updated' + this.sellerService.sellerConnected.raisonSociale);
       });
+  }
 
-    this.vendeurUdpate = true;
-    console.log('VALEUR DE vendeurUpdate: ' + this.vendeurUdpate);
+  returnList() {
+    console.log('Return List Seller');
+    this.router.navigate(['/admin-home/admin-company-list/']);
   }
 }

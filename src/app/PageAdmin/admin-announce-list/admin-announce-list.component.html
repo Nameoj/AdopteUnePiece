@@ -1,13 +1,11 @@
 <div class="col-md-8">
+  <h2 class="raisonSociale">{{seller.raisonSociale}}</h2>
     <cdk-virtual-scroll-viewport itemSize="100" class="VSviewport">
       <table class="table table-hover table-striped list">
         <thead class="head sticky">
           <tr>
             <th>
               Pièce
-            </th>
-            <th>
-              Vendeur
             </th>
             <th>
               Prix
@@ -24,9 +22,6 @@
           <tr>
             <td>
               {{announce.pieceName}}
-            </td>
-            <td>
-              {{announce.seller}}
             </td>
             <td>
               {{announce.price}}

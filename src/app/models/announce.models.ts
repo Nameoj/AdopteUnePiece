@@ -16,5 +16,5 @@ export class Announce {
         // public endDateModele: string,
         public price: string,
         public charge: number,
-    ) {}
-    }
+    ) { }
+}

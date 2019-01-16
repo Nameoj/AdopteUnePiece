@@ -30,4 +30,21 @@ export class AdminCompanyListComponent implements OnInit {
     this.sellerService.sellerEdit = seller;
     this.router.navigate(['/admin-home/admin-company-edit']);
   }
+
+  delete(seller) {
+    this.sellerService.deleteSeller(seller)
+      .subscribe(data => {
+        this.sellerService.sellerEdit = data;
+        console.log(this.sellerService.sellerEdit);
+        this.sellerService.getAllSellers().subscribe(
+          response => this.sellers = response
+        );
+      });
+  }
+
+  seeAnounces(seller) {
+    console.log('See annouces of this seller');
+    this.sellerService.sellerEdit = seller;
+    this.router.navigate(['/admin-home/admin-announce-list']);
+  }
 }

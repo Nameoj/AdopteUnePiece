@@ -35,4 +35,9 @@ export class SellerService {
     console.log('update seller MDP from seller service called');
     return this.http.put(`${this.baseUrl2}updatemdp/${username}`, seller);
   }
+
+  deleteSeller(username: String): Observable<Object> {
+    return this.http.get<Seller>(`${this.baseUrl2}deleteseller/${username}`);
+  }
+
 }

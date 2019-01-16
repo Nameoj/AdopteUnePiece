@@ -21,9 +21,11 @@ export class AdminCompanyListComponent implements OnInit {
 
   ngOnInit() {
     this.sellerService.getAllSellers().subscribe(
-      response => { this.sellers = response;
-      this.sellerService.sellers  = this.sellers},
-      
+      response => {
+      this.sellers = response;
+        this.sellerService.sellers = this.sellers;
+      },
+
 
     );
   }

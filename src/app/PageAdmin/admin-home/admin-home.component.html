@@ -1,8 +1,7 @@
-
 <app-navbar></app-navbar>
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-3 navContainer">
+  <div class="row">
+    <div class="col-md-3 navContainer">
       <button mat-raised-button class="sideNavBtn" routerLink="./admin-buyer-list">
         <mat-card-title class="sideNavBtnTxt">
           Liste Acheteurs
@@ -10,32 +9,25 @@
       </button>
 
       <button mat-raised-button class="sideNavBtn" routerLink="./admin-company-list">
-          <mat-card-title class="sideNavBtnTxt">
-            Liste Entreprises
-          </mat-card-title>
-      </button>
-
-      
-      <button mat-raised-button class="sideNavBtn" routerLink="./admin-announce-list">
-          <mat-card-title class="sideNavBtnTxt">
-            Liste Annonces
-          </mat-card-title>
+        <mat-card-title class="sideNavBtnTxt">
+          Liste Entreprises
+        </mat-card-title>
       </button>
 
       <button mat-raised-button class="sideNavBtn" routerLink="./db_manager">
-          <mat-card-title class="sideNavBtnTxt">
-            Ajout modèle
-          </mat-card-title>
+        <mat-card-title class="sideNavBtnTxt">
+          Ajout modèle
+        </mat-card-title>
       </button>
 
       <button mat-raised-button class="sideNavBtn" routerLink="./admin-company-create">
         <mat-card-title class="sideNavBtnTxt">
           Ajout vendeur
         </mat-card-title>
-    </button>
-		</div>
-		<div class="col-md-9">
-			<router-outlet></router-outlet>
-		</div>
-	</div>
+      </button>
+    </div>
+    <div class="col-md-9">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>

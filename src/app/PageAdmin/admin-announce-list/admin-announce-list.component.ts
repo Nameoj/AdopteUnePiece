@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SellerService } from 'src/app/Services/seller.service';
 import { Seller } from 'src/app/models/seller.models';
 import { AnnounceService } from 'src/app/Services/announce.service';
 import { Announce } from 'src/app/models/announce.models';
-import { Router, ActivatedRoute, Params  } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 
 @Component({
@@ -20,19 +20,38 @@ export class AdminAnnounceListComponent implements OnInit {
   idx;
   sellers;
   seller;
+  allAnnounces: [];
+  listAnnonces;
 
-  constructor(private sellerService: SellerService, private announceService: AnnounceService, private route: ActivatedRoute, private router: Router) {}
+  constructor(private sellerService: SellerService,
+    private announceService: AnnounceService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
     this.sellers = this.sellerService.sellers;
     console.log(this.sellerEdit);
-    this.route.params.subscribe((params: Params) =>{
+    this.route.params.subscribe((params: Params) => {
       this.username = params['username'];
       this.idx = params['idx'];
       this.seller = this.sellers[this.idx];
-      this.announceService.getSellerAnnounce(this.username).subscribe (
-      response => { this.announces = response; })
-      });
+      this.announceService.getSellerAnnounce(this.username).subscribe(
+        response => { this.announces = response; });
+    });
+
+    this.announceService.getAnnounces()
+    .subscribe(
+      data => { this.listAnnonces = data; this.announceService.listAnnonce = data; console.log(this.listAnnonces); }
+    );
+}
+
+
+  details(annonceId) {
+    console.log(annonceId);
+    console.log('La route du Q' + this.router.navigate(['/announce-piece', annonceId]));
+    this.router.navigate(['/announce-piece', annonceId]);
   }
 
 }
+
+

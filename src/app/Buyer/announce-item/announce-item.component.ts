@@ -9,19 +9,18 @@ import { Router } from '@angular/router';
 })
 export class AnnounceItemComponent implements OnInit {
 
-  @Input()announce;
-  @Input()index;
+  @Input() announce;
+  @Input() index;
 
 
-  constructor(private router: Router,) { }
+  constructor(private router: Router, ) { }
 
   ngOnInit() {
   }
 
-  detailAnnonce(annonceId){
-    console.log( "route détail annonce");
+  detailAnnonce(annonceId) {
+    console.log('route détail annonce');
     console.log(annonceId);
-    annonceId ++;
     this.router.navigate(['/announce-piece', annonceId]);
   }
 }

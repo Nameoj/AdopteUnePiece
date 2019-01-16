@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { SellerService } from 'src/app/Services/seller.service';
+import { Seller } from 'src/app/models/seller.models';
+import { AnnounceService } from 'src/app/Services/announce.service';
+import { Announce } from 'src/app/models/announce.models';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-admin-announce-list',
@@ -7,15 +13,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminAnnounceListComponent implements OnInit {
 
-  numbers: number[] = [];
+  announces: Object; Announce;
+  sellerEdit: Seller;
 
-  constructor() {
-    for (let index = 0; index < 10000; index++) {
-      this.numbers.push(index);
-    }
-  }
+  constructor(private sellerService: SellerService, private announceService: AnnounceService, private router: Router) {}
 
   ngOnInit() {
+    this.sellerEdit = this.sellerService.sellerEdit;
+    this.announceService.getSellerAnnounce(this.sellerEdit).subscribe (
+      response => { this.announces = response; }
+    );
   }
 
 }

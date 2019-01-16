@@ -4,9 +4,6 @@
       <thead class="head sticky">
         <tr>
           <th>
-            #
-          </th>
-          <th>
             Raison Sociale
           </th>
           <th>
@@ -24,13 +21,13 @@
           <th>
             Supprimer
           </th>
+          <th>
+            Annonces
+          </th>
         </tr>
       </thead>
       <ng-container *cdkVirtualFor="let seller of sellers">
         <tr>
-          <th>
-            {{seller.id}}
-          </th>
           <th>
             {{seller.raisonSociale}}
           </th>
@@ -48,6 +45,9 @@
           </th>
           <th>
             <a (click)="delete(seller.username)"><i class="material-icons icons">delete_sweep</i></a>
+          </th>
+          <th>
+            <a (click)="seeAnounces(seller.username)"><i class="material-icons icons">remove_red_eye</i></a>
           </th>
         </tr>
       </ng-container>

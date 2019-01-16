@@ -52,6 +52,7 @@ const routes: Routes = [
       { path: 'admin-buyer-list', component: AdminBuyerListComponent },
       { path: 'admin-company-list', component: AdminCompanyListComponent },
       { path: 'admin-announce-list', component: AdminAnnounceListComponent },
+      { path: 'admin-announce-list/:username/:idx', component: AdminAnnounceListComponent },
       { path: 'db_manager', component: DataBaseManagmentComponent },
       { path: 'admin-company-edit', component: AdminCompanyEditComponent },
       { path: 'admin-company-create', component: AdminCompanyCreateComponent }]

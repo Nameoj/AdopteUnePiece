@@ -3,7 +3,7 @@ import { SellerService } from 'src/app/Services/seller.service';
 import { Seller } from 'src/app/models/seller.models';
 import { AnnounceService } from 'src/app/Services/announce.service';
 import { Announce } from 'src/app/models/announce.models';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params  } from '@angular/router';
 
 
 @Component({
@@ -15,14 +15,24 @@ export class AdminAnnounceListComponent implements OnInit {
 
   announces: Object; Announce;
   sellerEdit: Seller;
+  raisonSociale: String;
+  username: String;
+  idx;
+  sellers;
+  seller;
 
-  constructor(private sellerService: SellerService, private announceService: AnnounceService, private router: Router) {}
+  constructor(private sellerService: SellerService, private announceService: AnnounceService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
-    this.sellerEdit = this.sellerService.sellerEdit;
-    this.announceService.getSellerAnnounce(this.sellerEdit).subscribe (
-      response => { this.announces = response; }
-    );
+    this.sellers = this.sellerService.sellers;
+    console.log(this.sellerEdit);
+    this.route.params.subscribe((params: Params) =>{
+      this.username = params['username'];
+      this.idx = params['idx'];
+      this.seller = this.sellers[this.idx];
+      this.announceService.getSellerAnnounce(this.username).subscribe (
+      response => { this.announces = response; })
+      });
   }
 
 }

@@ -10,6 +10,7 @@ export class SellerService {
 
   public sellerConnected;
   public sellerEdit;
+  public sellers;
 
   private baseUrl = 'http://localhost:8080/api/signup/seller';
   private baseUrl2 = 'http://localhost:8080/api/';

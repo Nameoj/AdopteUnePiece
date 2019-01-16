@@ -7,6 +7,10 @@
     margin: 5vh auto;
 }
 
+.raisonSociale {
+    text-align: center;
+}
+
 /*DEFAULT CSS - MOBILE VERSION  DEFAULT CSS - MOBILE VERSION  DEFAULT CSS - MOBILE VERSION  DEFAULT CSS - MOBILE VERSION*/
 @media (max-width: 576px) {
     .VSviewport {

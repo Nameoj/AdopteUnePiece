@@ -25,7 +25,7 @@ export class AnnounceService {
     return this.http.get(`${this.baseUrl}`);
   }
 
-  getSellerAnnounce(seller): Observable<Object> {
-    return this.http.get<Seller>(`${this.baseUrl}/seller/${seller}` )
+  getSellerAnnounce(username): Observable<Object> {
+    return this.http.get<Seller>(`${this.baseUrl}/seller/${username}` )
   }
 }

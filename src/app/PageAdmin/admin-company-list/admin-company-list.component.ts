@@ -21,7 +21,10 @@ export class AdminCompanyListComponent implements OnInit {
 
   ngOnInit() {
     this.sellerService.getAllSellers().subscribe(
-      response => { this.sellers = response; }
+      response => { this.sellers = response;
+      this.sellerService.sellers  = this.sellers},
+      
+
     );
   }
 
@@ -42,9 +45,9 @@ export class AdminCompanyListComponent implements OnInit {
       });
   }
 
-  seeAnounces(seller) {
-    console.log('See annouces of this seller');
-    this.sellerService.sellerEdit = seller;
-    this.router.navigate(['/admin-home/admin-announce-list']);
+  seeAnounces(username, idx) {
+    console.log(idx);
+    console.log('See announces of this seller');
+    this.router.navigate(['/admin-home/admin-announce-list', username, idx]);
   }
 }

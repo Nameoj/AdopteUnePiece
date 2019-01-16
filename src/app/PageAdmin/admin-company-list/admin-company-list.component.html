@@ -26,7 +26,7 @@
           </th>
         </tr>
       </thead>
-      <ng-container *cdkVirtualFor="let seller of sellers">
+      <ng-container *cdkVirtualFor="let seller of sellers; let idx = index">
         <tr>
           <th>
             {{seller.raisonSociale}}
@@ -47,7 +47,7 @@
             <a (click)="delete(seller.username)"><i class="material-icons icons">delete_sweep</i></a>
           </th>
           <th>
-            <a (click)="seeAnounces(seller.username)"><i class="material-icons icons">remove_red_eye</i></a>
+            <a (click)="seeAnounces(seller.username, idx)"><i class="material-icons icons">remove_red_eye</i></a>
           </th>
         </tr>
       </ng-container>

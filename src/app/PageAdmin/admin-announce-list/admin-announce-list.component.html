@@ -4,12 +4,6 @@
         <thead class="head sticky">
           <tr>
             <th>
-              #
-            </th>
-            <th>
-              Titre
-            </th>
-            <th>
               Pièce
             </th>
             <th>
@@ -22,35 +16,23 @@
               Status
             </th>
             <th>
-              Editer
-            </th>
-            <th>
               Supprimer
             </th>
           </tr>
         </thead>
-        <ng-container *cdkVirtualFor="let n of numbers">
+        <ng-container *cdkVirtualFor="let announce of announces">
           <tr>
             <td>
-              {{ n }}
+              {{announce.pieceName}}
             </td>
             <td>
-              Axe moteur CB 500
+              {{announce.seller}}
             </td>
             <td>
-              Axe moteur
-            </td>
-            <td>
-              Lyon casse moto
-            </td>
-            <td>
-              90€
+              {{announce.price}}
             </td>
             <td>
               En vente
-            </td>
-            <td>
-              <i class="material-icons">edit</i>
             </td>
             <td>
               <i class="material-icons">delete_sweep</i>

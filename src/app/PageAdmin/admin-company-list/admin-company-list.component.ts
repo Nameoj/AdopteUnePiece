@@ -41,4 +41,10 @@ export class AdminCompanyListComponent implements OnInit {
         );
       });
   }
+
+  seeAnounces(seller) {
+    console.log('See annouces of this seller');
+    this.sellerService.sellerEdit = seller;
+    this.router.navigate(['/admin-home/admin-announce-list']);
+  }
 }

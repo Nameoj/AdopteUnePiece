@@ -30,10 +30,6 @@ import { AdminCompanyEditComponent } from './PageAdmin/admin-company-edit/admin-
 const routes: Routes = [
   { path: '', component: BuyerHomeComponent },
   { path: 'panier', component: PanierComponent },
-  // { path: 'connexion', component: ConnexionComponent},
-  { path: 'creation-compte', component: CreationCompteComponent },
-  { path: 'announce-piece', component: AnnouncePieceComponent },
-  // { path: 'connexion', component: ConnexionComponent},
   { path: 'announcelist', component: AnnounceListComponent },
   {
     path: 'myaccount', component: MyAccountComponent, children: [
@@ -44,6 +40,7 @@ const routes: Routes = [
   },
   { path: 'creationCompte', component: CreationCompteComponent },
   { path: 'announce-piece', component: AnnouncePieceComponent },
+  { path: 'announce-piece/:Id', component: AnnouncePieceComponent },
   { path: 'announce-list', component: AnnounceListComponent },
   { path: 'page-announce-pro', component: PageAnnounceProComponent },
   { path: 'announce-list-seller', component: PageAnnounceProComponent },

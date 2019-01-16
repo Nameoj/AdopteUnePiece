@@ -1,5 +1,6 @@
 
   <div class="row announceContainer">
-        <app-announce-item class="col-12" *ngFor="let announce of listAnnonces"
-              [announce]="announce"></app-announce-item>
+        <app-announce-item class="col-12" *ngFor="let announce of listAnnonces, let i = index"
+              [announce]="announce" [index]="i"></app-announce-item>
+              
   </div>

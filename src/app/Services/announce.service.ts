@@ -8,6 +8,8 @@ import { Announce } from '../models/announce.models';
 })
 export class AnnounceService {
 
+
+  public listAnnonce
   public announceCreation
 
   private baseUrl = 'http://localhost:8080/api/announces';

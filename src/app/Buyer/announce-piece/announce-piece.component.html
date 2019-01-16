@@ -1,41 +1,50 @@
+<app-navbar></app-navbar>
 <div class="container">
 
   <div class="row text-center announcePiecePage">
 
     <div class="col-12 offset-sm-6 col-sm-4 text-center announceTitle">
-      {{placeholderForDBAnnounce.titre}}
+      {{annonce.pieceName}}
       <hr />
     </div>
-    <p class="announcePrice col-sm-2 d-none d-sm-block">{{placeholderForDBAnnounce.prix}}€</p>
+    <p class="announcePrice col-sm-2 d-none d-sm-block">{{annonce.price}}€</p>
 
     <div class="col-12 float-sm-left col-sm-4 announceImageDiv">
-      <img class="announceImage col-sm-12" src="{{placeholderForDBAnnounce.image}}" placeholder="{{placeholderForDBAnnounce.titre">
+      <img class="announceImage col-sm-12" src="{{annonce.image}}" placeholder="image">
     </div>
   
     <div class="col-sm-8">
-      <div class="pieceTitle font-italic font-weight-bold">
-      {{placeholderForDBPiece.titre}}
-      </div>
+      <!-- <div class="pieceTitle font-italic font-weight-bold">
+      {{annonce.pieceName}}
+      </div> -->
       
       <div class="
             col-12 text-sm-left announceDescription">
         <p class="announcePrice d-sm-none">
-          {{placeholderForDBAnnounce.prix}}€
+          {{annonce.price}}€
         </p>
 
         <p class="announceDesc font-weight-bold">
           <br>
-          - {{placeholderForDBPiece.marque}} - {{placeholderForDBPiece.cylindree}}
+          Marque: {{annonce.brand}}
           <br>
-          - {{placeholderForDBPiece.annee}}
+          Modèle: {{annonce.model}}
+          <br>
+          Cylindrée: {{annonce.cylinder}}
+          <br>
+          Année: {{annonce.year}}
         </p>
 
-        <p> Description: {{placeholderForDBAnnounce.description}}</p>
+        <p> Description: {{annonce.description}}</p>
 
         <p class="announceState">
+          Etat de la pièce:
+        </p>
+          <p class="announceState">
           <span class="announceRating" *ngFor="let numberOfStarts of arrayForRating">★</span>
+          <span class="announceRating" *ngFor="let numberOfStarts of arrayForRatingEmpty">☆</span>
           <br class="d-sm-none sautAnnonce">
-          <span class="announceDispo btn btn-success">{{placeholderForDBAnnounce.etat}}</span>
+          <span class="announceDispo btn btn-success">{{annonce.note}}</span>
         </p>
       </div>
     </div>

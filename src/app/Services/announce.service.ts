@@ -9,8 +9,11 @@ import { Seller } from '../models/seller.models';
 })
 export class AnnounceService {
 
+  
+  public listAnnonce;
   public announceCreation;
   public announceEdit;
+
 
   private baseUrl = 'http://localhost:8080/api/announces';
 

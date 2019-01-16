@@ -5,7 +5,7 @@
         <thead class="head sticky">
           <tr>
             <th>
-              Pièce
+              Pièces
             </th>
             <th>
               Prix
@@ -16,6 +16,9 @@
             <th>
               Supprimer
             </th>
+            <th>
+              Détails
+            </th>
           </tr>
         </thead>
         <ng-container *cdkVirtualFor="let announce of announces">
@@ -24,13 +27,16 @@
               {{announce.pieceName}}
             </td>
             <td>
-              {{announce.price}}
+              {{announce.price}}€
             </td>
             <td>
               En vente
             </td>
             <td>
-              <i class="material-icons">delete_sweep</i>
+              <i class="material-icons icons">delete_sweep</i>
+            </td>
+            <td>
+              <a (click)="details(id)"><i class="material-icons icons">remove_red_eye</i></a>
             </td>
           </tr>
         </ng-container>

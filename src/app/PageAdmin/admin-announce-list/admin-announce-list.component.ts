@@ -20,6 +20,7 @@ export class AdminAnnounceListComponent implements OnInit {
   idx;
   sellers;
   seller;
+  allAnnounces: [];
 
   constructor(private sellerService: SellerService,
     private announceService: AnnounceService,
@@ -36,6 +37,23 @@ export class AdminAnnounceListComponent implements OnInit {
       this.announceService.getSellerAnnounce(this.username).subscribe(
         response => { this.announces = response; });
     });
+
+    this.announceService.getAnnounces().subscribe(
+      response => {
+      this.announces = response;
+        this.announceService.listAnnonce = this.announces;
+      },
+
+
+    );
+  }
+
+  details(id) {
+    console.log('See announces of this seller');
+    this.announceService.announceEdit = Announce;
+    this.router.navigate([`/announce-piece/${id}`]);
   }
 
 }
+
+

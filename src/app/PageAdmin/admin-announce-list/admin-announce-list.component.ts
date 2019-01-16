@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SellerService } from 'src/app/Services/seller.service';
 import { Seller } from 'src/app/models/seller.models';
 import { AnnounceService } from 'src/app/Services/announce.service';
@@ -21,6 +21,7 @@ export class AdminAnnounceListComponent implements OnInit {
   sellers;
   seller;
   allAnnounces: [];
+  listAnnonces;
 
   constructor(private sellerService: SellerService,
     private announceService: AnnounceService,
@@ -38,20 +39,17 @@ export class AdminAnnounceListComponent implements OnInit {
         response => { this.announces = response; });
     });
 
-    this.announceService.getAnnounces().subscribe(
-      response => {
-      this.announces = response;
-        this.announceService.listAnnonce = this.announces;
-      },
-
-
+    this.announceService.getAnnounces()
+    .subscribe(
+      data => { this.listAnnonces = data; this.announceService.listAnnonce = data; console.log(this.listAnnonces); }
     );
-  }
+}
 
-  details(id) {
-    console.log('See announces of this seller');
-    this.announceService.announceEdit = Announce;
-    this.router.navigate([`/announce-piece/${id}`]);
+
+  details(annonceId) {
+    console.log(annonceId);
+    console.log('La route du Q' + this.router.navigate(['/announce-piece', annonceId]));
+    this.router.navigate(['/announce-piece', annonceId]);
   }
 
 }

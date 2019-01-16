@@ -15,8 +15,10 @@ export class AnnounceListComponent implements OnInit {
 
 
   ngOnInit() {
-    this.announceService.getAnnounces().subscribe( data => {this.listAnnonces = data; this.announceService.listAnnonce = data; console.log(this.listAnnonces)})
-    
+    this.announceService.getAnnounces()
+      .subscribe(
+        data => { this.listAnnonces = data; this.announceService.listAnnonce = data; console.log(this.listAnnonces); }
+      );
   }
 
 }

@@ -50,8 +50,8 @@
     </div>
 
     <div class="btn-group col-12 d-sm-none bottomButtons" data-toggle="buttons">
-      <label type="button" class="btn btn-warning col-6">
-        Signaler
+      <label type="button" class="btn btn-warning col-6" (click)="returnLastPage()">
+        Retour
       </label>
       <label type="button" class="btn btn-warning col-6">
         Ajouter au panier
@@ -59,7 +59,7 @@
     </div>
 
     <div class="d-none d-sm-block col-12">
-      <label type="button" class="btn btn-warning offset-4 col-2">Signaler</label>
+      <label type="button" class="btn btn-warning offset-4 col-2" (click)="returnLastPage()">Retour</label>
       <label type="button" class="btn btn-warning offset-2 col-2">Ajouter au panier</label>
     </div>
 

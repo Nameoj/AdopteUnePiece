@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AnnounceService } from 'src/app/Services/announce.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-announce-piece',
@@ -12,7 +13,7 @@ export class AnnouncePieceComponent implements OnInit {
   id
   annonce
   
-  constructor(private annonceService: AnnounceService, private route: ActivatedRoute, private router : Router) { }
+  constructor(private annonceService: AnnounceService, private route: ActivatedRoute, private router : Router, private _location: Location) { }
 
   placeholderForDBAnnounce = {
     }
@@ -31,6 +32,10 @@ export class AnnouncePieceComponent implements OnInit {
       
       console.log(this.annonce)
   });
+  }
+
+  returnLastPage() {
+    this._location.back();
   }
 
 }

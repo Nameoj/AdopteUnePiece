@@ -12,7 +12,7 @@
     transition:all 0.4s linear;
 }
 .backgroundLogo  {
-    width:30%;
+    width:22%;
     position:absolute;
     z-index:1;
     left:37%;
@@ -33,5 +33,5 @@
 }
 
 .img {
-    width:3em;
+    width:4em;
 }

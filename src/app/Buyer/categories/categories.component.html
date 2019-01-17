@@ -4,7 +4,7 @@
   <div *ngFor="let categories of motoCategories.categories; let index=index">
     <div class="row">
       <div class="categories arrowHead" (click)="collapse(index)">
-        <b> Partie {{categories.name}} </b>
+        <b> {{categories.name}} </b>
       </div>
       <app-sous-categories id="categ{{index}}" class="categ" [overIndex]="index*100" [categories]="categories"></app-sous-categories>
     </div>

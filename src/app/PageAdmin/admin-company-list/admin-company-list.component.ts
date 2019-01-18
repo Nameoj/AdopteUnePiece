@@ -10,14 +10,9 @@ import { Router } from '@angular/router';
 })
 export class AdminCompanyListComponent implements OnInit {
 
-  numbers: number[] = [];
   sellers: Seller[];
 
-  constructor(private sellerService: SellerService, private router: Router) {
-    for (let index = 0; index < 10000; index++) {
-      this.numbers.push(index);
-    }
-  }
+  constructor(private sellerService: SellerService, private router: Router) {}
 
   ngOnInit() {
     this.sellerService.getAllSellers().subscribe(
@@ -25,8 +20,6 @@ export class AdminCompanyListComponent implements OnInit {
       this.sellers = response;
         this.sellerService.sellers = this.sellers;
       },
-
-
     );
   }
 

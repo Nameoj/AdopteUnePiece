@@ -35,7 +35,6 @@ import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 import { TabCreationComponent } from './Seller/page-announce-pro/tab-creation/tab-creation.component';
 import { TabAnnounceComponent } from './Seller/page-announce-pro/tab-announce/tab-announce.component';
-import { TabHistoriqueComponent } from './Seller/page-announce-pro/tab-historique/tab-historique.component';
 import { CategoriesComponent } from './Buyer/categories/categories.component';
 import { SousCategoriesComponent } from './Buyer/categories/sous-categories/sous-categories.component';
 import { SousSousCategoriesComponent } from './Buyer/categories/sous-categories/sous-sous-categories/sous-sous-categories.component';
@@ -52,7 +51,8 @@ import { HttpIntercepterService, httpInterceptorProviders } from './Services/htt
 import { TabCategoriesComponent } from './Seller/page-announce-pro/tab-categories/tab-categories.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { AdminCompanyEditComponent } from './PageAdmin/admin-company-edit/admin-company-edit.component';
-import { AdminCompanyPasswordComponent } from './PageAdmin/admin-company-edit/admin-company-password/admin-company-password.component'
+import { AdminCompanyPasswordComponent } from './PageAdmin/admin-company-edit/admin-company-password/admin-company-password.component';
+import { TabCompteComponent } from './Seller/page-announce-pro/tab-compte/tab-compte.component'
 
 
 
@@ -79,7 +79,6 @@ import { AdminCompanyPasswordComponent } from './PageAdmin/admin-company-edit/ad
     MotdepasseComponent,
     TabCreationComponent,
     TabAnnounceComponent,
-    TabHistoriqueComponent,
     CategoriesComponent,
     SousCategoriesComponent,
     SousSousCategoriesComponent,
@@ -94,6 +93,7 @@ import { AdminCompanyPasswordComponent } from './PageAdmin/admin-company-edit/ad
     TabCategoriesComponent,
     AdminCompanyEditComponent,
     AdminCompanyPasswordComponent,
+    TabCompteComponent,
   ],
   imports: [
     BrowserModule,

@@ -87,10 +87,15 @@ pre {
     color:black;
 }
 
-.price{
+.priceClas{
     width: 8em;
 }
 
 .priceSign{
     font-size:1.5em;
+}
+
+.noInput{
+    font-size:0.8em;
+    color:red
 }

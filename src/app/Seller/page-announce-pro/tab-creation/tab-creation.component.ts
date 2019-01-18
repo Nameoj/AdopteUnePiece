@@ -26,9 +26,6 @@ export class TabCreationComponent implements OnInit {
   rateChoice = 0;
   uri: string = '';
   url: string = '';
-  choixMarque: boolean = false;
-  choixCylindree: boolean = false;
-  choixModele: boolean = false;
 
   brands = ["Honda", "Kawasaki", "Suzuki", "Yamaha"]
   cylinders = ["50cc", "80cc", "125cc", "250cc", "400cc", "500cc", "600cc", "700cc", "800cc", "900cc", "1000cc"]
@@ -39,6 +36,8 @@ export class TabCreationComponent implements OnInit {
   seller: string;
   annonceForm: FormGroup;
   submitted: boolean = false;
+  noInputUri: boolean = false;
+  noInputPieceType:boolean = false;
 
 
   constructor(
@@ -60,14 +59,14 @@ export class TabCreationComponent implements OnInit {
     const _this = this;
 
     this.creationAnnounce = this.formBuilder.group({
-      brand: ['', Validators.required],
-      cylinder: ['', Validators.required],
+      brand: ['', Validators.required ],
+      cylinder: ['', Validators.required ],
       model: ['', Validators.required],
       year: ['', Validators.required],
-      pieceType: ['', Validators.required],
       description: ['', Validators.required],
       note: ['', Validators.required],
       price: ['', Validators.required],
+      change: ['', Validators.required],
     });
 
     // selection photos
@@ -118,38 +117,40 @@ export class TabCreationComponent implements OnInit {
     this.selectedFile = <File>event.target.files[0];
   }
 
-  onUpload() {
-    const fd = new FormData();
-    fd.append('image', this.selectedFile, this.selectedFile.name);
-    this.http.post('http://localhost:8080/api/uploadFile', fd, {
-      reportProgress: true,
-      observe: 'events'
-    })
-      .subscribe(event => {
-        if (event.type === HttpEventType.UploadProgress) {
-          console.log('Upload Progress: ' + Math.round(event.loaded / event.total * 100) + '%');
-        } else if (event.type === HttpEventType.Response) {
-          console.log(event);
-        }
-      });
-  }
+  // onUpload() {
+  //   const fd = new FormData();
+  //   fd.append('image', this.selectedFile, this.selectedFile.name);
+  //   this.http.post('http://localhost:8080/api/uploadFile', fd, {
+  //     reportProgress: true,
+  //     observe: 'events'
+  //   })
+  //     .subscribe(event => {
+  //       if (event.type === HttpEventType.UploadProgress) {
+  //         console.log('Upload Progress: ' + Math.round(event.loaded / event.total * 100) + '%');
+  //       } else if (event.type === HttpEventType.Response) {
+  //         console.log(event);
+  //       }
+  //     });
+  // }
 
-  getMarque() {
-    this.choixMarque = true;
-  }
-  getCylindree() {
-    this.choixCylindree = true;
-  }
-  getModele() {
-    this.choixModele = true;
-  }
   getPieceType(pieceType) {
     this.pieceType = pieceType;
   }
 
+
+  get f() { return this.creationAnnounce.controls; }
+
   onSubmit() {
+    
     const formValue = this.creationAnnounce.value;
-    console.log(this.uri);
+  
+    
+    this.submitted = true;
+
+        // stop here if form is invalid
+        if (this.creationAnnounce.invalid) {
+            return;
+        }
     const newAnnounce = new Announce(
       0,
       this.buyerService.getAuthenticatedUser(),
@@ -167,7 +168,10 @@ export class TabCreationComponent implements OnInit {
     console.log(newAnnounce);
 
     this.announceService.createAnnounce(newAnnounce).subscribe(data => console.log(data));
-
+    
+    if (this.uri == null){
+      noInputUri = true;
+    }
   }
 }
 

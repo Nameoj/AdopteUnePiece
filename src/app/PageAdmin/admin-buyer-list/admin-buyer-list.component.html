@@ -4,9 +4,6 @@
         <thead class="head sticky">
           <tr>
             <th>
-              Id
-            </th>
-            <th>
               Nom
             </th>
             <th>
@@ -15,19 +12,16 @@
             <th>
               Ville
             </th>
-            <th>
+            <th class="centerContainer">
               Editer
             </th>
-            <th>
+            <th class="centerContainer">
               Supprimer
             </th>
           </tr>
         </thead>
         <ng-container *cdkVirtualFor="let buyer of buyers">
           <tr>
-            <td>
-              {{buyer.id}}
-            </td>
             <td>
               {{buyer.nom}}
             </td>
@@ -37,10 +31,10 @@
             <td>
               {{buyer.ville}}
             </td>
-            <td>
+            <td class="centerContainer">
               <a (click)="edit(buyer.username)"><i class="material-icons icons">edit</i></a>
             </td>
-            <td>
+            <td class="centerContainer">
                 <a (click)="delete(buyer.username)"><i class="material-icons icons">delete_sweep</i></a>
             </td>
           </tr>

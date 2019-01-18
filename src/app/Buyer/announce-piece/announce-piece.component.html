@@ -14,10 +14,6 @@
     </div>
   
     <div class="col-sm-8">
-      <!-- <div class="pieceTitle font-italic font-weight-bold">
-      {{annonce.pieceName}}
-      </div> -->
-      
       <div class="
             col-12 text-sm-left announceDescription">
         <p class="announcePrice d-sm-none">
@@ -38,13 +34,12 @@
         <p> Description: {{annonce.description}}</p>
 
         <p class="announceState">
-          Etat de la pièce:
+          Etat de la pièce: 
         </p>
           <p class="announceState">
           <span class="announceRating" *ngFor="let numberOfStarts of arrayForRating">★</span>
           <span class="announceRating" *ngFor="let numberOfStarts of arrayForRatingEmpty">☆</span>
           <br class="d-sm-none sautAnnonce">
-          <span class="announceDispo btn btn-success">{{annonce.note}}</span>
         </p>
       </div>
     </div>

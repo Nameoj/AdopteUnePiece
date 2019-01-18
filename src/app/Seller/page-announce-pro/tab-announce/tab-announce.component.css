@@ -1,0 +1,46 @@
+.announceText {
+    padding-right:7px;
+    padding-left:15px;
+    border-right:1px solid #dfdfdf;
+}
+.groupOfText:not(:last-child){
+    margin:0px 0px 33% 0px;
+}
+
+.groupOfText{
+    margin-right:30px;
+}
+.image {
+    width:inherit;
+    height:inherit;
+}
+.announceImage{
+    padding:0px;
+    margin-top:auto;
+    margin-bottom:auto;
+}
+.row {
+    margin:0;
+}
+.card-body{
+    padding:1.65rem;
+    font-family:Montserrat, Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+.accessMore {
+    margin-top:auto;
+    margin-bottom:auto;
+    text-align:center;
+}
+.price{
+    font-size:2.3em;
+    font-weight: bold;
+}
+.card {
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.btn-warning{
+    background-color:#FFC419;
+    min-width:70px;
+}

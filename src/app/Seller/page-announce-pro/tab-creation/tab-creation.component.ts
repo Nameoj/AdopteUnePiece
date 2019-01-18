@@ -49,7 +49,7 @@ export class TabCreationComponent implements OnInit {
     private buyerService: BuyerService,
     private announceService: AnnounceService,
     private router: Router) {
-  config.max = 5;
+    config.max = 5;
     // customize default values of ratings used by this component tree
   }
 

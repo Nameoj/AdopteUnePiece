@@ -1,32 +1,37 @@
-.bikeSubscetionContainer{
-    border: 2px solid blue;
-}
 
-.list-group-item {
-    width:80%;
-    margin-top:5px;
-    margin-left:15px;
+.test {
+    width: 80%;
+    height: 50px;
+    margin-top:10px;
+    margin-left:50px;
     font-size:1em;
     cursor: pointer;
     font-family:Rubik, Arial, Helvetica, sans-serif;
+    border: 1ch;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.textSouCat {
+    margin-left: 1em;
+    margin-top: 0.8em;
+    outline: 0;
 }
 
 .list {
     display:none;
     width:76%;
-    margin-left: 25px;
+    margin-left: 50px;
 }
 
-.arrowHead{
-    background-image:url('../../../../assets/down-arrow.png');
-    background-size: 15px;
-    background-position: center right 14px;
-    background-repeat: no-repeat;
-}
 
 .mat-button {
     outline: 0;
-    text-align: end;
+}
+
+i {
+    margin-top: 0.5em;
+    outline: 0;
 }
 
 /*Mobile*/

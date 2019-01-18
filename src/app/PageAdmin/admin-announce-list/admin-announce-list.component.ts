@@ -22,6 +22,8 @@ export class AdminAnnounceListComponent implements OnInit {
   seller;
   allAnnounces: [];
   listAnnonces;
+  idefix;
+  announce;
 
   constructor(private sellerService: SellerService,
     private announceService: AnnounceService,
@@ -38,18 +40,27 @@ export class AdminAnnounceListComponent implements OnInit {
       this.announceService.getSellerAnnounce(this.username).subscribe(
         response => { this.announces = response; });
     });
-
     this.announceService.getAnnounces()
-    .subscribe(
-      data => { this.listAnnonces = data; this.announceService.listAnnonce = data; console.log(this.listAnnonces); }
-    );
-}
-
+      .subscribe(
+        data => { this.listAnnonces = data; this.announceService.listAnnonce = data; console.log(this.listAnnonces); }
+      );
+  }
 
   details(annonceId) {
     console.log(annonceId);
     console.log('La route du Q' + this.router.navigate(['/announce-piece', annonceId]));
     this.router.navigate(['/announce-piece', annonceId]);
+  }
+
+  delete(id) {
+    this.announceService.deleteAnnonce(id)
+      .subscribe(data => {
+        this.announceService.announceEdit = data;
+        console.log(this.announceService.announceEdit);
+        this.announceService.getAnnounces().subscribe(
+          response => this.announces = response
+        );
+      });
   }
 
 }

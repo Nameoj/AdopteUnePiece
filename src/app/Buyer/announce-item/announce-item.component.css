@@ -26,6 +26,7 @@
     padding:1.65rem;
     font-family:Montserrat, Arial, Helvetica, sans-serif;
     font-weight: 600;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .accessMore {
     margin-top:auto;
@@ -43,4 +44,16 @@
 .btn-warning{
     background-color:#FFC419;
     min-width:70px;
+}
+
+.year {
+    margin-top: 50px;
+}
+
+.modele {
+    margin-bottom: 40px;
+}
+
+.type {
+    margin-bottom: 50px;
 }

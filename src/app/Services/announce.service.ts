@@ -16,6 +16,7 @@ export class AnnounceService {
 
 
   private baseUrl = 'http://localhost:8080/api/announces';
+  private baseUrl2 = 'http://localhost:8080/api';
 
   constructor(private http: HttpClient) { }
 
@@ -34,5 +35,9 @@ export class AnnounceService {
 
   getSellerAnnounce(username): Observable<Object> {
     return this.http.get<Seller>(`${this.baseUrl}/seller/${username}`);
+  }
+
+  deleteAnnonce(id): Observable<Object> {
+    return this.http.get<Announce>(`${this.baseUrl2}/deleteannounces/${id}`);
   }
 }

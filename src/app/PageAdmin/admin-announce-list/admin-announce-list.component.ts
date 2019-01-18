@@ -15,12 +15,10 @@ export class AdminAnnounceListComponent implements OnInit {
 
   announces: Object; Announce;
   sellerEdit: Seller;
-  raisonSociale: String;
   username: String;
   idx;
   sellers;
   seller;
-  allAnnounces: [];
   listAnnonces;
   idefix;
   announce;

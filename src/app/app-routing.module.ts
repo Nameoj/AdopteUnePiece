@@ -52,7 +52,8 @@ const routes: Routes = [
       { path: 'admin-announce-list/:username/:idx', component: AdminAnnounceListComponent },
       { path: 'db_manager', component: DataBaseManagmentComponent },
       { path: 'admin-company-edit', component: AdminCompanyEditComponent },
-      { path: 'admin-company-create', component: AdminCompanyCreateComponent }]
+      { path: 'admin-company-create', component: AdminCompanyCreateComponent },
+      { path: 'admin-moto-create', component: DataBaseManagmentComponent}]
   },
 ];
 

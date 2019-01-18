@@ -1,36 +1,38 @@
-<form [formGroup]="passwordForm" (ngSubmit)="onSubmit()">
-  <!--PASSWORD-->
-  <div class="form-group row">
-    <label for="colFormLabel" class="label col-md-2 col-form-label">Mot de passe</label>
-    <div class="col-md-6">
-      <input formControlName="password" type="password" class="form-control" id="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-        <div *ngIf="f.password.errors.required">champs requis</div>
-        <div *ngIf="f.password.errors.minlength">
-          Le mot de passe doit avoir au moins 8 caractères
+<div class="container mt-3">
+  <form [formGroup]="passwordForm" (ngSubmit)="onSubmit()">
+    <!--PASSWORD-->
+    <div class="form-group row">
+      <label for="colFormLabel" class="label col-md-2 col-form-label">Nouveau mot de passe</label>
+      <div class="col-md-6">
+        <input formControlName="password" type="password" class="form-control" id="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">champs requis</div>
+          <div *ngIf="f.password.errors.minlength">
+            Le mot de passe doit avoir au moins 8 caractères
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!--PASSWORD CONFIRM-->
-  <div class="form-group row">
-    <label for="colFormLabel" class="label col-md-2 col-form-label">Confirmation mot de passe</label>
-    <div class="col-md-6">
-      <input type="password" formControlName="confirmPassword" class="form-control" id="confirmPassword" [ngClass]="{
-            'is-invalid': submitted && f.confirmPassword.errors
-          }" />
-      <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
-        <div *ngIf="f.confirmPassword.errors.required">
-          champs requis
-        </div>
-        <div *ngIf="f.confirmPassword.hasError('NoPassswordMatch')">
-          les mots de passe ne sont pas identiques
+    <!--PASSWORD CONFIRM-->
+    <div class="form-group row">
+      <label for="colFormLabel" class="label col-md-2 col-form-label">Confirmation mot de passe</label>
+      <div class="col-md-6">
+        <input type="password" formControlName="confirmPassword" class="form-control" id="confirmPassword" [ngClass]="{
+              'is-invalid': submitted && f.confirmPassword.errors
+            }" />
+        <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+          <div *ngIf="f.confirmPassword.errors.required">
+            champs requis
+          </div>
+          <div *ngIf="f.confirmPassword.hasError('NoPassswordMatch')">
+            les mots de passe ne sont pas identiques
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <button type="submit" class="btn btn-warning  mb-2">
-    Modifier mot de passe
-  </button>
-</form>
+    <button type="submit" class="btn btn-warning  mb-2">
+      Modifier mot de passe
+    </button>
+  </form>
+</div>

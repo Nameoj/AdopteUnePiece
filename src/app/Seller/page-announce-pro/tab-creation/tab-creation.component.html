@@ -86,9 +86,12 @@
         <h3>Choisir une photo :</h3>
         <form id="singleUploadForm" name="singleUploadForm">
           <div *ngIf="noInputUri" class="noInput">champs requis</div> 
-          <img [src]="url" height="150">
+          <img [src]="url" height="150" class="mr-5">
           <input id="singleFileUploadInput" type="file" name="file" class="file-input" required (change)="onSelectFile($event)" />
-          <button type="submit" class="primary submit-btn">Valider</button>
+          <div class="col-12 text-center">
+           <button *ngIf="uri == null" type="submit" class="btn btn-warning text-white">Valider votre photo</button>
+           <button *ngIf="uri != null" type="submit" class="btn btn-success text-white">Valider votre photo</button>
+         </div>
         </form>
         <div class="upload-response">
           <div id="singleFileUploadError"></div>
@@ -100,9 +103,9 @@
       <div class="row mb-4">
       <h5 class="col-6">Préciser la catégorie :</h5>
       <div class="col-6">Vous avez choisi le type :
-          <button *ngIf="pieceType != null" type="button" class="btn btn-success">{{pieceType}}</button>
+          <button *ngIf="pieceName != null" type="button" class="btn btn-success">{{pieceName}}</button>
       </div>
-      <div *ngIf="noInputPieceType" class="noInput">champs requis</div>
+      <div *ngIf="noInputPieceName" class="noInput">champs requis</div>
       </div>  
       <div class="container-fluid">
           <div class="row">
@@ -124,7 +127,7 @@
                     </a>
                   </p>
                   <div class="collapse" id="collapseCadre">
-                    <button class="buttonAspect" type="button" *ngFor="let cadre of cadres" (click)="getPieceType($event.target.innerText)">{{cadre}}</button>
+                    <button class="buttonAspect" type="button" *ngFor="let cadre of cadres" (click)="getPieceName($event.target.innerText)">{{cadre}}</button>
                   </div>
         
                   <p>
@@ -565,7 +568,7 @@
       </div>
       <div>
         <h5>Frais de port:</h5>
-        <input id="change" class="form-control" formControlName="change" class="priceClas"><span class="priceSign ml-2">€</span>
+        <input id="charge" class="form-control" formControlName="charge" class="priceClas"><span class="priceSign ml-2">€</span>
       </div>
       <div class="row mt-5 mb-3">
         <div class="col-lg-12 text-center">

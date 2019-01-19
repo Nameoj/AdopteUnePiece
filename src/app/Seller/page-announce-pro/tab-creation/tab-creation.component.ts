@@ -24,21 +24,20 @@ export class TabCreationComponent implements OnInit {
   title = 'UploadImg';
   selectedFile: File = null;
   rateChoice = 0;
-  uri: string = '';
+  uri: string = null
   url: string = '';
+  noInputUri : boolean = false;
+  noInputPieceName : boolean = false;
 
   brands = ["Honda", "Kawasaki", "Suzuki", "Yamaha"]
   cylinders = ["50cc", "80cc", "125cc", "250cc", "400cc", "500cc", "600cc", "700cc", "800cc", "900cc", "1000cc"]
   motoModels = ["Cucux", "Giovani", "GF", "Ninja", "Varadero"]
   years = ["1990", "1991", "1992", "1993", "1994", "1995", "1996"]
   cadres = ["Cadre", "Arraignée avant", "Boucle arrière", "Divers cadre"]
-  pieceType: string;
+  pieceName: string;
   seller: string;
   annonceForm: FormGroup;
   submitted: boolean = false;
-  noInputUri: boolean = false;
-  noInputPieceType:boolean = false;
-
 
   constructor(
     private config: NgbRatingConfig,
@@ -57,7 +56,7 @@ export class TabCreationComponent implements OnInit {
   ngOnInit() {
 
     const _this = this;
-
+    
     this.creationAnnounce = this.formBuilder.group({
       brand: ['', Validators.required ],
       cylinder: ['', Validators.required ],
@@ -66,7 +65,7 @@ export class TabCreationComponent implements OnInit {
       description: ['', Validators.required],
       note: ['', Validators.required],
       price: ['', Validators.required],
-      change: ['', Validators.required],
+      charge: ['', Validators.required],
     });
 
     // selection photos
@@ -85,7 +84,6 @@ export class TabCreationComponent implements OnInit {
         contentType: false,
         success: function (response) {
           _this.uri = response.fileDownloadUri;
-
           console.log(response);
 
           console.log(_this.uri);
@@ -133,17 +131,17 @@ export class TabCreationComponent implements OnInit {
   //     });
   // }
 
-  getPieceType(pieceType) {
-    this.pieceType = pieceType;
+  getPieceName(pieceName) {
+    this.pieceName = pieceName;
   }
-
 
   get f() { return this.creationAnnounce.controls; }
 
   onSubmit() {
     
     const formValue = this.creationAnnounce.value;
-  
+    let noInputUri: boolean = false;
+    let noInputPieceName:boolean = false;
     
     this.submitted = true;
 
@@ -151,6 +149,21 @@ export class TabCreationComponent implements OnInit {
         if (this.creationAnnounce.invalid) {
             return;
         }
+        if (this.uri == null){
+          this.noInputUri = true;
+          return;
+        }
+        else{
+          this.noInputUri = false;
+        }
+        if (this.pieceName == null){
+          this.noInputPieceName = true;
+          return; 
+        }
+        else{
+          this.noInputPieceName = false;
+        }
+
     const newAnnounce = new Announce(
       0,
       this.buyerService.getAuthenticatedUser(),
@@ -158,20 +171,18 @@ export class TabCreationComponent implements OnInit {
       formValue['description'],
       formValue['note'],
       this.date,
-      this.pieceType,
+      this.pieceName,
       formValue['model'],
       formValue['brand'],
       formValue['cylinder'],
       formValue['year'],
       formValue['price'],
-      20);
+      formValue['charge'],);
     console.log(newAnnounce);
 
     this.announceService.createAnnounce(newAnnounce).subscribe(data => console.log(data));
     
-    if (this.uri == null){
-      noInputUri = true;
-    }
+
   }
 }
 

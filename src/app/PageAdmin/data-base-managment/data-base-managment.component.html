@@ -1,3 +1,68 @@
-<p>
-  data-base-managment works!
-</p>
+<div class="container">
+  <div class="row mb-3 mt-2">
+    <div class="col-4">
+      <button type="button" class="btn btn-outline-primary" (click)="openBrandCreator()">Ajouter une nouvelle marque</button>
+    </div>
+    <div class="col-4">
+      <button type="button" class="btn btn-outline-primary" (click)="openModelCreator()">Ajouter un nouveau modèle</button>
+    </div>
+    <div class="col-4">
+      <button type="button" class="btn btn-outline-primary" (click)="openCylinderYearCreator()">Ajouter une nouvelle
+        cylindrée-année</button>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div *ngIf="addBrand" class="addBrand col-6">
+
+      <input [(ngModel)]="newBrand" class="form-control" placeholder="nom de marque">
+
+    </div>
+
+    <div *ngIf="addModel" class="addModel col-6">
+
+      <select [(ngModel)]="newModel_brand" class="mb-2" name="" id="">
+        <option selected="selected">
+          Marque
+        </option>
+        <option *ngFor="let brand of allMotos" value="{{brand.name}}">
+          {{brand.name}}
+        </option>
+      </select>
+
+      <input [(ngModel)]="newModel" class="form-control" placeholder="nom de modèle">
+
+    </div>
+
+    <div *ngIf="addCylinderYear" class="addCylinderYear col-6">
+
+      <select class="mb-2" name="" id="">
+        <option selected="selected" (click)="modelSelect=false">
+          Marque
+        </option>
+        <option *ngFor="let brand of allMotos; let brand_idx=index" value="" (click)="modelSelect=true; getIndex(brand_idx)">
+          {{brand.name}}
+        </option>
+      </select>
+
+      <span *ngIf="modelSelect">
+        <select [(ngModel)]="newCylinderYear_model" class="mb-2" name="" id="">
+          <option selected="selected">
+            Modèle
+          </option>
+          <option *ngFor="let model of allMotos[idx].motoModels" value="{{model.modelName}}">
+            {{model.modelName}}
+          </option>
+        </select>
+      </span>
+      
+      <input [(ngModel)]="newCylinder" class="form-control mb-2" placeholder="cylindre">
+      <input [(ngModel)]="newYear" class="form-control" placeholder="année">
+
+    </div>
+
+    <button (click)="addToDatabase()" *ngIf="addBrand || addCylinderYear || addModel" type="button" class="btn btn-success offset-2 col-2">Valider</button>
+
+  </div>
+</div>

@@ -1,8 +1,3 @@
-<!-- <div class="row announceContainer">
-      <app-announce-item class="col-12" *ngFor="let announce of listAnnonces, let i = index" [announce]="announce"
-            [index]="i"></app-announce-item>
-
-</div> -->
 <div class="row announceContainer">
       <cdk-virtual-scroll-viewport itemSize="100" class="VSviewport">
             <ng-container *cdkVirtualFor="let announce of listAnnonces, let i = index">

@@ -55,7 +55,7 @@ export class AdminAnnounceListComponent implements OnInit {
       .subscribe(data => {
         this.announceService.announceEdit = data;
         console.log(this.announceService.announceEdit);
-        this.announceService.getAnnounces().subscribe(
+        this.announceService.getSellerAnnounce(this.username).subscribe(
           response => this.announces = response
         );
       });

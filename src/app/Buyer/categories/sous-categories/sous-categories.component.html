@@ -1,11 +1,11 @@
-<div class="bikeSubscetionContainer">
+
   <div *ngFor="let sousCategories of categories.sousCategories; let index=index">
-    <li *ngIf="sousCategories.sousSousCategories" class="list-group-item list-group-item-action" (click)="collapse(index+overIndex)">
-      <button mat-button routerLink="">{{sousCategories.name}}<i class="material-icons">arrow_drop_down</i></button>
-    </li>
-    <li *ngIf="sousCategories.sousSousCategories==undefined" class="list-group-item list-group-item-action" (click)="collapse(index+overIndex)">
-      <button mat-button routerLink="">{{sousCategories.name}}</button>
-    </li>
-    <app-sous-sous-categories id="list{{index+overIndex}}" class="list" [sousCategories]="sousCategories"></app-sous-sous-categories>
-  </div>
-</div>
+      <div class="row test" (click)="collapse(index+overIndex)">
+        <div *ngIf="sousCategories.sousSousCategories"  class="textSouCat col-9" mat-button routerLink="">{{sousCategories.name}}</div>
+         <div><i class="material-icons arrow offset-1">keyboard_arrow_down</i></div>
+      </div>
+      <li *ngIf="sousCategories.sousSousCategories==undefined" class="list-group-item list-group-item-action" (click)="collapse(index+overIndex)">
+        <button mat-button routerLink="">{{sousCategories.name}}</button>
+      </li>
+      <app-sous-sous-categories id="list{{index+overIndex}}" class="list" [sousCategories]="sousCategories"></app-sous-sous-categories>
+    </div>

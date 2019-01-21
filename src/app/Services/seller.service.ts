@@ -27,6 +27,10 @@ export class SellerService {
     return this.http.get<Seller[]>(`${this.baseUrl2}sellers`);
   }
 
+  getSeller(username) {
+    return this.http.get<Seller>(`${this.baseUrl2}/seller/${username}`);
+  }
+
   updateSeller(seller, username): Observable<Object> {
     console.log('update seller from seller service called');
     return this.http.put(`${this.baseUrl2}update/${username}`, seller);

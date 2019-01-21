@@ -343,16 +343,19 @@ export class CategoriesService {
         }]
       },
       {
-        name:"Régulateur de tension"
-      },
-      {
-        name:"Bobine d'allumage"
-      },
-      {
-        name: "Relais de démarreur"
-      },
-      {
-        name: "Alternateur"
+        name:"Autre",
+        sousSousCategories:[{
+          name: "Régulateur de vitesse"
+        },
+        {
+          name:"Bobine d'allumage"
+        },
+        {
+          name: "Relais de démarreur"
+        },
+        {
+          name: "Alternateur"
+        }]
       },
       {
         name: "Commodo",
@@ -408,11 +411,11 @@ export class CategoriesService {
           name: "Entourage compteur"
         },
         {
+          name: "Passage de roue"
+        },
+        {
           name: "Carénages divers"
         }]
-      },
-      {
-        name:"Poignée arrière"
       },
       {
         name:"Garde boue",
@@ -437,13 +440,7 @@ export class CategoriesService {
         {
           name: "Diverses coques arrières"
         }]
-      },
-      {
-        name: "Protège Chaîne"
-      },
-      {
-        name: "Passage de roue"
-      }]
+      }],
     }]
   }
   constructor() { }

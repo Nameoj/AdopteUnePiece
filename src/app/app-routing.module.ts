@@ -11,7 +11,6 @@ import { BuyerHomeComponent } from './Buyer/buyer-home/buyer-home.component';
 import { SearchBarComponent } from './Buyer/buyer-home/search-bar/search-bar.component';
 import { SearchVhlComponent } from './Buyer/buyer-home/search-vhl/search-vhl.component';
 import { PageAnnounceProComponent } from './Seller/page-announce-pro/page-announce-pro.component';
-// import { ConnexionComponent } from './Sign-up/connexion/connexion.component';
 import { CreationCompteComponent } from './Sign-up/creation-compte/creation-compte.component';
 import { MyAccountComponent } from './Sign-up/my-account/my-account.component';
 import { SearchImmatComponent } from './Buyer/buyer-home/search-immat/search-immat.component';
@@ -26,6 +25,7 @@ import { AdminAnnounceListComponent } from './PageAdmin/admin-announce-list/admi
 import { DataBaseManagmentComponent } from './PageAdmin/data-base-managment/data-base-managment.component';
 import { AdminCompanyCreateComponent } from './PageAdmin/admin-company-create/admin-company-create.component';
 import { AdminCompanyEditComponent } from './PageAdmin/admin-company-edit/admin-company-edit.component';
+import { RouteGardSellerService } from './Services/route-gard-seller.service';
 
 const routes: Routes = [
   { path: '', component: BuyerHomeComponent },
@@ -42,7 +42,7 @@ const routes: Routes = [
   { path: 'announce-piece', component: AnnouncePieceComponent },
   { path: 'announce-piece/:Id', component: AnnouncePieceComponent },
   { path: 'announce-list', component: AnnounceListComponent },
-  { path: 'page-announce-pro', component: PageAnnounceProComponent },
+  { path: 'page-announce-pro', component: PageAnnounceProComponent, canActivate:[RouteGardSellerService] },
   { path: 'announce-list-seller', component: PageAnnounceProComponent },
   {
     path: 'admin-home', component: AdminHomeComponent, children: [
@@ -52,7 +52,8 @@ const routes: Routes = [
       { path: 'admin-announce-list/:username/:idx', component: AdminAnnounceListComponent },
       { path: 'db_manager', component: DataBaseManagmentComponent },
       { path: 'admin-company-edit', component: AdminCompanyEditComponent },
-      { path: 'admin-company-create', component: AdminCompanyCreateComponent }]
+      { path: 'admin-company-create', component: AdminCompanyCreateComponent },
+      { path: 'admin-moto-create', component: DataBaseManagmentComponent}]
   },
 ];
 

@@ -1,76 +1,72 @@
 
-.btn-success:focus {
-    outline:0;
-    background-color: #28a745;
+.piecePage {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 5vh;
+    background-color: white;
 }
-.btn-success{
-    border:none;
-    background-color: #28a745;
-}
-.btn-success:active {
-    background-color: #28a745 !important;
-}
-.btn-success:hover {
-    background-color: #28a745;
-    cursor:default;
-}
-
-
 
 .announcePiecePage {
-margin-bottom: 20px;
+    margin-bottom: 20px;
+
 }
 
 .announcePrice {
-margin-top: 18px !important;
-font-size: 1.9em;
+    margin-top: 18px !important;
+    font-size: 1.9em;
+    background-color: #f0f0f0;
+    color: red;
+    margin-bottom: 0;
+}
+
+.panier {
+    width: 100%;
+}
+
+.shop {
+    padding-top: 60px;
+    padding-right: 40px; 
+}
+
+.retour {
+    margin-left: 85%;
 }
 
 .announceTitle {
-margin-top: 15px;
-margin-bottom: 20px;
-font-size: 2.2em;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-size: 2.2em;
 }
 
 .announceImage {
-width: 80vw;
+    width: 80vw;
+    box-shadow: 0 28px 16px -26px rgba(0, 0, 0);
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (max-width: 769px) {
     .announceImageDiv {
-    margin-bottom: 25px;
+        margin-bottom: 25px;
     }
-    .announceDescription {
-    margin-left: 15%;
-    max-width: 70%;
+    .retour {
+        margin-top: 20px;
+        margin-left: 0;
     }
-    .announceDispo {
-    position: absolute;
-    right: 25px;
+    .btnRetour {
+        width: 100%;
+    }
+    .shop {
+        width: 89%;
+        padding-right: 0;
+        padding-top: 0;
+        margin-left: 15px;
     }
 }
-
-
 
 .sautAnnonce {
-margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 
-.pieceTitle {
-margin-top: 15px;
-}
-
-.announcePrice {
-margin-top: 10px;
-color: red;
-}
 
 .announceRating {
-color: #FF8C00;
-font-size: 1.5em;
-}
-
-.bottomButtons {
-margin-top: 15px;
-margin-bottom: 15px;
+    color: #FF8C00;
+    font-size: 1.5em;
 }

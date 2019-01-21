@@ -203,7 +203,7 @@ export class TabCreationComponent implements OnInit {
       this.buyerService.getAuthenticatedUser(),
       this.uri,
       formValue['description'],
-      this.rateChoice,
+      this.note,
       this.date,
       this.pieceName,
       formValue['model'],

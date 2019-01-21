@@ -14,10 +14,6 @@
     </div>
   
     <div class="col-sm-8">
-      <!-- <div class="pieceTitle font-italic font-weight-bold">
-      {{annonce.pieceName}}
-      </div> -->
-      
       <div class="
             col-12 text-sm-left announceDescription">
         <p class="announcePrice d-sm-none">
@@ -38,20 +34,19 @@
         <p> Description: {{annonce.description}}</p>
 
         <p class="announceState">
-          Etat de la pièce:
+          Etat de la pièce: 
         </p>
           <p class="announceState">
           <span class="announceRating" *ngFor="let numberOfStarts of arrayForRating">★</span>
           <span class="announceRating" *ngFor="let numberOfStarts of arrayForRatingEmpty">☆</span>
           <br class="d-sm-none sautAnnonce">
-          <span class="announceDispo btn btn-success">{{annonce.note}}</span>
         </p>
       </div>
     </div>
 
     <div class="btn-group col-12 d-sm-none bottomButtons" data-toggle="buttons">
-      <label type="button" class="btn btn-warning col-6">
-        Signaler
+      <label type="button" class="btn btn-warning col-6" (click)="returnLastPage()">
+        Retour
       </label>
       <label type="button" class="btn btn-warning col-6">
         Ajouter au panier
@@ -59,7 +54,7 @@
     </div>
 
     <div class="d-none d-sm-block col-12">
-      <label type="button" class="btn btn-warning offset-4 col-2">Signaler</label>
+      <label type="button" class="btn btn-warning offset-4 col-2" (click)="returnLastPage()">Retour</label>
       <label type="button" class="btn btn-warning offset-2 col-2">Ajouter au panier</label>
     </div>
 

@@ -20,38 +20,38 @@ export class TabCreationComponent implements OnInit {
 
   creationAnnounce: FormGroup;
 
-  date=  new Date(Date.now());
+  date = new Date(Date.now());
   title = 'UploadImg';
   selectedFile: File = null;
   rateChoice = 0;
-  uri : string ='';
+  uri: string = '';
   url: string = '';
   choixMarque: boolean = false;
   choixCylindree: boolean = false;
   choixModele: boolean = false;
 
-  brands = ["Honda","Kawasaki","Suzuki","Yamaha"]
-  cylinders = ["50cc","80cc","125cc","250cc","400cc","500cc","600cc","700cc","800cc","900cc","1000cc"]
-  motoModels = ["Cucux","Giovani","GF","Ninja","Varadero"]
-  years = ["1990","1991","1992","1993","1994","1995","1996"]
+  brands = ["Honda", "Kawasaki", "Suzuki", "Yamaha"]
+  cylinders = ["50cc", "80cc", "125cc", "250cc", "400cc", "500cc", "600cc", "700cc", "800cc", "900cc", "1000cc"]
+  motoModels = ["Cucux", "Giovani", "GF", "Ninja", "Varadero"]
+  years = ["1990", "1991", "1992", "1993", "1994", "1995", "1996"]
   cadres = ["Cadre", "Arraignée avant", "Boucle arrière", "Divers cadre"]
-  pieceType : string;
-  seller : string;
+  pieceType: string;
+  seller: string;
   annonceForm: FormGroup;
   submitted: boolean = false;
 
 
   constructor(
-    private config: NgbRatingConfig, 
-    private categoriesService: CategoriesService, 
+    private config: NgbRatingConfig,
+    private categoriesService: CategoriesService,
     private http: HttpClient,
     private formBuilder: FormBuilder,
     private buyerService: BuyerService,
     private announceService: AnnounceService,
-    private router: Router) 
-    {config.max = 5;
+    private router: Router) {
+    config.max = 5;
     // customize default values of ratings used by this component tree
-    }
+  }
 
   motoCategories = this.categoriesService.mockMotoCategories;
 
@@ -59,7 +59,7 @@ export class TabCreationComponent implements OnInit {
 
     const _this = this;
 
-    this.creationAnnounce = this.formBuilder.group ({
+    this.creationAnnounce = this.formBuilder.group({
       brand: ['', Validators.required],
       cylinder: ['', Validators.required],
       model: ['', Validators.required],
@@ -104,7 +104,7 @@ export class TabCreationComponent implements OnInit {
   //  -------   ----------------   ---------------    METHODS FOR FILE UPLOADER --------    ---------------   -------------- ------------
   onSelectFile(event) {
     if (event.target.files && event.target.files[0]) {
-      var reader = new FileReader();
+      let reader = new FileReader();
 
       reader.readAsDataURL(event.target.files[0]); // read file as data url
 
@@ -112,7 +112,7 @@ export class TabCreationComponent implements OnInit {
         this.url = event.target['result'];
       }
     }
-}
+  }
 
   onFileSelected(event) {
     this.selectedFile = <File>event.target.files[0];
@@ -132,46 +132,41 @@ export class TabCreationComponent implements OnInit {
           console.log(event);
         }
       });
-} 
+  }
 
-// ----   -----------------------  -------------   METHODS FOR FORM -----------------------------  ---------------------- -------- --------- --------
-
-  
-
-  getMarque(){
+  getMarque() {
     this.choixMarque = true;
   }
-  getCylindree(){
+  getCylindree() {
     this.choixCylindree = true;
   }
-  getModele(){
+  getModele() {
     this.choixModele = true;
   }
   getPieceType(pieceType) {
     this.pieceType = pieceType;
   }
 
-  onSubmit(){
+  onSubmit() {
     const formValue = this.creationAnnounce.value;
-    console.log(this.uri)
+    console.log(this.uri);
     const newAnnounce = new Announce(
       0,
-     this.buyerService.getAuthenticatedUser(),
-     this.uri,
-     formValue['description'],
-     formValue['note'],
-     this.date,
-     this.pieceType,
-     formValue['model'],
-     formValue['brand'],
-     formValue['cylinder'],
-     formValue['year'],
-     formValue['price'],
-     20,);
-     
-    console.log(newAnnounce)
+      this.buyerService.getAuthenticatedUser(),
+      this.uri,
+      formValue['description'],
+      formValue['note'],
+      this.date,
+      this.pieceType,
+      formValue['model'],
+      formValue['brand'],
+      formValue['cylinder'],
+      formValue['year'],
+      formValue['price'],
+      20);
+    console.log(newAnnounce);
 
-    this.announceService.createAnnounce(newAnnounce).subscribe( data => console.log(data));
+    this.announceService.createAnnounce(newAnnounce).subscribe(data => console.log(data));
 
   }
 }

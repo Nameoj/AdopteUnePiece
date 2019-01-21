@@ -15,13 +15,13 @@
           <th>
             Tel
           </th>
-          <th>
+          <th class="centerContainer">
             Editer
           </th>
-          <th>
+          <th class="centerContainer">
             Supprimer
           </th>
-          <th>
+          <th class="centerContainer">
             Annonces
           </th>
         </tr>
@@ -40,13 +40,13 @@
           <th>
             {{seller.telephone}}
           </th>
-          <th>
+          <th class="centerContainer">
             <a (click)="edit(seller)"><i class="material-icons icons">edit</i></a>
           </th>
-          <th>
+          <th class="centerContainer">
             <a (click)="delete(seller.username)"><i class="material-icons icons">delete_sweep</i></a>
           </th>
-          <th>
+          <th class="centerContainer">
             <a (click)="seeAnounces(seller.username, idx)"><i class="material-icons icons">remove_red_eye</i></a>
           </th>
         </tr>

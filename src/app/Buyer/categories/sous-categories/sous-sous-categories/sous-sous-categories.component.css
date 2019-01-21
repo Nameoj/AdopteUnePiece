@@ -1,20 +1,22 @@
 .badge {
-    margin-left:4px;
-    font-size: 0.9em;
-    margin-top:3px;
+    margin-left:6px;
+    font-size: 0.8em;
+    margin-top:10px;
     margin-bottom:3px;
     padding-top:7px;
     padding-bottom:7px;
+    font-weight: normal;
 }
 
 .badge-outline {
-    color: #343a40;
-    border: 1px solid #343a40;
+    color: black;
+    border: 0.8px solid black;
     background-color: transparent;
+    border-radius: 2px;
 }
 
 .badge:active {
     color: #fff;
     text-decoration: none;
-    background-color: #1d2124;
+    background-color: black;
 }

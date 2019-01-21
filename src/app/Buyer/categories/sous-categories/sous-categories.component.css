@@ -7,19 +7,21 @@
     font-size:1em;
     cursor: pointer;
     font-family:Rubik, Arial, Helvetica, sans-serif;
+    border: 1ch;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.textSouCat {
+    margin-left: 1em;
+    margin-top: 0.8em;
+    outline: 0;
 }
 
 .list {
     display:none;
     width:76%;
-    margin-left: 25px;
-}
-
-.arrowHead{
-    background-image:url('../../../../assets/down-arrow.png');
-    background-size: 15px;
-    background-position: center right 14px;
-    background-repeat: no-repeat;
+    margin-left: 50px;
 }
 
 

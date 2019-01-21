@@ -11,7 +11,6 @@ import { BuyerHomeComponent } from './Buyer/buyer-home/buyer-home.component';
 import { SearchBarComponent } from './Buyer/buyer-home/search-bar/search-bar.component';
 import { SearchVhlComponent } from './Buyer/buyer-home/search-vhl/search-vhl.component';
 import { PageAnnounceProComponent } from './Seller/page-announce-pro/page-announce-pro.component';
-// import { ConnexionComponent } from './Sign-up/connexion/connexion.component';
 import { CreationCompteComponent } from './Sign-up/creation-compte/creation-compte.component';
 import { MyAccountComponent } from './Sign-up/my-account/my-account.component';
 import { SearchImmatComponent } from './Buyer/buyer-home/search-immat/search-immat.component';

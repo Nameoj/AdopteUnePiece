@@ -25,6 +25,7 @@ import { AdminAnnounceListComponent } from './PageAdmin/admin-announce-list/admi
 import { DataBaseManagmentComponent } from './PageAdmin/data-base-managment/data-base-managment.component';
 import { AdminCompanyCreateComponent } from './PageAdmin/admin-company-create/admin-company-create.component';
 import { AdminCompanyEditComponent } from './PageAdmin/admin-company-edit/admin-company-edit.component';
+import { RouteGardSellerService } from './Services/route-gard-seller.service';
 
 const routes: Routes = [
   { path: '', component: BuyerHomeComponent },
@@ -41,7 +42,7 @@ const routes: Routes = [
   { path: 'announce-piece', component: AnnouncePieceComponent },
   { path: 'announce-piece/:Id', component: AnnouncePieceComponent },
   { path: 'announce-list', component: AnnounceListComponent },
-  { path: 'page-announce-pro', component: PageAnnounceProComponent },
+  { path: 'page-announce-pro', component: PageAnnounceProComponent, canActivate:[RouteGardSellerService] },
   { path: 'announce-list-seller', component: PageAnnounceProComponent },
   {
     path: 'admin-home', component: AdminHomeComponent, children: [

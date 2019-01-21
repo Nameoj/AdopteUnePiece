@@ -1,9 +1,8 @@
-
-
-.list-group-item {
-    width:80%;
-    margin-top:5px;
-    margin-left:20px;
+.test {
+    width: 80%;
+    height: 50px;
+    margin-top:10px;
+    margin-left:50px;
     font-size:1em;
     cursor: pointer;
     font-family:Rubik, Arial, Helvetica, sans-serif;
@@ -25,3 +24,58 @@
 }
 
 
+.mat-button {
+    outline: 0;
+}
+
+i {
+    margin-top: 0.5em;
+    outline: 0;
+}
+
+/*Mobile*/
+@media (max-width: 576px) {
+    .list-group-item {
+        width: 50vw;
+    }    
+
+    .mat-button {
+        width: 45vw;
+    }
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+    .list-group-item {
+        width: 35vw;
+    }    
+
+    .mat-button {
+        width: 25vw;
+    }
+
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+    .list-group-item {
+        width: 40vw;
+    }   
+
+    .mat-button {
+        width: 35vw;
+        font-size: 1em;
+    }
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+    .list-group-item {
+        width: 20vw;
+    }   
+
+    .mat-button {
+        width: 15vw;
+        font-size: 1em;
+    }
+}

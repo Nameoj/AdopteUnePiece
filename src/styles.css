@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 * {
     box-sizing: border-box;
 }
 
-html, body { height: 100%; background-color: #f0f0f0; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { height: 100%; background-color: #f0f0f0 !important; }
+body { margin: 0; font-family: 'Montserrat', sans-serif; }
 
 .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
-    background: #FFC419;
+    background: #FFC419! important ;
   } 
 

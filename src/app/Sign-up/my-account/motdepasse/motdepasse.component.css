@@ -6,6 +6,7 @@
     text-align: center;
     position: relative;
     margin-bottom: 20px;
+    background-color: #f0f0f0;
 }
 .titlewline:before {
         content: '';
@@ -23,7 +24,7 @@
     line-height: 20px;
     font-size: 20px;
     color: #144a82;
-    background: white;
+    background-color: #f0f0f0;
     text-transform: uppercase;
     padding: 0 10px;
 }
@@ -40,7 +41,7 @@
 .account__box {
     margin-bottom: 3vh;
     border: 1px solid #585656;
-
+    background-color: white;
 }
 .box_inner{
     padding-top: 3%;
@@ -56,6 +57,9 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    background: #C5DFFD;
+    border: none;
+    color: #144a82;
 }
 
 @media (max-width: 767px) {

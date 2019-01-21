@@ -13,7 +13,7 @@ export class AdminCompanyListComponent implements OnInit {
   sellers: Seller[];
 
   constructor(private sellerService: SellerService, private router: Router) {}
-
+  
   ngOnInit() {
     this.sellerService.getAllSellers().subscribe(
       response => {

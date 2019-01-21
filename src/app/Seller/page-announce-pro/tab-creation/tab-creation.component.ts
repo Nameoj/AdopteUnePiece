@@ -1,6 +1,6 @@
 import { BuyerService } from './../../../Services/buyer.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, AbstractControl, FormsModule, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl, FormsModule, FormControl,  } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { CategoriesService } from '../../../Services/categories.service';
@@ -9,6 +9,7 @@ import { Announce } from '../../../models/announce.models';
 import { AnnounceService } from '../../../Services/announce.service';
 import * as $ from 'jquery';
 import { listenToElementOutputs } from '@angular/core/src/view/element';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-tab-creation',
@@ -21,23 +22,26 @@ export class TabCreationComponent implements OnInit {
   creationAnnounce: FormGroup;
 
   date = new Date(Date.now());
-  title = 'UploadImg';
   selectedFile: File = null;
-  rateChoice = 0;
+  note = 0;
   uri: string = null
   url: string = '';
   noInputUri : boolean = false;
   noInputPieceName : boolean = false;
+  noInputNote : boolean = false;
+  successSubmit: boolean = false;
+  pieceName: string;
+  seller: string;
+  annonceForm: FormGroup;
+  submitted: boolean = false;
+  joie;
 
   brands = ["Honda", "Kawasaki", "Suzuki", "Yamaha"]
   cylinders = ["50cc", "80cc", "125cc", "250cc", "400cc", "500cc", "600cc", "700cc", "800cc", "900cc", "1000cc"]
   motoModels = ["Cucux", "Giovani", "GF", "Ninja", "Varadero"]
   years = ["1990", "1991", "1992", "1993", "1994", "1995", "1996"]
   cadres = ["Cadre", "Arraignée avant", "Boucle arrière", "Divers cadre"]
-  pieceName: string;
-  seller: string;
-  annonceForm: FormGroup;
-  submitted: boolean = false;
+  
 
   constructor(
     private config: NgbRatingConfig,
@@ -63,7 +67,7 @@ export class TabCreationComponent implements OnInit {
       model: ['', Validators.required],
       year: ['', Validators.required],
       description: ['', Validators.required],
-      note: ['', Validators.required],
+      // note: ['', Validators.required],
       price: ['', Validators.required],
       charge: ['', Validators.required],
     });
@@ -111,9 +115,9 @@ export class TabCreationComponent implements OnInit {
     }
   }
 
-  onFileSelected(event) {
-    this.selectedFile = <File>event.target.files[0];
-  }
+  // onFileSelected(event) {
+  //   this.selectedFile = <File>event.target.files[0];
+  // }
 
   // onUpload() {
   //   const fd = new FormData();
@@ -137,11 +141,33 @@ export class TabCreationComponent implements OnInit {
 
   get f() { return this.creationAnnounce.controls; }
 
+  reinitializeAlert() {this.successSubmit= false;}
+  
+  reinitializeForm() {
+    this.uri = null;
+    this.pieceName = null;
+    this.url = "";
+    this.note = 0;
+  }
+
+  prefilledFormAfterSubmit(){
+    const formValue = this.creationAnnounce.value;
+
+    this.creationAnnounce = this.formBuilder.group({
+      brand: [formValue['brand'], Validators.required ],
+      cylinder: [formValue['cylinder'], Validators.required ],
+      model: [formValue['model'], Validators.required],
+      year: [formValue['year'], Validators.required],
+      description: ['', Validators.required],
+      price: ['', Validators.required],
+      charge: ['', Validators.required],
+    });
+    this.reinitializeForm()
+  }
+
   onSubmit() {
     
     const formValue = this.creationAnnounce.value;
-    let noInputUri: boolean = false;
-    let noInputPieceName:boolean = false;
     
     this.submitted = true;
 
@@ -163,13 +189,21 @@ export class TabCreationComponent implements OnInit {
         else{
           this.noInputPieceName = false;
         }
+        if (this.note == 0){
+          this.noInputNote = true;
+          return;
+        }
+        else{
+          this.noInputNote = false;
+        }
+
 
     const newAnnounce = new Announce(
       0,
       this.buyerService.getAuthenticatedUser(),
       this.uri,
       formValue['description'],
-      formValue['note'],
+      this.rateChoice,
       this.date,
       this.pieceName,
       formValue['model'],
@@ -180,7 +214,15 @@ export class TabCreationComponent implements OnInit {
       formValue['charge'],);
     console.log(newAnnounce);
 
-    this.announceService.createAnnounce(newAnnounce).subscribe(data => console.log(data));
+    this.announceService.createAnnounce(newAnnounce).subscribe(data => {
+
+      this.successSubmit=true;
+      setTimeout(() => this.successSubmit = false, 4000);
+      this.submitted = false;
+      this.prefilledFormAfterSubmit()
+    }
+      );
+
     
 
   }

@@ -89,6 +89,7 @@ pre {
 
 .priceClas{
     width: 8em;
+    display:inline
 }
 
 .priceSign{
@@ -99,3 +100,13 @@ pre {
     font-size:0.8em;
     color:red
 }
+
+.alert{
+    font-size:2em;
+}
+
+.validateImage{
+    border: solid 5px #3cc142;
+    border-radius:5px;
+}
+

@@ -86,7 +86,7 @@
         <h3>Choisir une photo :</h3>
         <form id="singleUploadForm" name="singleUploadForm">
           <div *ngIf="noInputUri" class="noInput">champs requis</div> 
-          <img [src]="url" height="150" class="mr-5">
+          <img [ngClass]="{'validateImage' : uri != null}" [src]="url" height="150" class="mr-5">
           <input id="singleFileUploadInput" type="file" name="file" class="file-input" required (change)="onSelectFile($event)" />
           <div class="col-12 text-center">
            <button *ngIf="uri == null" type="submit" class="btn btn-warning text-white">Valider votre photo</button>
@@ -102,7 +102,7 @@
     <div class="categorie mt-4">
       <div class="row mb-4">
       <h5 class="col-6">Préciser la catégorie :</h5>
-      <div class="col-6">Vous avez choisi le type :
+      <div class="col-6 text-right">Vous avez choisi le type :
           <button *ngIf="pieceName != null" type="button" class="btn btn-success">{{pieceName}}</button>
       </div>
       <div *ngIf="noInputPieceName" class="noInput">champs requis</div>
@@ -551,29 +551,42 @@
         </div>
       </div>
       <!-- ajout champ pour donner la plage de compatibilité de la pièce-->
-      <h5 class="mt-5">Choix de l'état de la pièce:</h5>
-      <div class="note mt-1">
-        <ngb-rating id="note" class="form-control" formControlName="note" [(rate)]="rateChoice" class="star"
-        [ngClass]="{ 'is-invalid': submitted && f.note.errors }"></ngb-rating>
+      <div class="note mt-5">
+        <h5 style="color:black">Choix de l'état de la pièce:</h5>
+        <ngb-rating id="note" class="star" [(rate)]="note"></ngb-rating>
+        <div *ngIf="noInputNote" class="noInput">champs requis</div>   
         <hr>
-        <pre>Etat de la pièce : <b>{{rateChoice}}</b></pre>
-        <div *ngIf="submitted && f.note.errors" class="invalid-feedback">
-          <div *ngIf="f.note.errors.required">champs requis</div>
-        </div>
+        <pre>Etat de la pièce : <b>{{note}}</b></pre>
       </div>
       <!-- ----------- ---------------------- ----------------- CHOIX DU PRIX DE LA PIECE -------------- -------------- ----------------- -->
       <div>
         <h5>Choix du prix de vente:</h5>
-        <input id="price" class="form-control" formControlName="price" class="priceClas"><span class="priceSign ml-2">€</span>
+        <input id="price" class="form-control priceClas" formControlName="price" type="text"
+        [ngClass]="{ 'is-invalid': submitted && f.price.errors }">
+        <span class="priceSign ml-2">€</span>
+        <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+          <div *ngIf="f.price.errors.required">champs requis</div>
+        </div>
       </div>
       <div>
         <h5>Frais de port:</h5>
-        <input id="charge" class="form-control" formControlName="charge" class="priceClas"><span class="priceSign ml-2">€</span>
+        <input id="charge" class="form-control priceClas" formControlName="charge" type="text"
+        [ngClass]="{ 'is-invalid': submitted && f.charge.errors }">
+        <span class="priceSign ml-2">€</span>
+        <div *ngIf="submitted && f.charge.errors" class="invalid-feedback">
+          <div *ngIf="f.charge.errors.required">champs requis</div>
+        </div>
       </div>
       <div class="row mt-5 mb-3">
         <div class="col-lg-12 text-center">
           <button type="submit" class="btn btn-primary">Valider votre annonce</button>
         </div>
+      </div>
+      <div *ngIf="successSubmit" class="alert alert-success alert-dismissible fade show text-center designAlert" role="alert">
+        Votre annonce a bien été crée.
+        <button type="button" class="close" (click)="reinitializeAlert" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
     </div>
   </form>

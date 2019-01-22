@@ -52,7 +52,8 @@ import { TabCategoriesComponent } from './Seller/page-announce-pro/tab-categorie
 import {MatTabsModule} from '@angular/material/tabs';
 import { AdminCompanyEditComponent } from './PageAdmin/admin-company-edit/admin-company-edit.component';
 import { AdminCompanyPasswordComponent } from './PageAdmin/admin-company-edit/admin-company-password/admin-company-password.component';
-import { TabCompteComponent } from './Seller/page-announce-pro/tab-compte/tab-compte.component'
+import { TabCompteComponent } from './Seller/page-announce-pro/tab-compte/tab-compte.component';
+import { ErrorPageComponent } from './All/error-page/error-page.component'
 
 
 
@@ -94,6 +95,7 @@ import { TabCompteComponent } from './Seller/page-announce-pro/tab-compte/tab-co
     AdminCompanyEditComponent,
     AdminCompanyPasswordComponent,
     TabCompteComponent,
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,

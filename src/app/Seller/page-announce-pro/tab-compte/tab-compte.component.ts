@@ -55,7 +55,9 @@ export class TabCompteComponent implements OnInit {
       .subscribe(data => {
         console.log(data), this.sellerService.sellerEdit = data,
           console.log('Euh ouais');
-      });
+    });
+
+    alert("Mot de passe changé");
   }
 
 }

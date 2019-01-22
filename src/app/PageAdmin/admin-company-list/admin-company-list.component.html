@@ -1,12 +1,11 @@
 <div class="col-md-8">
-  <button (click)="sortBy('raisonSociale')">Sort by Raison Sociale</button>
-  <button (click)="sortBy('ville')">Sort by Ville</button>
   <cdk-virtual-scroll-viewport itemSize="100" class="VSviewport">
     <table class="table table-hover table-striped list">
       <thead class="head sticky">
         <tr>
           <th>
             Raison Sociale
+            <a (click)="sortBy('raisonSociale')"><i class="material-icons trier">keyboard_arrow_down</i></a>
           </th>
           <th>
             Adresse
@@ -16,6 +15,7 @@
           </th>
           <th>
             Ville
+            <a (click)="sortBy('ville')"><i class="material-icons trier">keyboard_arrow_down</i></a>
           </th>
           <th>
             Tel

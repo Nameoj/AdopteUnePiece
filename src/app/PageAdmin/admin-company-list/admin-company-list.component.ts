@@ -12,7 +12,7 @@ import { BehaviorSubject } from 'rxjs';
 export class AdminCompanyListComponent implements OnInit {
 
   sellers: Seller[];
-  sellersObservable = new BehaviorSubject(this.sellers);
+  sellersObservable: BehaviorSubject<Seller[]>;
 
   constructor(private sellerService: SellerService, private router: Router) {}
 
@@ -20,7 +20,8 @@ export class AdminCompanyListComponent implements OnInit {
     this.sellerService.getAllSellers().subscribe(
       response => {
       this.sellers = response;
-        this.sellerService.sellers = this.sellers;
+      this.sellersObservable = new BehaviorSubject(this.sellers.map(s => ({ ...s })));
+      this.sellerService.sellers = this.sellers;
       },
     );
   }

@@ -1,10 +1,10 @@
 <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
 
-<div class="container mt-3">
+<div class="container">
+  <h6 class="titleSerch">TYPE</h6>
   <form [formGroup]="creationAnnounce" (ngSubmit)="onSubmit()">
-    <h5 class="mt-5">Choisir un véhicule:</h5>
-    <div class="row mt-1">
-      <div class="col-md-5">
+    <div class="row mt-5">
+      <div class="col-md-4">
         <div id="card-74095">
           <div class="card">
             <a class="card-link collapsed" data-toggle="collapse" data-parent="#card-74095" href="#card-element-616950">
@@ -71,40 +71,30 @@
         <app-search-immat></app-search-immat>
       </div>
 
-      <div class="col-md-3">
+      <div class="col-md-4">
         <div class="card">
-          <div class="card-header text-center">
+          <div class="card-header text-center titleMoto">
             <p *ngIf="!brand" class="card-text">Votre moto</p>
             <p *ngIf="brand" class="card-text">{{brand}} {{model}} {{cylinder}} {{year}}</p>
           </div>
         </div>
       </div>
     </div>
+    <hr class="pill">
 
-    <!-- Ajout bouton pour importer les photos de l'annonce -->
-    <div class="ajoutPhoto mt-3">
-      <div class="single-upload">
-        <h5>Choisir une photo :</h5>
-        <form id="singleUploadForm" name="singleUploadForm">
-          <div *ngIf="noInputUri" class="noInput">champs requis</div> 
-          <img [ngClass]="{'validateImage' : uri != null}" [src]="url" height="150" class="mr-5">
-          <input id="singleFileUploadInput" type="file" name="file" class="file-input" required (change)="onSelectFile($event)" />
-          <div class="col-12 text-center">
-           <button *ngIf="uri == null" type="submit" class="btn btn-warning text-white">Valider votre photo</button>
-           <button *ngIf="uri != null" type="submit" class="btn btn-success text-white">Valider votre photo</button>
-         </div>
-        </form>
-        <div class="upload-response">
-          <div id="singleFileUploadError"></div>
-          <div id="singleFileUploadSuccess"></div>
-        </div>
+
+    <div class="note mt-5">
+        <h6 style="color:black">Etat de la piece:</h6>
+        <ngb-rating id="note" class="star" [(rate)]="note"></ngb-rating>
+        <div *ngIf="noInputNote" class="noInput">champs requis</div>   
+        <pre>NOTE: <b>{{note}}</b></pre>
       </div>
-    </div>
-    <div class="categorie mt-4">
-      <div class="row mb-4">
-      <h5 class="col-md-6">Préciser la catégorie :</h5>
-      <div class="col-md-6 col-sm-12 text-sm-left text-md-right">Vous avez choisi le type :
-          <button *ngIf="pieceName != null" type="button" class="btn btn-success">{{pieceName}}</button>
+
+    <div class="categorie mt-5">
+        <h6 class="mb-3">PRECISER LA CATEGORIE:</h6>
+      <div class="row firstCate mb-3">
+          <div class="cate">Vous avez choisi le type :
+          <button *ngIf="pieceName != null" type="button" class="btnCate">{{pieceName}}</button>
       </div>
       <div *ngIf="noInputPieceName" class="noInput">champs requis</div>
       </div>  
@@ -121,22 +111,24 @@
         
               <div class="collapse" id="collapseCycle">
                 <div class="card card-body">
-                  <p>
-                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseCadre" role="button" aria-expanded="false"
+                  <div class="row btnSection">
+                    <div class="btn subsectionBtn col-10" data-toggle="collapse" href="#collapseCadre" role="button" aria-expanded="false"
                       aria-controls="collapseCadre">
-                      Cadre <i class="material-icons">arrow_drop_down</i>
-                    </a>
-                  </p>
-                  <div class="collapse" id="collapseCadre">
+                      Cadre
+                    </div>
+                    <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                 </div>
+                  <div class="cadre" id="collapseCadre">
                     <button class="buttonAspect" type="button" *ngFor="let cadre of cadres" (click)="getPieceName($event.target.innerText)">{{cadre}}</button>
                   </div>
         
-                  <p>
-                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseFourche" role="button" aria-expanded="false"
-                      aria-controls="collapseFourche">
-                      Fourche <i class="material-icons">arrow_drop_down</i>
-                    </a>
-                  </p>
+                  <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="#collapseFourche" role="button" aria-expanded="false"
+                        aria-controls="collapseCadre">
+                        Fourche
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
                   <div class="collapse" id="collapseFourche">
                       <button type ="button" class="btn partBtn">Fourche Complète</button>
                       <button class="btn partBtn">Tube de Fourche Gauche</button>
@@ -145,47 +137,51 @@
                       <button class="btn partBtn">Té inférieur</button>
                   </div>
         
-                  <p>
-                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseBrasOscillant" role="button" aria-expanded="false"
-                      aria-controls="collapseBrasOscillant">
-                      Bras Oscillant <i class="material-icons">arrow_drop_down</i>
-                    </a>
-                  </p>
-                  <div class="collapse" id="collapseBrasOscillant">
+                  <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="#collapseBrasOscillant" role="button" aria-expanded="false"
+                        aria-controls="collapseCadre">
+                        Bras Oscillant
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
+                  <div class="collapse" id="collapseBrasOscillant">   
                       <button class="btn partBtn">Bras Oscillant Complet</button>
                       <button class="btn partBtn">Axe de Bras Oscillant</button>
                       <button class="btn partBtn">Tendeur de chaine</button>
                   </div>
         
-                  <p>
-                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseBequille" role="button" aria-expanded="false"
-                      aria-controls="collapseBequille">
-                      Béquille <i class="material-icons">arrow_drop_down</i>
-                    </a>
-                  </p>
+                  <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="#collapseBequille" role="button" aria-expanded="false"
+                        aria-controls="collapseCadre">
+                        Béquille
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
                   <div class="collapse" id="collapseBequille">
                       <button class="btn partBtn">Béquille Latérale</button>
                       <button class="btn partBtn">Béquille Centrale</button>
                   </div>
         
         
-                  <p>
-                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseAmortArr" role="button" aria-expanded="false"
-                      aria-controls="collapseAmortArr">
-                      Amortisseur Arrière <i class="material-icons">arrow_drop_down</i>
-                    </a>
-                  </p>
+                  <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="#collapseAmortArr" role="button" aria-expanded="false"
+                        aria-controls="collapseCadre">
+                        Amortisseur Arrière
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
                   <div class="collapse" id="collapseAmortArr">
                       <button class="btn partBtn">Amortisseur Complet</button>
                       <button class="btn partBtn">Biellette d'Amortisseur</button>
                   </div>
         
-                  <p>
-                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseGuidon" role="button" aria-expanded="false"
-                      aria-controls="collapseGuidon">
-                      Guidon <i class="material-icons">arrow_drop_down</i>
-                    </a>
-                  </p>
+                  <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="#collapseGuidon" role="button" aria-expanded="false"
+                        aria-controls="collapseCadre">
+                        Guidon
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
                   <div class="collapse" id="collapseGuidon">
                       <button class="btn partBtn">Guidon</button>
                       <button class="btn partBtn">Rétroviseur Gauche</button>
@@ -197,12 +193,13 @@
                       <button class="btn partBtn">Embout de guidon</button>
                   </div>
         
-                  <p>
-                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapsePlatineReposePied" role="button" aria-expanded="false"
-                      aria-controls="collapsePlatineReposePied">
-                      Platine Repose Pied <i class="material-icons">arrow_drop_down</i>
-                    </a>
-                  </p>
+                  <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="#collapsePlatineReposePied" role="button" aria-expanded="false"
+                        aria-controls="collapsePlatineReposePied">
+                        Platine Repose Pied
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
                   <div class="collapse" id="collapsePlatineReposePied">
                       <button class="btn partBtn">Platine Avant Gauche</button>
                       <button class="btn partBtn">Platine Avant Droite</button>
@@ -216,12 +213,13 @@
                       <button class="btn partBtn">Sélecteur de vitesse</button>
                   </div>
         
-                  <p>
-                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseFreinAvant" role="button" aria-expanded="false"
-                      aria-controls="collapseFreinAvant">
-                      Frein Avant <i class="material-icons">arrow_drop_down</i>
-                    </a>
-                  </p>
+                  <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="#collapseFreinAvant" role="button" aria-expanded="false"
+                        aria-controls="collapseFreinAvant">
+                        Frein Avant
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
                   <div class="collapse" id="collapseFreinAvant">
                       <button class="btn partBtn">Frein Avant Complet</button>
                       <button class="btn partBtn">Maire Cylindre</button>
@@ -229,12 +227,13 @@
                       <button class="btn partBtn">Durite de Frein</button>
                   </div>
         
-                  <p>
-                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseFreinArriere" role="button" aria-expanded="false"
-                      aria-controls="collapseFreinArriere">
-                      Frein Arrière <i class="material-icons">arrow_drop_down</i>
-                    </a>
-                  </p>
+                  <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="#collapseFreinArriere" role="button" aria-expanded="false"
+                        aria-controls="collapseFreinArriere">
+                        Frein Arrière
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
                   <div class="collapse" id="collapseFreinArriere">
                       <button class="btn partBtn">Frein Arrière Complet</button>
                       <button class="btn partBtn">Maire Cylindre</button>
@@ -242,12 +241,13 @@
                       <button class="btn partBtn">Durite de Frein</button>
                   </div>
         
-                  <p>
-                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseJantes" role="button" aria-expanded="false"
-                      aria-controls="collapseJantes">
-                      Jantes <i class="material-icons">arrow_drop_down</i>
-                    </a>
-                  </p>
+                  <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="#collapseJantes" role="button" aria-expanded="false"
+                        aria-controls="collapseJantes">
+                        Jantes
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
                   <div class="collapse" id="collapseJantes">
                       <button class="btn partBtn">Jantes Avant</button>
                       <button class="btn partBtn">Jantes Arrière</button>
@@ -268,12 +268,13 @@
               </p>
               <div class="collapse" id="collapseMoteur">
                 <div class="card card-body">
-                  <p>
-                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseMoteurSub" role="button" aria-expanded="false"
-                      aria-controls="collapseMoteurSub">
-                      Moteur <i class="material-icons">arrow_drop_down</i>
-                    </a>
-                  </p>
+                    <div class="row btnSection">
+                        <div class="btn subsectionBtn col-10" data-toggle="collapse" href="#collapseMoteurSub" role="button" aria-expanded="false"
+                          aria-controls="collapseMoteurSub">
+                          Moteur
+                        </div>
+                        <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                     </div>
                   <div class="collapse" id="collapseMoteurSub">
                     <button class="btn partBtn">Moteur Complet</button>
                     <button class="btn partBtn">Carter Gauche</button>
@@ -282,12 +283,13 @@
                     <button class="btn partBtn">Axe moteur</button>
                   </div>
         
-                  <p>
-                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseCarb" role="button" aria-expanded="false"
-                      aria-controls="collapseCarb">
-                      Carburation/Injection <i class="material-icons">arrow_drop_down</i>
-                    </a>
-                  </p>
+                  <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="#collapseCarb" role="button" aria-expanded="false"
+                        aria-controls="collapseCarb">
+                        Carburation/Injection
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
                   <div class="collapse" id="collapseCarb">
                     <button class="btn partBtn">Carburateur</button>
                     <button class="btn partBtn">Pipe Admission</button>
@@ -295,46 +297,50 @@
                     <button class="btn partBtn">Injection</button>
                   </div>
         
-                  <p>
-                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseBoiteAir" role="button" aria-expanded="false"
-                      aria-controls="collapseBoiteAir">
-                      Boite A Air <i class="material-icons">arrow_drop_down</i>
-                    </a>
-                  </p>
+                  <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="#collapseBoiteAir" role="button" aria-expanded="false"
+                        aria-controls="collapseBoiteAir">
+                        Boite a Air
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
                   <div class="collapse" id="collapseBoiteAir">
                     <button class="btn partBtn">Boite A Air</button>
                     <button class="btn partBtn">Filtre A Air</button>
                   </div>
         
-                  <p>
-                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseDemarreur" role="button" aria-expanded="false"
-                      aria-controls="collapseDemarreur">
-                      Démarreur <i class="material-icons">arrow_drop_down</i>
-                    </a>
-                  </p>
+                  <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="#collapseDemarreur" role="button" aria-expanded="false"
+                        aria-controls="collapseDemarreur">
+                        Démareur
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
                   <div class="collapse" id="collapseDemarreur">
                     <button class="btn partBtn">Démarreur</button>
                     <button class="btn partBtn">Roue Libre Démarreur</button>
                   </div>
         
-                  <p>
-                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseEchappement" role="button" aria-expanded="false"
-                      aria-controls="collapseEchappement">
-                      Echappement <i class="material-icons">arrow_drop_down</i>
-                    </a>
-                  </p>
+                  <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="#collapseEchappement" role="button" aria-expanded="false"
+                        aria-controls="collapseEchappement">
+                        Echappement
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
                   <div class="collapse" id="collapseEchappement">
                     <button class="btn partBtn">Collecteur Echappement</button>
                     <button class="btn partBtn">Pot Echappement</button>
                     <button class="btn partBtn">Sonde Echappement</button>
                   </div>
         
-                  <p>
-                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseRadiateur" role="button" aria-expanded="false"
-                      aria-controls="collapseRadiateur">
-                      Radiateur <i class="material-icons">arrow_drop_down</i>
-                    </a>
-                  </p>
+                  <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="#collapseRadiateur" role="button" aria-expanded="false"
+                        aria-controls="collapseRadiateur">
+                        Radiateur
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
                   <div class="collapse" id="collapseRadiateur">
                     <button class="btn partBtn">Radiateur Complet</button>
                     <button class="btn partBtn">Radiateur</button>
@@ -345,12 +351,13 @@
                     <button class="btn partBtn">Vase Expansion</button>
                   </div>
         
-                  <p>
-                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseCables" role="button" aria-expanded="false"
-                      aria-controls="collapseCables">
-                      Câbles <i class="material-icons">arrow_drop_down</i>
-                    </a>
-                  </p>
+                  <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="#collapseCables" role="button" aria-expanded="false"
+                        aria-controls="collapseCables">
+                        Câbles
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
                   <div class="collapse" id="collapseCables">
                     <button class="btn partBtn">Câbles Accélérateur</button>
                     <button class="btn partBtn">Câbles Starter</button>
@@ -372,12 +379,13 @@
               </p>
               <div class="collapse" id="collapseElectrique">
                 <div class="card card-body">
-                  <p>
-                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseFaisceaux" role="button" aria-expanded="false"
-                      aria-controls="collapseFaisceaux">
-                      Faisceaux Electrique <i class="material-icons">arrow_drop_down</i>
-                    </a>
-                  </p>
+                    <div class="row btnSection">
+                        <div class="btn subsectionBtn col-10" data-toggle="collapse" href="#collapseFaisceaux" role="button" aria-expanded="false"
+                          aria-controls="collapseFaisceaux">
+                          Faisceaux Electrique
+                        </div>
+                        <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                     </div>
                   <div class="collapse" id="collapseFaisceaux">
                     <button class="btn partBtn">Faisceaux</button>
                     <button class="btn partBtn">Capteurs divers</button>
@@ -385,12 +393,13 @@
                     <button class="btn partBtn">Boîtier CDI</button>
                   </div>
         
-                  <p>
-                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseEclairage" role="button" aria-expanded="false"
-                      aria-controls="collapseEclairage">
-                      Eclairage <i class="material-icons">arrow_drop_down</i>
-                    </a>
-                  </p>
+                  <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="#collapseEclairage" role="button" aria-expanded="false"
+                        aria-controls="collapseEclairage">
+                        Eclairage
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
                   <div class="collapse" id="collapseEclairage">
                     <button class="btn partBtn">Phare avant</button>
                     <button class="btn partBtn">Phare arrière</button>
@@ -398,12 +407,13 @@
                     <button class="btn partBtn">Clignotant</button>
                   </div>
         
-                  <p>
-                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseCompteur" role="button" aria-expanded="false"
-                      aria-controls="collapseCompteur">
-                      Compteur <i class="material-icons">arrow_drop_down</i>
-                    </a>
-                  </p>
+                  <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="#collapseCompteur" role="button" aria-expanded="false"
+                        aria-controls="collapseCompteur">
+                        Compteur
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
                   <div class="collapse" id="collapseCompteur">
                     <button class="btn partBtn">Compteur Complet</button>
                     <button class="btn partBtn">Cables Compteur</button>
@@ -411,12 +421,13 @@
                     <button class="btn partBtn">Pièces Compteur Divers</button>
                   </div>
         
-                  <p>
-                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseSerrure" role="button" aria-expanded="false"
-                      aria-controls="collapseSerrure">
-                      Serrure/Kit Neiman <i class="material-icons">arrow_drop_down</i>
-                    </a>
-                  </p>
+                  <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="#collapseSerrure" role="button" aria-expanded="false"
+                        aria-controls="collapseSerrure">
+                        Serrure/Kit Neiman
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
                   <div class="collapse" id="collapseSerrure">
                     <button class="btn partBtn">Kit Neiman Complet</button>
                     <button class="btn partBtn">Neiman</button>
@@ -424,24 +435,37 @@
                     <button class="btn partBtn">Serrure Arrière</button>
                   </div>
         
-                  <p>
-                    <button type="button" class="btn btn-primary">Régulateur Tension</button>
-                  </p>
+                  <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="" role="button" aria-expanded="false"
+                        aria-controls="">
+                        Régulateur de Tension
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
         
-                  <p>
-                    <button type="button" class="btn btn-primary">Relais Démarreur</button>
-                  </p>
+                   <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="" role="button" aria-expanded="false"
+                        aria-controls="">
+                        Relais Démarreur
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
         
-                  <p>
-                    <button type="button" class="btn btn-primary">Alternateur</button>
-                  </p>
+                   <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="" role="button" aria-expanded="false"
+                        aria-controls="">
+                        Altternateur
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
         
-                  <p>
-                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseCommodo" role="button" aria-expanded="false"
-                      aria-controls="collapseCommodo">
-                      Commodo <i class="material-icons">arrow_drop_down</i>
-                    </a>
-                  </p>
+                   <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="#collapseCommodo" role="button" aria-expanded="false"
+                        aria-controls="collapseCommodo">
+                        Commodo
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
                   <div class="collapse" id="collapseCommodo">
                     <button class="btn partBtn">Commodo Gauche</button>
                     <button class="btn partBtn">Commodo Droit</button>
@@ -461,36 +485,39 @@
               </p>
               <div class="collapse" id="collapseHabillage">
                 <div class="card card-body">
-                  <p>
-                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseReservoir" role="button" aria-expanded="false"
-                      aria-controls="collapseReservoir">
-                      Reservoir <i class="material-icons">arrow_drop_down</i>
-                    </a>
-                  </p>
+                    <div class="row btnSection">
+                        <div class="btn subsectionBtn col-10" data-toggle="collapse" href="#collapseReservoir" role="button" aria-expanded="false"
+                          aria-controls="collapseReservoir">
+                          Reservoir
+                        </div>
+                        <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                     </div>
                   <div class="collapse" id="collapseReservoir">
                     <button class="btn partBtn">Réservoir</button>
                     <button class="btn partBtn">Robinet/Pompe Essence</button>
                     <button class="btn partBtn">Jauge Essence</button>
                   </div>
         
-                  <p>
-                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseSelle" role="button" aria-expanded="false"
-                      aria-controls="collapseSelle">
-                      Selle <i class="material-icons">arrow_drop_down</i>
-                    </a>
-                  </p>
+                  <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="#collapseSelle" role="button" aria-expanded="false"
+                        aria-controls="collapseSelle">
+                        Selle
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
                   <div class="collapse" id="collapseSelle">
                     <button class="btn partBtn">Selle</button>
                     <button class="btn partBtn">Capot Selle</button>
                     <button class="btn partBtn">Fermeture Selle</button>
                   </div>
                   
-                  <p>
-                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseCarénages" role="button" aria-expanded="false"
-                      aria-controls="collapseCarénages">
-                      Carénages Divers <i class="material-icons">arrow_drop_down</i>
-                    </a>
-                  </p>
+                  <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="#collapseCarénages" role="button" aria-expanded="false"
+                        aria-controls="collapseCarénages">
+                        Carénages Divers
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
                   <div class="collapse" id="collapseCarénages">
                     <button class="btn partBtn">Carénages avant gauche</button>
                     <button class="btn partBtn">Carénages avant droit</button>
@@ -500,27 +527,33 @@
                     <button class="btn partBtn">Carénages Divers</button>
                   </div>
         
-                  <p>
-                    <button type="button" class="btn btn-primary">Poignée Arrière</button>
-                  </p>
+                  <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="" role="button" aria-expanded="false"
+                        aria-controls="">
+                        Poignée Arrière
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
         
-                  <p>
-                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseGarde" role="button" aria-expanded="false"
-                      aria-controls="collapseGarde">
-                      Garde Boue <i class="material-icons">arrow_drop_down</i>
-                    </a>
-                  </p>
+                   <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="#collapseGarde" role="button" aria-expanded="false"
+                        aria-controls="collapseGarde">
+                        Garde Boue
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
                   <div class="collapse" id="collapseGarde">
                     <button class="btn partBtn">Garde Boue Avant</button>
                     <button class="btn partBtn">Garde Boue Arrière</button>
                   </div>
         
-                  <p>
-                    <a class="btn subsectionBtn" data-toggle="collapse" href="#collapseCoque" role="button" aria-expanded="false"
-                      aria-controls="collapseCoque">
-                      Coque Arrière <i class="material-icons">arrow_drop_down</i>
-                    </a>
-                  </p>
+                  <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="#collapseCoque" role="button" aria-expanded="false"
+                        aria-controls="collapseCoque">
+                        Coque Arrière
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
                   <div class="collapse" id="collapseCoque">
                     <button class="btn partBtn">Coque Arrière Complète</button>
                     <button class="btn partBtn">Coque Arrière Gauche</button>
@@ -528,13 +561,21 @@
                     <button class="btn partBtn">Diverses Coque Arrière</button>
                   </div>
         
-                  <p>
-                    <button type="button" class="btn btn-primary">Protège Chaine</button>
-                  </p>
+                  <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="" role="button" aria-expanded="false"
+                        aria-controls="">
+                        Protège Chaine
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
                   
-                  <p>
-                    <button type="button" class="btn btn-primary">Protège Roue</button>
-                  </p>
+                   <div class="row btnSection">
+                      <div class="btn subsectionBtn col-10" data-toggle="collapse" href="" role="button" aria-expanded="false"
+                        aria-controls="">
+                        Protège roue
+                      </div>
+                      <div class="col-2 arrowDown"><i class="material-icons">keyboard_arrow_down</i></div>
+                   </div>
                 </div>
               </div>
             </div>
@@ -542,35 +583,48 @@
           </div>
         </div>
 
-      <div>
-        <h5>Description de votre pièce :</h5>
+      <div class="row mt-5">
+        <div class="col-6">
+        <h6>DESCRIPTION MA PIECE:</h6>
         <!-- ajout champ pour décrire l'état de la pièce -->
-        <textarea id="description" class="form-control" formControlName="description" rows="5" aria-label="With textarea"
+        <textarea id="description" class="form-control textArea mt-3" formControlName="description" rows="5" aria-label="With textarea"
         [ngClass]="{ 'is-invalid': submitted && f.description.errors }"></textarea>
         <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
           <div *ngIf="f.description.errors.required">champs requis</div>
         </div>
+        </div>
+        <div class="ajoutPhoto offset-1 col-4">
+            <div class="single-upload">
+              <h6>AJOUTER UNE PHOTO:</h6>
+              <form id="singleUploadForm" name="singleUploadForm">
+                <div *ngIf="noInputUri" class="noInput">champs requis</div> 
+                <img [ngClass]="{'validateImage' : uri != null}" [src]="url" height="150" class="mr-5">
+                <input id="singleFileUploadInput" type="file" name="file" class="file-input" required (change)="onSelectFile($event)" />
+                <div class="col-12 text-center mt-5">
+                 <button *ngIf="uri == null" type="submit" class="btn btn-warning text-white">Valider votre photo</button>
+                 <button *ngIf="uri != null" type="submit" class="btn btn-success text-white">Valider votre photo</button>
+               </div>
+              </form>
+              <div class="upload-response">
+                <div id="singleFileUploadError"></div>
+                <div id="singleFileUploadSuccess"></div>
+              </div>
+            </div>
+          </div>
       </div>
-      <!-- ajout champ pour donner la plage de compatibilité de la pièce-->
-      <div class="note mt-5">
-        <h5 style="color:black">Choix de l'état de la pièce:</h5>
-        <ngb-rating id="note" class="star" [(rate)]="note"></ngb-rating>
-        <div *ngIf="noInputNote" class="noInput">champs requis</div>   
-        <hr>
-        <pre>Etat de la pièce : <b>{{note}}</b></pre>
-      </div>
-      <!-- ----------- ---------------------- ----------------- CHOIX DU PRIX DE LA PIECE -------------- -------------- ----------------- -->
-      <div>
-        <h5>Choix du prix de vente:</h5>
+
+      <div class="row mt-5">
+        <div class="offset-4 col-2 priceVente">
+        <h6>PRIX DE VENTE:</h6>
         <input id="price" class="form-control priceClas" formControlName="price" type="text"
         [ngClass]="{ 'is-invalid': submitted && f.price.errors }">
         <span class="priceSign ml-2">€</span>
         <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
           <div *ngIf="f.price.errors.required">champs requis</div>
         </div>
-      </div>
-      <div>
-        <h5>Frais de port:</h5>
+        </div>
+        <div class="col-4 pricePort">
+        <h6>FRAIS DE PORT:</h6>
         <input id="charge" class="form-control priceClas" formControlName="charge" type="text"
         [ngClass]="{ 'is-invalid': submitted && f.charge.errors }">
         <span class="priceSign ml-2">€</span>
@@ -578,9 +632,10 @@
           <div *ngIf="f.charge.errors.required">champs requis</div>
         </div>
       </div>
+      </div>
       <div class="row mt-5 mb-3">
         <div class="col-lg-12 text-center">
-          <button type="submit" class="btn btn-primary">Valider votre annonce</button>
+          <button type="submit" class="btn btn-primary btnValid">Valider votre annonce</button>
         </div>
       </div>
       <div *ngIf="successSubmit" class="alert alert-success alert-dismissible fade show text-center designAlert" role="alert">

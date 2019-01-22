@@ -1,8 +1,16 @@
 body{
     background-image: url("../../../assets/ErrorPageImg.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #F2F1F1;
 }
 
 .returnBtn {
     display: block;
-    margin: auto;
+    margin: 5vh auto;
+    background-color: #FFC200;
+    font-size: 5em;
+    height: 15vh;
+    width: 40vh;
+    border-radius: 10px;
 }

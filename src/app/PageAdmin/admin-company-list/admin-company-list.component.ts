@@ -17,8 +17,8 @@ export class AdminCompanyListComponent implements OnInit {
   sortCompanyForm: FormGroup;
 
 
-  constructor(private sellerService: SellerService, private formBuilder: FormBuilder, private router: Router) {}
-  
+  constructor(private sellerService: SellerService, private formBuilder: FormBuilder, private router: Router) { }
+
   ngOnInit() {
     this.sellerService.getAllSellers().subscribe(
       response => {
@@ -28,9 +28,9 @@ export class AdminCompanyListComponent implements OnInit {
       },
     );
     this.sortCompanyForm = this.formBuilder.group({
-      filterValue:[]
+      filterValue: []
     });
-    
+
   }
 
   edit(seller) {
@@ -40,17 +40,17 @@ export class AdminCompanyListComponent implements OnInit {
   }
 
   delete(seller) {
-    if( confirm (`Etes-vous sûr de vouloir supprimer cette casse ?`)) {
+    if (confirm(`Etes-vous sûr de vouloir supprimer cette casse ?`)) {
       this.sellerService.deleteSeller(seller)
-      .subscribe(data => {
-        this.sellerService.sellerEdit = data;
-        console.log(this.sellerService.sellerEdit);
-        this.sellerService.getAllSellers().subscribe(
-          response => this.sellers = response
-        );
-      });
+        .subscribe(data => {
+          this.sellerService.sellerEdit = data;
+          console.log(this.sellerService.sellerEdit);
+          this.sellerService.getAllSellers().subscribe(
+            response => this.sellers = response
+          );
+        });
     } else { }
-    
+
   }
 
   seeAnounces(username, idx) {
@@ -66,11 +66,11 @@ export class AdminCompanyListComponent implements OnInit {
 
   /**
    * Calcule la distance de Levenstein entre les string a et b
-   * @param a 
-   * @param b 
+   * @param a
+   * @param b
    */
   calculerDistance(a: string, b: string) {
-    var m = [], i, j, min = Math.min;
+    let m = [], i, j, min = Math.min;
 
     if (!(a && b)) return (b || a).length;
 
@@ -78,34 +78,35 @@ export class AdminCompanyListComponent implements OnInit {
     for (j = 0; j <= a.length; m[0][j] = j++);
 
     for (i = 1; i <= b.length; i++) {
-        for (j = 1; j <= a.length; j++) {
-            m[i][j] = b.charAt(i - 1) == a.charAt(j - 1)
-                ? m[i - 1][j - 1]
-                : m[i][j] = min(
-                    m[i - 1][j - 1] + 1, 
-                    min(m[i][j - 1] + 1, m[i - 1 ][j]))
-        }
+      for (j = 1; j <= a.length; j++) {
+        m[i][j] = b.charAt(i - 1) === a.charAt(j - 1)
+          ? m[i - 1][j - 1]
+          : m[i][j] = min(
+            m[i - 1][j - 1] + 1,
+            min(m[i][j - 1] + 1, m[i - 1][j]));
+      }
     }
 
     return m[b.length][a.length];
-}
-  
-/**
- * Applique le filtre passé en paramèttre et met à jour le tableau en fonction 
- * de la distance entre le nom et le filtre
- * @param filterValue 
- */
+  }
+
+  /**
+   * Applique le filtre passé en paramèttre et met à jour le tableau en fonction
+   * de la distance entre le nom et le filtre
+   * @param filterValue
+   */
   applyFilter(filterValue: string) {
     console.log(filterValue);
-    let obj: any[] = this.sellers;
+    const obj: any[] = this.sellers;
     obj.map((s) => s.distance = this.calculerDistance(s.raisonSociale, filterValue));
     obj.sort((a, b) => a.distance - b.distance);
-    obj.forEach((a) => console.log("Distance entre ", a.raisonSociale, " et ", filterValue, " : " , a.distance))
+    obj.forEach((a) => console.log('Distance entre ', a.raisonSociale, ' et ', filterValue, ' : ', a.distance));
     obj.map((s) => delete s.distance);
     this.sellers = obj;
-    
+
     // Mettre à jour le tableau
     this.sellersObservable.next(this.sellers.map(s => ({ ...s })));
+  }
 
   indexTrackFn = (index: number) => index;
   nameTrackFn = (_: number, item: Seller) => item.ville;

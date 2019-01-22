@@ -34,12 +34,13 @@ export class NavbarComponent implements OnInit {
   }
 
   click() {
-
     console.log(this.buyerService.isUserLoggedIn());
     if (this.buyerService.isUserLoggedIn() && this.buyerService.getAuthenticatedRole() === 'ROLE_BUYER') {
       this.router.navigate(['/myaccount/infosperso']);
     } else if (this.buyerService.isUserLoggedIn() && this.buyerService.getAuthenticatedRole() === 'ROLE_SELLER') {
       this.router.navigate(['/page-announce-pro']);
+    } else if (this.buyerService.isUserLoggedIn() && this.buyerService.getAuthenticatedRole() === 'ROLE_ADMIN'){
+      this.router.navigate(['/admin-home']);
     } else { this.modal = 'myModal'; }
   }
 

@@ -51,7 +51,7 @@ footer {
 /*TABLET VERSION*/
 @media (min-width: 768px) {
     .row {
-        height: 50vh;
+        height: 40vh;
     }
 
     .linkContainer{
@@ -61,6 +61,10 @@ footer {
 
 /*DESKTOP VERSION*/
 @media (min-width: 1200px) {
+
+    .row {
+        height: 20vh;
+    }
 
     .contactAdressText {
         margin-left: 40%; 

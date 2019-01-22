@@ -58,8 +58,13 @@
     </ng-container>
 
     <ng-container matColumnDef="select">
-    <th mat-header-cell *matHeaderCellDef>Supprimer</th>
-    <td><a (click)="delete(seller.username)"><i class="material-icons icons">delete_sweep</i></a></td>
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef ><a (click)="delete(seller.username)"><i class="material-icons icons">delete_sweep</i></a></td>
+    </ng-container>
+
+    <ng-container matColumnDef="select2">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef ><a (click)="delete(seller.username)"><i class="material-icons icons">edit</i></a></td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

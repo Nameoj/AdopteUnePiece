@@ -26,8 +26,6 @@ export interface Announce {
 let ELEMENT_DATA: Announce[] = [
 ];
 
-
-
 @Component({
   selector: 'app-panier',
   templateUrl: './panier.component.html',
@@ -58,7 +56,7 @@ export class PanierComponent implements OnInit {
       this.total = this.sousTotal + this.port;
     }
   }
-  displayedColumns: string[] = ['pieceName', 'price', 'charge','select'];
+  displayedColumns: string[] = ['pieceName', 'price', 'charge','select', 'select2'];
   
   // selection = new SelectionModel<Announce>(true, []);
 

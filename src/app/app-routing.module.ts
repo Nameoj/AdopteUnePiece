@@ -25,8 +25,10 @@ import { AdminAnnounceListComponent } from './PageAdmin/admin-announce-list/admi
 import { DataBaseManagmentComponent } from './PageAdmin/data-base-managment/data-base-managment.component';
 import { AdminCompanyCreateComponent } from './PageAdmin/admin-company-create/admin-company-create.component';
 import { AdminCompanyEditComponent } from './PageAdmin/admin-company-edit/admin-company-edit.component';
+import { ErrorPageComponent } from './All/error-page/error-page.component';
 import { RouteGardSellerService } from './Services/route-gard-seller.service';
 import { RouteGuardAdminService } from './Services/route-guard-admin.service';
+
 
 const routes: Routes = [
   { path: '', component: BuyerHomeComponent },
@@ -56,6 +58,8 @@ const routes: Routes = [
       { path: 'admin-company-create', component: AdminCompanyCreateComponent },
       { path: 'admin-moto-create', component: DataBaseManagmentComponent}]
   },
+
+  { path: '**', component: ErrorPageComponent}
 ];
 
 @NgModule({

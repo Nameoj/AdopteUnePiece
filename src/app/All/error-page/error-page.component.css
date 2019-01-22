@@ -1,0 +1,8 @@
+body{
+    background-image: url("../../../assets/ErrorPageImg.jpg");
+}
+
+.returnBtn {
+    display: block;
+    margin: auto;
+}

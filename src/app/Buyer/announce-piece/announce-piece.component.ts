@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AnnounceService } from 'src/app/Services/announce.service';
-import {Location} from '@angular/common';
+import { Location } from '@angular/common';
 import { CommandesService } from 'src/app/Services/commandes.service';
 
 @Component({
@@ -48,7 +48,7 @@ export class AnnouncePieceComponent implements OnInit {
        console.log(this.annonce);
        console.log(this.commandeService.commandes); 
        this.returnLastPage()
-       })
+      })
 
   }
 

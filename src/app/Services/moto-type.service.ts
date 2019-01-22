@@ -17,12 +17,16 @@ export class MotoTypeService {
   private modelInfoUrl="/modelinfo"
 
   private getAllUrl="/get/all"
-  private getUrl="/get"
+  private getUrl="/get/"
   private postUrl="/post/"
 
 
   getAll(){
     return this.http.get(`${this.baseUrl}`+`${this.brandUrl}`+`${this.getAllUrl}`)
+  }
+
+  getBrand(brand){
+    return this.http.get(`${this.baseUrl}`+`${this.brandUrl}`+`${this.getUrl}${brand}`)
   }
 
   createBrand(name){

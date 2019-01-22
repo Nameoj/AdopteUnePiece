@@ -46,7 +46,11 @@ export class AdminCompanyListComponent implements OnInit {
           this.sellerService.sellerEdit = data;
           console.log(this.sellerService.sellerEdit);
           this.sellerService.getAllSellers().subscribe(
-            response => this.sellers = response
+            response => {
+              this.sellers = response;
+              // Mettre à jour le tableau
+              this.sellersObservable.next(response);
+            }
           );
         });
     } else { }
@@ -105,7 +109,7 @@ export class AdminCompanyListComponent implements OnInit {
     this.sellers = obj;
 
     // Mettre à jour le tableau
-    this.sellersObservable.next(this.sellers.map(s => ({ ...s })));
+    this.sellersObservable.next(this.sellers);
   }
 
   indexTrackFn = (index: number) => index;

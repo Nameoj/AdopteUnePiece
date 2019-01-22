@@ -4,7 +4,12 @@
 }
 
 .VSviewport {
-    margin: 5vh auto;
+    margin: 1vh auto;
+}
+
+.form {
+    display: block;
+    margin: auto;
 }
 
 .icons {
@@ -49,5 +54,10 @@
     .VSviewport {
         width: 72vw;
         height: 60vh;
+    }
+
+    .searchForm {
+        width: 96%;
+        margin: auto;
     }
 }

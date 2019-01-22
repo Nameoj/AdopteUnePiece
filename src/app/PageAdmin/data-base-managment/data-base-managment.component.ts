@@ -14,6 +14,8 @@ export class DataBaseManagmentComponent implements OnInit {
   constructor(private motoTypeService: MotoTypeService) { }
 
   allMotos:any=[];
+  allMotosB:any=[];
+  allMotosM:any=[];
 
   newBrand:String;
 
@@ -22,7 +24,8 @@ export class DataBaseManagmentComponent implements OnInit {
   
   newCylinder:String;
   newYear:String;
-  newCylinderYear_model:String;
+  newCylinderYear_model;
+  newCylinderYear_brand;
   
   addBrand = false;
   addModel = false;
@@ -88,6 +91,7 @@ export class DataBaseManagmentComponent implements OnInit {
       break;
       case this.newModel!="":
       const addModel=new Model(this.newModel_brand, this.newModel);
+      console.log("front:modèle créée:"+ addModel.modelName + " de marque: " + addModel.motoBrand)
       this.motoTypeService.createModel(addModel).subscribe(res => {
         console.log("front:modèle créée:"+ addModel.modelName + " de marque: " + addModel.motoBrand)
       })
@@ -101,11 +105,24 @@ export class DataBaseManagmentComponent implements OnInit {
     }
   }
 
+  onSelectBrand(brand){
+    this.newCylinderYear_brand = brand;
+    this.allMotosM = [];
+    this.motoTypeService.getBrand(brand).subscribe( res => {
+      this.allMotos = res;
+    for( let i=0; i< Object.keys(res).length; i++){
+      this.allMotosM.push(this.allMotos.motoModels[i].modelName)};
+       });
+    }
+
   callJson(){
     this.allMotos=this.motoTypeService.getAll().subscribe( res =>
       {
+        this.allMotosB = [];
         this.allMotos=res;
-        console.log(res)
+        for( let i=0; i< Object.keys(this.allMotos).length; i++){
+          this.allMotosB.push(this.allMotos[i].name)
+        }
       });
   }
   ngOnInit() {

@@ -22,12 +22,12 @@
 
     <div *ngIf="addModel" class="addModel col-6">
 
-      <select [(ngModel)]="newModel_brand" class="mb-2" name="" id="">
+      <select [(ngModel)]="newModel_brand" class="mb-2" name="brand" id="brand">
         <option selected="selected">
           Marque
         </option>
-        <option *ngFor="let brand of allMotos" value="{{brand.name}}">
-          {{brand.name}}
+        <option *ngFor="let brand of allMotosB" value="{{brand}}">
+          {{brand}}
         </option>
       </select>
 
@@ -37,25 +37,27 @@
 
     <div *ngIf="addCylinderYear" class="addCylinderYear col-6">
 
-      <select class="mb-2" name="" id="">
-        <option selected="selected" (click)="modelSelect=false">
+      <select *ngIf="allMotos" [(ngModel)]="newCylinderYear_brand" class="mb-2" name="" id="newCylinderYear_brand"
+      (change)="onSelectBrand($event.target.value)">
+        <option  selected="selected" value="0" >
           Marque
         </option>
-        <option *ngFor="let brand of allMotos; let brand_idx=index" value="" (click)="modelSelect=true; getIndex(brand_idx)">
-          {{brand.name}}
+        <option *ngFor="let brand of allMotosB, let i=index"  value={{brand}} >
+          {{brand}}
         </option>
       </select>
 
-      <span *ngIf="modelSelect">
         <select [(ngModel)]="newCylinderYear_model" class="mb-2" name="" id="">
-          <option selected="selected">
+          <option selected="selected" *ngIf="newCylinderYear_brand" value=0>
             Modèle
           </option>
-          <option *ngFor="let model of allMotos[idx].motoModels" value="{{model.modelName}}">
-            {{model.modelName}}
+          
+          <option *ngFor="let model of allMotosM" value="{{model}}">
+            {{model}}
           </option>
+         
         </select>
-      </span>
+   
       
       <input [(ngModel)]="newCylinder" class="form-control mb-2" placeholder="cylindre">
       <input [(ngModel)]="newYear" class="form-control" placeholder="année">

@@ -5,7 +5,7 @@ export class Announce {
         public seller: string,
         public image: string,
         public description: string,
-        public note: string,
+        public note: number,
         public postDate,
         public pieceName: string,
         public model: string,

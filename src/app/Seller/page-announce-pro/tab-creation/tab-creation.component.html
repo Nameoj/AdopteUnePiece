@@ -2,14 +2,14 @@
 
 <div class="container mt-3">
   <form [formGroup]="creationAnnounce" (ngSubmit)="onSubmit()">
+    <h5 class="mt-5">Choisir un véhicule:</h5>
     <div class="row mt-1">
-      <div class="col-md-5 mt-5">
+      <div class="col-md-5">
         <div id="card-74095">
           <div class="card">
             <a class="card-link collapsed" data-toggle="collapse" data-parent="#card-74095" href="#card-element-616950">
               <div class="card-header">
                 Véhicule
-
                 <p class="float-right arrow">&#8964;</p>
               </div>
             </a>
@@ -18,34 +18,46 @@
               <div class="card-body">
                   
                 <div class="input-group mb-3 form-group">
-                  <select  class="custom-select" id="brand" formControlName="brand" (click)="getMarque()">
+                  <select  class="custom-select" id="brand" formControlName="brand" [(ngModel)]="brand"
+                  [ngClass]="{ 'is-invalid': submitted && f.brand.errors }">
                     <option selected="">Marque</option>
                     <option *ngFor="let brand of brands">{{brand}}</option>
                   </select>
+                  <div *ngIf="submitted && f.brand.errors" class="invalid-feedback">
+                    <div *ngIf="f.brand.errors.required">champs requis</div>
+                  </div>
                 </div>
 
                 <div class="input-group mb-3">
-                  <select class="custom-select" id="cylinder" formControlName="cylinder" (click)="getCylindree()" [disabled]="!choixMarque">
-                    <option selected="selected">Cylindré</option>
-                    <option *ngFor="let cylinder of cylinders">{{cylinder}}</option>
-                  </select>
-                </div>
-
-                <div class="input-group mb-3">
-                  <select class="custom-select" id="model" formControlName="model" (click)="getModele()" [disabled]="!choixCylindree">
+                  <select class="custom-select" id="model" formControlName="model" [(ngModel)]="model"
+                  [ngClass]="{ 'is-invalid': submitted && f.model.errors }">
                     <option selected="selected">Modèle</option>
                     <option *ngFor="let motoModel of motoModels">{{motoModel}}</option>
                   </select>
+                  <div *ngIf="submitted && f.model.errors" class="invalid-feedback">
+                    <div *ngIf="f.model.errors.required">champs requis</div>
+                  </div>
                 </div>
 
                 <div class="input-group mb-3">
-                  <select class="custom-select" id="year" formControlName="year"  [disabled]="!choixModele">
+                  <select class="custom-select" id="cylinder" formControlName="cylinder" [(ngModel)]="cylinder"
+                  [ngClass]="{ 'is-invalid': submitted && f.cylinder.errors }">
+                    <option selected="selected">Cylindré</option>
+                    <option *ngFor="let cylinder of cylinders">{{cylinder}}</option>
+                  </select>
+                  <div *ngIf="submitted && f.cylinder.errors" class="invalid-feedback">
+                    <div *ngIf="f.cylinder.errors.required">champs requis</div>
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <select class="custom-select" id="year" formControlName="year" [(ngModel)]="year"
+                  [ngClass]="{ 'is-invalid': submitted && f.year.errors }">
                     <option selected="selected">Année</option>
                     <option *ngFor="let year of years">{{year}}</option>
                   </select>
-
-                  <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Vroum...</button>
+                  <div *ngIf="submitted && f.year.errors" class="invalid-feedback">
+                    <div *ngIf="f.year.errors.required">champs requis</div>
                   </div>
                 </div>
 
@@ -55,31 +67,32 @@
         </div>
       </div>
 
-      <div class="col-md-4 mt-5">
+      <div class="col-md-4">
         <app-search-immat></app-search-immat>
       </div>
 
-      <div class="col-md-3 mt-5">
+      <div class="col-md-3">
         <div class="card">
-          <div class="card-header">
-            <p class="card-text">Votre moto</p>
+          <div class="card-header text-center">
+            <p *ngIf="!brand" class="card-text">Votre moto</p>
+            <p *ngIf="brand" class="card-text">{{brand}} {{model}} {{cylinder}} {{year}}</p>
           </div>
         </div>
       </div>
     </div>
-    <!-- Ajout d'un champ pour le titre de l'annonce -->
-    <div class="input-group mt-3">
-      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
-        placeholder="Entrez le titre de votre annonce ...">
-    </div>
+
     <!-- Ajout bouton pour importer les photos de l'annonce -->
     <div class="ajoutPhoto mt-3">
       <div class="single-upload">
-        <h3>Choisir une photo :</h3>
-        <form id="singleUploadForm" name="singleUploadForm"> 
-          <img [src]="url" height="150">
+        <h5>Choisir une photo :</h5>
+        <form id="singleUploadForm" name="singleUploadForm">
+          <div *ngIf="noInputUri" class="noInput">champs requis</div> 
+          <img [ngClass]="{'validateImage' : uri != null}" [src]="url" height="150" class="mr-5">
           <input id="singleFileUploadInput" type="file" name="file" class="file-input" required (change)="onSelectFile($event)" />
-          <button type="submit" class="primary submit-btn">Valider</button>
+          <div class="col-12 text-center">
+           <button *ngIf="uri == null" type="submit" class="btn btn-warning text-white">Valider votre photo</button>
+           <button *ngIf="uri != null" type="submit" class="btn btn-success text-white">Valider votre photo</button>
+         </div>
         </form>
         <div class="upload-response">
           <div id="singleFileUploadError"></div>
@@ -89,10 +102,11 @@
     </div>
     <div class="categorie mt-4">
       <div class="row mb-4">
-      <h5 class="col-6">Préciser la catégorie :</h5>
-      <div class="col-6">Vous avez choisi le type :
-          <button *ngIf="pieceType != null" type="button" class="btn btn-success">{{pieceType}}</button>
+      <h5 class="col-md-6">Préciser la catégorie :</h5>
+      <div class="col-md-6 col-sm-12 text-sm-left text-md-right">Vous avez choisi le type :
+          <button *ngIf="pieceName != null" type="button" class="btn btn-success">{{pieceName}}</button>
       </div>
+      <div *ngIf="noInputPieceName" class="noInput">champs requis</div>
       </div>  
       <div class="container-fluid">
           <div class="row">
@@ -114,7 +128,7 @@
                     </a>
                   </p>
                   <div class="collapse" id="collapseCadre">
-                    <button class="buttonAspect" type="button" *ngFor="let cadre of cadres" (click)="getPieceType($event.target.innerText)">{{cadre}}</button>
+                    <button class="buttonAspect" type="button" *ngFor="let cadre of cadres" (click)="getPieceName($event.target.innerText)">{{cadre}}</button>
                   </div>
         
                   <p>
@@ -531,24 +545,49 @@
       <div>
         <h5>Description de votre pièce :</h5>
         <!-- ajout champ pour décrire l'état de la pièce -->
-        <textarea id="description" class="form-control" formControlName="description" rows="5" aria-label="With textarea"></textarea>
+        <textarea id="description" class="form-control" formControlName="description" rows="5" aria-label="With textarea"
+        [ngClass]="{ 'is-invalid': submitted && f.description.errors }"></textarea>
+        <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+          <div *ngIf="f.description.errors.required">champs requis</div>
+        </div>
       </div>
       <!-- ajout champ pour donner la plage de compatibilité de la pièce-->
-      <h5 class="mt-5">Choix de l'état de la pièce:</h5>
-      <div class="note mt-1">
-        <ngb-rating id="note" class="form-control" formControlName="note" [(rate)]="rateChoice" class="star"></ngb-rating>
+      <div class="note mt-5">
+        <h5 style="color:black">Choix de l'état de la pièce:</h5>
+        <ngb-rating id="note" class="star" [(rate)]="note"></ngb-rating>
+        <div *ngIf="noInputNote" class="noInput">champs requis</div>   
         <hr>
-        <pre>Etat de la pièce : <b>{{rateChoice}}</b></pre>
+        <pre>Etat de la pièce : <b>{{note}}</b></pre>
       </div>
       <!-- ----------- ---------------------- ----------------- CHOIX DU PRIX DE LA PIECE -------------- -------------- ----------------- -->
       <div>
         <h5>Choix du prix de vente:</h5>
-        <input id="price" class="form-control" formControlName="price" class="price"><span class="priceSign ml-2">€</span>
+        <input id="price" class="form-control priceClas" formControlName="price" type="text"
+        [ngClass]="{ 'is-invalid': submitted && f.price.errors }">
+        <span class="priceSign ml-2">€</span>
+        <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+          <div *ngIf="f.price.errors.required">champs requis</div>
+        </div>
+      </div>
+      <div>
+        <h5>Frais de port:</h5>
+        <input id="charge" class="form-control priceClas" formControlName="charge" type="text"
+        [ngClass]="{ 'is-invalid': submitted && f.charge.errors }">
+        <span class="priceSign ml-2">€</span>
+        <div *ngIf="submitted && f.charge.errors" class="invalid-feedback">
+          <div *ngIf="f.charge.errors.required">champs requis</div>
+        </div>
       </div>
       <div class="row mt-5 mb-3">
         <div class="col-lg-12 text-center">
           <button type="submit" class="btn btn-primary">Valider votre annonce</button>
         </div>
+      </div>
+      <div *ngIf="successSubmit" class="alert alert-success alert-dismissible fade show text-center designAlert" role="alert">
+        Votre annonce a bien été crée.
+        <button type="button" class="close" (click)="reinitializeAlert" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
     </div>
   </form>

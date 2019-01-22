@@ -26,6 +26,7 @@ import { DataBaseManagmentComponent } from './PageAdmin/data-base-managment/data
 import { AdminCompanyCreateComponent } from './PageAdmin/admin-company-create/admin-company-create.component';
 import { AdminCompanyEditComponent } from './PageAdmin/admin-company-edit/admin-company-edit.component';
 import { RouteGardSellerService } from './Services/route-gard-seller.service';
+import { RouteGuardAdminService } from './Services/route-guard-admin.service';
 
 const routes: Routes = [
   { path: '', component: BuyerHomeComponent },
@@ -45,7 +46,7 @@ const routes: Routes = [
   { path: 'page-announce-pro', component: PageAnnounceProComponent, canActivate:[RouteGardSellerService] },
   { path: 'announce-list-seller', component: PageAnnounceProComponent },
   {
-    path: 'admin-home', component: AdminHomeComponent, children: [
+    path: 'admin-home', component: AdminHomeComponent, canActivate:[RouteGuardAdminService], children: [
       { path: 'admin-buyer-list', component: AdminBuyerListComponent },
       { path: 'admin-company-list', component: AdminCompanyListComponent },
       { path: 'admin-announce-list', component: AdminAnnounceListComponent },

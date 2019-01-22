@@ -106,5 +106,19 @@ export class AdminCompanyListComponent implements OnInit {
     
     // Mettre à jour le tableau
     this.sellersObservable.next(this.sellers.map(s => ({ ...s })));
+
+  indexTrackFn = (index: number) => index;
+  nameTrackFn = (_: number, item: Seller) => item.ville;
+
+  sortBy(prop: 'raisonSociale' | 'ville') {
+    this.sellersObservable.next(this.sellers.map(s => ({ ...s })).sort((a, b) => {
+      const aProp = a[prop], bProp = b[prop];
+      if (aProp < bProp) {
+        return -1;
+      } else if (aProp > bProp) {
+        return 1;
+      }
+      return 0;
+    }));
   }
 }

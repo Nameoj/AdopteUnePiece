@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { UserConnection } from 'src/app/models/user.connection.model';
 import * as $ from 'jquery';
+import { CommandesService } from 'src/app/Services/commandes.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +14,7 @@ import * as $ from 'jquery';
 export class NavbarComponent implements OnInit {
 
   dismiss = '';
-  mockNumberOfArticles = 0;
+  nbArticles;
   modal;
   registerForm: FormGroup;
   submitted = false;
@@ -22,13 +23,14 @@ export class NavbarComponent implements OnInit {
 
   //   x =document.getElementById("myModal");
 
-  constructor(private buyerService: BuyerService, private router: Router, private formBuilder: FormBuilder) { }
+  constructor(private buyerService: BuyerService, private router: Router, private formBuilder: FormBuilder, private serviceCommande: CommandesService) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
     });
+    this.nbArticles = this.serviceCommande.nbArticle;
   }
 
   click() {

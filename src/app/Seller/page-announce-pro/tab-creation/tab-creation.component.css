@@ -3,6 +3,10 @@ label {
     font: 1rem 'Fira Sans', sans-serif;
 }
 
+.btn{
+    box-shadow: 2px 3px #888888;
+}
+
 input, label {
     margin: .4rem 0;
 }
@@ -87,10 +91,26 @@ pre {
     color:black;
 }
 
-.price{
+.priceClas{
     width: 8em;
+    display:inline
 }
 
 .priceSign{
     font-size:1.5em;
 }
+
+.noInput{
+    font-size:0.8em;
+    color:red
+}
+
+.alert{
+    font-size:2em;
+}
+
+.validateImage{
+    border: solid 5px #3cc142;
+    border-radius:5px;
+}
+

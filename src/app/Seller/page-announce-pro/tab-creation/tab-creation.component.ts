@@ -1,6 +1,6 @@
 import { BuyerService } from './../../../Services/buyer.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, AbstractControl, FormsModule, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl, FormsModule, FormControl, } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { CategoriesService } from '../../../Services/categories.service';
@@ -9,6 +9,7 @@ import { Announce } from '../../../models/announce.models';
 import { AnnounceService } from '../../../Services/announce.service';
 import * as $ from 'jquery';
 import { listenToElementOutputs } from '@angular/core/src/view/element';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-tab-creation',
@@ -21,24 +22,25 @@ export class TabCreationComponent implements OnInit {
   creationAnnounce: FormGroup;
 
   date = new Date(Date.now());
-  title = 'UploadImg';
   selectedFile: File = null;
-  rateChoice = 0;
-  uri: string = '';
+  note = 0;
+  uri: string = null
   url: string = '';
-  choixMarque: boolean = false;
-  choixCylindree: boolean = false;
-  choixModele: boolean = false;
+  noInputUri: boolean = false;
+  noInputPieceName: boolean = false;
+  noInputNote: boolean = false;
+  successSubmit: boolean = false;
+  pieceName: string;
+  seller: string;
+  annonceForm: FormGroup;
+  submitted: boolean = false;
+  joie;
 
   brands = ["Honda", "Kawasaki", "Suzuki", "Yamaha"]
   cylinders = ["50cc", "80cc", "125cc", "250cc", "400cc", "500cc", "600cc", "700cc", "800cc", "900cc", "1000cc"]
   motoModels = ["Cucux", "Giovani", "GF", "Ninja", "Varadero"]
   years = ["1990", "1991", "1992", "1993", "1994", "1995", "1996"]
   cadres = ["Cadre", "Arraignée avant", "Boucle arrière", "Divers cadre"]
-  pieceType: string;
-  seller: string;
-  annonceForm: FormGroup;
-  submitted: boolean = false;
 
 
   constructor(
@@ -64,10 +66,10 @@ export class TabCreationComponent implements OnInit {
       cylinder: ['', Validators.required],
       model: ['', Validators.required],
       year: ['', Validators.required],
-      pieceType: ['', Validators.required],
       description: ['', Validators.required],
-      note: ['', Validators.required],
+      // note: ['', Validators.required],
       price: ['', Validators.required],
+      charge: ['', Validators.required],
     });
 
     // selection photos
@@ -86,7 +88,6 @@ export class TabCreationComponent implements OnInit {
         contentType: false,
         success: function (response) {
           _this.uri = response.fileDownloadUri;
-
           console.log(response);
 
           console.log(_this.uri);
@@ -114,59 +115,115 @@ export class TabCreationComponent implements OnInit {
     }
   }
 
-  onFileSelected(event) {
-    this.selectedFile = <File>event.target.files[0];
+  // onFileSelected(event) {
+  //   this.selectedFile = <File>event.target.files[0];
+  // }
+
+  // onUpload() {
+  //   const fd = new FormData();
+  //   fd.append('image', this.selectedFile, this.selectedFile.name);
+  //   this.http.post('http://localhost:8080/api/uploadFile', fd, {
+  //     reportProgress: true,
+  //     observe: 'events'
+  //   })
+  //     .subscribe(event => {
+  //       if (event.type === HttpEventType.UploadProgress) {
+  //         console.log('Upload Progress: ' + Math.round(event.loaded / event.total * 100) + '%');
+  //       } else if (event.type === HttpEventType.Response) {
+  //         console.log(event);
+  //       }
+  //     });
+  // }
+
+  getPieceName(pieceName) {
+    this.pieceName = pieceName;
   }
 
-  onUpload() {
-    const fd = new FormData();
-    fd.append('image', this.selectedFile, this.selectedFile.name);
-    this.http.post('http://localhost:8080/api/uploadFile', fd, {
-      reportProgress: true,
-      observe: 'events'
-    })
-      .subscribe(event => {
-        if (event.type === HttpEventType.UploadProgress) {
-          console.log('Upload Progress: ' + Math.round(event.loaded / event.total * 100) + '%');
-        } else if (event.type === HttpEventType.Response) {
-          console.log(event);
-        }
-      });
+  get f() { return this.creationAnnounce.controls; }
+
+  reinitializeAlert() { this.successSubmit = false; }
+
+  reinitializeForm() {
+    this.uri = null;
+    this.pieceName = null;
+    this.url = "";
+    this.note = 0;
   }
 
-  getMarque() {
-    this.choixMarque = true;
-  }
-  getCylindree() {
-    this.choixCylindree = true;
-  }
-  getModele() {
-    this.choixModele = true;
-  }
-  getPieceType(pieceType) {
-    this.pieceType = pieceType;
+  prefilledFormAfterSubmit() {
+    const formValue = this.creationAnnounce.value;
+
+    this.creationAnnounce = this.formBuilder.group({
+      brand: [formValue['brand'], Validators.required],
+      cylinder: [formValue['cylinder'], Validators.required],
+      model: [formValue['model'], Validators.required],
+      year: [formValue['year'], Validators.required],
+      description: ['', Validators.required],
+      price: ['', Validators.required],
+      charge: ['', Validators.required],
+    });
+    this.reinitializeForm()
   }
 
   onSubmit() {
+
     const formValue = this.creationAnnounce.value;
-    console.log(this.uri);
+
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.creationAnnounce.invalid) {
+      return;
+    }
+    if (this.uri == null) {
+      this.noInputUri = true;
+      return;
+    }
+    else {
+      this.noInputUri = false;
+    }
+    if (this.pieceName == null) {
+      this.noInputPieceName = true;
+      return;
+    }
+    else {
+      this.noInputPieceName = false;
+    }
+    if (this.note == 0) {
+      this.noInputNote = true;
+      return;
+    }
+    else {
+      this.noInputNote = false;
+    }
+
+
     const newAnnounce = new Announce(
       0,
       this.buyerService.getAuthenticatedUser(),
       this.uri,
       formValue['description'],
-      formValue['note'],
+      this.note,
       this.date,
-      this.pieceType,
+      this.pieceName,
       formValue['model'],
       formValue['brand'],
       formValue['cylinder'],
       formValue['year'],
       formValue['price'],
-      20);
+      formValue['charge']);
     console.log(newAnnounce);
 
-    this.announceService.createAnnounce(newAnnounce).subscribe(data => console.log(data));
+    this.announceService.createAnnounce(newAnnounce).subscribe(data => {
+
+      this.successSubmit = true;
+      setTimeout(() => this.successSubmit = false, 4000);
+      this.submitted = false;
+      this.prefilledFormAfterSubmit()
+    }
+    );
+
+
 
   }
 }

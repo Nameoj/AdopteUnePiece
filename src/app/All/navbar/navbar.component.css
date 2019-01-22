@@ -10,6 +10,16 @@
     width: 40px;
 }
 
+.nav-link{
+    max-height:56px;
+    max-width:56px;
+    cursor:pointer;
+}
+
+a img{
+    height:36px;
+    width:36px;
+}
 @media screen and (max-width: 8000px)
 
 {
@@ -136,10 +146,6 @@
 .btn-connex {
     margin: 0%;
 }
-
-.nav-link{
-    cursor:pointer;
-    }
 
 .erreurConnection{
 margin-top: .25rem;

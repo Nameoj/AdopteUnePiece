@@ -14,23 +14,26 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse offset-7 mt-2" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse offset-7 " id="navbarSupportedContent">
       <ul class="navbar-nav row rightLinks">
-        <li class="nav-item active col-4">
+        <li class="nav-item">
           <a class="nav-link" routerLink="/panier">
             <img class="shop" src="../../../assets/shopping.png">
             <span class="numberOfArticles">{{mockNumberOfArticles}}</span>
           </a>
         </li>
-
         <!-- TODO: *ngIf on the two next li for connected people and not connected people -->
-
-        <li class="nav-item offset-2">
+        <li class="nav-item">
           <a class="nav-link" (click)="click()" data-toggle= "modal"  [attr.data-target]="'#' + modal">
-          <img class="connect" src="../../../assets/connexion.png" *ngIf="buyerService.getAuthenticatedRole() != 'ROLE_ADMIN'"></a>
+            <img class="connect" src="../../../assets/connexion.png" *ngIf="buyerService.getAuthenticatedRole() != 'ROLE_ADMIN'">
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">
+            <img src="../../../assets/exit.png" *ngIf="buyerService.isUserLoggedIn()" class="deco mb-3" (click)="logout()" routerLink="/">
+          </a>
         </li>
       </ul>
-      <a><img src="../../../assets/exit.png" *ngIf="buyerService.isUserLoggedIn()" class="deco mb-3" (click)="logout()" routerLink="/"></a>
     </div>
   </nav>
 </div>

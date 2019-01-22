@@ -3,6 +3,10 @@ label {
     font: 1rem 'Fira Sans', sans-serif;
 }
 
+.btn{
+    box-shadow: 2px 3px #888888;
+}
+
 input, label {
     margin: .4rem 0;
 }

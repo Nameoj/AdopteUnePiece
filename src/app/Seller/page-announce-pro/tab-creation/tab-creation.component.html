@@ -2,8 +2,9 @@
 
 <div class="container mt-3">
   <form [formGroup]="creationAnnounce" (ngSubmit)="onSubmit()">
+    <h5 class="mt-5">Choisir un véhicule:</h5>
     <div class="row mt-1">
-      <div class="col-md-5 mt-5">
+      <div class="col-md-5">
         <div id="card-74095">
           <div class="card">
             <a class="card-link collapsed" data-toggle="collapse" data-parent="#card-74095" href="#card-element-616950">
@@ -66,11 +67,11 @@
         </div>
       </div>
 
-      <div class="col-md-4 mt-5">
+      <div class="col-md-4">
         <app-search-immat></app-search-immat>
       </div>
 
-      <div class="col-md-3 mt-5">
+      <div class="col-md-3">
         <div class="card">
           <div class="card-header text-center">
             <p *ngIf="!brand" class="card-text">Votre moto</p>
@@ -83,7 +84,7 @@
     <!-- Ajout bouton pour importer les photos de l'annonce -->
     <div class="ajoutPhoto mt-3">
       <div class="single-upload">
-        <h3>Choisir une photo :</h3>
+        <h5>Choisir une photo :</h5>
         <form id="singleUploadForm" name="singleUploadForm">
           <div *ngIf="noInputUri" class="noInput">champs requis</div> 
           <img [ngClass]="{'validateImage' : uri != null}" [src]="url" height="150" class="mr-5">
@@ -101,8 +102,8 @@
     </div>
     <div class="categorie mt-4">
       <div class="row mb-4">
-      <h5 class="col-6">Préciser la catégorie :</h5>
-      <div class="col-6 text-right">Vous avez choisi le type :
+      <h5 class="col-md-6">Préciser la catégorie :</h5>
+      <div class="col-md-6 col-sm-12 text-sm-left text-md-right">Vous avez choisi le type :
           <button *ngIf="pieceName != null" type="button" class="btn btn-success">{{pieceName}}</button>
       </div>
       <div *ngIf="noInputPieceName" class="noInput">champs requis</div>

@@ -3,9 +3,10 @@ label {
     font: 1rem 'Fira Sans', sans-serif;
 }
 
-.btn{
-    box-shadow: 2px 3px #888888;
+.titleSerch {
+    margin-top: 40px;
 }
+
 
 input, label {
     margin: .4rem 0;
@@ -63,20 +64,46 @@ pre {
     font-weight: 900;
 }
 .card-header{
-    background-color: black;
+    background-color: #2a2a2a;
     color: white;
+}
+
+.titleMoto {
+    background-color: white;
+    color: black;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .sectionBtn {
-    background-color: black;
+    background-color: #2a2a2a;
     color: white;
+    width: 100%;
+    text-transform:uppercase;
+    border-radius: 3px;
+    text-align: end;
+    font-family: 'Montserrat';
     font-weight: bold;
+    font-size: 0.8em;
+    border: none;
+}
+
+.arrowDown {
+    padding: 0;
+}
+
+.btnSection {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 10px;
 }
 
 .subsectionBtn {
-    background-color: grey;
-    color: white;
-    margin: auto;
+    border: none;
+    font-size: 0.9em;
+    text-align: left;
+}
+
+.card-body {
+    border: none;
 }
 
 .material-icons {
@@ -84,16 +111,28 @@ pre {
 }
 
 .buttonAspect{
-    border-radius: 5px;
-    background-color: darkgrey;
+    border-radius: 2px;
     text-align:center;
-    margin-bottom: 0.5vh;
+    margin-top: 0.8vh;
+    color:black;
+}
+
+.cate {
+    margin-left: 15px;
+}
+
+.partBtn {
+    border-radius: 2px;
+    text-align:center;
+    margin-top: 0.8vh;
+    margin-right: 0.5vh;
     color:black;
 }
 
 .priceClas{
     width: 8em;
-    display:inline
+    display:inline;
+    background-color: #f0f0f0
 }
 
 .priceSign{
@@ -114,3 +153,26 @@ pre {
     border-radius:5px;
 }
 
+.cadre {
+    width: 100%;
+}
+
+.textArea {
+    background-color: #f0f0f0;
+}
+
+.pill {
+    height:0px;
+    border-radius: 2px;
+    color: teal;
+    color: color;
+    border: 1px solid currentColor;
+    width: 90%;
+    margin-top: 40px;
+  }
+
+  .btnValid {
+      background-color: #ffca47;
+      color: black;
+      border: none;
+  }

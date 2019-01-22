@@ -14,6 +14,18 @@
 .centerContainer {
     text-align: center;
 }
+.gkz-viewport {
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+}
+.cdk-virtual-scroll-content-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+.seller-item {
+        height: 20px;
+    }
 
 /*DEFAULT CSS - MOBILE VERSION  DEFAULT CSS - MOBILE VERSION  DEFAULT CSS - MOBILE VERSION  DEFAULT CSS - MOBILE VERSION*/
 @media (max-width: 576px) {

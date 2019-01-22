@@ -171,8 +171,19 @@ pre {
     margin-top: 40px;
   }
 
-  .btnValid {
+.btnValid {
       background-color: #ffca47;
       color: black;
       border: none;
-  }
+}
+
+
+@media screen and (max-width: 768px) {
+    .priceVente {
+        text-align: center;
+    }
+
+    .pricePort {
+        text-align: center;
+    }
+}

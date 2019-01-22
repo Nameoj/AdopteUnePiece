@@ -584,7 +584,7 @@
         </div>
 
       <div class="row mt-5">
-        <div class="col-6">
+        <div class="col-lg-6 col-xs-12">
         <h6>DESCRIPTION MA PIECE:</h6>
         <!-- ajout champ pour décrire l'état de la pièce -->
         <textarea id="description" class="form-control textArea mt-3" formControlName="description" rows="5" aria-label="With textarea"
@@ -593,7 +593,7 @@
           <div *ngIf="f.description.errors.required">champs requis</div>
         </div>
         </div>
-        <div class="ajoutPhoto offset-1 col-4">
+        <div class="ajoutPhoto offset-lg-1 col-lg-4 col-xs-12">
             <div class="single-upload">
               <h6>AJOUTER UNE PHOTO:</h6>
               <form id="singleUploadForm" name="singleUploadForm">
@@ -614,7 +614,7 @@
       </div>
 
       <div class="row mt-5">
-        <div class="offset-4 col-2 priceVente">
+        <div class="offset-lg-4 col-lg-2  col-sm-12  priceVente">
         <h6>PRIX DE VENTE:</h6>
         <input id="price" class="form-control priceClas" formControlName="price" type="text"
         [ngClass]="{ 'is-invalid': submitted && f.price.errors }">
@@ -623,7 +623,7 @@
           <div *ngIf="f.price.errors.required">champs requis</div>
         </div>
         </div>
-        <div class="col-4 pricePort">
+        <div class="col-lg-4 col-sm-12 pricePort">
         <h6>FRAIS DE PORT:</h6>
         <input id="charge" class="form-control priceClas" formControlName="charge" type="text"
         [ngClass]="{ 'is-invalid': submitted && f.charge.errors }">

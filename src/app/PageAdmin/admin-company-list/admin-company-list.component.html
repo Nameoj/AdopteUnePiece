@@ -1,4 +1,10 @@
 <div class="col-md-8">
+  <form [formGroup]="sortCompanyForm" (ngSubmit)="onSubmit()">
+    <div class="form-group row">
+      <input formControlName="filterValue" type="text" class="form-control" id="filterValue">
+    </div>
+    <button type="submit">Rechercher</button>
+  </form>
   <cdk-virtual-scroll-viewport itemSize="100" class="VSviewport">
     <table class="table table-hover table-striped list">
       <thead class="head sticky">
@@ -29,7 +35,7 @@
           </th>
         </tr>
       </thead>
-      <ng-container *cdkVirtualFor="let seller of sellers; let idx = index">
+      <ng-container *cdkVirtualFor="let seller of sellersObservable | async; let idx = index">
         <tr>
           <th>
             {{seller.raisonSociale}}

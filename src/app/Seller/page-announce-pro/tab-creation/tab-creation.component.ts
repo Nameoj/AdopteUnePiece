@@ -1,6 +1,6 @@
 import { BuyerService } from './../../../Services/buyer.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, AbstractControl, FormsModule, FormControl,  } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl, FormsModule, FormControl, } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { CategoriesService } from '../../../Services/categories.service';
@@ -26,9 +26,9 @@ export class TabCreationComponent implements OnInit {
   note = 0;
   uri: string = null
   url: string = '';
-  noInputUri : boolean = false;
-  noInputPieceName : boolean = false;
-  noInputNote : boolean = false;
+  noInputUri: boolean = false;
+  noInputPieceName: boolean = false;
+  noInputNote: boolean = false;
   successSubmit: boolean = false;
   pieceName: string;
   seller: string;
@@ -41,7 +41,7 @@ export class TabCreationComponent implements OnInit {
   motoModels = ["Cucux", "Giovani", "GF", "Ninja", "Varadero"]
   years = ["1990", "1991", "1992", "1993", "1994", "1995", "1996"]
   cadres = ["Cadre", "Arraignée avant", "Boucle arrière", "Divers cadre"]
-  
+
 
   constructor(
     private config: NgbRatingConfig,
@@ -60,10 +60,10 @@ export class TabCreationComponent implements OnInit {
   ngOnInit() {
 
     const _this = this;
-    
+
     this.creationAnnounce = this.formBuilder.group({
-      brand: ['', Validators.required ],
-      cylinder: ['', Validators.required ],
+      brand: ['', Validators.required],
+      cylinder: ['', Validators.required],
       model: ['', Validators.required],
       year: ['', Validators.required],
       description: ['', Validators.required],
@@ -141,8 +141,8 @@ export class TabCreationComponent implements OnInit {
 
   get f() { return this.creationAnnounce.controls; }
 
-  reinitializeAlert() {this.successSubmit= false;}
-  
+  reinitializeAlert() { this.successSubmit = false; }
+
   reinitializeForm() {
     this.uri = null;
     this.pieceName = null;
@@ -150,12 +150,12 @@ export class TabCreationComponent implements OnInit {
     this.note = 0;
   }
 
-  prefilledFormAfterSubmit(){
+  prefilledFormAfterSubmit() {
     const formValue = this.creationAnnounce.value;
 
     this.creationAnnounce = this.formBuilder.group({
-      brand: [formValue['brand'], Validators.required ],
-      cylinder: [formValue['cylinder'], Validators.required ],
+      brand: [formValue['brand'], Validators.required],
+      cylinder: [formValue['cylinder'], Validators.required],
       model: [formValue['model'], Validators.required],
       year: [formValue['year'], Validators.required],
       description: ['', Validators.required],
@@ -166,36 +166,36 @@ export class TabCreationComponent implements OnInit {
   }
 
   onSubmit() {
-    
+
     const formValue = this.creationAnnounce.value;
-    
+
     this.submitted = true;
 
-        // stop here if form is invalid
-        if (this.creationAnnounce.invalid) {
-            return;
-        }
-        if (this.uri == null){
-          this.noInputUri = true;
-          return;
-        }
-        else{
-          this.noInputUri = false;
-        }
-        if (this.pieceName == null){
-          this.noInputPieceName = true;
-          return; 
-        }
-        else{
-          this.noInputPieceName = false;
-        }
-        if (this.note == 0){
-          this.noInputNote = true;
-          return;
-        }
-        else{
-          this.noInputNote = false;
-        }
+    // stop here if form is invalid
+    if (this.creationAnnounce.invalid) {
+      return;
+    }
+    if (this.uri == null) {
+      this.noInputUri = true;
+      return;
+    }
+    else {
+      this.noInputUri = false;
+    }
+    if (this.pieceName == null) {
+      this.noInputPieceName = true;
+      return;
+    }
+    else {
+      this.noInputPieceName = false;
+    }
+    if (this.note == 0) {
+      this.noInputNote = true;
+      return;
+    }
+    else {
+      this.noInputNote = false;
+    }
 
 
     const newAnnounce = new Announce(
@@ -211,19 +211,19 @@ export class TabCreationComponent implements OnInit {
       formValue['cylinder'],
       formValue['year'],
       formValue['price'],
-      formValue['charge'],);
+      formValue['charge']);
     console.log(newAnnounce);
 
     this.announceService.createAnnounce(newAnnounce).subscribe(data => {
 
-      this.successSubmit=true;
+      this.successSubmit = true;
       setTimeout(() => this.successSubmit = false, 4000);
       this.submitted = false;
       this.prefilledFormAfterSubmit()
     }
-      );
+    );
 
-    
+
 
   }
 }

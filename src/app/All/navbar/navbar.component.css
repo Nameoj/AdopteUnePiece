@@ -11,9 +11,9 @@
 }
 
 .nav-link{
-    max-height:56px;
+/*     max-height:56px;
     max-width:56px;
-    cursor:pointer;
+    cursor:pointer; */
 }
 
 a img{
@@ -41,6 +41,12 @@ a img{
 .websiteLogo {
     width: 2.5em !important;
     height: 2.5em !important;
+}
+
+@media screen and (max-width: 769px) {
+    .rightLinks {
+        text-align: end;
+    }
 }
 
 .adoptPieceSearch {
@@ -71,7 +77,7 @@ a img{
 }
 
 .rightLinks {
-    font-size:0.7em;
+    /* font-size:0.7em; */
     font-weight:normal;
 }
 

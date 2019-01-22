@@ -1,11 +1,11 @@
 <div class="card">
   <div class="card-body">
     <div class="announceItem row">
-      <div class="col-4 announceImage">
-        <img [src]="announce.image" placeholder="image" class="image">
+      <div class="col-lg-4  col-sm-12 announceImage">
+        <img [src]="announce.image" placeholder="image" class="image img-fluid">
       </div>
-      <div class="col-4 announceText text">
-        <div class="groupOfText year">
+      <div class="col-lg-4 col-sm-12 announceText text">
+        <div class="groupOfText year col-sm-12">
           <div>
             Année:
             <div class="text-muted">
@@ -14,7 +14,7 @@
           </div>
         </div>
 
-        <div class="groupOfText">
+        <div class="groupOfText model col-sm-12">
           <div>
             Moto:
           </div>
@@ -23,7 +23,7 @@
           </div>
         </div>
 
-        <div class="groupOfText">
+        <div class="groupOfText type col-sm-12">
           <div>
             Type:
           </div>
@@ -33,7 +33,7 @@
         </div>
       </div>
 
-      <div class="col-4 accessMore">
+      <div class="col-lg-4 col-sm-12 accessMore">
         <div class="price">
           {{announce.price}}€
         </div>

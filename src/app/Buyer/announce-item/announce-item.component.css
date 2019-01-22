@@ -3,9 +3,9 @@
     padding-left:15px;
     border-right:1px solid #dfdfdf;
 }
-.groupOfText:not(:last-child){
+/* .groupOfText:not(:last-child){
     margin:0px 0px 33% 0px;
-}
+} */
 
 .groupOfText{
     margin-right:30px;
@@ -24,7 +24,7 @@
 }
 .card-body{
     padding:1.65rem;
-    font-family:Montserrat, Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     font-weight: 600;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -56,4 +56,22 @@
 
 .type {
     margin-bottom: 50px;
+}
+
+@media screen and (max-width: 768px) {
+    .image {
+        width: 250px;
+        height: 200px;
+        display: block;
+        margin: auto;
+    }
+
+    .announceText {
+        text-align: center;
+        border: none;
+    }
+
+    .accessMore {
+        text-align: center;
+    }
 }

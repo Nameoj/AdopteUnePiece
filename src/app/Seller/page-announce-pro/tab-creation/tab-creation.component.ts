@@ -40,7 +40,7 @@ export class TabCreationComponent implements OnInit {
   cylinders = ["50cc", "80cc", "125cc", "250cc", "400cc", "500cc", "600cc", "700cc", "800cc", "900cc", "1000cc"]
   motoModels = ["Cucux", "Giovani", "GF", "Ninja", "Varadero"]
   years = ["1990", "1991", "1992", "1993", "1994", "1995", "1996"]
-  cadres = ["Cadre", "Arraignée avant", "Boucle arrière", "Divers cadre"]
+  cadres = ["Cadre", "Araignée avant", "Boucle arrière", "Divers cadre"]
 
 
   constructor(

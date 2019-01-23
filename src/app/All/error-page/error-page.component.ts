@@ -12,9 +12,4 @@ export class ErrorPageComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  returnLastPage() {
-    this._location.back();
-  }
-
 }

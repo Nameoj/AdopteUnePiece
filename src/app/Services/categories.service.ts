@@ -19,7 +19,7 @@ export class CategoriesService {
           name:"Boucle arrière"
         },
         {
-          name:"divers cadres"
+          name:"Divers cadre"
         }]
       },
       {

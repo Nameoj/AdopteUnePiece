@@ -57,7 +57,11 @@
     }
 
     .searchForm {
-        width: 96%;
+        width: 75%;
         margin: auto;
+    }
+
+    .sortFilterContainer {
+        display: flex;
     }
 }

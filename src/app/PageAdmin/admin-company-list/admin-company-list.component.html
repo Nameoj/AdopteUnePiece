@@ -1,4 +1,10 @@
-<div class="container mt-2">
+<div class="container sortFilterContainer mt-5">
+  <mat-form-field>
+    <mat-select [(value)]="filterSelect" placeholder="Type de filtre">
+      <mat-option value="rs">Raison Sociale</mat-option>
+      <mat-option value="cp">Code Postal</mat-option>
+    </mat-select>
+  </mat-form-field>
   <form [formGroup]="sortCompanyForm" (ngSubmit)="onSubmit()" class="searchForm">
     <div class="form-group row">
       <div class="input-group">
@@ -10,7 +16,7 @@
     </div>
   </form>
 </div>
-<div class="col-md-8 mt-5">
+<div class="col-md-8 mt-1">
   <cdk-virtual-scroll-viewport itemSize="100" class="VSviewport">
     <table class="table table-hover table-striped list">
       <thead class="head sticky">

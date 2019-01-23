@@ -19,63 +19,56 @@
     >
       <div class="card-body">
         <div class="input-group mb-3">
-          <select
-            class="custom-select"
-            id="selectMarque"
-            (click)="getMarque()"
-          >
-            <option selected="selected">Marque...</option>
-
-            <option value="243">ACTION BIKE</option>
-
-            <option value="160">ADLY</option>
-
-            <option value="3">APRILIA</option>
-
-            <option value="165">AZTRAL</option>
-
-          </select>
+          <select [(ngModel)]="newBrand" class="mb-2" name="brand" id="brand" class="custom-select" id="selectMarque"
+          (change)="onSelectBrand($event.target.value)">
+              <option selected="selected">
+                Marque
+              </option>
+              <option *ngFor="let brand of allMotosB" value="{{brand}}">
+                {{brand}}
+              </option>
+            </select>
         </div>
 
         <div class="input-group mb-3">
-          <select
-            class="custom-select"
-            id="cylindré"
-            (click)="getCylindree()"
-            [disabled]="!choixMarque"
-          >
-            <option selected="selected">Cylindré</option>
-
-            <option value="1">100 CC</option>
-
-            <option value="2">300 CC</option>
-
-            <option value="3">500 CC</option>
-          </select>
-        </div>
-
-        <div class="input-group mb-3">
-          <select
+            <select [(ngModel)]="newModel"
             class="custom-select"
             id="modele"
-            (click)="getModele()"
-            [disabled]="!choixCylindree"
+            (change)="onSelectModele($event.target.value)"
+            [disabled]="!choixMarque"
+            >
+            <option selected="selected" value=0>
+                  Modèle
+            </option>
+                
+            <option *ngFor="let model of allMotosM" value="{{model}}">
+            {{model}}
+            </option>
+              </select>
+          </div>
+
+        <div class="input-group mb-3">
+          <select
+            class="custom-select"
+            id="cylindree"
+            (change)="onSelectCylindree($event.target.value)"
+            [disabled]="!choixModele"
           >
-            <option selected="selected">Modèle</option>
+            <option selected="selected" value=0>Cylindrée</option>
 
-            <option value="1">Phantom</option>
-
-            <option value="2">Tenerife</option>
-
-            <option value="3">Odyssey</option>
+            <option *ngFor="let cylindree of allMotosC" value="{{cylindree}}">
+                {{cylindree}}
+            </option>
           </select>
         </div>
+
+
 
         <div class="input-group mb-3">
           <select
             class="custom-select"
             id="annee"
-            [disabled]="!choixModele"
+            [disabled]="!choixCylindree"
           >
             <option selected="selected">Année</option>
 

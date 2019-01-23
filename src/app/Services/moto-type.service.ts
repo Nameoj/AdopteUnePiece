@@ -25,6 +25,10 @@ export class MotoTypeService {
     return this.http.get(`${this.baseUrl}`+`${this.brandUrl}`+`${this.getAllUrl}`)
   }
 
+  getCylindree(model){
+    return this.http.get(`${this.baseUrl}`+`${this.modelInfoUrl}`+`${this.getUrl}${model}`)
+  }
+
   getBrand(brand){
     return this.http.get(`${this.baseUrl}`+`${this.brandUrl}`+`${this.getUrl}${brand}`)
   }

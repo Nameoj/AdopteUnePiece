@@ -18,20 +18,20 @@
       <div class="navbar-nav row rightLinks">
         <div class="nav-item col-sm-1">
           <a class="nav-link" routerLink="/panier">
-            <img class="shop" src="../../../assets/shopping.png">
+            <i class="material-icons">shopping_cart</i>
             <span class="numberOfArticles">{{nbArticles}}</span>
           </a>
         </div>
         
         <!-- TODO: *ngIf on the two next li for connected people and not connected people -->
-        <div class="nav-item offset-sm-1 col-sm-1">
+        <div class="nav-item compte offset-sm-1 col-sm-1">
           <a class="nav-link" (click)="click()" data-toggle= "modal"  [attr.data-target]="'#' + modal">
-            <img class="connect" src="../../../assets/connexion.png">
+              <i class="material-icons">account_circle</i>
           </a>
         </div>
-        <div class="nav-item offset-sm-1 col-sm-1">
-          <a class="nav-link">
-            <img src="../../../assets/exit.png" *ngIf="buyerService.isUserLoggedIn()" class="deco" (click)="logout()" routerLink="/">
+        <div class="nav-item  exit offset-sm-1 col-sm-1">
+          <a class="nav-link" *ngIf="buyerService.isUserLoggedIn()" class="deco" (click)="logout()" routerLink="/">
+              <i class="material-icons">exit_to_app</i>
           </a>
         </div>
       </div>

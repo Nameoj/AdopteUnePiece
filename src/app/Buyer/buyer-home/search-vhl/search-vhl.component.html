@@ -1,11 +1,6 @@
 <div id="card-74095">
   <div class="card">
-    <a
-      class="card-link collapsed"
-      data-toggle="collapse"
-      data-parent="#card-74095"
-      href="#card-element-616950"
-    >
+    <a class="card-link collapsed" data-toggle="collapse" data-parent="#card-74095" href="#card-element-616950">
       <div class="card-header">
         Véhicule
 
@@ -13,51 +8,39 @@
       </div>
     </a>
 
-    <div
-      id="card-element-616950"
-      class="collapse"
-    >
+    <div id="card-element-616950" class="collapse">
       <div class="card-body">
         <div class="input-group mb-3">
           <select [(ngModel)]="newBrand" class="mb-2" name="brand" id="brand" class="custom-select" id="selectMarque"
-          (change)="onSelectBrand($event.target.value)">
-              <option selected="selected">
-                Marque
-              </option>
-              <option *ngFor="let brand of allMotosB" value="{{brand}}">
-                {{brand}}
-              </option>
-            </select>
+            (change)="onSelectBrand($event.target.value)">
+            <option selected="selected" value="0">
+              Marque
+            </option>
+            <option *ngFor="let brand of allMotosB" value="{{brand}}">
+              {{brand}}
+            </option>
+          </select>
         </div>
 
         <div class="input-group mb-3">
-            <select [(ngModel)]="newModel"
-            class="custom-select"
-            id="modele"
-            (change)="onSelectModele($event.target.value)"
-            [disabled]="!choixMarque"
-            >
-            <option selected="selected" value=0>
-                  Modèle
+          <select [(ngModel)]="newModel" class="custom-select" id="modele" (change)="onSelectModele($event.target.value)"
+            [disabled]="!choixMarque">
+            <option selected="selected" value="0">
+              Modèle
             </option>
-                
+
             <option *ngFor="let model of allMotosM" value="{{model}}">
-            {{model}}
+              {{model}}
             </option>
-              </select>
-          </div>
+          </select>
+        </div>
 
         <div class="input-group mb-3">
-          <select
-            class="custom-select"
-            id="cylindree"
-            (change)="onSelectCylindree($event.target.value)"
-            [disabled]="!choixModele"
-          >
-            <option selected="selected" value=0>Cylindrée</option>
+          <select [(ngModel)]="newCylindree" class="custom-select" id="cylindree" (change)="onSelectCylindree($event.target.value)" [disabled]="!choixModele">
+            <option selected="selected" value="0">Cylindrée</option>
 
             <option *ngFor="let cylindree of allMotosC" value="{{cylindree}}">
-                {{cylindree}}
+              {{cylindree}}
             </option>
           </select>
         </div>
@@ -65,26 +48,15 @@
 
 
         <div class="input-group mb-3">
-          <select
-            class="custom-select"
-            id="annee"
-            [disabled]="!choixCylindree"
-          >
+          <select [(ngModel)]="newYear" class="custom-select" id="annee" [disabled]="!choixCylindree" (change)="onSelectYear($event.target.value)">
             <option selected="selected">Année</option>
 
-            <option value="1">1978</option>
-
-            <option value="2">2012</option>
-
-            <option value="3">2030</option>
+            <option *ngFor="let year of allMotosY" value="{{year}}">{{year}}</option>
           </select>
 
+
           <div class="input-group-append">
-            <button
-              class="btn btn-outline-secondary"
-              type="button"
-              id="button-addon2"
-            >Vroum...</button>
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="sendResearch()">Vroum...</button>
           </div>
         </div>
       </div>

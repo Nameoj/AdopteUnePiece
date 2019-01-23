@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MotoTypeService } from 'src/app/Services/moto-type.service';
+import { ResearchMoto } from '../../../models/researchMoto.models';
+import { SearchService } from '../../../Services/search.service';
 
 @Component({
   selector: 'app-search-vhl',
@@ -13,16 +15,20 @@ choixCylindree: boolean = false;
 choixModele: boolean = false;
 
 allMotos:any=[];
-allMotosCylYear: any=[];
+allMotosCylYear:any=[];
 allMotosCylYearDetail;
 allMotosB:any=[];
 allMotosM:any=[];
 allMotosC:any=[];
+allMotosY:any=[];
 
 newModel;
 newBrand;
+newCylindree;
+newYear;
+searchMoto:ResearchMoto;
 
-  constructor(private motoTypeService: MotoTypeService) { }
+  constructor(private motoTypeService: MotoTypeService, private searchService:SearchService) { }
 
   ngOnInit() {
     this.callJson();
@@ -75,6 +81,26 @@ onSelectModele(model){
       console.log(this.allMotosC);
   })
 
+  }
+
+  onSelectCylindree(cylindree){
+    this.getCylindree();
+    this.allMotosY = [];
+    this.newCylindree=cylindree;
+    for (let i=0; i<Object.keys(this.allMotosCylYearDetail).length; i++){
+      this.allMotosY.push(this.allMotosCylYearDetail[i].motoYear);
+      console.log(this.allMotosY);
+    }
+  }
+
+  onSelectYear(year){
+    this.newYear=year;
+  }
+
+  sendResearch(){
+    console.log(this.newBrand, this.newModel, this.newCylindree, this. newYear);
+    this.searchMoto=new ResearchMoto(this.newBrand, this.newModel, this.newCylindree, this.newYear);
+    this.searchService.shareSearchVhlWithAnnounceList(this.searchMoto);
   }
 
 }

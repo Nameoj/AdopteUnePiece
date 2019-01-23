@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Announce } from 'src/app/models/announce.models';
 import { AnnounceService } from 'src/app/Services/announce.service';
 import { Router, Params, ActivatedRoute } from '@angular/router';
+import { SearchService } from '../../Services/search.service';
 
 @Component({
   selector: 'app-announce-list',
@@ -10,12 +11,15 @@ import { Router, Params, ActivatedRoute } from '@angular/router';
 })
 export class AnnounceListComponent implements OnInit {
 
-  constructor(private announceService: AnnounceService,  private route: ActivatedRoute) { }
+  constructor(private announceService: AnnounceService,  private route: ActivatedRoute, private searchService:SearchService) {
+    //j'ai vu ça dans un tuto
+    //this.searchService.motoSearched;
+   }
 
   listAnnonces;
   piece;
-
-
+  //eventEmitter?eventListener?output?
+  filterAnnounces=this.searchService.motoSearched;
   ngOnInit() {
     this.listAnnonces =[];
     this.route.params.subscribe((params: Params) =>{

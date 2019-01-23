@@ -15,6 +15,7 @@ export class AdminCompanyListComponent implements OnInit {
   sellers: Seller[];
   sellersObservable: BehaviorSubject<Seller[]>;
   sortCompanyForm: FormGroup;
+  filterSelect: String;
 
 
   constructor(private sellerService: SellerService, private formBuilder: FormBuilder, private router: Router) { }
@@ -102,7 +103,14 @@ export class AdminCompanyListComponent implements OnInit {
   applyFilter(filterValue: string) {
     console.log(filterValue);
     const obj: any[] = this.sellers;
-    obj.map((s) => s.distance = this.calculerDistance(s.raisonSociale, filterValue));
+    switch(this.filterSelect) {
+      case 'rs':
+        obj.map((s) => s.distance = this.calculerDistance(s.raisonSociale, filterValue));
+        break;
+      case 'cp':
+        obj.map((s) => s.distance = this.calculerDistance(s.codePostal, filterValue));
+        break;
+    }
     obj.sort((a, b) => a.distance - b.distance);
     obj.forEach((a) => console.log('Distance entre ', a.raisonSociale, ' et ', filterValue, ' : ', a.distance));
     obj.map((s) => delete s.distance);
@@ -110,6 +118,8 @@ export class AdminCompanyListComponent implements OnInit {
 
     // Mettre à jour le tableau
     this.sellersObservable.next(this.sellers);
+    console.log("mise à jour du tableau")
+    console.log(this.sellers);
   }
 
   indexTrackFn = (index: number) => index;

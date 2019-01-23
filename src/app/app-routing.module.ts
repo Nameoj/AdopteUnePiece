@@ -30,6 +30,7 @@ import { RouteGuardAdminService } from './Services/route-guard-admin.service';
 
 const routes: Routes = [
   { path: '', component: BuyerHomeComponent },
+  { path: 'home/:piece', component: BuyerHomeComponent },
   { path: 'panier', component: PanierComponent },
   { path: 'announcelist', component: AnnounceListComponent },
   {

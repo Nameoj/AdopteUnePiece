@@ -33,6 +33,10 @@ export class AnnounceService {
     return this.http.get(`${this.baseUrl}/id/${id}`);
   }
 
+  getAnnounceByPiece(piece){
+    return this.http.get(`${this.baseUrl}/id/${piece}`);
+  }
+
   getSellerAnnounce(username): Observable<Object> {
     return this.http.get<Seller>(`${this.baseUrl}/seller/${username}`);
   }

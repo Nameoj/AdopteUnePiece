@@ -11,42 +11,48 @@ import { SearchService } from '../../Services/search.service';
 })
 export class AnnounceListComponent implements OnInit {
 
-  constructor(private announceService: AnnounceService,  private route: ActivatedRoute, private searchService:SearchService) {
-    //j'ai vu ça dans un tuto
-    //this.searchService.motoSearched;
-   }
+  constructor(private announceService: AnnounceService, private route: ActivatedRoute, private searchService: SearchService) { }
 
   listAnnonces;
   piece;
-  //eventEmitter?eventListener?output?
-  filterAnnounces=this.searchService.motoSearched;
+  filterAnnounces;
   ngOnInit() {
-    this.listAnnonces =[];
-    this.route.params.subscribe((params: Params) =>{
-    this.piece = params['piece'];
-    if(!this.piece){
-      this.getAnnonces()
-    }
-    else {
-      this.listAnnonces = this.announceService.listAnnonce;
-      console.log(this.listAnnonces);
-      const arrayLength = Object.keys(this.announceService.listAnnonce).length
-      const newArray = [];
-      console.log(arrayLength);
-      for (let i = 0 ;i<arrayLength; i ++) {
-          if (this.listAnnonces[i].pieceName == this.piece){
-            newArray.push(this.listAnnonces[i])
-          }  
+    this.listAnnonces = [];
+    this.route.params.subscribe((params: Params) => {
+      this.piece = params['piece'];
+      if (!this.piece) {
+        this.getAnnonces()
       }
-      this.listAnnonces = newArray;
-    }
+      else {
+        this.listAnnonces = this.announceService.listAnnonce;
+        console.log(this.listAnnonces);
+        const arrayLength = Object.keys(this.announceService.listAnnonce).length
+        const newArray = [];
+        console.log(arrayLength);
+        for (let i = 0; i < arrayLength; i++) {
+          if (this.listAnnonces[i].pieceName == this.piece) {
+            newArray.push(this.listAnnonces[i])
+          }
+        }
+        this.listAnnonces = newArray;
+      }
     })
   }
+  ngDoCheck(): void {
+    if (this.searchService.isSearchPerformed === true) {
+      this.filterAnnounces = this.searchService.motoSearched;
+      this.searchService.isSearchPerformed = false;
+      console.log(this.filterAnnounces);
 
-  getAnnonces(){
+      this.listAnnonces=this.announceService.getAnnouncesByModelAndCylinderAndYear(this.filterAnnounces.model, this.filterAnnounces.cylindree, this.filterAnnounces.year);
+    }
+  }
+
+
+  getAnnonces() {
     this.announceService.getAnnounces()
-    .subscribe(
-      data => { this.listAnnonces = data; this.announceService.listAnnonce = data; console.log(this.listAnnonces); }
-    );
+      .subscribe(
+        data => { this.listAnnonces = data; this.announceService.listAnnonce = data; console.log(this.listAnnonces); }
+      );
   }
 }

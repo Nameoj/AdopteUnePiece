@@ -14,9 +14,9 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse offset-7 mt-1" id="navbarSupportedContent">
+    <div class="collapse burger navbar-collapse offset-lg-7 mt-1" id="navbarSupportedContent">
       <div class="navbar-nav row rightLinks">
-        <div class="nav-item col-sm-1">
+        <div class="nav-item col-lg-1">
           <a class="nav-link" routerLink="/panier">
             <i class="material-icons">shopping_cart</i>
             <span class="numberOfArticles">{{nbArticles}}</span>
@@ -24,12 +24,12 @@
         </div>
         
         <!-- TODO: *ngIf on the two next li for connected people and not connected people -->
-        <div class="nav-item compte offset-sm-1 col-sm-1">
+        <div class="nav-item compte offset-lg-1 col-lg-1">
           <a class="nav-link" (click)="click()" data-toggle= "modal"  [attr.data-target]="'#' + modal">
               <i class="material-icons">account_circle</i>
           </a>
         </div>
-        <div class="nav-item  exit offset-sm-1 col-sm-1">
+        <div class="nav-item  exit offset-lg-1 col-lg-1">
           <a class="nav-link" *ngIf="buyerService.isUserLoggedIn()" class="deco" (click)="logout()" routerLink="/">
               <i class="material-icons">exit_to_app</i>
           </a>

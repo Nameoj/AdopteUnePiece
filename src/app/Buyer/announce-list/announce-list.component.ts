@@ -42,7 +42,9 @@ export class AnnounceListComponent implements OnInit {
     if (this.searchService.isSearchPerformed === true) {
       this.filterAnnounces = this.searchService.motoSearched;
       this.searchService.isSearchPerformed = false;
-      console.log(this.filterAnnounces)
+      console.log(this.filterAnnounces);
+
+      this.listAnnonces=this.announceService.getAnnouncesByModelAndCylinderAndYear(this.filterAnnounces.model, this.filterAnnounces.cylindree, this.filterAnnounces.year);
     }
   }
 

@@ -30,17 +30,14 @@ export class AdminAnnounceListComponent implements OnInit {
 
   ngOnInit() {
     this.sellers = this.sellerService.sellers;
-    console.log(this.sellerEdit);
     this.route.params.subscribe((params: Params) => {
       this.username = params['username'];
-      this.idx = params['idx'];
-      this.seller = this.sellers[this.idx];
       this.announceService.getSellerAnnounce(this.username).subscribe(
         response => { this.announces = response; });
-    });
-    this.announceService.getSellerAnnounce(this.username)
+      });
+      this.seller = this.sellerService.getSeller(this.username)
       .subscribe(
-        data => { this.listAnnonces = data; this.announceService.listAnnonce = data; console.log(this.listAnnonces); }
+          data => { this.seller = data; }
       );
   }
 

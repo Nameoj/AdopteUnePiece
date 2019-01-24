@@ -17,6 +17,7 @@ export class AnnounceService {
 
   private baseUrl = 'http://localhost:8080/api/announces';
   private baseUrl2 = 'http://localhost:8080/api';
+  private baseUrl3 = 'http://localhost:8080/api/announces/model'
 
   constructor(private http: HttpClient) { }
 
@@ -43,5 +44,10 @@ export class AnnounceService {
 
   deleteAnnonce(id): Observable<Object> {
     return this.http.get<Announce>(`${this.baseUrl2}/deleteannounces/${id}`);
+  }
+
+
+  getAnnouncesByModelAndCylinderAndYear(model, cylinder, year){
+    return this.http.get(`${this.baseUrl3}/${model}/${cylinder}/${year}`)
   }
 }

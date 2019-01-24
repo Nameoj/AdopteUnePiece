@@ -58,7 +58,7 @@ export class AdressesComponent implements OnInit {
   .subscribe(data => 
                     {console.log(data), this.buyerService.buyerConnected = data,
   console.log("buyer adress updated" + this.buyerService.buyerConnected.nom),
-  this.router.navigate(['/myaccount/adresse'])},
+  this.router.navigate(['/myaccount/adresses'])},
              error=>{ this.submitted=false,
                     console.log("erreur!!!"),console.log(error.status)}
  );

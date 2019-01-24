@@ -39,8 +39,8 @@ const routes: Routes = [
     path: 'myaccount', component: MyAccountComponent, children: [
       { path: 'infosperso', component: InfospersoComponent },
       { path: 'motdepasse', component: MotdepasseComponent },
-      { path: 'commandes', component: AdressesComponent },
-      { path: 'adresses', component: CommandesComponent }]
+      { path: 'adresses', component: AdressesComponent },
+      { path: 'commandes', component: CommandesComponent }]
   },
   { path: 'creationCompte', component: CreationCompteComponent },
   { path: 'announce-piece', component: AnnouncePieceComponent },

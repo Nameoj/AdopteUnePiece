@@ -21,7 +21,7 @@
             </th>
           </tr>
         </thead>
-        <ng-container *cdkVirtualFor="let announce of announces, let idefix = index">
+        <ng-container *cdkVirtualFor="let announce of announces">
           <tr>
             <td>
               {{announce.pieceName}}
@@ -36,7 +36,7 @@
               <a (click)="delete(announce.id)"><i class="material-icons icons">delete_sweep</i></a>
             </td>
             <td>
-              <a (click)="details(idefix)"><i class="material-icons icons">remove_red_eye</i></a>
+              <a (click)="details(announce.id)"><i class="material-icons icons">remove_red_eye</i></a>
             </td>
           </tr>
         </ng-container>

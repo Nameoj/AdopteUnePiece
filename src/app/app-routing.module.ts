@@ -32,10 +32,11 @@ import { AdminAnnounceDetailsComponent } from './PageAdmin/admin-announce-detail
 
 
 const routes: Routes = [
-  { path: '', component: BuyerHomeComponent },
-  { path: 'home/:piece', component: BuyerHomeComponent },
+  { path: 'home', component: BuyerHomeComponent },
+  { path: 'home/:piece', component: BuyerHomeComponent, runGuardsAndResolvers: "paramsChange" },
   { path: 'panier', component: PanierComponent },
   { path: 'announcelist', component: AnnounceListComponent },
+  { path: 'announcelist/:piece', component: AnnounceListComponent },
   {
     path: 'myaccount', component: MyAccountComponent, children: [
       { path: 'infosperso', component: InfospersoComponent },
@@ -65,7 +66,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: "reload"})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -78,7 +78,7 @@ export class NavbarComponent implements OnInit {
         } else if (this.buyerService.isUserLoggedIn() && this.buyerService.getAuthenticatedRole() === 'ROLE_SELLER') {
           this.router.navigate(['/page-announce-pro']);
         } else {
-          this.router.navigate(['/']);
+          this.router.navigate(['/home']);
         }
       },
         error => {

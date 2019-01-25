@@ -115,11 +115,11 @@ export class AdminCompanyListComponent implements OnInit {
     obj.forEach((a) => console.log('Distance entre ', a.raisonSociale, ' et ', filterValue, ' : ', a.distance));
     obj.map((s) => delete s.distance);
     this.sellers = obj;
-
+    
     // Mettre à jour le tableau
     this.sellersObservable.next(this.sellers);
-    console.log("mise à jour du tableau")
-    console.log(this.sellers);
+    console.log('this.sellers: ', this.sellers);
+    console.log('this.sellersObservable: ', this.sellersObservable);
   }
 
   indexTrackFn = (index: number) => index;

@@ -35,3 +35,15 @@
 .img {
     width:4em;
 }
+
+@media screen and (max-width: 769px) {
+    .backgroundLogo {
+        top: 35%;
+        width: 45%;
+        left: 25%;
+    }
+
+    .closeButton {
+        left: 40vw;
+    }
+}

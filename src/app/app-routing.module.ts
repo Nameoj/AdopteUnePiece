@@ -28,6 +28,7 @@ import { AdminCompanyEditComponent } from './PageAdmin/admin-company-edit/admin-
 import { ErrorPageComponent } from './All/error-page/error-page.component';
 import { RouteGardSellerService } from './Services/route-gard-seller.service';
 import { RouteGuardAdminService } from './Services/route-guard-admin.service';
+import { AdminAnnounceDetailsComponent } from './PageAdmin/admin-announce-details/admin-announce-details.component';
 
 
 const routes: Routes = [
@@ -60,7 +61,7 @@ const routes: Routes = [
       { path: 'admin-company-create', component: AdminCompanyCreateComponent },
       { path: 'admin-moto-create', component: DataBaseManagmentComponent}]
   },
-
+  { path: 'admin-announce-details/:annonceId', component: AdminAnnounceDetailsComponent},
   { path: '**', component: ErrorPageComponent}
 ];
 

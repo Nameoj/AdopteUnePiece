@@ -28,7 +28,35 @@
 
 @media screen and (max-width: 769px) {
     .rightLinks {
-        text-align: end;
+        display: inline-block;
+    }
+
+    .navbar {
+        height: auto;
+    }
+
+    .material-icons {
+        margin: auto;
+    }
+
+    .exit {
+        margin: auto;
+    }
+
+    .compte {
+        margin: auto;
+    }
+
+    .numberOfArticles {
+        visibility: hidden;
+    }
+
+    .navbar-brand {
+        font-size: 1em;
+    }
+
+    .websiteLogo {
+        margin-left: 0;
     }
 }
 

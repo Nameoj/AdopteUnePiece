@@ -53,7 +53,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { AdminCompanyEditComponent } from './PageAdmin/admin-company-edit/admin-company-edit.component';
 import { AdminCompanyPasswordComponent } from './PageAdmin/admin-company-edit/admin-company-password/admin-company-password.component';
 import { TabCompteComponent } from './Seller/page-announce-pro/tab-compte/tab-compte.component';
-import { ErrorPageComponent } from './All/error-page/error-page.component'
+import { ErrorPageComponent } from './All/error-page/error-page.component';
+import { AdminAnnounceDetailsComponent } from './PageAdmin/admin-announce-details/admin-announce-details.component'
 
 
 
@@ -95,6 +96,7 @@ import { ErrorPageComponent } from './All/error-page/error-page.component'
     AdminCompanyPasswordComponent,
     TabCompteComponent,
     ErrorPageComponent,
+    AdminAnnounceDetailsComponent,
   ],
   imports: [
     BrowserModule,

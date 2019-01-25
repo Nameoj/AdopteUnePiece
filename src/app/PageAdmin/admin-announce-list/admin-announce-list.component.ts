@@ -16,7 +16,6 @@ export class AdminAnnounceListComponent implements OnInit {
   announces: Object; Announce;
   sellerEdit: Seller;
   username: String;
-  idx;
   sellers;
   seller;
   listAnnonces;
@@ -42,9 +41,7 @@ export class AdminAnnounceListComponent implements OnInit {
   }
 
   details(annonceId) {
-    console.log(annonceId);
-    console.log('La route du Q' + this.router.navigate(['/announce-piece', annonceId]));
-    this.router.navigate(['/announce-piece', annonceId]);
+    this.router.navigate(['/admin-announce-details', annonceId]);
   }
 
   delete(id) {

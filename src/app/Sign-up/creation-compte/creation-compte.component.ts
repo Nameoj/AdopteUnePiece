@@ -71,7 +71,7 @@ export class CreationCompteComponent implements OnInit {
       .subscribe(data => {
         console.log(data), this.buyerService.buyerConnected = data,
         console.log('buyer created' + this.buyerService.buyerConnected.nom),
-        this.router.navigate(['/']);
+        this.router.navigate(['/home']);
       },
         error => {
         this.submitted = false,

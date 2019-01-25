@@ -8,8 +8,10 @@ import { HttpClient, HttpEventType } from '@angular/common/http';
 import { Announce } from '../../../models/announce.models';
 import { AnnounceService } from '../../../Services/announce.service';
 import * as $ from 'jquery';
+import { ResearchMoto } from '../../../models/researchMoto.models';
 import { listenToElementOutputs } from '@angular/core/src/view/element';
 import { stringify } from 'querystring';
+import { MotoTypeService } from 'src/app/Services/moto-type.service';
 
 @Component({
   selector: 'app-tab-creation',
@@ -18,6 +20,28 @@ import { stringify } from 'querystring';
   providers: [NgbRatingConfig]
 })
 export class TabCreationComponent implements OnInit {
+
+  choixMarque: boolean = false;
+choixCylindree: boolean = false;
+choixModele: boolean = false;
+
+allMotos:any=[];
+allMotosCylYear:any=[];
+allMotosCylYearDetail;
+allMotosB:any=[];
+allMotosM:any=[];
+allMotosC:any=[];
+allMotosY:any=[];
+
+newModel;
+newBrand;
+newCylindree;
+newYear;
+searchMoto:ResearchMoto;
+
+
+
+
 
   creationAnnounce: FormGroup;
 
@@ -50,15 +74,84 @@ export class TabCreationComponent implements OnInit {
     private formBuilder: FormBuilder,
     private buyerService: BuyerService,
     private announceService: AnnounceService,
-    private router: Router) {
+    private router: Router,
+    private motoTypeService:MotoTypeService) {
     config.max = 5;
     // customize default values of ratings used by this component tree
   }
 
   motoCategories = this.categoriesService.mockMotoCategories;
 
-  ngOnInit() {
 
+getMarque(){
+  this.choixMarque = true;
+}
+getCylindree(){
+  this.choixCylindree = true;
+}
+
+getModele(){
+  this.choixModele = true;
+}
+
+callJson(){
+  this.allMotos=this.motoTypeService.getAll().subscribe( res =>
+    {
+      this.allMotosB = [];
+      this.allMotos=res;
+      for( let i=0; i< Object.keys(this.allMotos).length; i++){
+        this.allMotosB.push(this.allMotos[i].name)
+      }
+    });
+}
+
+onSelectBrand(brand){
+  this.getMarque();
+  this.newBrand = brand;
+  this.allMotosM = [];
+  this.allMotosCylYear;
+  this.motoTypeService.getBrand(brand).subscribe( res => {
+    this.allMotos = res;
+  for( let i=0; i< Object.keys(res).length; i++){
+    this.allMotosM.push(this.allMotos.motoModels[i].modelName)};
+     });
+    console.log(this.allMotos);
+  }
+
+onSelectModele(model){
+  this.getModele();
+  this.allMotosC = [];
+  this.newModel=model;
+  this.motoTypeService.getCylindree(model).subscribe ( res => {
+    console.log(res);
+    this.allMotosCylYearDetail = res;
+    for( let i=0; i< Object.keys(res).length; i++){
+      this.allMotosC.push(this.allMotosCylYearDetail[i].motoCylinder)};
+      console.log(this.allMotosC);
+  })
+
+  }
+
+  onSelectCylindree(cylindree){
+    this.getCylindree();
+    this.allMotosY = [];
+    this.newCylindree=cylindree;
+    for (let i=0; i<Object.keys(this.allMotosCylYearDetail).length; i++){
+      this.allMotosY.push(this.allMotosCylYearDetail[i].motoYear);
+      console.log(this.allMotosY);
+    }
+  }
+
+  onSelectYear(year){
+    this.newYear=year;
+  }
+
+
+
+
+
+  ngOnInit() {
+    this.callJson();
     const _this = this;
 
     this.creationAnnounce = this.formBuilder.group({

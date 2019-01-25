@@ -46,7 +46,6 @@ import { AdminCompanyListComponent } from './PageAdmin/admin-company-list/admin-
 import { AdminAnnounceListComponent } from './PageAdmin/admin-announce-list/admin-announce-list.component';
 import { DataBaseManagmentComponent } from './PageAdmin/data-base-managment/data-base-managment.component';
 import { AdminCompanyCreateComponent } from './PageAdmin/admin-company-create/admin-company-create.component';
-import { HomeAnnounceComponent } from './Buyer/buyer-home/home-announce/home-announce.component';
 import { HttpIntercepterService, httpInterceptorProviders } from './Services/http-intercepter.service';
 import { TabCategoriesComponent } from './Seller/page-announce-pro/tab-categories/tab-categories.component';
 import {MatTabsModule} from '@angular/material/tabs';
@@ -91,7 +90,6 @@ import { ErrorPageComponent } from './All/error-page/error-page.component'
     AdminAnnounceListComponent,
     DataBaseManagmentComponent,
     AdminCompanyCreateComponent,
-    HomeAnnounceComponent,
     TabCategoriesComponent,
     AdminCompanyEditComponent,
     AdminCompanyPasswordComponent,

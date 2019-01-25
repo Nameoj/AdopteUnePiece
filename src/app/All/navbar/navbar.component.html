@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <nav class="navbar navbar-expand-lg navbar-light bg-warning row">
-    <a class="navbar-brand col-1" routerLink="/">
+    <a class="navbar-brand col-1" routerLink="/home">
       <img class="websiteLogo" src="../../../assets/ADP_symbole_logo_noir.png" alt="logo">
     </a>
 
@@ -30,7 +30,7 @@
           </a>
         </div>
         <div class="nav-item  exit offset-sm-1 col-sm-1">
-          <a class="nav-link" *ngIf="buyerService.isUserLoggedIn()" class="deco" (click)="logout()" routerLink="/">
+          <a class="nav-link" *ngIf="buyerService.isUserLoggedIn()" class="deco" (click)="logout()" routerLink="/home">
               <i class="material-icons">exit_to_app</i>
           </a>
         </div>

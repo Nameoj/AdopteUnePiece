@@ -38,6 +38,7 @@ export class AnnounceListComponent implements OnInit {
       }
     })
   }
+  
   ngDoCheck(): void {
     if (this.searchService.isSearchPerformed === true) {
       this.filterAnnounces = this.searchService.motoSearched;
@@ -46,6 +47,9 @@ export class AnnounceListComponent implements OnInit {
 
       this.listAnnonces=this.announceService.getAnnouncesByModelAndCylinderAndYear(this.filterAnnounces.model, this.filterAnnounces.cylindree, this.filterAnnounces.year);
     }
+  }
+  ngOnChanges(){
+    this.filterAnnounces;
   }
 
 

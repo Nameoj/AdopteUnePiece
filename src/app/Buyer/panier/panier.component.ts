@@ -58,19 +58,6 @@ export class PanierComponent implements OnInit {
   }
   displayedColumns: string[] = ['pieceName', 'price', 'charge','select', 'select2'];
   
-  // selection = new SelectionModel<Announce>(true, []);
-
-  // /** Whether the number of selected elements matches the total number of rows. */
-  // isAllSelected() {
-  //   const numSelected = this.selection.selected.length;
-  //   const numRows = this.dataSource.data.length;
-  //   return numSelected === numRows;
-  // }
-  // masterToggle() {
-  //   this.isAllSelected() ?
-  //       this.selection.clear() :
-  //       this.dataSource.data.forEach(row => this.selection.select(row));
-  // }
  
 
   

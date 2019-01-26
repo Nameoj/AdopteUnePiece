@@ -4,7 +4,7 @@
 
   <div class="row">
     <div class="col-md-5">
-      <app-search-vhl></app-search-vhl>
+      <app-search-vhl (vehicleChoice)="onVehicleChoice($event)"></app-search-vhl>
     </div>
 
     <div class="col-md-4">
@@ -14,7 +14,7 @@
     <div class="col-md-3">
       <div class="card">
         <div class="card-header">
-          <p class="card-text">Votre moto</p>
+          <p class="card-text text-center">{{vehicleChoiced}}</p>
         </div>
       </div>
     </div>

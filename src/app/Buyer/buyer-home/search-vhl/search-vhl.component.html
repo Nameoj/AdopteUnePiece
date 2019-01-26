@@ -12,12 +12,12 @@
       <div class="card-body">
         <div class="input-group mb-3">
           
-          <select [(ngModel)]="newBrand" class="mb-2" name="brand" id="brand" class="custom-select" id="selectMarque"
+          <select  [(ngModel)]="brand" class="mb-2" name="brand" id="brand" class="custom-select" id="selectMarque"
             (change)="onSelectBrand($event.target.value)">
-            <option [value]="newBrand">
+            <option [value]="Marque">
               Marque
             </option>
-            <option *ngFor="let brand of allMotosB" value="{{brand}}">
+            <option  *ngFor="let brand of allMotosB" [value]="brand">
               {{brand}}
             </option>
           </select>
@@ -26,11 +26,11 @@
         <div class="input-group mb-3">
           <select [(ngModel)]="newModel" class="custom-select" id="modele" (change)="onSelectModele($event.target.value)"
             [disabled]="!choixMarque">
-            <option [value]="newModel">
+            <option [value]="modele">
               Modèle
             </option>
 
-            <option *ngFor="let model of allMotosM" value="{{model}}">
+            <option *ngFor="let model of allMotosM" [value]="model">
               {{model}}
             </option>
           </select>
@@ -38,9 +38,9 @@
 
         <div class="input-group mb-3">
           <select [(ngModel)]="newCylindree" class="custom-select" id="cylindree" (change)="onSelectCylindree($event.target.value)" [disabled]="!choixModele">
-            <option [value]="newCylindree">Cylindrée</option>
+            <option [value]="cylindree">Cylindrée</option>
 
-            <option *ngFor="let cylindree of allMotosC" value="{{cylindree}}">
+            <option *ngFor="let cylindree of allMotosC" [value]="cylindree">
               {{cylindree}}
             </option>
           </select>
@@ -50,9 +50,9 @@
 
         <div class="input-group mb-3">
           <select [(ngModel)]="newYear" class="custom-select" id="annee" [disabled]="!choixCylindree" (change)="onSelectYear($event.target.value)">
-            <option [value]="newYear">Année</option>
+            <option [value]="annee">Année</option>
 
-            <option *ngFor="let year of allMotosY" value="{{year}}">{{year}}</option>
+            <option *ngFor="let year of allMotosY" [value]="year">{{year}}</option>
           </select>
 
 

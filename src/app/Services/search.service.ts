@@ -8,7 +8,9 @@ export class SearchService {
   constructor() { }
 
   motoSearched;
+
   isSearchPerformed:boolean=false;
+  
   shareSearchVhlWithAnnounceList(searchMoto){
     this.isSearchPerformed=true;
     this.motoSearched=searchMoto;

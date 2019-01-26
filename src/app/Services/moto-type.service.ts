@@ -20,6 +20,8 @@ export class MotoTypeService {
   private getUrl="/get/"
   private postUrl="/post/"
 
+  vehicleChoiced: string = "Votre Moto";
+
 
   getAll(){
     return this.http.get(`${this.baseUrl}`+`${this.brandUrl}`+`${this.getAllUrl}`)

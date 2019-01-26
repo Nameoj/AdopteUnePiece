@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class CategoriesService {
 
+  filterCounter = 0;
 
   mockMotoCategories= {
     categories: [{

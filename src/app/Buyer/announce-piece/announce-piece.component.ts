@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AnnounceService } from 'src/app/Services/announce.service';
 import { Location } from '@angular/common';
 import { CommandesService } from 'src/app/Services/commandes.service';
+import { BuyerService } from 'src/app/Services/buyer.service';
 
 @Component({
   selector: 'app-announce-piece',
@@ -14,16 +15,19 @@ export class AnnouncePieceComponent implements OnInit {
   id
   annonce: any[] =[];
   
-  constructor(private annonceService: AnnounceService, private route: ActivatedRoute, private router : Router, private _location: Location, private commandeService: CommandesService) { }
+  constructor(private annonceService: AnnounceService, private route: ActivatedRoute, private router : Router, private _location: Location, private commandeService: CommandesService, private buyerService: BuyerService) { }
 
   placeholderForDBAnnounce = {
     }
   
   arrayForRating;
   arrayForRatingEmpty;
+  role
 
 
   ngOnInit() {
+
+    this.role = this.buyerService.getAuthenticatedRole();
     this.route.params.subscribe((params: Params) =>{
       this.id = params['Id'];
       console.log(this.id);
@@ -31,7 +35,8 @@ export class AnnouncePieceComponent implements OnInit {
       this.arrayForRating=new Array(Number(this.annonce['note']));
       this.arrayForRatingEmpty=new Array(5-Number(this.annonce['note']));
       
-      console.log(this.annonce)
+      console.log(this.annonce);
+      console.log(this.role)
   });
   }
 

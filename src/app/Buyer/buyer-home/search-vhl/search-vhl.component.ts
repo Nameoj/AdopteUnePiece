@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MotoTypeService } from 'src/app/Services/moto-type.service';
 import { ResearchMoto } from '../../../models/researchMoto.models';
 import { SearchService } from '../../../Services/search.service';
@@ -27,6 +27,10 @@ newBrand;
 newCylindree;
 newYear;
 searchMoto:ResearchMoto;
+
+vehicleChoiced : string;
+
+@Output() vehicleChoice = new EventEmitter<string>();
 
   constructor(private motoTypeService: MotoTypeService, private searchService:SearchService) { }
 
@@ -67,6 +71,8 @@ onSelectBrand(brand){
     this.allMotosM.push(this.allMotos.motoModels[i].modelName)};
      });
     console.log(this.allMotos);
+    this.vehicleChoiced = this.newBrand;
+this.vehicleChoice.emit(this.vehicleChoiced);
   }
 
 onSelectModele(model){
@@ -79,6 +85,8 @@ onSelectModele(model){
     for( let i=0; i< Object.keys(res).length; i++){
       this.allMotosC.push(this.allMotosCylYearDetail[i].motoCylinder)};
       console.log(this.allMotosC);
+      this.vehicleChoiced = this.newBrand + " " + this.newModel;
+this.vehicleChoice.emit(this.vehicleChoiced);
   })
 
   }
@@ -95,13 +103,33 @@ onSelectModele(model){
 
   onSelectYear(year){
     this.newYear=year;
+    this.vehicleChoiced = this.newBrand + " " + this.newModel + " " + this. newYear
+this.vehicleChoice.emit(this.vehicleChoiced)
   }
 
   sendResearch(){
     console.log(this.newBrand, this.newModel, this.newCylindree, this. newYear);
+    if((this.newBrand == undefined) || (this.newBrand == "Marque") || (this.newBrand == 0)){
+      this.newBrand = "";
+      };
+      if((this.newModel == undefined) || (this.newModel == "Modèle") || (this.newModel == 0)){
+      this.newModel = "";
+      };
+      if((this.newCylindree == undefined) || (this.newCylindree == "Cylindrée") || (this.newCylindree == 0)){
+      this.newCylindree = "";
+      };
+      if((this.newYear == undefined) || (this.newYear == "Année")){
+      this.newYear = "";
+      };
+      this.vehicleChoiced = this.newBrand + " " + this.newModel + " " + this. newYear
     this.searchMoto=new ResearchMoto(this.newBrand, this.newModel, this.newCylindree, this.newYear);
+
     this.searchService.shareSearchVhlWithAnnounceList(this.searchMoto);
+    
+    this.vehicleChoice.emit(this.vehicleChoiced);
   }
+
+  
 
 }
 

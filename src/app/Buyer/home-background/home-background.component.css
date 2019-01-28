@@ -36,6 +36,7 @@
 .img {
     width:4em;
     outline-style: none;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 769px) {

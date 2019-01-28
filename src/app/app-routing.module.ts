@@ -32,9 +32,10 @@ import { AdminAnnounceDetailsComponent } from './PageAdmin/admin-announce-detail
 
 
 const routes: Routes = [
+  { path: '', component: BuyerHomeComponent },
   { path: 'home', component: BuyerHomeComponent },
-  { path: 'home/:piece', component: BuyerHomeComponent, runGuardsAndResolvers: "paramsChange" },
-  { path: 'Home/:piece', component: BuyerHomeComponent, runGuardsAndResolvers: "paramsChange" },
+  { path: 'home/:piece', component: BuyerHomeComponent, runGuardsAndResolvers: 'paramsChange' },
+  { path: 'Home/:piece', component: BuyerHomeComponent, runGuardsAndResolvers: 'paramsChange' },
   { path: 'panier', component: PanierComponent },
   { path: 'announcelist', component: AnnounceListComponent },
   { path: 'announcelist/:piece', component: AnnounceListComponent },
@@ -49,10 +50,10 @@ const routes: Routes = [
   { path: 'announce-piece', component: AnnouncePieceComponent },
   { path: 'announce-piece/:Id', component: AnnouncePieceComponent },
   { path: 'announce-list', component: AnnounceListComponent },
-  { path: 'page-announce-pro', component: PageAnnounceProComponent, canActivate:[RouteGardSellerService] },
+  { path: 'page-announce-pro', component: PageAnnounceProComponent, canActivate: [RouteGardSellerService] },
   { path: 'announce-list-seller', component: PageAnnounceProComponent },
   {
-    path: 'admin-home', component: AdminHomeComponent, canActivate:[RouteGuardAdminService], children: [
+    path: 'admin-home', component: AdminHomeComponent, canActivate: [RouteGuardAdminService], children: [
       { path: 'admin-buyer-list', component: AdminBuyerListComponent },
       { path: 'admin-company-list', component: AdminCompanyListComponent },
       { path: 'admin-announce-list', component: AdminAnnounceListComponent },
@@ -60,14 +61,14 @@ const routes: Routes = [
       { path: 'db_manager', component: DataBaseManagmentComponent },
       { path: 'admin-company-edit', component: AdminCompanyEditComponent },
       { path: 'admin-company-create', component: AdminCompanyCreateComponent },
-      { path: 'admin-moto-create', component: DataBaseManagmentComponent}]
+      { path: 'admin-moto-create', component: DataBaseManagmentComponent }]
   },
-  { path: 'admin-announce-details/:annonceId', component: AdminAnnounceDetailsComponent},
-  { path: '**', component: ErrorPageComponent}
+  { path: 'admin-announce-details/:annonceId', component: AdminAnnounceDetailsComponent },
+  { path: '**', component: ErrorPageComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: "reload"})],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

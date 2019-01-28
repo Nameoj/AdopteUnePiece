@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { CategoriesService } from '../../Services/categories.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-categories',
@@ -8,9 +9,14 @@ import { CategoriesService } from '../../Services/categories.service';
 })
 export class CategoriesComponent implements OnInit {
 
-    constructor(private categoriesService: CategoriesService) {
+    
+
+    constructor(private categoriesService: CategoriesService, private route: Router) {
 
     }
+
+    piece: string = this.categoriesService.piece;
+
     @HostListener("window:scroll", [])
     onWindowScroll() {
         let menuButton = document.getElementById("menuButton");
@@ -25,7 +31,7 @@ export class CategoriesComponent implements OnInit {
         }
     }
 
-
+    
     disableButton: boolean = true;
     phoneScreen: boolean = window.matchMedia("(max-width:768px)").matches;
     motoCategories = this.categoriesService.mockMotoCategories;
@@ -45,6 +51,11 @@ export class CategoriesComponent implements OnInit {
         else {
             categ.style.display = "block";
         }
+    }
+
+    initFiltre() {
+        this.piece = '';
+        this.categoriesService.initFiltre();
     }
 
     ngOnInit() {

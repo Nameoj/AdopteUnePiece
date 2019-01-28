@@ -90,6 +90,8 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
+    this.serviceCommande.nbArticle = 0
+    this.nbArticles = 0;
     this.buyerService.logout();
   }
 

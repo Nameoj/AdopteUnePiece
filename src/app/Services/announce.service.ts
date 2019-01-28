@@ -11,6 +11,7 @@ export class AnnounceService {
 
 
   public listAnnonce;
+  public listAnnonceRecherche;
   public announceCreation;
   public announceEdit;
 

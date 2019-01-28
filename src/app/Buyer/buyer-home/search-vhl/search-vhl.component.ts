@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MotoTypeService } from 'src/app/Services/moto-type.service';
 import { ResearchMoto } from '../../../models/researchMoto.models';
 import { SearchService } from '../../../Services/search.service';
+import { CategoriesService } from 'src/app/Services/categories.service';
 
 @Component({
   selector: 'app-search-vhl',
@@ -28,7 +29,11 @@ newCylindree;
 newYear;
 searchMoto:ResearchMoto;
 
-  constructor(private motoTypeService: MotoTypeService, private searchService:SearchService) { }
+vehicleChoiced : string;
+
+@Output() vehicleChoice = new EventEmitter<string>();
+
+  constructor(private motoTypeService: MotoTypeService, private searchService:SearchService, private categoriesService:CategoriesService) { }
 
   ngOnInit() {
     this.callJson();
@@ -67,6 +72,8 @@ onSelectBrand(brand){
     this.allMotosM.push(this.allMotos.motoModels[i].modelName)};
      });
     console.log(this.allMotos);
+    this.vehicleChoiced = this.newBrand;
+this.vehicleChoice.emit(this.vehicleChoiced);
   }
 
 onSelectModele(model){
@@ -79,6 +86,8 @@ onSelectModele(model){
     for( let i=0; i< Object.keys(res).length; i++){
       this.allMotosC.push(this.allMotosCylYearDetail[i].motoCylinder)};
       console.log(this.allMotosC);
+      this.vehicleChoiced = this.newBrand + " " + this.newModel;
+this.vehicleChoice.emit(this.vehicleChoiced);
   })
 
   }
@@ -95,13 +104,35 @@ onSelectModele(model){
 
   onSelectYear(year){
     this.newYear=year;
+    this.vehicleChoiced = this.newBrand + " " + this.newModel + " " + this. newYear
+this.vehicleChoice.emit(this.vehicleChoiced)
   }
 
   sendResearch(){
     console.log(this.newBrand, this.newModel, this.newCylindree, this. newYear);
+    if((this.newBrand == undefined) || (this.newBrand == "Marque") || (this.newBrand == 0)){
+      this.newBrand = "";
+      };
+      if((this.newModel == undefined) || (this.newModel == "Modèle") || (this.newModel == 0)){
+      this.newModel = "";
+      };
+      if((this.newCylindree == undefined) || (this.newCylindree == "Cylindrée") || (this.newCylindree == 0)){
+      this.newCylindree = "";
+      };
+      if((this.newYear == undefined) || (this.newYear == "Année")){
+      this.newYear = "";
+      };
+      this.vehicleChoiced = this.newBrand + " " + this.newModel + " " + this. newYear
     this.searchMoto=new ResearchMoto(this.newBrand, this.newModel, this.newCylindree, this.newYear);
+
+    this.categoriesService.piece = undefined;
+
     this.searchService.shareSearchVhlWithAnnounceList(this.searchMoto);
+    
+    this.vehicleChoice.emit(this.vehicleChoiced);
   }
+
+  
 
 }
 

@@ -39,7 +39,7 @@
       </div>
       <div class="shop col-lg-4 col-xs-12">
         <p class="announcePrice">{{annonce.price}}€</p>
-        <label type="button" class="btn panier btn-warning" (click)="ajoutPanier()">
+        <label *ngIf="role =='ROLE_BUYER' || role ==undefined" type="button" class="btn panier btn-warning" (click)="ajoutPanier()">
           <img class="shopping" src="../../../assets/shopping.png">
           Ajouter au panier
         </label>

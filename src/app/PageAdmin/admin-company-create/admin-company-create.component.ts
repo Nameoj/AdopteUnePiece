@@ -74,13 +74,11 @@ export class AdminCompanyCreateComponent implements OnInit {
       formValue['password']
     );
 
-    alert('SUCCESS!! :-)');
-    console.log(this.createCompanyForm.value);
-    console.log(newSeller);
+
 
     this.sellerService.createSeller(newSeller)
       .subscribe(data => {
-        console.log(data), this.sellerService.sellerConnected = data,
+       this.sellerService.sellerConnected = data,
         console.log('seller created' + this.sellerService.sellerConnected.raisonSociale, this.vendeurCree = true);
       },
 

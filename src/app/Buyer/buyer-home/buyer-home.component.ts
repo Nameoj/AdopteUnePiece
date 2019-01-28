@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { CategoriesService } from 'src/app/Services/categories.service';
+import { MotoTypeService } from 'src/app/Services/moto-type.service';
 
 @Component({
   selector: 'app-buyer-home',
@@ -12,7 +13,9 @@ export class BuyerHomeComponent implements OnInit {
 // ... your class variables here
 navigationSubscription;
 
-constructor(private router: Router, private categorieService: CategoriesService) {
+vehicleChoiced : string;
+
+constructor(private router: Router, private categorieService: CategoriesService, private motoTypeService: MotoTypeService) {
   // subscribe to the router events - storing the subscription so
   // we can unsubscribe later. 
   // this.navigationSubscription = this.router.events.subscribe((e: any) => {
@@ -23,7 +26,9 @@ constructor(private router: Router, private categorieService: CategoriesService)
   // });
 }
 
-ngOnInit(){}
+ngOnInit(){
+  this.vehicleChoiced=this.motoTypeService.vehicleChoiced
+}
 
 // initialiseInvites() {
   // Set default values and re-fetch any data you need.
@@ -37,5 +42,10 @@ ngOnInit(){}
 //       this.navigationSubscription.unsubscribe();
 //    }
 //  }
+
+onVehicleChoice(vehicleChoiced: string) {
+  this.motoTypeService.vehicleChoiced = vehicleChoiced;
+  this.vehicleChoiced = vehicleChoiced;
+  }
 
 }

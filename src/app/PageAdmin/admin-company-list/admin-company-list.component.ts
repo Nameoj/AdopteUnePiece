@@ -72,15 +72,18 @@ export class AdminCompanyListComponent implements OnInit {
   /**
    * Calcule la distance de Levenstein entre les string a et b
    * @param a
+   // tslint:disable-next-line:no-redundant-jsdoc
    * @param b
+   // tslint:disable-next-line:no-redundant-jsdoc
    */
   calculerDistance(a: string, b: string) {
+    // tslint:disable-next-line:prefer-const
     let m = [], i, j, min = Math.min;
 
-    if (!(a && b)) return (b || a).length;
+    if (!(a && b)) { return (b || a).length; }
 
-    for (i = 0; i <= b.length; m[i] = [i++]);
-    for (j = 0; j <= a.length; m[0][j] = j++);
+    for (i = 0; i <= b.length; m[i] = [i++]) { }
+    for (j = 0; j <= a.length; m[0][j] = j++) { }
 
     for (i = 1; i <= b.length; i++) {
       for (j = 1; j <= a.length; j++) {
@@ -99,11 +102,12 @@ export class AdminCompanyListComponent implements OnInit {
    * Applique le filtre passé en paramèttre et met à jour le tableau en fonction
    * de la distance entre le nom et le filtre
    * @param filterValue
+   // tslint:disable-next-line:no-redundant-jsdoc
    */
   applyFilter(filterValue: string) {
     console.log(filterValue);
     const obj: any[] = this.sellers;
-    switch(this.filterSelect) {
+    switch (this.filterSelect) {
       case 'rs':
         obj.map((s) => s.distance = this.calculerDistance(s.raisonSociale, filterValue));
         break;
@@ -115,7 +119,7 @@ export class AdminCompanyListComponent implements OnInit {
     obj.forEach((a) => console.log('Distance entre ', a.raisonSociale, ' et ', filterValue, ' : ', a.distance));
     obj.map((s) => delete s.distance);
     this.sellers = obj;
-    
+
     // Mettre à jour le tableau
     this.sellersObservable.next(this.sellers);
     console.log('this.sellers: ', this.sellers);

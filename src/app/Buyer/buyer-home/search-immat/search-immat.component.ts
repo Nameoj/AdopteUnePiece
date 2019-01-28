@@ -19,9 +19,8 @@ export class SearchImmatComponent implements OnInit {
   getPlaqueInfo(plaque) {
     this.servicePLaque.getPlaqueInfo(plaque).subscribe(
       (data) => {this.infoPlaque = data;
-      console.log(this.infoPlaque)
+      console.log(this.infoPlaque);
      });
-    
   }
 
 }

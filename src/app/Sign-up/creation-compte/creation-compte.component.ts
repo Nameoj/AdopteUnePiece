@@ -70,12 +70,12 @@ export class CreationCompteComponent implements OnInit {
     this.buyerService.createBuyer(newBuyer)
       .subscribe(data => {
         console.log(data), this.buyerService.buyerConnected = data,
-        console.log('buyer created' + this.buyerService.buyerConnected.nom),
-        this.router.navigate(['/home']);
+          console.log('buyer created' + this.buyerService.buyerConnected.nom),
+          this.router.navigate(['/home']);
       },
         error => {
-        this.submitted = false,
-          console.log('erreur!!!'), console.log(error.status), this.emailExistant = true;
+          this.submitted = false,
+            console.log('erreur!!!'), console.log(error.status), this.emailExistant = true;
         }
       );
   }

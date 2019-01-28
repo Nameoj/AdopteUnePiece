@@ -1,3 +1,3 @@
 export class Brand {
-    constructor(public name:String){};
+    constructor(public name: String) { }
 }

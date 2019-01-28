@@ -9,13 +9,13 @@ export class SearchService {
 
   motoSearched;
 
-  rechercheInitiale: boolean = false;
+  rechercheInitiale = false;
 
-  isSearchPerformed:boolean=false;
+  isSearchPerformed = false;
 
-  shareSearchVhlWithAnnounceList(searchMoto){
-    this.isSearchPerformed=true;
-    this.motoSearched=searchMoto;
+  shareSearchVhlWithAnnounceList(searchMoto) {
+    this.isSearchPerformed = true;
+    this.motoSearched = searchMoto;
     return this.motoSearched;
   }
 }

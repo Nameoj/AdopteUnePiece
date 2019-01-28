@@ -16,8 +16,9 @@ export class RouteGardSellerService {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
 
-    if (this.buyerService.isUserLoggedIn() && this.buyerService.getAuthenticatedRole()=="ROLE_SELLER")
+    if (this.buyerService.isUserLoggedIn() && this.buyerService.getAuthenticatedRole() === 'ROLE_SELLER') {
       return true;
+    }
 
     this.router.navigate(['']);
 

@@ -1,4 +1,3 @@
-
 <div class="margetop">
   <div class=" row">
     <div class="col-12">
@@ -9,90 +8,51 @@
   </div>
 
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-  <div class="account__box ">
+    <div class="account__box ">
       <!-- <div class="account__box__title mb-3"><h5>Votre nouvelle adresse</h5></div> -->
       <div class="box_inner">
-          <div class="form-group row">
-              <label for="colFormLabel" class="label col-md-3 col-form-label"
-                >N° et Rue</label
-              >
-              <div class="col-md-6">
-                <input
-                  type="text"
-                  formControlName="adresse1"
-                  class="form-control"
-                  id="adresse1"
-                  [ngClass]="{ 'is-invalid': submitted && f.adresse1.errors }"
-                />
-                <div
-                  *ngIf="submitted && f.adresse1.errors"
-                  class="invalid-feedback"
-                >
-                  <div *ngIf="f.adresse1.errors.required">champs requis</div>
-                </div>
-              </div>
+        <div class="form-group row">
+          <label for="colFormLabel" class="label col-md-3 col-form-label">N° et Rue</label>
+          <div class="col-md-6">
+            <input type="text" formControlName="adresse1" class="form-control" id="adresse1" [ngClass]="{ 'is-invalid': submitted && f.adresse1.errors }" />
+            <div *ngIf="submitted && f.adresse1.errors" class="invalid-feedback">
+              <div *ngIf="f.adresse1.errors.required">champs requis</div>
             </div>
-            <div class="form-group row">
-              <label for="colFormLabel" class="label col-md-3 col-form-label"
-                >Complément Adresse</label
-              >
-              <div class="col-md-6">
-                <input
-                  type="text"
-                  formControlName="adresse2"
-                  class="form-control"
-                />
-              </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="colFormLabel" class="label col-md-3 col-form-label">Complément Adresse</label>
+          <div class="col-md-6">
+            <input type="text" formControlName="adresse2" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="colFormLabel" class="label col-md-3 col-form-label">Code Postal</label>
+          <div class="col-md-6">
+            <input type="text" formControlName="codepostal" class="form-control" id="codepostal" [ngClass]="{ 'is-invalid': submitted && f.codepostal.errors }" />
+            <div *ngIf="submitted && f.codepostal.errors" class="invalid-feedback">
+              <div *ngIf="f.codepostal.errors.required">champs requis</div>
             </div>
-            <div class="form-group row">
-              <label for="colFormLabel" class="label col-md-3 col-form-label"
-                >Code Postal</label
-              >
-              <div class="col-md-6">
-                <input
-                  type="text"
-                  formControlName="codepostal"
-                  class="form-control"
-                  id="codepostal"
-                  [ngClass]="{ 'is-invalid': submitted && f.codepostal.errors }"
-                />
-                <div
-                  *ngIf="submitted && f.codepostal.errors"
-                  class="invalid-feedback"
-                >
-                  <div *ngIf="f.codepostal.errors.required">champs requis</div>
-                </div>
-              </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="colFormLabel" class="label col-md-3 col-form-label">Ville</label>
+          <div class="col-md-6">
+            <input type="text" formControlName="ville" class="form-control" id="ville" [ngClass]="{ 'is-invalid': submitted && f.ville.errors }" />
+            <div *ngIf="submitted && f.ville.errors" class="invalid-feedback">
+              <div *ngIf="f.ville.errors.required">champs requis</div>
             </div>
-            <div class="form-group row">
-              <label for="colFormLabel" class="label col-md-3 col-form-label"
-                >Ville</label
-              >
-              <div class="col-md-6">
-                <input
-                  type="text"
-                  formControlName="ville"
-                  class="form-control"
-                  id="ville"
-                  [ngClass]="{ 'is-invalid': submitted && f.ville.errors }"
-                />
-                <div
-                  *ngIf="submitted && f.ville.errors"
-                  class="invalid-feedback"
-                >
-                  <div *ngIf="f.ville.errors.required">champs requis</div>
-                </div>
-              </div>
-            </div>
-            <div *ngIf="submitted" class="form-group row">
-                <div class="col-md-6 offset-md-3">
-                <p>Mise à jour effectuée</p>
-              </div>
-            </div>
+          </div>
+        </div>
+        <div *ngIf="submitted" class="form-group row">
+          <div class="col-md-6 offset-md-3">
+            <p>Mise à jour effectuée</p>
+          </div>
+        </div>
         <div>
-            <button type="submit" class="btn mb-2">Valider</button>
+          <button type="submit" class="btn mb-2">Valider</button>
         </div>
       </div>
     </div>
-</form>
+  </form>
 </div>

@@ -19,7 +19,6 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatExpansionModule } from '@angular/material/expansion';
-// import { ConnexionComponent } from './Sign-up/connexion/connexion.component';
 import { CreationCompteComponent } from './Sign-up/creation-compte/creation-compte.component';
 import { AnnouncePieceComponent } from './Buyer/announce-piece/announce-piece.component';
 import { AnnounceListComponent } from './Buyer/announce-list/announce-list.component';
@@ -31,7 +30,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MotdepasseComponent } from './Sign-up/my-account/motdepasse/motdepasse.component';
 import { CommandesComponent } from './Sign-up/my-account/commandes/commandes.component';
 import { AdressesComponent } from './Sign-up/my-account/adresses/adresses.component';
-import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 import { TabCreationComponent } from './Seller/page-announce-pro/tab-creation/tab-creation.component';
 import { TabAnnounceComponent } from './Seller/page-announce-pro/tab-announce/tab-announce.component';
@@ -48,13 +47,13 @@ import { DataBaseManagmentComponent } from './PageAdmin/data-base-managment/data
 import { AdminCompanyCreateComponent } from './PageAdmin/admin-company-create/admin-company-create.component';
 import { HttpIntercepterService, httpInterceptorProviders } from './Services/http-intercepter.service';
 import { TabCategoriesComponent } from './Seller/page-announce-pro/tab-categories/tab-categories.component';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
 import { AdminCompanyEditComponent } from './PageAdmin/admin-company-edit/admin-company-edit.component';
 import { AdminCompanyPasswordComponent } from './PageAdmin/admin-company-edit/admin-company-password/admin-company-password.component';
 import { TabCompteComponent } from './Seller/page-announce-pro/tab-compte/tab-compte.component';
 import { ErrorPageComponent } from './All/error-page/error-page.component';
-import { AdminAnnounceDetailsComponent } from './PageAdmin/admin-announce-details/admin-announce-details.component'
+import { AdminAnnounceDetailsComponent } from './PageAdmin/admin-announce-details/admin-announce-details.component';
 
 
 
@@ -128,7 +127,7 @@ import { AdminAnnounceDetailsComponent } from './PageAdmin/admin-announce-detail
     MatSelectModule
   ],
   providers: [
-   httpInterceptorProviders,
+    httpInterceptorProviders,
   ],
   bootstrap: [AppComponent]
 })

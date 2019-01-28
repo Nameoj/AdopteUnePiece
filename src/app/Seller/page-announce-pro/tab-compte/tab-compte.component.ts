@@ -16,9 +16,9 @@ export class TabCompteComponent implements OnInit {
   sellerConnected: String;
   sellerEdit;
   submitted = false;
-  
 
-  constructor(private formBuilder: FormBuilder, private buyerService: BuyerService, private sellerService: SellerService,) { }
+
+  constructor(private formBuilder: FormBuilder, private buyerService: BuyerService, private sellerService: SellerService, ) { }
 
   ngOnInit() {
     this.initialisationForm();
@@ -55,9 +55,9 @@ export class TabCompteComponent implements OnInit {
       .subscribe(data => {
         console.log(data), this.sellerService.sellerEdit = data,
           console.log('Euh ouais');
-    });
+      });
 
-    alert("Mot de passe changé");
+    alert('Mot de passe changé');
   }
 
 }

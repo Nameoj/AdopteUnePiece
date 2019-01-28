@@ -18,7 +18,7 @@ export class AnnounceService {
 
   private baseUrl = 'http://localhost:8080/api/announces';
   private baseUrl2 = 'http://localhost:8080/api';
-  private baseUrl3 = 'http://localhost:8080/api/announces/model'
+  private baseUrl3 = 'http://localhost:8080/api/announces/model';
 
   constructor(private http: HttpClient) { }
 
@@ -35,7 +35,7 @@ export class AnnounceService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  getAnnounceByPiece(piece){
+  getAnnounceByPiece(piece) {
     return this.http.get(`${this.baseUrl}/id/${piece}`);
   }
 
@@ -48,7 +48,7 @@ export class AnnounceService {
   }
 
 
-  getAnnouncesByModelAndCylinderAndYear(model, cylinder, year){
-    return this.http.get(`${this.baseUrl3}/${model}/${cylinder}/${year}`)
+  getAnnouncesByModelAndCylinderAndYear(model, cylinder, year) {
+    return this.http.get(`${this.baseUrl3}/${model}/${cylinder}/${year}`);
   }
 }

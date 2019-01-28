@@ -60,12 +60,12 @@ export class MotdepasseComponent implements OnInit {
     this.buyerService.updateBuyer(newBuyer, this.buyerService.buyerConnected.username)
       .subscribe(data => {
         console.log(data), this.buyerService.buyerConnected = data,
-        console.log('buyer password updated' + this.buyerService.buyerConnected.nom),
-        this.router.navigate(['/myaccount/motdepasse']);
+          console.log('buyer password updated' + this.buyerService.buyerConnected.nom),
+          this.router.navigate(['/myaccount/motdepasse']);
       },
         error => {
-        this.submitted = false,
-          console.log('erreur!!!'), console.log(error.status);
+          this.submitted = false,
+            console.log('erreur!!!'), console.log(error.status);
         }
       );
   }

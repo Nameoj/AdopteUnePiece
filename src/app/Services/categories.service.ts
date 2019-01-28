@@ -326,7 +326,6 @@ export class CategoriesService {
       {
         name:"Compteur",
         sousSousCategories:[{
-          name:[{
             name: "Compteur complet"
           },
           {
@@ -337,8 +336,8 @@ export class CategoriesService {
           },
           {
             name: "Pièces compteur diverses"
-          }]
-        }]
+          }
+        ]
       },  
       {
         name:"Serrure/Kit neiman",

@@ -118,7 +118,6 @@ import { AdminAnnounceDetailsComponent } from './PageAdmin/admin-announce-detail
     MatCardModule,
     MatButtonModule,
     MatToolbarModule,
-    MatButtonModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,

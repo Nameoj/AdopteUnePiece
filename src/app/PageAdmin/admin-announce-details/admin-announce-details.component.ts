@@ -12,8 +12,10 @@ export class AdminAnnounceDetailsComponent implements OnInit {
 
   id;
   announce;
+  arrayForRating;
+  arrayForRatingEmpty;
 
-  constructor(private _location: Location, 
+  constructor(private _location: Location,
     private annonceService: AnnounceService,
     private route: ActivatedRoute,
     private router: Router) { }
@@ -21,8 +23,11 @@ export class AdminAnnounceDetailsComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
       this.id = params['annonceId'];
-      this.annonceService.getAnnounceById(this.id).subscribe(
-        response => { this.announce = response; });
+      this.annonceService.getAnnounceById(this.id).subscribe(data => {
+        this.announce = data; console.log(this.announce);
+        this.arrayForRating = new Array(Number(this.announce['note']));
+        this.arrayForRatingEmpty = new Array(5 - Number(this.announce['note']));
+      });
     });
     console.log(this.announce);
   }

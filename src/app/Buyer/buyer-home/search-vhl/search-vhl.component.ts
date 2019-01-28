@@ -96,6 +96,8 @@ this.vehicleChoice.emit(this.vehicleChoiced);
     this.getCylindree();
     this.allMotosY = [];
     this.newCylindree=cylindree;
+    this.vehicleChoiced = this.newBrand + " " + this.newModel + " " + this.newCylindree;
+    this.vehicleChoice.emit(this.vehicleChoiced)
     for (let i=0; i<Object.keys(this.allMotosCylYearDetail).length; i++){
       this.allMotosY.push(this.allMotosCylYearDetail[i].motoYear);
       console.log(this.allMotosY);
@@ -104,8 +106,8 @@ this.vehicleChoice.emit(this.vehicleChoiced);
 
   onSelectYear(year){
     this.newYear=year;
-    this.vehicleChoiced = this.newBrand + " " + this.newModel + " " + this. newYear
-this.vehicleChoice.emit(this.vehicleChoiced)
+    this.vehicleChoiced = this.newBrand + " " + this.newModel + " " + this.newCylindree + " " + this. newYear
+    this.vehicleChoice.emit(this.vehicleChoiced)
   }
 
   sendResearch(){

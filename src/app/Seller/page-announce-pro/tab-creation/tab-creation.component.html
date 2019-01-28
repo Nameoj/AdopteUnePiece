@@ -20,7 +20,7 @@
                 <div class="input-group mb-3 form-group">
                   <select  class="custom-select" id="brand" formControlName="brand" [(ngModel)]="brand"
                   [ngClass]="{ 'is-invalid': submitted && f.brand.errors }" (change)="onSelectBrand($event.target.value)">
-                    <option [value]="brand">Marque</option>
+                    <option [value]="Marque">Marque</option>
                     <option *ngFor="let brand of allMotosB" value="{{brand}}">{{brand}}</option>
                   </select>
                   <div *ngIf="submitted && f.brand.errors" class="invalid-feedback">
@@ -31,7 +31,7 @@
                 <div class="input-group mb-3">
                   <select class="custom-select" id="model" formControlName="model" [(ngModel)]="model"
                   [ngClass]="{ 'is-invalid': submitted && f.model.errors }" (change)="onSelectModele($event.target.value)">
-                    <option [value]="model">Modèle</option>
+                    <option [value]="modele">Modèle</option>
                     <option *ngFor="let model of allMotosM" value="{{model}}">{{model}}</option>
                   </select>
                   <div *ngIf="submitted && f.model.errors" class="invalid-feedback">
@@ -42,7 +42,7 @@
                 <div class="input-group mb-3">
                   <select class="custom-select" id="cylinder" formControlName="cylinder" [(ngModel)]="cylinder"
                   [ngClass]="{ 'is-invalid': submitted && f.cylinder.errors }" (change)="onSelectCylindree($event.target.value)">
-                    <option [value]="cylinder" >Cylindrée</option>
+                    <option [value]="cylindree" >Cylindrée</option>
                     <option *ngFor="let cylindree of allMotosC" value="{{cylindree}}">{{cylindree}}</option>
                   </select>
                   <div *ngIf="submitted && f.cylinder.errors" class="invalid-feedback">
@@ -53,7 +53,7 @@
                 <div class="input-group mb-3">
                   <select class="custom-select" id="year" formControlName="year" [(ngModel)]="year"
                   [ngClass]="{ 'is-invalid': submitted && f.year.errors }" (change)="onSelectYear($event.target.value)">
-                    <option [value]="year" >Année</option>
+                    <option [value]="annee" >Année</option>
                     <option *ngFor="let year of allMotosY" value="{{year}}">{{year}}</option>
                   </select>
                   <div *ngIf="submitted && f.year.errors" class="invalid-feedback">

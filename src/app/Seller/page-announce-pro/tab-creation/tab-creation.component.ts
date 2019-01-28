@@ -21,23 +21,23 @@ import { MotoTypeService } from 'src/app/Services/moto-type.service';
 })
 export class TabCreationComponent implements OnInit {
 
-  choixMarque: boolean = false;
-choixCylindree: boolean = false;
-choixModele: boolean = false;
+  choixMarque = false;
+  choixCylindree = false;
+  choixModele = false;
 
-allMotos:any=[];
-allMotosCylYear:any=[];
-allMotosCylYearDetail;
-allMotosB:any=[];
-allMotosM:any=[];
-allMotosC:any=[];
-allMotosY:any=[];
+  allMotos: any = [];
+  allMotosCylYear: any = [];
+  allMotosCylYearDetail;
+  allMotosB: any = [];
+  allMotosM: any = [];
+  allMotosC: any = [];
+  allMotosY: any = [];
 
-newModel;
-newBrand;
-newCylindree;
-newYear;
-searchMoto:ResearchMoto;
+  newModel;
+  newBrand;
+  newCylindree;
+  newYear;
+  searchMoto: ResearchMoto;
 
 
 
@@ -48,23 +48,23 @@ searchMoto:ResearchMoto;
   date = new Date(Date.now());
   selectedFile: File = null;
   note = 0;
-  uri: string = null
-  url: string = '';
-  noInputUri: boolean = false;
-  noInputPieceName: boolean = false;
-  noInputNote: boolean = false;
-  successSubmit: boolean = false;
+  uri: string = null;
+  url = '';
+  noInputUri = false;
+  noInputPieceName = false;
+  noInputNote = false;
+  successSubmit = false;
   pieceName: string;
   seller: string;
   annonceForm: FormGroup;
-  submitted: boolean = false;
+  submitted = false;
   joie;
 
-  brands = ["Honda", "Kawasaki", "Suzuki", "Yamaha"]
-  cylinders = ["50cc", "80cc", "125cc", "250cc", "400cc", "500cc", "600cc", "700cc", "800cc", "900cc", "1000cc"]
-  motoModels = ["Cucux", "Giovani", "GF", "Ninja", "Varadero"]
-  years = ["1990", "1991", "1992", "1993", "1994", "1995", "1996"]
-  cadres = ["Cadre", "Araignée avant", "Boucle arrière", "Divers cadre"]
+  brands = ['Honda', 'Kawasaki', 'Suzuki', 'Yamaha'];
+  cylinders = ['50cc', '80cc', '125cc', '250cc', '400cc', '500cc', '600cc', '700cc', '800cc', '900cc', '1000cc'];
+  motoModels = ['Cucux', 'Giovani', 'GF', 'Ninja', 'Varadero'];
+  years = ['1990', '1991', '1992', '1993', '1994', '1995', '1996'];
+  cadres = ['Cadre', 'Araignée avant', 'Boucle arrière', 'Divers cadre'];
 
 
   constructor(
@@ -75,7 +75,7 @@ searchMoto:ResearchMoto;
     private buyerService: BuyerService,
     private announceService: AnnounceService,
     private router: Router,
-    private motoTypeService:MotoTypeService) {
+    private motoTypeService: MotoTypeService) {
     config.max = 5;
     // customize default values of ratings used by this component tree
   }
@@ -83,67 +83,69 @@ searchMoto:ResearchMoto;
   motoCategories = this.categoriesService.mockMotoCategories;
 
 
-getMarque(){
-  this.choixMarque = true;
-}
-getCylindree(){
-  this.choixCylindree = true;
-}
+  getMarque() {
+    this.choixMarque = true;
+  }
+  getCylindree() {
+    this.choixCylindree = true;
+  }
 
-getModele(){
-  this.choixModele = true;
-}
+  getModele() {
+    this.choixModele = true;
+  }
 
-callJson(){
-  this.allMotos=this.motoTypeService.getAll().subscribe( res =>
-    {
+  callJson() {
+    this.allMotos = this.motoTypeService.getAll().subscribe(res => {
       this.allMotosB = [];
-      this.allMotos=res;
-      for( let i=0; i< Object.keys(this.allMotos).length; i++){
-        this.allMotosB.push(this.allMotos[i].name)
+      this.allMotos = res;
+      for (let i = 0; i < Object.keys(this.allMotos).length; i++) {
+        this.allMotosB.push(this.allMotos[i].name);
       }
     });
-}
+  }
 
-onSelectBrand(brand){
-  this.getMarque();
-  this.newBrand = brand;
-  this.allMotosM = [];
-  this.allMotosCylYear;
-  this.motoTypeService.getBrand(brand).subscribe( res => {
-    this.allMotos = res;
-  for( let i=0; i< Object.keys(res).length; i++){
-    this.allMotosM.push(this.allMotos.motoModels[i].modelName)};
-     });
+  onSelectBrand(brand) {
+    this.getMarque();
+    this.newBrand = brand;
+    this.allMotosM = [];
+    // tslint:disable-next-line:no-unused-expression
+    this.allMotosCylYear;
+    this.motoTypeService.getBrand(brand).subscribe(res => {
+      this.allMotos = res;
+      for (let i = 0; i < Object.keys(res).length; i++) {
+        this.allMotosM.push(this.allMotos.motoModels[i].modelName);
+      }
+    });
     console.log(this.allMotos);
   }
 
-onSelectModele(model){
-  this.getModele();
-  this.allMotosC = [];
-  this.newModel=model;
-  this.motoTypeService.getCylindree(model).subscribe ( res => {
-    console.log(res);
-    this.allMotosCylYearDetail = res;
-    for( let i=0; i< Object.keys(res).length; i++){
-      this.allMotosC.push(this.allMotosCylYearDetail[i].motoCylinder)};
+  onSelectModele(model) {
+    this.getModele();
+    this.allMotosC = [];
+    this.newModel = model;
+    this.motoTypeService.getCylindree(model).subscribe(res => {
+      console.log(res);
+      this.allMotosCylYearDetail = res;
+      for (let i = 0; i < Object.keys(res).length; i++) {
+        this.allMotosC.push(this.allMotosCylYearDetail[i].motoCylinder);
+      }
       console.log(this.allMotosC);
-  })
+    });
 
   }
 
-  onSelectCylindree(cylindree){
+  onSelectCylindree(cylindree) {
     this.getCylindree();
     this.allMotosY = [];
-    this.newCylindree=cylindree;
-    for (let i=0; i<Object.keys(this.allMotosCylYearDetail).length; i++){
+    this.newCylindree = cylindree;
+    for (let i = 0; i < Object.keys(this.allMotosCylYearDetail).length; i++) {
       this.allMotosY.push(this.allMotosCylYearDetail[i].motoYear);
       console.log(this.allMotosY);
     }
   }
 
-  onSelectYear(year){
-    this.newYear=year;
+  onSelectYear(year) {
+    this.newYear = year;
   }
 
 
@@ -198,35 +200,16 @@ onSelectModele(model){
   //  -------   ----------------   ---------------    METHODS FOR FILE UPLOADER --------    ---------------   -------------- ------------
   onSelectFile(event) {
     if (event.target.files && event.target.files[0]) {
-      let reader = new FileReader();
+      const reader = new FileReader();
 
       reader.readAsDataURL(event.target.files[0]); // read file as data url
 
+      // tslint:disable-next-line:no-shadowed-variable
       reader.onload = (event) => { // called once readAsDataURL is completed
         this.url = event.target['result'];
-      }
+      };
     }
   }
-
-  // onFileSelected(event) {
-  //   this.selectedFile = <File>event.target.files[0];
-  // }
-
-  // onUpload() {
-  //   const fd = new FormData();
-  //   fd.append('image', this.selectedFile, this.selectedFile.name);
-  //   this.http.post('http://localhost:8080/api/uploadFile', fd, {
-  //     reportProgress: true,
-  //     observe: 'events'
-  //   })
-  //     .subscribe(event => {
-  //       if (event.type === HttpEventType.UploadProgress) {
-  //         console.log('Upload Progress: ' + Math.round(event.loaded / event.total * 100) + '%');
-  //       } else if (event.type === HttpEventType.Response) {
-  //         console.log(event);
-  //       }
-  //     });
-  // }
 
   getPieceName(pieceName) {
     this.pieceName = pieceName;
@@ -239,7 +222,7 @@ onSelectModele(model){
   reinitializeForm() {
     this.uri = null;
     this.pieceName = null;
-    this.url = "";
+    this.url = '';
     this.note = 0;
   }
 
@@ -255,7 +238,7 @@ onSelectModele(model){
       price: ['', Validators.required],
       charge: ['', Validators.required],
     });
-    this.reinitializeForm()
+    this.reinitializeForm();
   }
 
   onSubmit() {
@@ -271,22 +254,19 @@ onSelectModele(model){
     if (this.uri == null) {
       this.noInputUri = true;
       return;
-    }
-    else {
+    } else {
       this.noInputUri = false;
     }
     if (this.pieceName == null) {
       this.noInputPieceName = true;
       return;
-    }
-    else {
+    } else {
       this.noInputPieceName = false;
     }
-    if (this.note == 0) {
+    if (this.note === 0) {
       this.noInputNote = true;
       return;
-    }
-    else {
+    } else {
       this.noInputNote = false;
     }
 
@@ -312,7 +292,7 @@ onSelectModele(model){
       this.successSubmit = true;
       setTimeout(() => this.successSubmit = false, 4000);
       this.submitted = false;
-      this.prefilledFormAfterSubmit()
+      this.prefilledFormAfterSubmit();
     }
     );
 

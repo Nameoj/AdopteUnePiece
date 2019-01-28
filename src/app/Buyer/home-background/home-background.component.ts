@@ -9,8 +9,8 @@ export class HomeBackgroundComponent implements OnInit {
 
   constructor() { }
 
-  scrollBackground(){
-    //comment: reducing background animation
+  scrollBackground() {
+    // comment: reducing background animation
     /*let aPageSize = document.getElementById('aPageSize');
     let logoBackground=document.getElementById('logoBackground');
     let closeButton=document.getElementById('closeButton');
@@ -18,10 +18,10 @@ export class HomeBackgroundComponent implements OnInit {
     logoBackground.style.height = "0px";
     closeButton.style.display="none";
     setTimeout(function(){logoBackground.style.display="none"},401)*/
-    
-    //version scrolldown
-    let windowHeight = window.innerHeight;
-    window.scrollTo({top:windowHeight, left: 0, behavior:'smooth'});
+
+    // version scrolldown
+    const windowHeight = window.innerHeight;
+    window.scrollTo({ top: windowHeight, left: 0, behavior: 'smooth' });
   }
 
   ngOnInit() {

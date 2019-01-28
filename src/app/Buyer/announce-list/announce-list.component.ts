@@ -20,7 +20,7 @@ export class AnnounceListComponent implements OnInit {
   listAnnoncesRecherche;
   piece;
   filterAnnounces;
-  
+
 
   ngOnInit() {
     this.listAnnonces = [];
@@ -28,46 +28,53 @@ export class AnnounceListComponent implements OnInit {
       this.piece = params['piece'];
       if (!this.announceService.listAnnonceRecherche) {
         this.getAnnonces();
-      }
-      else { this.getAnnoncesRecherche()}
-    })
+      } else { this.getAnnoncesRecherche(); }
+    });
   }
 
 
+  // tslint:disable-next-line:use-life-cycle-interface
   ngDoCheck(): void {
     if (this.searchService.isSearchPerformed === true) {
       this.filterAnnounces = this.searchService.motoSearched;
       this.searchService.isSearchPerformed = false;
       this.searchService.rechercheInitiale = true;
       console.log(this.filterAnnounces);
-      this.categoriesService.piece='';
-      console.log
+      this.categoriesService.piece = '';
       this.getAnnoncesRecherche();
-      
-      
+
+
     }
   }
-  
-  ngOnChanges(){
+
+  // tslint:disable-next-line:use-life-cycle-interface
+  ngOnChanges() {
+    // tslint:disable-next-line:no-unused-expression
     this.filterAnnounces;
   }
 
   getAnnonces() {
     this.announceService.getAnnounces()
       .subscribe(
-        data => { this.listAnnonces = data; this.announceService.listAnnonce = data; console.log(this.listAnnonces);  if(this.piece) {
-          this.getAnnoncesFiltre();}
+        data => {
+          this.listAnnonces = data; this.announceService.listAnnonce = data; console.log(this.listAnnonces); if (this.piece) {
+            this.getAnnoncesFiltre();
+          }
         });
   }
 
   getAnnoncesRecherche() {
-    this.announceService.getAnnouncesByModelAndCylinderAndYear(this.searchService.motoSearched.model, this.searchService.motoSearched.cylindree, this.searchService.motoSearched.year)
-    .subscribe(
-      data => {this.announceService.listAnnonceRecherche = data; this.listAnnonces = this.announceService.listAnnonceRecherche; this.announceService.listAnnonce = [];
-        if(this.piece && !this.searchService.rechercheInitiale) {
-          this.getAnnoncesFiltre();}
-        this.searchService.rechercheInitiale = false;
-      })
+    this.announceService.getAnnouncesByModelAndCylinderAndYear(this.searchService.motoSearched.model,
+      this.searchService.motoSearched.cylindree, this.searchService.motoSearched.year)
+      .subscribe(
+        data => {
+          this.announceService.listAnnonceRecherche = data; this.listAnnonces = this.announceService.listAnnonceRecherche;
+          this.announceService.listAnnonce = [];
+          if (this.piece && !this.searchService.rechercheInitiale) {
+            this.getAnnoncesFiltre();
+          }
+          this.searchService.rechercheInitiale = false;
+        });
   }
 
   getAnnoncesFiltre() {
@@ -76,12 +83,12 @@ export class AnnounceListComponent implements OnInit {
     console.log(this.announceService.listAnnonceRecherche);
     console.log(this.listAnnonces);
 
-    const arrayLength = this.listAnnonces.length
+    const arrayLength = this.listAnnonces.length;
     const newArray = [];
     console.log(arrayLength);
     for (let i = 0; i < arrayLength; i++) {
-      if (this.listAnnonces[i].pieceName == this.piece) {
-        newArray.push(this.listAnnonces[i])
+      if (this.listAnnonces[i].pieceName === this.piece) {
+        newArray.push(this.listAnnonces[i]);
       }
     }
     this.listAnnonces = newArray;

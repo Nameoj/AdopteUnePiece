@@ -33,10 +33,10 @@ export class AdminAnnounceListComponent implements OnInit {
       this.username = params['username'];
       this.announceService.getSellerAnnounce(this.username).subscribe(
         response => { this.announces = response; });
-      });
-      this.seller = this.sellerService.getSeller(this.username)
+    });
+    this.seller = this.sellerService.getSeller(this.username)
       .subscribe(
-          data => { this.seller = data; }
+        data => { this.seller = data; }
       );
   }
 

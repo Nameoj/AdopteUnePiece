@@ -23,7 +23,8 @@ export class NavbarComponent implements OnInit {
 
   //   x =document.getElementById("myModal");
 
-  constructor(private buyerService: BuyerService, private router: Router, private formBuilder: FormBuilder, private serviceCommande: CommandesService) { }
+  constructor(private buyerService: BuyerService, private router: Router,
+    private formBuilder: FormBuilder, private serviceCommande: CommandesService) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -39,7 +40,7 @@ export class NavbarComponent implements OnInit {
       this.router.navigate(['/myaccount/infosperso']);
     } else if (this.buyerService.isUserLoggedIn() && this.buyerService.getAuthenticatedRole() === 'ROLE_SELLER') {
       this.router.navigate(['/page-announce-pro']);
-    } else if (this.buyerService.isUserLoggedIn() && this.buyerService.getAuthenticatedRole() === 'ROLE_ADMIN'){
+    } else if (this.buyerService.isUserLoggedIn() && this.buyerService.getAuthenticatedRole() === 'ROLE_ADMIN') {
       this.router.navigate(['/admin-home']);
     } else { this.modal = 'myModal'; }
   }
@@ -90,7 +91,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
-    this.serviceCommande.nbArticle = 0
+    this.serviceCommande.nbArticle = 0;
     this.nbArticles = 0;
     this.buyerService.logout();
   }

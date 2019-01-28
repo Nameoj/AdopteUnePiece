@@ -7,6 +7,6 @@ export class CommandesService {
 
   constructor() { }
 
-  nbArticle=0;
-  commandes:any[] =[];
+  nbArticle = 0;
+  commandes: any[] = [];
 }

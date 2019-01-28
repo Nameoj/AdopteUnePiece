@@ -1,12 +1,12 @@
 .navbar {
     z-index: 600000;
     height: 90px;
+    background-color: #212123 !important;
 }
-
 
 .material-icons{
     font-size: 48px;
-    color: black;
+    color: #FFCE11;
     margin-top: 25px;
 }
 
@@ -24,6 +24,14 @@
     width: 3em !important;
     height: 3em !important;
     margin-left: 30px;
+    background-color: #212123 !important;
+}
+
+.websiteLogoModal {
+    width: 3em !important;
+    height: 3em !important;
+    margin-left: 30px;
+    background-color:white;
 }
 
 @media screen and (max-width: 769px) {
@@ -33,6 +41,7 @@
 
     .navbar {
         height: auto;
+        color: #212123;
     }
 
     .material-icons {
@@ -63,20 +72,23 @@
 .adoptPieceSearch {
     /*TODO: CHANGE IMAGE COLOR, SUPPR THIS COMMENT WHEN DONE*/
     background: url(../../../assets/musica-searcher.png);
-    opacity:0.4;
     background-position: center right 2ch;
     background-repeat: no-repeat;
     background-size: 1em;
-    background-color:#F0F0F0;
     border-radius:20px;
-    border:1px solid #FFC419;
     padding-left:12px;
     min-width:20ch;
 }
+
 .adoptPieceSearch::placeholder {
-    color:black;
-    opacity:1.0;
+    color: #212123;
 }
+
+.adoptPieceSearch {
+    background-color: #FFCE11;
+    outline-style: none;
+}
+
 .container-fluid {
     margin: 0px 0px 0px 0px;
     padding:0px 0px 0px 0px;
@@ -94,8 +106,8 @@
 
 .numberOfArticles {
     font-size:0.5em;
-    background-color:black;
-    color: white;
+    background-color:#FFCE11;
+    color: #212123;
     border-radius: 50px;
     padding:2px 5px 2px 5px;
     position: relative;

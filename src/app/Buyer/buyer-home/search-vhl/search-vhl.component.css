@@ -4,6 +4,7 @@
     font-weight: 900;
 }
 .card-header{
-    background-color: black;
+    background-color: #212123;
     color: white;
+    font-size: 0.8sem;
 }

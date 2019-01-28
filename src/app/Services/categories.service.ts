@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -6,6 +7,15 @@ import { Injectable } from '@angular/core';
 export class CategoriesService {
 
   filterCounter = 0;
+  filterActive: boolean = false;
+  piece: string;
+
+  constructor(private route: Router) { }
+
+  initFiltre() {
+    this.piece='';
+    this.route.navigate(['/home']);
+  }
 
   mockMotoCategories= {
     categories: [{
@@ -446,5 +456,5 @@ export class CategoriesService {
       }],
     }]
   }
-  constructor() { }
+  
 }

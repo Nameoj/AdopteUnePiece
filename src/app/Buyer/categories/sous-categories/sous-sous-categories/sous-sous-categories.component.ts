@@ -20,6 +20,9 @@ export class SousSousCategoriesComponent implements OnInit {
   filtrePiece(piece){
     console.log(piece)
     this.categoriesService.filterCounter ++;
+    this.categoriesService.filterActive = true;
+    this.categoriesService.piece = piece;
+    console.log(this.categoriesService.piece)
     if (this.categoriesService.filterCounter % 2 ==0){
      this.router.navigate(['home', piece]);}
     else{this.router.navigate(['Home', piece]);}

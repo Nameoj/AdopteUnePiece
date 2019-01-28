@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MotoTypeService } from 'src/app/Services/moto-type.service';
 import { ResearchMoto } from '../../../models/researchMoto.models';
 import { SearchService } from '../../../Services/search.service';
+import { CategoriesService } from 'src/app/Services/categories.service';
 
 @Component({
   selector: 'app-search-vhl',
@@ -32,7 +33,7 @@ vehicleChoiced : string;
 
 @Output() vehicleChoice = new EventEmitter<string>();
 
-  constructor(private motoTypeService: MotoTypeService, private searchService:SearchService) { }
+  constructor(private motoTypeService: MotoTypeService, private searchService:SearchService, private categoriesService:CategoriesService) { }
 
   ngOnInit() {
     this.callJson();
@@ -123,6 +124,8 @@ this.vehicleChoice.emit(this.vehicleChoiced)
       };
       this.vehicleChoiced = this.newBrand + " " + this.newModel + " " + this. newYear
     this.searchMoto=new ResearchMoto(this.newBrand, this.newModel, this.newCylindree, this.newYear);
+
+    this.categoriesService.piece = undefined;
 
     this.searchService.shareSearchVhlWithAnnounceList(this.searchMoto);
     

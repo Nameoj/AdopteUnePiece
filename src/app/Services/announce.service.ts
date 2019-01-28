@@ -11,6 +11,7 @@ export class AnnounceService {
 
 
   public listAnnonce;
+  public listAnnonceRecherche;
   public announceCreation;
   public announceEdit;
 
@@ -31,7 +32,7 @@ export class AnnounceService {
   }
 
   getAnnounceById(id) {
-    return this.http.get(`${this.baseUrl}/id/${id}`);
+    return this.http.get(`${this.baseUrl}/${id}`);
   }
 
   getAnnounceByPiece(piece){

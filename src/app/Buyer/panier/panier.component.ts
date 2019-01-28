@@ -4,6 +4,7 @@ import {MatTableDataSource} from '@angular/material';
 import {SelectionModel} from '@angular/cdk/collections';
 import { CommandesService } from 'src/app/Services/commandes.service';
 import { Announce } from 'src/app/models/announce.models';
+import { Location } from '@angular/common';
 
 export interface Announce {
 
@@ -38,7 +39,7 @@ export class PanierComponent implements OnInit {
   port: number = 0;
   total: number = 0;
 
-  constructor(private commandeService: CommandesService) {}
+  constructor(private commandeService: CommandesService, private _location: Location,) {}
 
   commandes;
   ngOnInit() {
@@ -47,6 +48,10 @@ export class PanierComponent implements OnInit {
    this.dataSource = new MatTableDataSource<Announce>(ELEMENT_DATA);
    this.sousTotaux();
    
+  }
+
+  returnLastPage() {
+    this._location.back();
   }
 
   sousTotaux () {

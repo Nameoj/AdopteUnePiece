@@ -9,8 +9,10 @@ export class SearchService {
 
   motoSearched;
 
+  rechercheInitiale: boolean = false;
+
   isSearchPerformed:boolean=false;
-  
+
   shareSearchVhlWithAnnounceList(searchMoto){
     this.isSearchPerformed=true;
     this.motoSearched=searchMoto;

@@ -1,8 +1,15 @@
 <div id="sidenav" class="container sidenav">
 
   <button class="closebtn" (click)="closeNav()">&times;</button>
+  <div class="row">
+
+      <div *ngIf="piece" class="categories arrowHead2" (click)="initFiltre()">
+          supprimer filtre:
+          <b> {{piece}} </b>
+        </div>
+
   <div *ngFor="let categories of motoCategories.categories; let index=index">
-    <div class="row">
+    
       <div class="categories arrowHead" (click)="collapse(index)">
         <b> {{categories.name}} </b>
       </div>

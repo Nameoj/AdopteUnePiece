@@ -18,9 +18,10 @@ export class AnnounceItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  detailAnnonce(annonceId) {
+  detailAnnonce(annonce) {
     console.log('route détail annonce');
-    console.log(annonceId);
-    this.router.navigate(['/announce-piece', annonceId]);
+    console.log(annonce);
+    console.log(annonce.id);
+    this.router.navigate(['/announce-piece', annonce.id]);
   }
 }

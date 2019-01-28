@@ -6,7 +6,7 @@
     display:block;
 }
 .categories {
-    background-color: #1a1a1a;
+    background-color: #212123;
     width: 65%;
     height:3rem;
     text-align: end;
@@ -38,9 +38,9 @@
 
 .arrowHead2{
     background-color: #f7f7f7;
-    border: 2px #1a1a1a;
+    border: 2px #212123;
     font-size: 0.7rem;
-    color: #1a1a1a;
+    color: #212123;
     background-size: 12px;
     text-align: center;
 }

@@ -319,10 +319,9 @@ export class CategoriesService {
         }]
       },
       {
-        name: 'Compteur',
-        sousSousCategories: [{
-          name: [{
-            name: 'Compteur complet'
+        name:"Compteur",
+        sousSousCategories:[{
+            name: "Compteur complet"
           },
           {
             name: 'Câble compteur'
@@ -331,10 +330,10 @@ export class CategoriesService {
             name: 'Entraîneur compteur'
           },
           {
-            name: 'Pièces compteur diverses'
-          }]
-        }]
-      },
+            name: "Pièces compteur diverses"
+          }
+        ]
+      },  
       {
         name: 'Serrure/Kit neiman',
         sousSousCategories: [{

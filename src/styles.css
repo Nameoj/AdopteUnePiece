@@ -10,5 +10,12 @@ body { margin: 0; font-family: 'Montserrat', sans-serif; }
 
 .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
     background: #FFC419! important ;
-  } 
+}
 
+.nav-link {
+    color: black ;   
+}
+
+.nav-link:hover {
+    color: #FFC419 ;   
+}

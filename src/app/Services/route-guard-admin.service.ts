@@ -9,12 +9,13 @@ export class RouteGuardAdminService {
 
   constructor(
     private router: Router,
-    private adminService: AdminService  ) { }
+    private adminService: AdminService) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
 
-    if (this.adminService.isUserLoggedIn() && this.adminService.getAuthenticatedRole()=="ROLE_ADMIN")
+    if (this.adminService.isUserLoggedIn() && this.adminService.getAuthenticatedRole() === 'ROLE_ADMIN') {
       return true;
+    }
 
     this.router.navigate(['']);
 

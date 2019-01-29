@@ -3,46 +3,38 @@
   <h1 class="text-center mt-3">Votre panier</h1>
   <mat-horizontal-stepper labelPosition="bottom" #stepper class="mt-1">
     <mat-step>
-      <ng-template matStepLabel><p>Panier</p></ng-template>
+      <ng-template matStepLabel>
+        <p>Panier</p>
+      </ng-template>
     </mat-step>
-                <mat-step>
-                  <ng-template matStepLabel><p>Connexion</p></ng-template>
-                </mat-step>
-                            <mat-step>
-                              <ng-template matStepLabel><p>Livraison</p></ng-template>
-                            </mat-step>
-                                        <mat-step>
-                                          <ng-template matStepLabel><p>Paiement</p></ng-template>
-                                        </mat-step>
-                                                    <mat-step>
-                                                      <ng-template matStepLabel><p>Confirmer</p></ng-template>
-                                                    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>
+        <p>Connexion</p>
+      </ng-template>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>
+        <p>Livraison</p>
+      </ng-template>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>
+        <p>Paiement</p>
+      </ng-template>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>
+        <p>Confirmer</p>
+      </ng-template>
+    </mat-step>
   </mat-horizontal-stepper>
 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-  <!-- Checkbox Column -->
-  <!-- <ng-container matColumnDef="select">
-    <th mat-header-cell *matHeaderCellDef>
-      <mat-checkbox (change)="$event ? masterToggle() : null"
-                    [checked]="selection.hasValue() && isAllSelected()"
-                    [indeterminate]="selection.hasValue() && !isAllSelected()">
-      </mat-checkbox>
-      <img src="assets/corbeille.png" width="25" height="25" class="ml-1 mb-2"> 
-    </th>
-    <td mat-cell *matCellDef="let row">
-      <mat-checkbox (click)="$event.stopPropagation()"
-                    (change)="$event ? selection.toggle(row) : null"
-                    [checked]="selection.isSelected(row)">
-      </mat-checkbox>
-      <img src="assets/corbeille.png" width="25" height="25" class="ml-1 mb-2">
-    </td>
-    </ng-container> -->
-
     <!-- Piece Column -->
     <ng-container matColumnDef="pieceName">
       <th mat-header-cell *matHeaderCellDef> Article </th>
-      <td mat-cell *matCellDef="let element"> {{element.pieceName}}  {{element.brand}}  {{element.model}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.pieceName}} {{element.brand}} {{element.model}} </td>
     </ng-container>
 
     <!-- Price Column -->
@@ -58,34 +50,37 @@
     </ng-container>
 
     <ng-container matColumnDef="select">
-    <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef ><a (click)="delete(seller.username)"><i class="material-icons icons">delete_sweep</i></a></td>
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef><a (click)="delete(seller.username)"><i class="material-icons icons">delete_sweep</i></a></td>
     </ng-container>
 
     <ng-container matColumnDef="select2">
-        <th mat-header-cell *matHeaderCellDef></th>
-        <td mat-cell *matCellDef ><a (click)="delete(seller.username)"><i class="material-icons icons">edit</i></a></td>
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef><a (click)="delete(seller.username)"><i class="material-icons icons">edit</i></a></td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"
-        (click)="selection.toggle(row)">
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
     </tr>
   </table>
 
   <div class="total mt-4">
-    <p>Sous total produits TTC: </p>{{sousTotal}}<span>€</span><hr>
-    <p>Frais de port: </p>{{port}}<span>€</span><hr>
-    <p class="prix_total">TOTAL TTC À PAYER: </p>{{total}}<span>€</span><hr>
+    <p>Sous total produits TTC: </p>{{sousTotal}}<span>€</span>
+    <hr>
+    <p>Frais de port: </p>{{port}}<span>€</span>
+    <hr>
+    <p class="prix_total">TOTAL TTC À PAYER: </p>{{total}}<span>€</span>
+    <hr>
   </div>
 
   <div class="row text-center mt-2 mb-4">
     <div class="col-12 col-md-6 mt-2">
-  <a (click)="returnLastPage()" class="btn btn-warning btn-lg" role="button" aria-disabled="true">Poursuivre mes achats</a>
+      <a (click)="returnLastPage()" class="btn btn-warning btn-lg" role="button" aria-disabled="true">Poursuivre mes
+        achats</a>
     </div>
-  <div class="col-12 col-md-6 mt-2">
-  <a href="#" class="btn btn-warning btn-lg" role="button" aria-disabled="true">Valider ma commande</a>
+    <div class="col-12 col-md-6 mt-2">
+      <a href="#" class="btn btn-warning btn-lg" role="button" aria-disabled="true">Valider ma commande</a>
     </div>
-</div>
+  </div>
 
 </div>

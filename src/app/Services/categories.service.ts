@@ -6,321 +6,316 @@ import { Router } from '@angular/router';
 })
 export class CategoriesService {
 
-  filterCounter = 0;
-  filterActive: boolean = false;
-  piece: string;
-
   constructor(private route: Router) { }
 
-  initFiltre() {
-    this.piece='';
-    this.route.navigate(['/home']);
-  }
+  filterCounter = 0;
+  filterActive = false;
+  piece: string;
 
-  mockMotoCategories= {
+  mockMotoCategories = {
     categories: [{
-      name:"PARTIE CYCLE",
+      name: 'PARTIE CYCLE',
       sousCategories: [{
-        name:"Cadre",
+        name: 'Cadre',
         sousSousCategories: [{
-          name: "Cadre"
+          name: 'Cadre'
         },
         {
-          name:"Araignée avant"
+          name: 'Araignée avant'
         },
         {
-          name:"Boucle arrière"
+          name: 'Boucle arrière'
         },
         {
-          name:"Divers cadre"
+          name: 'Divers cadre'
         }]
       },
       {
-        name:"Fourche",
+        name: 'Fourche',
         sousSousCategories: [{
-          name:"Fourche complète"
+          name: 'Fourche complète'
         },
         {
-          name:"Tube de fourche gauche"
+          name: 'Tube de fourche gauche'
         },
         {
-          name:"Tube de fourche droit"
+          name: 'Tube de fourche droit'
         },
         {
-          name:"Té supérieur"
+          name: 'Té supérieur'
         },
         {
-          name:"Té inférieur"
+          name: 'Té inférieur'
         }]
       },
       {
-        name:"Bras oscillant",
+        name: 'Bras oscillant',
         sousSousCategories: [{
-          name: "Bras oscillant complet"
+          name: 'Bras oscillant complet'
         },
         {
-          name: "Axe de bras oscillant"
+          name: 'Axe de bras oscillant'
         },
         {
-          name: "Tendeur de chaîne"
+          name: 'Tendeur de chaîne'
         }]
       },
       {
-        name:"Béquille",
+        name: 'Béquille',
         sousSousCategories: [{
-          name: "Béquille latérale"
+          name: 'Béquille latérale'
         },
         {
-          name: "Béquille centrale"
+          name: 'Béquille centrale'
         }]
       },
       {
-        name:"Amortisseur arrière",
+        name: 'Amortisseur arrière',
         sousSousCategories: [{
-          name:"Amortisseur complet"
+          name: 'Amortisseur complet'
         },
         {
-          name:"Biellette d'amortisseur"
+          name: 'Biellette d\'amortisseur'
         }]
       },
       {
-        name:"Guidon",
-        sousSousCategories:[{
-          name:"Guidon"
+        name: 'Guidon',
+        sousSousCategories: [{
+          name: 'Guidon'
         },
         {
-          name:"Rétroviseur gauche"
+          name: 'Rétroviseur gauche'
         },
         {
-          name:"Rétroviseur droit"
+          name: 'Rétroviseur droit'
         },
         {
-          name:"Poignée de gaz"
+          name: 'Poignée de gaz'
         },
         {
-          name:"Cocotte d'embrayage"
+          name: 'Cocotte d\'embrayage'
         },
         {
-          name:"Levier d'embrayage"
+          name: 'Levier d\'embrayage'
         },
         {
-          name: "Levier de frein"
+          name: 'Levier de frein'
         },
         {
-          name: "Embout de guidon"
+          name: 'Embout de guidon'
         }]
       },
       {
-        name:"Platine repose pied",
+        name: 'Platine repose pied',
         sousSousCategories: [{
-          name: "Platine avant gauche"
+          name: 'Platine avant gauche'
         },
         {
-          name: "Platine avant droite"
+          name: 'Platine avant droite'
         },
         {
-          name: "Platine arrière gauche"
+          name: 'Platine arrière gauche'
         },
         {
-          name: "Platine arrière droite"
+          name: 'Platine arrière droite'
         },
         {
-          name: "Repose pied avant gauche"
+          name: 'Repose pied avant gauche'
         },
         {
-          name: "Repose pied avant droit"
+          name: 'Repose pied avant droit'
         },
         {
-          name: "Repose pied arrière gauche"
+          name: 'Repose pied arrière gauche'
         },
         {
-          name: "Repose pied arrière droit"
+          name: 'Repose pied arrière droit'
         },
         {
-          name: "Pédale de frein"
+          name: 'Pédale de frein'
         },
         {
-          name: "Sélecteur de vitesse"
+          name: 'Sélecteur de vitesse'
         }]
       },
       {
-        name:"Frein avant",
+        name: 'Frein avant',
         sousSousCategories: [{
-          name: "Frein avant complet"
+          name: 'Frein avant complet'
         },
         {
-          name: "Maître cylindre"
+          name: 'Maître cylindre'
         },
         {
-          name: "Disque de frein"
+          name: 'Disque de frein'
         },
         {
-          name: "Durite de frein"
+          name: 'Durite de frein'
         }]
       },
       {
-        name: "Frein arrière",
+        name: 'Frein arrière',
         sousSousCategories: [{
-          name: "Frein arrière complet"
+          name: 'Frein arrière complet'
         },
         {
-          name: "Maître cylindre"
+          name: 'Maître cylindre'
         },
         {
-          name: "Disque de frein"
+          name: 'Disque de frein'
         },
         {
-          name: "Durite de frein"
+          name: 'Durite de frein'
         }]
       },
       {
-        name: "Jantes",
+        name: 'Jantes',
         sousSousCategories: [{
-          name: "Jante avant"
+          name: 'Jante avant'
         },
         {
-          name: "Jante arrière"
+          name: 'Jante arrière'
         },
         {
-          name: "Axe de roue avant"
+          name: 'Axe de roue avant'
         },
         {
-          name: "Axe de roue arrière"
+          name: 'Axe de roue arrière'
         }]
       }]
     },
     {
-      name: "PARTIE MOTEUR",
-      sousCategories:[{
-        name: "Moteur",
+      name: 'PARTIE MOTEUR',
+      sousCategories: [{
+        name: 'Moteur',
         sousSousCategories: [{
-          name: "Moteur complet"
+          name: 'Moteur complet'
         },
         {
-          name: "Carter gauche"
+          name: 'Carter gauche'
         },
         {
-          name: "Carter droit"
+          name: 'Carter droit'
         },
         {
-          name: "Pièces moteur au détail"
+          name: 'Pièces moteur au détail'
         },
         {
-          name: "Axe moteur"
+          name: 'Axe moteur'
         }]
       },
       {
-        name: "Carburation/Injection",
-        sousSousCategories:[{
-          name: "Carburateur"
-        },
-        {
-          name: "Pipe admission"
-        },
-        {
-          name: "Bride"
-        },
-        {
-          name: "Injection"
-        }]
-      },
-      {
-        name: "Boîte à air",
-        sousSousCategories:[{
-          name: "Boîte à air"
-        },
-        {
-          name: "Filtre à air"
-        }]
-      },
-      {
-        name: "Démarreur",
-        sousSousCategories:[{
-          name: "Démarreur"
-        },
-        {
-          name: "Roue libre démarreur"
-        }]
-      },
-      {
-        name: "Echappement",
-        sousSousCategories:[{
-          name: "Collecteur d'échappement"
-        },
-        {
-          name: "Pot d'échappement"
-        },
-        {
-          name: "Sonde d'échappement"
-        }]
-      },
-      {
-        name: "Radiateur",
-        sousSousCategories:[{
-          name: "Radiateur complet"
-        },
-        {
-          name: "Radiateur"
-        },
-        {
-          name: "Calorstat"
-        },  
-        {
-          name: "Durite de refroidissement"
-        },
-        {
-          name: "Bouchon de radiateur"
-        },  
-        {
-          name: "Ventilateur"
-        },
-        {
-          name: "Vase d'expansion"
-        }]
-      },
-      {
-        name: "Câbles",
+        name: 'Carburation/Injection',
         sousSousCategories: [{
-          name: "Câble accélérateur"
+          name: 'Carburateur'
         },
         {
-          name: "Câble starter"
+          name: 'Pipe admission'
         },
         {
-          name: "Câble d'embrayage"
+          name: 'Bride'
+        },
+        {
+          name: 'Injection'
+        }]
+      },
+      {
+        name: 'Boîte à air',
+        sousSousCategories: [{
+          name: 'Boîte à air'
+        },
+        {
+          name: 'Filtre à air'
+        }]
+      },
+      {
+        name: 'Démarreur',
+        sousSousCategories: [{
+          name: 'Démarreur'
+        },
+        {
+          name: 'Roue libre démarreur'
+        }]
+      },
+      {
+        name: 'Echappement',
+        sousSousCategories: [{
+          name: 'Collecteur d\'échappement'
+        },
+        {
+          name: 'Pot d\'échappement'
+        },
+        {
+          name: 'Sonde d\'échappement'
+        }]
+      },
+      {
+        name: 'Radiateur',
+        sousSousCategories: [{
+          name: 'Radiateur complet'
+        },
+        {
+          name: 'Radiateur'
+        },
+        {
+          name: 'Calorstat'
+        },
+        {
+          name: 'Durite de refroidissement'
+        },
+        {
+          name: 'Bouchon de radiateur'
+        },
+        {
+          name: 'Ventilateur'
+        },
+        {
+          name: 'Vase d\'expansion'
+        }]
+      },
+      {
+        name: 'Câbles',
+        sousSousCategories: [{
+          name: 'Câble accélérateur'
+        },
+        {
+          name: 'Câble starter'
+        },
+        {
+          name: 'Câble d\'embrayage'
         }]
       }]
     },
     {
-      name: "PARTIE ELECTRIQUE",
+      name: 'PARTIE ELECTRIQUE',
       sousCategories: [{
-        name:"Faisceaux électriques",
-        sousSousCategories:[{
-          name:"Faisceaux"
+        name: 'Faisceaux électriques',
+        sousSousCategories: [{
+          name: 'Faisceaux'
         },
         {
-          name:"Capteurs divers"
+          name: 'Capteurs divers'
         },
         {
-          name:"Klaxon"
+          name: 'Klaxon'
         },
         {
-          name:"Boîtier CDI"
+          name: 'Boîtier CDI'
         }]
       },
       {
-        name:"Eclairage",
-        sousSousCategories:[{
-          name: "Phare avant"
+        name: 'Eclairage',
+        sousSousCategories: [{
+          name: 'Phare avant'
         },
         {
-          name: "Phare arrière"
+          name: 'Phare arrière'
         },
         {
-          name: "Eclairage de plaque"
+          name: 'Eclairage de plaque'
         },
         {
-          name: "Clignotants"
+          name: 'Clignotants'
         }]
       },
       {
@@ -329,10 +324,10 @@ export class CategoriesService {
             name: "Compteur complet"
           },
           {
-            name: "Câble compteur"
+            name: 'Câble compteur'
           },
           {
-            name: "Entraîneur compteur"
+            name: 'Entraîneur compteur'
           },
           {
             name: "Pièces compteur diverses"
@@ -340,120 +335,125 @@ export class CategoriesService {
         ]
       },  
       {
-        name:"Serrure/Kit neiman",
-        sousSousCategories:[{
-          name: "Kit neiman complet"
+        name: 'Serrure/Kit neiman',
+        sousSousCategories: [{
+          name: 'Kit neiman complet'
         },
         {
-          name: "Neiman"
+          name: 'Neiman'
         },
         {
-          name: "Serrure réservoir"
+          name: 'Serrure réservoir'
         },
         {
-          name: "Serrure arrière"
+          name: 'Serrure arrière'
         }]
       },
       {
-        name:"Autre",
-        sousSousCategories:[{
-          name: "Régulateur de vitesse"
+        name: 'Autre',
+        sousSousCategories: [{
+          name: 'Régulateur de vitesse'
         },
         {
-          name:"Bobine d'allumage"
+          name: 'Bobine d\'allumage'
         },
         {
-          name: "Relais de démarreur"
+          name: 'Relais de démarreur'
         },
         {
-          name: "Alternateur"
+          name: 'Alternateur'
         }]
       },
       {
-        name: "Commodo",
-        sousSousCategories:[{
-          name:"Commodo gauche"
+        name: 'Commodo',
+        sousSousCategories: [{
+          name: 'Commodo gauche'
         },
         {
-          name:"Commodo droit"
+          name: 'Commodo droit'
         }]
       }]
     },
     {
-      name:"PARTIE HABILLAGE",
+      name: 'PARTIE HABILLAGE',
       sousCategories: [{
-        name:"Réservoir",
-        sousSousCategories:[{
-          name: "Réservoir"
-        },
-        {
-          name: "Robinet d'essence/Pompe à essence"
-        },
-        {
-          name: "Jauge à essence"
-        }]
-      },
-      {
-        name:"Selle",
-        sousSousCategories:[{
-          name: "Selle"
-        },
-        {
-          name: "Capot de selle"
-        },
-        {
-          name: "Mécanisme fermeture de selle"
-        }]
-      },
-      {
-        name:"Carénages divers",
+        name: 'Réservoir',
         sousSousCategories: [{
-          name:"Carénage avant gauche"
+          name: 'Réservoir'
         },
         {
-          name:"Carénage avant droit"
+          name: 'Robinet d\'essence/Pompe à essence'
         },
         {
-          name: "Bulle/saut de vent"
-        },
-        {
-          name: "Tête de fourche"
-        },
-        {
-          name: "Entourage compteur"
-        },
-        {
-          name: "Passage de roue"
-        },
-        {
-          name: "Carénages divers"
+          name: 'Jauge à essence'
         }]
       },
       {
-        name:"Garde boue",
+        name: 'Selle',
         sousSousCategories: [{
-          name: "Garde boue avant"
+          name: 'Selle'
         },
         {
-          name: "Garde boue arrière"
+          name: 'Capot de selle'
+        },
+        {
+          name: 'Mécanisme fermeture de selle'
         }]
       },
       {
-        name:"Coque arrière",
+        name: 'Carénages divers',
         sousSousCategories: [{
-          name: "Coque arrière complète"
+          name: 'Carénage avant gauche'
         },
         {
-          name: "Coque arrière gauche"
-        },  
-        {
-          name: "Coque arrière droite"
+          name: 'Carénage avant droit'
         },
         {
-          name: "Diverses coques arrières"
+          name: 'Bulle/saut de vent'
+        },
+        {
+          name: 'Tête de fourche'
+        },
+        {
+          name: 'Entourage compteur'
+        },
+        {
+          name: 'Passage de roue'
+        },
+        {
+          name: 'Carénages divers'
+        }]
+      },
+      {
+        name: 'Garde boue',
+        sousSousCategories: [{
+          name: 'Garde boue avant'
+        },
+        {
+          name: 'Garde boue arrière'
+        }]
+      },
+      {
+        name: 'Coque arrière',
+        sousSousCategories: [{
+          name: 'Coque arrière complète'
+        },
+        {
+          name: 'Coque arrière gauche'
+        },
+        {
+          name: 'Coque arrière droite'
+        },
+        {
+          name: 'Diverses coques arrières'
         }]
       }],
     }]
+  };
+
+  initFiltre() {
+    this.piece = '';
+    this.route.navigate(['/home']);
   }
-  
+
 }

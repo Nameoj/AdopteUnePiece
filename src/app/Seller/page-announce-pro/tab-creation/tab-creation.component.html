@@ -29,8 +29,9 @@
                 </div>
 
                 <div class="input-group mb-3">
-                  <select class="custom-select" id="model" formControlName="model" [(ngModel)]="model" [ngClass]="{ 'is-invalid': submitted && f.model.errors }"
-                    (change)="onSelectModele($event.target.value)">
+
+                  <select class="custom-select" id="model" formControlName="model" [(ngModel)]="model"
+                  [ngClass]="{ 'is-invalid': submitted && f.model.errors }" (change)="onSelectModele($event.target.value)">
                     <option [value]="modele">Modèle</option>
                     <option *ngFor="let model of allMotosM" value="{{model}}">{{model}}</option>
                   </select>
@@ -41,8 +42,10 @@
 
                 <div class="input-group mb-3">
                   <select class="custom-select" id="cylinder" formControlName="cylinder" [(ngModel)]="cylinder"
-                    [ngClass]="{ 'is-invalid': submitted && f.cylinder.errors }" (change)="onSelectCylindree($event.target.value)">
-                    <option [value]="cylindree">Cylindrée</option>
+
+                  [ngClass]="{ 'is-invalid': submitted && f.cylinder.errors }" (change)="onSelectCylindree($event.target.value)">
+                    <option [value]="cylindree" >Cylindrée</option>
+
                     <option *ngFor="let cylindree of allMotosC" value="{{cylindree}}">{{cylindree}}</option>
                   </select>
                   <div *ngIf="submitted && f.cylinder.errors" class="invalid-feedback">
@@ -51,9 +54,11 @@
                 </div>
 
                 <div class="input-group mb-3">
-                  <select class="custom-select" id="year" formControlName="year" [(ngModel)]="year" [ngClass]="{ 'is-invalid': submitted && f.year.errors }"
-                    (change)="onSelectYear($event.target.value)">
-                    <option [value]="annee">Année</option>
+
+                  <select class="custom-select" id="year" formControlName="year" [(ngModel)]="year"
+                  [ngClass]="{ 'is-invalid': submitted && f.year.errors }" (change)="onSelectYear($event.target.value)">
+                    <option [value]="annee" >Année</option>
+
                     <option *ngFor="let year of allMotosY" value="{{year}}">{{year}}</option>
                   </select>
                   <div *ngIf="submitted && f.year.errors" class="invalid-feedback">

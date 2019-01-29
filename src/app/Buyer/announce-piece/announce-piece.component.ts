@@ -17,8 +17,8 @@ export class AnnouncePieceComponent implements OnInit {
   annonce;
 
   constructor(private annonceService: AnnounceService, private route: ActivatedRoute,
-              private router: Router, private _location: Location,
-              private commandeService: CommandesService, private buyerService: BuyerService) { }
+    private router: Router, private _location: Location,
+    private commandeService: CommandesService, private buyerService: BuyerService) { }
 
   placeholderForDBAnnounce = {
   };
@@ -37,7 +37,7 @@ export class AnnouncePieceComponent implements OnInit {
       console.log(this.id);
       this.annonceService.getAnnounceById(this.id)
         .subscribe(data => {
-        this.annonce = data; console.log(this.annonce);
+          this.annonce = data; console.log(this.annonce);
           this.arrayForRating = new Array(Number(this.annonce['note']));
           this.arrayForRatingEmpty = new Array(5 - Number(this.annonce['note']));
 

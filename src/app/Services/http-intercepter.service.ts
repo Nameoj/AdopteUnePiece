@@ -7,7 +7,7 @@ const TOKEN_HEADER_KEY = 'Authorization';
 @Injectable({
   providedIn: 'root'
 })
-export class HttpIntercepterService implements HttpInterceptor{
+export class HttpIntercepterService implements HttpInterceptor {
 
   constructor(private buyerService: BuyerService) { }
 
@@ -16,11 +16,11 @@ export class HttpIntercepterService implements HttpInterceptor{
     let authReq = req;
     const token = this.buyerService.getAuthenticatedToken();
     if (token != null) {
-        authReq = req.clone({ headers: req.headers.set(TOKEN_HEADER_KEY,  token) });
-        console.log(authReq);
+      authReq = req.clone({ headers: req.headers.set(TOKEN_HEADER_KEY, token) });
+      console.log(authReq);
     }
     return next.handle(authReq);
-}
+  }
 
 }
 export const httpInterceptorProviders = [

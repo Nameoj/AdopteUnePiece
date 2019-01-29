@@ -38,27 +38,27 @@
     <div *ngIf="addCylinderYear" class="addCylinderYear col-6">
 
       <select *ngIf="allMotos" [(ngModel)]="newCylinderYear_brand" class="mb-2" name="" id="newCylinderYear_brand"
-      (change)="onSelectBrand($event.target.value)">
-        <option  selected="selected" value="0" >
+        (change)="onSelectBrand($event.target.value)">
+        <option selected="selected" value="0">
           Marque
         </option>
-        <option *ngFor="let brand of allMotosB, let i=index"  value={{brand}} >
+        <option *ngFor="let brand of allMotosB, let i=index" value={{brand}}>
           {{brand}}
         </option>
       </select>
 
-        <select [(ngModel)]="newCylinderYear_model" class="mb-2" name="" id="">
-          <option selected="selected" *ngIf="newCylinderYear_brand" value=0>
-            Modèle
-          </option>
-          
-          <option *ngFor="let model of allMotosM" value="{{model}}">
-            {{model}}
-          </option>
-         
-        </select>
-   
-      
+      <select [(ngModel)]="newCylinderYear_model" class="mb-2" name="" id="">
+        <option selected="selected" *ngIf="newCylinderYear_brand" value=0>
+          Modèle
+        </option>
+
+        <option *ngFor="let model of allMotosM" value="{{model}}">
+          {{model}}
+        </option>
+
+      </select>
+
+
       <input [(ngModel)]="newCylinder" class="form-control mb-2" placeholder="cylindre">
       <input [(ngModel)]="newYear" class="form-control" placeholder="année">
 

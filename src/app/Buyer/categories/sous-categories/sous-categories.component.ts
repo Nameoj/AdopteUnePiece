@@ -7,17 +7,16 @@ import { listener } from '@angular/core/src/render3';
   styleUrls: ['./sous-categories.component.css']
 })
 export class SousCategoriesComponent implements OnInit {
-  @Input()categories;
-  @Input()overIndex;
+  @Input() categories;
+  @Input() overIndex;
   constructor() { }
 
-  collapse(index){
-    let list=document.getElementById('list'+index)
-    if (list.style.display=="block"){
-    list.style.display ="none";
-  }
-    else {
-      list.style.display="block";
+  collapse(index) {
+    const list = document.getElementById('list' + index);
+    if (list.style.display === 'block') {
+      list.style.display = 'none';
+    } else {
+      list.style.display = 'block';
     }
   }
   ngOnInit() {

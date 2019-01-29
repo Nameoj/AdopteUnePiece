@@ -1,7 +1,6 @@
 export class Announce {
     constructor(
         public id: number,
-        // public title: string,
         public seller: string,
         public image: string,
         public description: string,
@@ -12,8 +11,6 @@ export class Announce {
         public brand: string,
         public cylinder: string,
         public year: string,
-        // public startDateModele: string,
-        // public endDateModele: string,
         public price: string,
         public charge: number,
     ) { }

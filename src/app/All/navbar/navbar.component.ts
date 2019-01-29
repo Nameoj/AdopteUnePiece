@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/fo
 import { UserConnection } from 'src/app/models/user.connection.model';
 import * as $ from 'jquery';
 import { CommandesService } from 'src/app/Services/commandes.service';
+import { AnnounceService } from 'src/app/Services/announce.service';
 
 @Component({
   selector: 'app-navbar',
@@ -24,7 +25,8 @@ export class NavbarComponent implements OnInit {
   //   x =document.getElementById("myModal");
 
   constructor(private buyerService: BuyerService, private router: Router,
-    private formBuilder: FormBuilder, private serviceCommande: CommandesService) { }
+    private formBuilder: FormBuilder, private serviceCommande: CommandesService,
+    private annonceService: AnnounceService) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -92,6 +94,16 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     this.serviceCommande.nbArticle = 0;
+
+    for( var i=0; i< this.nbArticles; i ++)
+      {
+        console.log(this.serviceCommande.commandes[i].id);
+        this.annonceService.undeleteAnnonce(this.serviceCommande.commandes[i].id)
+        .subscribe(data => console.log(data))
+
+      }
+    this.serviceCommande.commandes = [];
+
     this.nbArticles = 0;
     this.buyerService.logout();
   }

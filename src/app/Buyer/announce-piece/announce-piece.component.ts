@@ -26,6 +26,15 @@ export class AnnouncePieceComponent implements OnInit {
   arrayForRatingEmpty;
   role;
 
+  pieceName: String = '';
+  model: String = '';
+  cylinder: String = '';
+  brand: String = '';
+  image: string = '';
+  description:  string = '';
+  price: string = '';
+  year: string = '';
+
 
   ngOnInit() {
 
@@ -38,6 +47,14 @@ export class AnnouncePieceComponent implements OnInit {
           this.annonce = data;
           this.arrayForRating = new Array(Number(this.annonce['note']));
           this.arrayForRatingEmpty = new Array(5 - Number(this.annonce['note']));
+          this.pieceName = this.annonce.pieceName;
+          this.model = this.annonce.model;
+          this.brand = this.annonce.brand;
+          this.cylinder = this.annonce.cylinder;
+          this.image = this.annonce.image;
+          this.description = this.annonce.description;
+          this.price = this.annonce.price;
+          this.year = this.annonce.year;
         });
     });
   }
@@ -50,9 +67,12 @@ export class AnnouncePieceComponent implements OnInit {
     this.commandeService.nbArticle++;
     this.annonceService.deleteAnnonce(this.annonce['id']).subscribe(data => {
       this.commandeService.commandes.push(this.annonce);
-
-      this.returnLastPage();
+      console.log(this.annonce);
+      console.log(this.commandeService.commandes);
+      this.router.navigate(['/panier'])
     });
+    
+
   }
 
 }

@@ -34,16 +34,15 @@ export class CreationCompteComponent implements OnInit {
       ville: ['', Validators.required]
     },
       {
-        // check whether our password and confirm password match
         validator: CustomValidators.passwordMatchValidator
       });
   }
-  // convenience getter for easy access to form fields
+
   get f() { return this.registerForm.controls; }
 
   onSubmit() {
     this.submitted = true;
-    // stop here if form is invalid
+    
     if (this.registerForm.invalid) {
       return;
     }
@@ -64,18 +63,15 @@ export class CreationCompteComponent implements OnInit {
       formValue['ville'],
 
     );
-    console.log(this.registerForm.value);
-    console.log(newBuyer);
 
     this.buyerService.createBuyer(newBuyer)
       .subscribe(data => {
-        console.log(data), this.buyerService.buyerConnected = data,
-          console.log('buyer created' + this.buyerService.buyerConnected.nom),
-          this.router.navigate(['/home']);
+        this.buyerService.buyerConnected = data,
+        this.router.navigate(['/home']);
       },
         error => {
           this.submitted = false,
-            console.log('erreur!!!'), console.log(error.status), this.emailExistant = true;
+          this.emailExistant = true;
         }
       );
   }

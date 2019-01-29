@@ -48,7 +48,6 @@ export class AdminAnnounceListComponent implements OnInit {
     this.announceService.deleteAnnonce(id)
       .subscribe(data => {
         this.announceService.announceEdit = data;
-        console.log(this.announceService.announceEdit);
         this.announceService.getSellerAnnounce(this.username).subscribe(
           response => this.announces = response
         );

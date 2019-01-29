@@ -39,11 +39,8 @@ export class AnnounceListComponent implements OnInit {
       this.filterAnnounces = this.searchService.motoSearched;
       this.searchService.isSearchPerformed = false;
       this.searchService.rechercheInitiale = true;
-      console.log(this.filterAnnounces);
       this.categoriesService.piece = '';
       this.getAnnoncesRecherche();
-
-
     }
   }
 
@@ -78,14 +75,8 @@ export class AnnounceListComponent implements OnInit {
   }
 
   getAnnoncesFiltre() {
-
-    console.log(this.announceService.listAnnonce);
-    console.log(this.announceService.listAnnonceRecherche);
-    console.log(this.listAnnonces);
-
     const arrayLength = this.listAnnonces.length;
     const newArray = [];
-    console.log(arrayLength);
     for (let i = 0; i < arrayLength; i++) {
       if (this.listAnnonces[i].pieceName === this.piece) {
         newArray.push(this.listAnnonces[i]);

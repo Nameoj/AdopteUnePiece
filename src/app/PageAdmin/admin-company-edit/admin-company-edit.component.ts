@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { CustomValidators } from 'src/app/Sign-up/creation-compte/custom-validators';
 import { Seller, SellerEditModel } from 'src/app/models/seller.models';
 import { SellerService } from 'src/app/Services/seller.service';
 import { Router } from '@angular/router';
@@ -36,8 +35,6 @@ export class AdminCompanyEditComponent implements OnInit {
     });
   }
 
-
-  // convenience getter for easy access to form fields
   get f() { return this.editCompanyForm.controls; }
 
 
@@ -64,7 +61,6 @@ export class AdminCompanyEditComponent implements OnInit {
       formValue['telephoneG'],
     );
 
-    console.log('On submit sending info to sellerService.updateSeller');
     this.sellerService.updateSeller(updatedSellerEdit, this.sellerEdit.username)
       .subscribe(data => {
         console.log(data), this.sellerService.sellerEdit = data,
@@ -72,9 +68,7 @@ export class AdminCompanyEditComponent implements OnInit {
       });
 
     alert('SUCCESS!! :-)');
-    console.log('Return List Seller');
     this.router.navigate(['/admin-home/admin-company-list/']);
-    console.log('SellerEditPassword ' + this.sellerEdit.password);
   }
 
   displayMdpControl() {

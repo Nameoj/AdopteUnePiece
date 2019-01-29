@@ -23,11 +23,10 @@ export class AdminBuyerListComponent implements OnInit {
   }
 
   edit(buyer) {
-    console.log(buyer);
     this.buyerService.getBuyerDetails(buyer)
       .subscribe(data => {
         this.buyerService.buyerConnected = data;
-        console.log(this.buyerService.buyerConnected); this.router.navigate(['/myaccount/infosperso']);
+        this.router.navigate(['/myaccount/infosperso']);
       }
       );
   }
@@ -36,7 +35,6 @@ export class AdminBuyerListComponent implements OnInit {
     this.buyerService.deleteBuyer(buyer)
       .subscribe(data => {
         this.buyerService.buyerConnected = data;
-        console.log(this.buyerService.buyerConnected);
         this.buyerService.getAllBuyers().subscribe(
           response => this.buyers = response
         );

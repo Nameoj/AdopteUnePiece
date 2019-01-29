@@ -70,7 +70,6 @@ import { AdminAnnounceDetailsComponent } from './PageAdmin/admin-announce-detail
     SearchBarComponent,
     SearchVhlComponent,
     PageAnnounceProComponent,
-    // ConnexionComponent,
     CreationCompteComponent,
     MyAccountComponent,
     SearchImmatComponent,

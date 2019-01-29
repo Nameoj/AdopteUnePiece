@@ -21,12 +21,10 @@ export class InfospersoComponent implements OnInit {
 
   ngOnInit() {
     this.submitted = false;
-    console.log(this.buyerService.getAuthenticatedRole());
     if (this.buyerService.getAuthenticatedRole() === 'ROLE_BUYER') {
       this.buyerService.getBuyerDetails(this.buyerService.getAuthenticatedUser()).
         subscribe(data => {
           this.buyerConnected = data; this.buyerService.buyerConnected = this.buyerConnected;
-          console.log(this.buyerConnected);
           this.formInit();
         });
     } else {
@@ -42,12 +40,12 @@ export class InfospersoComponent implements OnInit {
       telephone: [this.buyerConnected.telephone, [Validators.required, Validators.pattern('[0][0-9]{9}')]],
     });
   }
-  // convenience getter for easy access to form fields
+
   get f() { return this.registerForm.controls; }
 
   onSubmit() {
     this.submitted = true;
-    // stop here if form is invalid
+
     if (this.registerForm.invalid) {
       return;
     }
@@ -69,18 +67,14 @@ export class InfospersoComponent implements OnInit {
       this.buyerConnected.ville,
 
     );
-    console.log(this.registerForm.value);
-    console.log(newBuyer);
 
     this.buyerService.updateBuyer(newBuyer, this.buyerService.buyerConnected.username)
       .subscribe(data => {
-        console.log(data), this.buyerService.buyerConnected = data,
-          console.log('buyer updated' + this.buyerService.buyerConnected.nom),
-          this.router.navigate(['/myaccount/infosperso']);
+        this.buyerService.buyerConnected = data,
+        this.router.navigate(['/myaccount/infosperso']);
       },
         error => {
-          this.submitted = false,
-            console.log('erreur!!!'), console.log(error.status);
+          this.submitted = false;
         }
       );
   }

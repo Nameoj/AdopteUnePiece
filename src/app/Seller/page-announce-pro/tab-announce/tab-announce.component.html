@@ -1,63 +1,63 @@
 <div class="container">
-<div *ngFor="let announce of listAnnonces">
-    <div class="card">
-        <div class="card-body">
-            <div class="announceItem row">
-                <div class="col-lg-4  col-sm-12 announceImage">
-                    <img [src]="announce.image" placeholder="image" class="image">
-                </div>
-                <div class="col-lg-4 col-sm-12 announceText text-center">
-                    <div class="groupOfText year col-sm-12">
-                        <div>
-                            Année:
-                            <div class="text-muted">
-                                {{announce.year}}
+    <div *ngFor="let announce of listAnnonces">
+        <div class="card">
+            <div class="card-body">
+                <div class="announceItem row">
+                    <div class="col-lg-4  col-sm-12 announceImage">
+                        <img [src]="announce.image" placeholder="image" class="image">
+                    </div>
+                    <div class="col-lg-4 col-sm-12 announceText text-center">
+                        <div class="groupOfText year col-sm-12">
+                            <div>
+                                Année:
+                                <div class="text-muted">
+                                    {{announce.year}}
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="groupOfText model col-sm-12">
-                        <div>
-                            Moto:
+                        <div class="groupOfText model col-sm-12">
+                            <div>
+                                Moto:
+                            </div>
+                            <div class="text-muted">
+                                {{announce.brand}}
+                            </div>
                         </div>
-                        <div class="text-muted">
-                            {{announce.brand}}
-                        </div>
-                    </div>
 
-                    <div class="groupOfText type col-sm-12">
-                        <div>
-                            Type:
+                        <div class="groupOfText type col-sm-12">
+                            <div>
+                                Type:
+                            </div>
+                            <div class="text-muted">
+                                {{announce.pieceName}}
+                            </div>
                         </div>
-                        <div class="text-muted">
-                            {{announce.pieceName}}
-                        </div>
-                    </div>
 
-                    <div class="groupOfText description col-sm-12">
+                        <div class="groupOfText description col-sm-12">
                             <div>
                                 Déscritpion:
                             </div>
                             <div class="text-muted">
                                 {{announce.description}}
                             </div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-lg-4 col-sm-12 accessMore">
- <!--                    <div class="description">
+                    <div class="col-lg-4 col-sm-12 accessMore">
+                        <!--                    <div class="description">
                         <div>
                             Déscritpion:
                         </div>
                         {{announce.description}}
                     </div> -->
-                    <div class="price ">
-                        Prix: {{announce.price}}€
+                        <div class="price ">
+                            Prix: {{announce.price}}€
+                        </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>

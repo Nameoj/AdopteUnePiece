@@ -78,13 +78,13 @@ export class AdminCompanyCreateComponent implements OnInit {
 
     this.sellerService.createSeller(newSeller)
       .subscribe(data => {
-       this.sellerService.sellerConnected = data,
-        console.log('seller created' + this.sellerService.sellerConnected.raisonSociale, this.vendeurCree = true);
+        this.sellerService.sellerConnected = data,
+          console.log('seller created' + this.sellerService.sellerConnected.raisonSociale, this.vendeurCree = true);
       },
 
         error => {
-        this.submitted = false,
-          console.log('erreur!!!'), console.log(error.status), this.emailExistant = true;
+          this.submitted = false,
+            console.log('erreur!!!'), console.log(error.status), this.emailExistant = true;
         }
       );
   }

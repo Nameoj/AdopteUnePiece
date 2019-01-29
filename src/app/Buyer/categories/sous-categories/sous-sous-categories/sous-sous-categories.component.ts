@@ -9,7 +9,7 @@ import { CategoriesService } from 'src/app/Services/categories.service';
 })
 export class SousSousCategoriesComponent implements OnInit {
 
-  @Input()sousCategories;
+  @Input() sousCategories;
 
   filterCounter;
   constructor(private router: Router, private categoriesService: CategoriesService) { }
@@ -17,14 +17,14 @@ export class SousSousCategoriesComponent implements OnInit {
   ngOnInit() {
   }
 
-  filtrePiece(piece){
-    console.log(piece)
-    this.categoriesService.filterCounter ++;
+  filtrePiece(piece) {
+    console.log(piece);
+    this.categoriesService.filterCounter++;
     this.categoriesService.filterActive = true;
     this.categoriesService.piece = piece;
-    console.log(this.categoriesService.piece)
-    if (this.categoriesService.filterCounter % 2 ==0){
-     this.router.navigate(['home', piece]);}
-    else{this.router.navigate(['Home', piece]);}
+    console.log(this.categoriesService.piece);
+    if (this.categoriesService.filterCounter % 2 === 0) {
+      this.router.navigate(['home', piece]);
+    } else { this.router.navigate(['Home', piece]); }
   }
 }

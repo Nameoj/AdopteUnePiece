@@ -4,9 +4,9 @@ import { Observable } from 'rxjs';
 import { Admin } from '../models/admin.models';
 import { map } from 'rxjs/operators';
 
-export const TOKEN = 'token'
-export const AUTHENTICATED_USER = 'authenticaterUser'
-export const ROLE = 'role'
+export const TOKEN = 'token';
+export const AUTHENTICATED_USER = 'authenticaterUser';
+export const ROLE = 'role';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class AdminService {
   public adminConnected;
   private baseUrl = 'http://localhost:8080/api/';
 
-  constructor(private http: HttpClient) { };
+  constructor(private http: HttpClient) { }
 
   getAllAdmins() {
     console.log('retreiving admins');
@@ -26,35 +26,35 @@ export class AdminService {
   createAdmin(admin: Object): Observable<Object> {
     console.log('creation compte');
     return this.http.post<any>(`${this.baseUrl}signup`, admin)
-    .pipe(
-      map(
-        data => {
-          sessionStorage.setItem(AUTHENTICATED_USER, data.username);
-          sessionStorage.setItem(TOKEN, `Bearer ${data.accessToken}`);
-          sessionStorage.setItem(ROLE, data.authorities[0].authority);
-          console.log("token enregistré" + data.accessToken +" "+ data.username)
-          return data;
-        }
-      )
-    );
-  };
+      .pipe(
+        map(
+          data => {
+            sessionStorage.setItem(AUTHENTICATED_USER, data.username);
+            sessionStorage.setItem(TOKEN, `Bearer ${data.accessToken}`);
+            sessionStorage.setItem(ROLE, data.authorities[0].authority);
+            console.log('token enregistré' + data.accessToken + ' ' + data.username);
+            return data;
+          }
+        )
+      );
+  }
 
   login(admin: Object): Observable<Object> {
     console.log('signin process....');
     return this.http.post<any>(`${this.baseUrl}signin`, admin)
 
-    .pipe(
-      map(
-        data => {
-          sessionStorage.setItem(AUTHENTICATED_USER, data.username);
-          sessionStorage.setItem(TOKEN, `Bearer ${data.accessToken}`);
-          sessionStorage.setItem(ROLE, data.authorities[0].authority);
-          console.log("token enregistré" + data.accessToken +" "+ data.username)
-          return data;
-        }
-      )
-    );;
-  };
+      .pipe(
+        map(
+          data => {
+            sessionStorage.setItem(AUTHENTICATED_USER, data.username);
+            sessionStorage.setItem(TOKEN, `Bearer ${data.accessToken}`);
+            sessionStorage.setItem(ROLE, data.authorities[0].authority);
+            console.log('token enregistré' + data.accessToken + ' ' + data.username);
+            return data;
+          }
+        )
+      );
+  }
 
   getAdminDetails(username): Observable<Object> {
     console.log('admin details retreiving');
@@ -73,19 +73,20 @@ export class AdminService {
   }
 
   getAuthenticatedRole() {
-    if(this.getAuthenticatedUser())
-      return sessionStorage.getItem(ROLE)
+    if (this.getAuthenticatedUser()) {
+      return sessionStorage.getItem(ROLE);
+    }
   }
 
   isUserLoggedIn() {
-    const user = sessionStorage.getItem(AUTHENTICATED_USER)
-    return !(user === null)
+    const user = sessionStorage.getItem(AUTHENTICATED_USER);
+    return !(user === null);
   }
 
-  logout(){
-    sessionStorage.removeItem(AUTHENTICATED_USER)
+  logout() {
+    sessionStorage.removeItem(AUTHENTICATED_USER);
     sessionStorage.removeItem(TOKEN);
-    sessionStorage.removeItem(ROLE)
+    sessionStorage.removeItem(ROLE);
 
   }
 

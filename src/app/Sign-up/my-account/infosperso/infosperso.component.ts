@@ -25,12 +25,12 @@ export class InfospersoComponent implements OnInit {
     if (this.buyerService.getAuthenticatedRole() === 'ROLE_BUYER') {
       this.buyerService.getBuyerDetails(this.buyerService.getAuthenticatedUser()).
         subscribe(data => {
-        this.buyerConnected = data; this.buyerService.buyerConnected = this.buyerConnected;
+          this.buyerConnected = data; this.buyerService.buyerConnected = this.buyerConnected;
           console.log(this.buyerConnected);
           this.formInit();
         });
     } else {
-    this.buyerConnected = this.buyerService.buyerConnected;
+      this.buyerConnected = this.buyerService.buyerConnected;
       this.formInit();
     }
   }
@@ -75,12 +75,12 @@ export class InfospersoComponent implements OnInit {
     this.buyerService.updateBuyer(newBuyer, this.buyerService.buyerConnected.username)
       .subscribe(data => {
         console.log(data), this.buyerService.buyerConnected = data,
-        console.log('buyer updated' + this.buyerService.buyerConnected.nom),
-        this.router.navigate(['/myaccount/infosperso']);
+          console.log('buyer updated' + this.buyerService.buyerConnected.nom),
+          this.router.navigate(['/myaccount/infosperso']);
       },
         error => {
-        this.submitted = false,
-          console.log('erreur!!!'), console.log(error.status);
+          this.submitted = false,
+            console.log('erreur!!!'), console.log(error.status);
         }
       );
   }

@@ -11,13 +11,13 @@
     <div id="card-element-616950" class="collapse">
       <div class="card-body">
         <div class="input-group mb-3">
-          
-          <select  [(ngModel)]="brand" class="mb-2" name="brand" id="brand" class="custom-select" id="selectMarque"
+
+          <select [(ngModel)]="brand" class="mb-2" name="brand" id="brand" class="custom-select" id="selectMarque"
             (change)="onSelectBrand($event.target.value)">
             <option [value]="Marque">
               Marque
             </option>
-            <option  *ngFor="let brand of allMotosB" [value]="brand">
+            <option *ngFor="let brand of allMotosB" [value]="brand">
               {{brand}}
             </option>
           </select>
@@ -37,7 +37,8 @@
         </div>
 
         <div class="input-group mb-3">
-          <select [(ngModel)]="newCylindree" class="custom-select" id="cylindree" (change)="onSelectCylindree($event.target.value)" [disabled]="!choixModele">
+          <select [(ngModel)]="newCylindree" class="custom-select" id="cylindree" (change)="onSelectCylindree($event.target.value)"
+            [disabled]="!choixModele">
             <option [value]="cylindree">Cylindrée</option>
 
             <option *ngFor="let cylindree of allMotosC" [value]="cylindree">
@@ -57,7 +58,8 @@
 
 
           <div class="input-group-append">
-            <button class="btn btn-outline-secondary" data-target="#card-element-616950" data-toggle="collapse" type="button" id="button-addon2" (click)="sendResearch()">Go</button>
+            <button class="btn btn-outline-secondary" data-target="#card-element-616950" data-toggle="collapse" type="button"
+              id="button-addon2" (click)="sendResearch()">Go</button>
           </div>
         </div>
       </div>

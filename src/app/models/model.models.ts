@@ -1,3 +1,3 @@
 export class Model {
-    constructor(public motoBrand:String, public modelName:String){}
+    constructor(public motoBrand: String, public modelName: String) { }
 }

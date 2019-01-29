@@ -134,7 +134,7 @@
 
       <div class="row mt-5">
         <div class="col-lg-6 col-xs-12">
-          <h6>DESCRIPTION MA PIECE:</h6>
+          <h6>DESCRIPTION:</h6>
           <!-- ajout champ pour décrire l'état de la pièce -->
           <textarea id="description" class="form-control textArea mt-3" formControlName="description" rows="5"
             aria-label="With textarea" [ngClass]="{ 'is-invalid': submitted && f.description.errors }"></textarea>
@@ -150,8 +150,8 @@
               <img [ngClass]="{'validateImage' : uri != null}" [src]="url" height="150" class="mr-5">
               <input id="singleFileUploadInput" type="file" name="file" class="file-input" required (change)="onSelectFile($event)" />
               <div class="col-12 text-center mt-5">
-                <button *ngIf="uri == null" type="submit" class="btn btn-warning text-white">Valider votre photo</button>
-                <button *ngIf="uri != null" type="submit" class="btn btn-success text-white">Valider votre photo</button>
+                <button *ngIf="uri == null" type="submit" class="btn btnValid">Valider votre photo</button>
+                <button *ngIf="uri != null" type="submit" class="btn btnValid">Valider votre photo</button>
               </div>
             </form>
             <div class="upload-response">
@@ -182,7 +182,7 @@
       </div>
       <div class="row mt-5 mb-3">
         <div class="col-lg-12 text-center">
-          <button type="submit" class="btn btn-primary btnValid">Valider votre annonce</button>
+          <button type="submit" class="btn btnValid">Valider votre annonce</button>
         </div>
       </div>
       <div *ngIf="successSubmit" class="alert alert-success alert-dismissible fade show text-center designAlert" role="alert">

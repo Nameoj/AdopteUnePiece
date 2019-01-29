@@ -33,25 +33,32 @@ pre {
     border: none;
 }
 
+.bikeSectionContainer {
+    justify-content: right;
+}
 
 #headingOne {
     width: 100%;
     background-color: transparent;
     border: none;
-    text-align: right;
+    padding: 0px;
 }
 
 .bikeSectionLinkBtn {
     color: white;
     background-color: #212123;
+    width: 100%;
+    padding: 0;
 }
 
 .bikeSectionBtn {
     font-size: 1.1em;
+    text-align: end;
+    width: 100%;
 }
 
 .bikePartsBtn {
-    background-color: #F0F0F0;
+    border: 1px solid black;
     font-size: 1em;
     margin: 5px;
 }
@@ -60,10 +67,26 @@ pre {
     text-decoration: none;
 }
 
+.subSectionCollapse {
+    text-align: start;
+}
+
 .bikeSubSectionBtn {
     color: black;
     font-size: 1em;
     outline-style: none;
+    padding: 0;
+    width: 90%;
+    text-align: start;
+    margin-top: 5px;
+}
+
+.subSectionName {
+    margin-left: 5px;
+}
+
+.drop {
+    margin-top: 1vh;
 }
 
 .categories {

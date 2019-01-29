@@ -110,7 +110,7 @@ export class DataBaseManagmentComponent implements OnInit {
     this.allMotosM = [];
     this.motoTypeService.getBrand(brand).subscribe(res => {
       this.allMotos = res;
-      for (let i = 0; i < Object.keys(res).length; i++) {
+      for (let i = 0; i < Object.keys(this.allMotos.motoModels).length; i++) {
         this.allMotosM.push(this.allMotos.motoModels[i].modelName);
       }
     });

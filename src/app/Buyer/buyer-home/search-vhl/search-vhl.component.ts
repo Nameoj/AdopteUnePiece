@@ -122,7 +122,7 @@ export class SearchVhlComponent implements OnInit {
     if ((this.newYear === undefined) || (this.newYear === 'Année')) {
       this.newYear = '';
     }
-    this.vehicleChoiced = this.newBrand + ' ' + this.newModel + ' ' + this.newYear;
+    this.vehicleChoiced = this.newBrand + ' ' + this.newModel + ' ' + this.newCylindree + 'cc ' + this.newYear;
     this.searchMoto = new ResearchMoto(this.newBrand, this.newModel, this.newCylindree, this.newYear);
 
     this.categoriesService.piece = undefined;

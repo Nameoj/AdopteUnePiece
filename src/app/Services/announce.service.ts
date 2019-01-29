@@ -47,6 +47,9 @@ export class AnnounceService {
     return this.http.get<Announce>(`${this.baseUrl2}/deleteannounces/${id}`);
   }
 
+  undeleteAnnonce(id): Observable<Object> {
+    return this.http.get<Announce>(`${this.baseUrl2}/undeleteannounces/${id}`);
+  }
 
   getAnnouncesByModelAndCylinderAndYear(model, cylinder, year) {
     return this.http.get(`${this.baseUrl3}/${model}/${cylinder}/${year}`);

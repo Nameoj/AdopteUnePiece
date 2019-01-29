@@ -27,6 +27,15 @@ export class AnnouncePieceComponent implements OnInit {
   arrayForRatingEmpty;
   role;
 
+  pieceName: String = '';
+  model: String = '';
+  cylinder: String = '';
+  brand: String = '';
+  image: string = '';
+  description:  string = '';
+  price: string = '';
+  year: string = '';
+
 
   ngOnInit() {
 
@@ -43,6 +52,14 @@ export class AnnouncePieceComponent implements OnInit {
 
           console.log(this.annonce);
           console.log(this.role);
+          this.pieceName = this.annonce.pieceName;
+          this.model = this.annonce.model;
+          this.brand = this.annonce.brand;
+          this.cylinder = this.annonce.cylinder;
+          this.image = this.annonce.image;
+          this.description = this.annonce.description;
+          this.price = this.annonce.price;
+          this.year = this.annonce.year;
         });
     });
   }
@@ -59,9 +76,9 @@ export class AnnouncePieceComponent implements OnInit {
       this.commandeService.commandes.push(this.annonce);
       console.log(this.annonce);
       console.log(this.commandeService.commandes);
-
-      this.returnLastPage();
+      this.router.navigate(['/panier'])
     });
+    
 
   }
 

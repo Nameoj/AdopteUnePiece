@@ -112,6 +112,7 @@ export class SearchVhlComponent implements OnInit {
   }
 
   sendResearch() {
+    this.categoriesService.piece = '';
     console.log(this.newBrand, this.newModel, this.newCylindree, this.newYear);
     if ((this.newBrand === undefined) || (this.newBrand === 'Marque') || (this.newBrand === 0)) {
       this.newBrand = '';
@@ -127,8 +128,6 @@ export class SearchVhlComponent implements OnInit {
     }
     this.vehicleChoiced = this.newBrand + ' ' + this.newModel + ' ' + this.newYear;
     this.searchMoto = new ResearchMoto(this.newBrand, this.newModel, this.newCylindree, this.newYear);
-
-    this.categoriesService.piece = undefined;
 
     this.searchService.shareSearchVhlWithAnnounceList(this.searchMoto);
 

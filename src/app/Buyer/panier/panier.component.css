@@ -18,6 +18,14 @@ font-weight:bold;
     line-height:0.5em;
 }
 
+.position {
+    margin-top : 15vh;
+}
+
+.image_modal {
+    width: 50%;
+}
+
 @media screen and (max-width: 600px)
 
 {

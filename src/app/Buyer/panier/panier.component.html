@@ -51,16 +51,18 @@
 
     <ng-container matColumnDef="select">
       <th mat-header-cell *matHeaderCellDef></th>
-      <td mat-cell *matCellDef><a (click)="delete(seller.username)"><i class="material-icons icons">delete_sweep</i></a></td>
+      <td mat-cell *matCellDef=" let element; let i = index"><a (click)="delete(element.id, i)" role="button" class="btn"><i class="material-icons icons">delete_sweep</i></a></td>
     </ng-container>
 
     <ng-container matColumnDef="select2">
       <th mat-header-cell *matHeaderCellDef></th>
-      <td mat-cell *matCellDef><a (click)="delete(seller.username)"><i class="material-icons icons">edit</i></a></td>
+      <td mat-cell *matCellDef=" let element; let i = index"><a (click)="edit(i)" id="modal-703978" href="#modal-container-703978" role="button" class="btn" data-toggle="modal"><i class="material-icons icons">edit</i></a></td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" 
+ 
+    >
     </tr>
   </table>
 
@@ -82,5 +84,35 @@
       <a href="#" class="btn btn-warning btn-lg" role="button" aria-disabled="true">Valider ma commande</a>
     </div>
   </div>
-
 </div>
+
+<!-- Modal-->
+        
+        <div class="modal fade position" id="modal-container-703978" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">
+                  {{pieceName}} {{brand}} {{model}}
+                </h5> 
+                <button type="button" class="close" data-dismiss="modal">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <div class="row">
+                    <div class="col 6">
+                        <img class="image_modal" src="{{image}}" placeholder="image">
+                    </div>
+                    <div class="col 6">
+                      Descritpion: {{description}}
+                      <br>
+                      Année: {{year}}
+                      <br>
+                      Etat: {{etat}}/5
+                    </div>
+                  </div>
+            </div>
+          </div>
+        </div>

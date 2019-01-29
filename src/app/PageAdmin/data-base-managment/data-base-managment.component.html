@@ -1,14 +1,14 @@
-<div class="container">
+<div class="container mt-5">
   <div class="row mb-3 mt-2">
     <div class="col-4">
-      <button type="button" class="btn btn-outline-primary" (click)="openBrandCreator()">Ajouter une nouvelle marque</button>
+      <button mat-raised-button type="button" class="mainBtn" (click)="openBrandCreator()">Ajouter nouvelle marque</button>
     </div>
     <div class="col-4">
-      <button type="button" class="btn btn-outline-primary" (click)="openModelCreator()">Ajouter un nouveau modèle</button>
+      <button mat-raised-button type="button" class="mainBtn" (click)="openModelCreator()">Ajouter nouveau modèle</button>
     </div>
     <div class="col-4">
-      <button type="button" class="btn btn-outline-primary" (click)="openCylinderYearCreator()">Ajouter une nouvelle
-        cylindrée-année</button>
+      <button mat-raised-button type="button" class="mainBtn" (click)="openCylinderYearCreator()">Ajouter nouvelle
+        cylindrée/année</button>
     </div>
   </div>
 
@@ -48,14 +48,12 @@
       </select>
 
       <select [(ngModel)]="newCylinderYear_model" class="mb-2" name="" id="">
-        <option selected="selected" *ngIf="newCylinderYear_brand" value=0>
+        <option selected="selected" *ngIf="newCylinderYear_brand" value="0">
           Modèle
         </option>
-
         <option *ngFor="let model of allMotosM" value="{{model}}">
           {{model}}
         </option>
-
       </select>
 
 
@@ -64,7 +62,8 @@
 
     </div>
 
-    <button (click)="addToDatabase()" *ngIf="addBrand || addCylinderYear || addModel" type="button" class="btn btn-success offset-2 col-2">Valider</button>
-
+    <div class="submitBtnContainer">
+      <button mat-raised-button (click)="addToDatabase()" *ngIf="addBrand || addCylinderYear || addModel" type="button">Valider</button>
+    </div>
   </div>
 </div>

@@ -14,6 +14,14 @@ export class AdminAnnounceDetailsComponent implements OnInit {
   announce;
   arrayForRating;
   arrayForRatingEmpty;
+  
+  pieceName: String = '';
+  brand: String = '';
+  model: String = '';
+  cylinder: String = '';
+  image: String = '';
+  description: String = '';
+  price: String = '';
 
   constructor(private _location: Location,
     private annonceService: AnnounceService,
@@ -27,6 +35,14 @@ export class AdminAnnounceDetailsComponent implements OnInit {
         this.announce = data;
         this.arrayForRating = new Array(Number(this.announce['note']));
         this.arrayForRatingEmpty = new Array(5 - Number(this.announce['note']));
+
+        this.pieceName = this.announce.pieceName;
+        this.brand = this.announce.brand;
+        this.model = this.announce.model;
+        this.cylinder = this.announce.cylinder;
+        this.image = this.announce.image;
+        this.description = this.announce.description;
+        this.price = this.announce.price;
       });
     });
   }

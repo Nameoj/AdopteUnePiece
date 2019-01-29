@@ -16,9 +16,14 @@ export class AdminCompanyListComponent implements OnInit {
   sellersObservable: BehaviorSubject<Seller[]>;
   sortCompanyForm: FormGroup;
   filterSelect: String;
+  options: FormGroup;
 
+  constructor(private sellerService: SellerService, private formBuilder: FormBuilder, private router: Router, fb: FormBuilder) {
 
-  constructor(private sellerService: SellerService, private formBuilder: FormBuilder, private router: Router) { }
+    this.options = fb.group({
+      color: 'accent',
+    });
+   }
 
   ngOnInit() {
     this.sellerService.getAllSellers().subscribe(
@@ -35,7 +40,6 @@ export class AdminCompanyListComponent implements OnInit {
   }
 
   edit(seller) {
-    console.log('displaying seller from admin-company-list: ' + seller);
     this.sellerService.sellerEdit = seller;
     this.router.navigate(['/admin-home/admin-company-edit']);
   }
@@ -45,7 +49,6 @@ export class AdminCompanyListComponent implements OnInit {
       this.sellerService.deleteSeller(seller)
         .subscribe(data => {
           this.sellerService.sellerEdit = data;
-          console.log(this.sellerService.sellerEdit);
           this.sellerService.getAllSellers().subscribe(
             response => {
               this.sellers = response;
@@ -59,8 +62,6 @@ export class AdminCompanyListComponent implements OnInit {
   }
 
   seeAnounces(username, idx) {
-    console.log(idx);
-    console.log('See announces of this seller');
     this.router.navigate(['/admin-home/admin-announce-list', username, idx]);
   }
 
@@ -122,8 +123,6 @@ export class AdminCompanyListComponent implements OnInit {
 
     // Mettre à jour le tableau
     this.sellersObservable.next(this.sellers);
-    console.log('this.sellers: ', this.sellers);
-    console.log('this.sellersObservable: ', this.sellersObservable);
   }
 
   indexTrackFn = (index: number) => index;

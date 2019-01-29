@@ -1,8 +1,8 @@
 <div class="container sortFilterContainer mt-5">
-  <mat-form-field>
-    <mat-select [(value)]="filterSelect" placeholder="Type de filtre">
-      <mat-option value="rs">Raison Sociale</mat-option>
-      <mat-option value="cp">Code Postal</mat-option>
+  <mat-form-field [color]="options.value.color">
+    <mat-select [(value)]="filterSelect" placeholder="Filtre par :">
+      <mat-option value="rs">Raison sociale</mat-option>
+      <mat-option value="cp">Code postal</mat-option>
     </mat-select>
   </mat-form-field>
   <form [formGroup]="sortCompanyForm" (ngSubmit)="onSubmit()" class="searchForm">
@@ -23,7 +23,7 @@
         <tr>
           <th>
             Raison Sociale
-            <a (click)="sortBy('raisonSociale')"><i class="material-icons trier">keyboard_arrow_down</i></a>
+            <a (click)="sortBy('raisonSociale')"><i class="material-icons float-right trier">keyboard_arrow_down</i></a>
           </th>
           <th>
             Adresse
@@ -33,7 +33,7 @@
           </th>
           <th>
             Ville
-            <a (click)="sortBy('ville')"><i class="material-icons trier">keyboard_arrow_down</i></a>
+            <a (click)="sortBy('ville')"><i class="material-icons float-right trier">keyboard_arrow_down</i></a>
           </th>
           <th>
             Tel

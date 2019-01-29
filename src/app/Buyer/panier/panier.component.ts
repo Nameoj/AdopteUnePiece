@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material';
-import { SelectionModel } from '@angular/cdk/collections';
 import { CommandesService } from 'src/app/Services/commandes.service';
 import { Announce } from 'src/app/models/announce.models';
 import { Location } from '@angular/common';
@@ -65,7 +63,6 @@ export class PanierComponent implements OnInit {
 
   initPage() {
     ELEMENT_DATA = this.commandeService.commandes;
-    console.log(ELEMENT_DATA);
     this.dataSource = new MatTableDataSource<Announce>(ELEMENT_DATA);
     this.sousTotaux();
   }

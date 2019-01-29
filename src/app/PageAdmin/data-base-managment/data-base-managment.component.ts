@@ -34,7 +34,6 @@ export class DataBaseManagmentComponent implements OnInit {
 
   idx;
   getIndex(idx) {
-    console.log(idx);
     this.idx = idx;
     return this.idx;
   }
@@ -85,12 +84,10 @@ export class DataBaseManagmentComponent implements OnInit {
       case this.newBrand !== '':
         const addBrand = new Brand(this.newBrand);
         this.motoTypeService.createBrand(addBrand).subscribe(res => {
-          console.log('front:marque créée: ' + addBrand.name);
         });
         break;
       case this.newModel !== '':
         const addModel = new Model(this.newModel_brand, this.newModel);
-        console.log('front:modèle créée:' + addModel.modelName + ' de marque: ' + addModel.motoBrand);
         this.motoTypeService.createModel(addModel).subscribe(res => {
           console.log('front:modèle créée:' + addModel.modelName + ' de marque: ' + addModel.motoBrand);
         });
@@ -110,7 +107,7 @@ export class DataBaseManagmentComponent implements OnInit {
     this.allMotosM = [];
     this.motoTypeService.getBrand(brand).subscribe(res => {
       this.allMotos = res;
-      for (let i = 0; i < Object.keys(res).length; i++) {
+      for (let i = 0; i < Object.keys(this.allMotos.motoModels).length; i++) {
         this.allMotosM.push(this.allMotos.motoModels[i].modelName);
       }
     });

@@ -1,3 +1,18 @@
-.btn {
-    white-space: normal;
+.mainBtn {
+    outline-style: none;
+    text-transform: uppercase; 
+}
+
+.row {
+    position: relative;
+}
+
+.submitBtnContainer {
+    position: absolute;
+    bottom: 0;
+    right: 25vw;
+}
+
+.container {
+    height: 70vh;
 }

@@ -69,11 +69,10 @@ export class SearchVhlComponent implements OnInit {
     this.allMotosCylYear;
     this.motoTypeService.getBrand(brand).subscribe(res => {
       this.allMotos = res;
-      for (let i = 0; i < Object.keys(res).length; i++) {
+      for (let i = 0; i < Object.keys(this.allMotos.motoModels).length; i++) {
         this.allMotosM.push(this.allMotos.motoModels[i].modelName);
       }
     });
-    console.log(this.allMotos);
     this.vehicleChoiced = this.newBrand;
     this.vehicleChoice.emit(this.vehicleChoiced);
   }
@@ -83,12 +82,10 @@ export class SearchVhlComponent implements OnInit {
     this.allMotosC = [];
     this.newModel = model;
     this.motoTypeService.getCylindree(model).subscribe(res => {
-      console.log(res);
       this.allMotosCylYearDetail = res;
       for (let i = 0; i < Object.keys(res).length; i++) {
         this.allMotosC.push(this.allMotosCylYearDetail[i].motoCylinder);
       }
-      console.log(this.allMotosC);
       this.vehicleChoiced = this.newBrand + ' ' + this.newModel;
       this.vehicleChoice.emit(this.vehicleChoiced);
     });
@@ -101,19 +98,21 @@ export class SearchVhlComponent implements OnInit {
     this.newCylindree = cylindree;
     for (let i = 0; i < Object.keys(this.allMotosCylYearDetail).length; i++) {
       this.allMotosY.push(this.allMotosCylYearDetail[i].motoYear);
-      console.log(this.allMotosY);
+      this.vehicleChoiced = this.newBrand + ' ' + this.newModel + ' ' + this.newCylindree + 'cc';
+      this.vehicleChoice.emit(this.vehicleChoiced);
     }
   }
 
   onSelectYear(year) {
     this.newYear = year;
-    this.vehicleChoiced = this.newBrand + ' ' + this.newModel + ' ' + this.newYear;
+    this.vehicleChoiced = this.newBrand + ' ' + this.newModel + ' ' + this.newCylindree + 'cc ' + this.newYear;
     this.vehicleChoice.emit(this.vehicleChoiced);
   }
 
   sendResearch() {
+
     this.categoriesService.piece = '';
-    console.log(this.newBrand, this.newModel, this.newCylindree, this.newYear);
+
     if ((this.newBrand === undefined) || (this.newBrand === 'Marque') || (this.newBrand === 0)) {
       this.newBrand = '';
     }
@@ -126,7 +125,7 @@ export class SearchVhlComponent implements OnInit {
     if ((this.newYear === undefined) || (this.newYear === 'Année')) {
       this.newYear = '';
     }
-    this.vehicleChoiced = this.newBrand + ' ' + this.newModel + ' ' + this.newYear;
+    this.vehicleChoiced = this.newBrand + ' ' + this.newModel + ' ' + this.newCylindree + 'cc ' + this.newYear;
     this.searchMoto = new ResearchMoto(this.newBrand, this.newModel, this.newCylindree, this.newYear);
 
     this.searchService.shareSearchVhlWithAnnounceList(this.searchMoto);

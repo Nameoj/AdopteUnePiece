@@ -19,9 +19,6 @@ export class AnnounceItemComponent implements OnInit {
   }
 
   detailAnnonce(annonce) {
-    console.log('route détail annonce');
-    console.log(annonce);
-    console.log(annonce.id);
     this.router.navigate(['/announce-piece', annonce.id]);
   }
 }

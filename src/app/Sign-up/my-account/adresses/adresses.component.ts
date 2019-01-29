@@ -25,12 +25,12 @@ export class AdressesComponent implements OnInit {
       ville: [this.buyerService.buyerConnected.ville, Validators.required]
     });
   }
-  // convenience getter for easy access to form fields
+
   get f() { return this.registerForm.controls; }
 
   onSubmit() {
     this.submitted = true;
-    // stop here if form is invalid
+
     if (this.registerForm.invalid) {
       return;
     }
@@ -51,18 +51,14 @@ export class AdressesComponent implements OnInit {
       formValue['ville'],
 
     );
-    console.log(this.registerForm.value);
-    console.log(newBuyer);
 
     this.buyerService.updateBuyer(newBuyer, this.buyerService.buyerConnected.username)
       .subscribe(data => {
-        console.log(data), this.buyerService.buyerConnected = data,
-          console.log('buyer adress updated' + this.buyerService.buyerConnected.nom),
-          this.router.navigate(['/myaccount/adresses']);
+        this.buyerService.buyerConnected = data,
+        this.router.navigate(['/myaccount/adresses']);
       },
         error => {
-          this.submitted = false,
-            console.log('erreur!!!'), console.log(error.status);
+          this.submitted = false;
         }
       );
   }

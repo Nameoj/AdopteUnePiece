@@ -3,6 +3,10 @@ label {
     font: 1rem 'Fira Sans', sans-serif;
 }
 
+.mat-button {
+    outline-style: none;
+}
+
 .titleSerch {
     margin-top: 40px;
 }
@@ -25,6 +29,66 @@ pre {
     font-size: 1rem;
 }
 
+.card {
+    border: none;
+}
+
+.bikeSectionContainer {
+    justify-content: right;
+}
+
+#headingOne {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+}
+
+.bikeSectionLinkBtn {
+    color: white;
+    background-color: #212123;
+    width: 100%;
+    padding: 0;
+}
+
+.bikeSectionBtn {
+    font-size: 1.1em;
+    text-align: end;
+    width: 100%;
+}
+
+.bikePartsBtn {
+    border: 1px solid black;
+    font-size: 1em;
+    margin: 5px;
+}
+
+.btn-link:hover {
+    text-decoration: none;
+}
+
+.subSectionCollapse {
+    text-align: start;
+}
+
+.bikeSubSectionBtn {
+    color: black;
+    font-size: 1em;
+    outline-style: none;
+    padding: 0;
+    width: 90%;
+    text-align: start;
+    margin-top: 5px;
+}
+
+.subSectionName {
+    margin-left: 5px;
+}
+
+.drop {
+    margin-top: 1vh;
+}
+
 .categories {
     background-color: #1a1a1a;
     text-align: end;
@@ -37,25 +101,11 @@ pre {
     margin-left: 5px;
 }
 
-.categ {
-    display: none;
-}
-
 .arrowHead {
     background-image: url('../../../../assets/down-arrow-white.png');
     background-size: 15px;
     background-position: center right 5px;
     background-repeat: no-repeat;
-}
-.sidenav {
-    width:100%;
-    display: flex;
-}
-@media screen and (max-width: 768px) {
-    .sidenav {
-    width: 100%;
-    display: inline;
-    }
 }
 
 .arrow {
@@ -74,59 +124,16 @@ pre {
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.sectionBtn {
-    background-color: #2a2a2a;
-    color: white;
-    width: 100%;
-    text-transform:uppercase;
-    border-radius: 3px;
-    text-align: end;
-    font-family: 'Montserrat';
-    font-weight: bold;
-    font-size: 0.8em;
-    border: none;
-}
-
 .arrowDown {
     padding: 0;
-}
-
-.btnSection {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin-top: 10px;
-}
-
-.subsectionBtn {
-    border: none;
-    font-size: 0.9em;
-    text-align: left;
-}
-
-.card-body {
-    border: none;
 }
 
 .material-icons {
     vertical-align: text-top;
 }
 
-.buttonAspect{
-    border-radius: 2px;
-    text-align:center;
-    margin-top: 0.8vh;
-    color:black;
-}
-
-.cate {
+.partDisplay {
     margin-left: 15px;
-}
-
-.partBtn {
-    border-radius: 2px;
-    text-align:center;
-    margin-top: 0.8vh;
-    margin-right: 0.5vh;
-    color:black;
 }
 
 .priceClas{
@@ -161,29 +168,8 @@ pre {
     background-color: #f0f0f0;
 }
 
-.pill {
-    height:0px;
-    border-radius: 2px;
-    color: teal;
-    color: color;
-    border: 1px solid currentColor;
-    width: 90%;
-    margin-top: 40px;
-  }
-
 .btnValid {
-      background-color: #ffca47;
-      color: black;
-      border: none;
-}
-
-
-@media screen and (max-width: 768px) {
-    .priceVente {
-        text-align: center;
-    }
-
-    .pricePort {
-        text-align: center;
-    }
+    background-color: #ffca47;
+    color: black;
+    border: none;
 }

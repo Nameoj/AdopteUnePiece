@@ -42,16 +42,13 @@ export class AdminCompanyCreateComponent implements OnInit {
       confirmPassword: ['', Validators.required],
     },
       {
-        // check whether our password and confirm password match
         validator: CustomValidators.passwordMatchValidator
       });
   }
-  // convenience getter for easy access to form fields
   get f() { return this.createCompanyForm.controls; }
 
   onSubmit() {
     this.submitted = true;
-    // stop here if form is invalid
     if (this.createCompanyForm.invalid) {
       return;
     }
@@ -78,13 +75,12 @@ export class AdminCompanyCreateComponent implements OnInit {
 
     this.sellerService.createSeller(newSeller)
       .subscribe(data => {
-        this.sellerService.sellerConnected = data,
-          console.log('seller created' + this.sellerService.sellerConnected.raisonSociale, this.vendeurCree = true);
+        this.sellerService.sellerConnected = data;
       },
 
         error => {
           this.submitted = false,
-            console.log('erreur!!!'), console.log(error.status), this.emailExistant = true;
+          this.emailExistant = true;
         }
       );
   }

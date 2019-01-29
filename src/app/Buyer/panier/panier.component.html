@@ -31,19 +31,16 @@
 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-    <!-- Piece Column -->
     <ng-container matColumnDef="pieceName">
       <th mat-header-cell *matHeaderCellDef> Article </th>
       <td mat-cell *matCellDef="let element"> {{element.pieceName}} {{element.brand}} {{element.model}} </td>
     </ng-container>
 
-    <!-- Price Column -->
     <ng-container matColumnDef="price">
       <th mat-header-cell *matHeaderCellDef> Prix unitaire </th>
       <td mat-cell *matCellDef="let element">{{element.price}}<span>€</span></td>
     </ng-container>
 
-    <!--  Column -->
     <ng-container matColumnDef="charge">
       <th mat-header-cell *matHeaderCellDef> Frais de Port </th>
       <td mat-cell *matCellDef="let element"> {{element.charge}}<span>€</span> </td>

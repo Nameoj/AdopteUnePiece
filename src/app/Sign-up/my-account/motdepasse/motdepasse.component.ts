@@ -24,16 +24,15 @@ export class MotdepasseComponent implements OnInit {
       confirmPassword: ['', Validators.required],
     },
       {
-        // check whether our password and confirm password match
         validator: CustomValidators.passwordMatchValidator
       });
   }
-  // convenience getter for easy access to form fields
+
   get f() { return this.registerForm.controls; }
 
   onSubmit() {
     this.submitted = true;
-    // stop here if form is invalid
+
     if (this.registerForm.invalid) {
       return;
     }
@@ -54,18 +53,14 @@ export class MotdepasseComponent implements OnInit {
       this.buyerService.buyerConnected.ville,
 
     );
-    console.log(this.registerForm.value);
-    console.log(newBuyer);
 
     this.buyerService.updateBuyer(newBuyer, this.buyerService.buyerConnected.username)
       .subscribe(data => {
-        console.log(data), this.buyerService.buyerConnected = data,
-          console.log('buyer password updated' + this.buyerService.buyerConnected.nom),
-          this.router.navigate(['/myaccount/motdepasse']);
+        this.buyerService.buyerConnected = data,
+        this.router.navigate(['/myaccount/motdepasse']);
       },
         error => {
-          this.submitted = false,
-            console.log('erreur!!!'), console.log(error.status);
+          this.submitted = false;
         }
       );
   }

@@ -16,9 +16,14 @@ export class AdminCompanyListComponent implements OnInit {
   sellersObservable: BehaviorSubject<Seller[]>;
   sortCompanyForm: FormGroup;
   filterSelect: String;
+  options: FormGroup;
 
+  constructor(private sellerService: SellerService, private formBuilder: FormBuilder, private router: Router, fb: FormBuilder) {
 
-  constructor(private sellerService: SellerService, private formBuilder: FormBuilder, private router: Router) { }
+    this.options = fb.group({
+      color: 'accent',
+    });
+   }
 
   ngOnInit() {
     this.sellerService.getAllSellers().subscribe(

@@ -24,12 +24,11 @@ export class AdminAnnounceDetailsComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.id = params['annonceId'];
       this.annonceService.getAnnounceById(this.id).subscribe(data => {
-        this.announce = data; console.log(this.announce);
+        this.announce = data;
         this.arrayForRating = new Array(Number(this.announce['note']));
         this.arrayForRatingEmpty = new Array(5 - Number(this.announce['note']));
       });
     });
-    console.log(this.announce);
   }
 
   returnLastPage() {

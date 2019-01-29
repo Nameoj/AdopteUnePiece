@@ -11,12 +11,9 @@ export class CategoriesComponent implements OnInit {
 
 
 
-    constructor(private categoriesService: CategoriesService, private route: Router) {
-
-    }
+    constructor(private categoriesService: CategoriesService, private route: Router) {}
 
     piece: string = this.categoriesService.piece;
-
 
     disableButton = true;
     phoneScreen: boolean = window.matchMedia('(max-width:768px)').matches;
@@ -40,9 +37,11 @@ export class CategoriesComponent implements OnInit {
         const sideNav = document.getElementById('sidenav');
         sideNav.style.width = '330px';
     }
+
     closeNav() {
         document.getElementById('sidenav').style.width = '0';
     }
+
     collapse(index) {
         const categ = document.getElementById('categ' + index);
         if (categ.style.display === 'block') {

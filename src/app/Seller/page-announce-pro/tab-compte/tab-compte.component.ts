@@ -32,11 +32,9 @@ export class TabCompteComponent implements OnInit {
       confirmPassword: ['', Validators.required],
     },
       {
-        // check whether our password and confirm password match
         validator: CustomValidators.passwordMatchValidator
       });
   }
-  // convenience getter for easy access to form fields
   get f() { return this.passwordForm.controls; }
 
   onSubmit() {
@@ -53,8 +51,7 @@ export class TabCompteComponent implements OnInit {
 
     this.sellerService.updateSellerMdp(updatedSellerMdp, this.sellerConnected)
       .subscribe(data => {
-        console.log(data), this.sellerService.sellerEdit = data,
-          console.log('Euh ouais');
+          this.sellerService.sellerEdit = data;
       });
 
     alert('Mot de passe changé');

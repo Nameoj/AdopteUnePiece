@@ -43,7 +43,7 @@ export class MyAccountComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log(this.motDePasse);
+
     }
 
 }

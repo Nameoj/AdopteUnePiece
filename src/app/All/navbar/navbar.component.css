@@ -70,7 +70,6 @@
 }
 
 .adoptPieceSearch {
-    /*TODO: CHANGE IMAGE COLOR, SUPPR THIS COMMENT WHEN DONE*/
     background: url(../../../assets/musica-searcher.png);
     background-position: center right 2ch;
     background-repeat: no-repeat;
@@ -100,7 +99,6 @@
 }
 
 .rightLinks {
-    /* font-size:0.7em; */
     font-weight:normal;
 }
 
@@ -119,33 +117,35 @@
 .marge-top {
     margin-top: 15vh;
 }
-/* .modal-left {
-    height : 70vh;
-} */
 
 .modal-right {
     background-color:#F0F0F0;
 }
+
 .logo {
     
     margin-top: 12%;
     margin-left:5vw;
 }
+
 .text-inscription {
     margin-left: 25%;
     width : 50%;
     margin-top: 10%;
     font-size: 1.3em;
 }
+
 .btn-warning {
     margin-left: 25%;
     margin-bottom: 10%;
     background-color:#FFC419;
     color: white;
 }
+
 .modal-dialog{
   max-width: 1000px;
 }
+
 .facebook {
     margin : 10% 10% 5% 10%;
     background-color: #3963C7;
@@ -167,11 +167,12 @@
     margin : 5% 10%;
     height: 3px;
     background-color: #E5E5E5;
-
 }
+
 .form-group {
     margin: 5% 10%;
 }
+
 .btn-connex {
     margin: 0%;
 }

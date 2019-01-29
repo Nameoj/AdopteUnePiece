@@ -25,12 +25,10 @@ export class AdminCompanyPasswordComponent implements OnInit {
       confirmPassword: ['', Validators.required],
     },
     {
-      // check whether our password and confirm password match
       validator: CustomValidators.passwordMatchValidator
     });
   }
 
-   // convenience getter for easy access to form fields
    get f() { return this.editMdpForm.controls; }
 
 
@@ -46,16 +44,12 @@ export class AdminCompanyPasswordComponent implements OnInit {
       formValue['password'],
     );
 
-    console.log('On submit sending info to sellerService.updateMdp');
     this.sellerService.updateSellerMdp(updatedSellerMdp, this.sellerEdit.username)
       .subscribe(data => {
-        console.log(data), this.sellerService.sellerEdit = data,
-          console.log('seller  MDP updated' + this.sellerService.sellerEdit.raisonSociale);
+        this.sellerService.sellerEdit = data;
       });
 
     alert('SUCCESS PASSWORD!! :-)');
-    console.log('Return List Seller');
-    console.log('SellerEditPassword ' + this.sellerEdit.password);
   }
 }
 

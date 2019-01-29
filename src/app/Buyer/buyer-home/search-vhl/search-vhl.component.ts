@@ -73,7 +73,6 @@ export class SearchVhlComponent implements OnInit {
         this.allMotosM.push(this.allMotos.motoModels[i].modelName);
       }
     });
-    console.log(this.allMotos);
     this.vehicleChoiced = this.newBrand;
     this.vehicleChoice.emit(this.vehicleChoiced);
   }
@@ -83,12 +82,10 @@ export class SearchVhlComponent implements OnInit {
     this.allMotosC = [];
     this.newModel = model;
     this.motoTypeService.getCylindree(model).subscribe(res => {
-      console.log(res);
       this.allMotosCylYearDetail = res;
       for (let i = 0; i < Object.keys(res).length; i++) {
         this.allMotosC.push(this.allMotosCylYearDetail[i].motoCylinder);
       }
-      console.log(this.allMotosC);
       this.vehicleChoiced = this.newBrand + ' ' + this.newModel;
       this.vehicleChoice.emit(this.vehicleChoiced);
     });
@@ -103,7 +100,6 @@ export class SearchVhlComponent implements OnInit {
       this.allMotosY.push(this.allMotosCylYearDetail[i].motoYear);
       this.vehicleChoiced = this.newBrand + ' ' + this.newModel + ' ' + this.newCylindree + 'cc';
       this.vehicleChoice.emit(this.vehicleChoiced);
-      console.log(this.allMotosY);
     }
   }
 
@@ -114,7 +110,6 @@ export class SearchVhlComponent implements OnInit {
   }
 
   sendResearch() {
-    console.log(this.newBrand, this.newModel, this.newCylindree, this.newYear);
     if ((this.newBrand === undefined) || (this.newBrand === 'Marque') || (this.newBrand === 0)) {
       this.newBrand = '';
     }

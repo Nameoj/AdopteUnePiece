@@ -39,10 +39,6 @@ export class TabCreationComponent implements OnInit {
   newYear;
   searchMoto: ResearchMoto;
 
-
-
-
-
   creationAnnounce: FormGroup;
 
   date = new Date(Date.now());
@@ -77,7 +73,6 @@ export class TabCreationComponent implements OnInit {
     private router: Router,
     private motoTypeService: MotoTypeService) {
     config.max = 5;
-    // customize default values of ratings used by this component tree
   }
 
   motoCategories = this.categoriesService.mockMotoCategories;
@@ -116,7 +111,6 @@ export class TabCreationComponent implements OnInit {
         this.allMotosM.push(this.allMotos.motoModels[i].modelName);
       }
     });
-    console.log(this.allMotos);
   }
 
   onSelectModele(model) {
@@ -124,12 +118,10 @@ export class TabCreationComponent implements OnInit {
     this.allMotosC = [];
     this.newModel = model;
     this.motoTypeService.getCylindree(model).subscribe(res => {
-      console.log(res);
       this.allMotosCylYearDetail = res;
       for (let i = 0; i < Object.keys(res).length; i++) {
         this.allMotosC.push(this.allMotosCylYearDetail[i].motoCylinder);
       }
-      console.log(this.allMotosC);
     });
 
   }
@@ -140,7 +132,6 @@ export class TabCreationComponent implements OnInit {
     this.newCylindree = cylindree;
     for (let i = 0; i < Object.keys(this.allMotosCylYearDetail).length; i++) {
       this.allMotosY.push(this.allMotosCylYearDetail[i].motoYear);
-      console.log(this.allMotosY);
     }
   }
 
@@ -162,7 +153,6 @@ export class TabCreationComponent implements OnInit {
       model: ['', Validators.required],
       year: ['', Validators.required],
       description: ['', Validators.required],
-      // note: ['', Validators.required],
       price: ['', Validators.required],
       charge: ['', Validators.required],
     });
@@ -170,8 +160,6 @@ export class TabCreationComponent implements OnInit {
     // selection photos
     $('#singleUploadForm').submit(function (event) {
       const formElement = this;
-      // You can directly create form data from the form element
-      // (Or you could get the files from input element and append them to FormData as we did in vanilla javascript)
       const formData = new FormData(formElement);
 
       $.ajax({
@@ -186,26 +174,23 @@ export class TabCreationComponent implements OnInit {
           console.log(response);
 
           console.log(_this.uri);
-          // process response
         },
         error: function (error) {
           console.log(error);
-          // process erro
         }
       });
       event.preventDefault();
     });
   }
 
-  //  -------   ----------------   ---------------    METHODS FOR FILE UPLOADER --------    ---------------   -------------- ------------
   onSelectFile(event) {
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
 
-      reader.readAsDataURL(event.target.files[0]); // read file as data url
+      reader.readAsDataURL(event.target.files[0]);
 
       // tslint:disable-next-line:no-shadowed-variable
-      reader.onload = (event) => { // called once readAsDataURL is completed
+      reader.onload = (event) => {
         this.url = event.target['result'];
       };
     }
@@ -247,7 +232,6 @@ export class TabCreationComponent implements OnInit {
 
     this.submitted = true;
 
-    // stop here if form is invalid
     if (this.creationAnnounce.invalid) {
       return;
     }
@@ -285,7 +269,6 @@ export class TabCreationComponent implements OnInit {
       formValue['year'],
       formValue['price'],
       formValue['charge']);
-    console.log(newAnnounce);
 
     this.announceService.createAnnounce(newAnnounce).subscribe(data => {
 

@@ -69,7 +69,7 @@ export class SearchVhlComponent implements OnInit {
     this.allMotosCylYear;
     this.motoTypeService.getBrand(brand).subscribe(res => {
       this.allMotos = res;
-      for (let i = 0; i < Object.keys(res).length; i++) {
+      for (let i = 0; i < Object.keys(this.allMotos.motoModels).length; i++) {
         this.allMotosM.push(this.allMotos.motoModels[i].modelName);
       }
     });
@@ -101,13 +101,15 @@ export class SearchVhlComponent implements OnInit {
     this.newCylindree = cylindree;
     for (let i = 0; i < Object.keys(this.allMotosCylYearDetail).length; i++) {
       this.allMotosY.push(this.allMotosCylYearDetail[i].motoYear);
+      this.vehicleChoiced = this.newBrand + ' ' + this.newModel + ' ' + this.newCylindree + 'cc';
+      this.vehicleChoice.emit(this.vehicleChoiced);
       console.log(this.allMotosY);
     }
   }
 
   onSelectYear(year) {
     this.newYear = year;
-    this.vehicleChoiced = this.newBrand + ' ' + this.newModel + ' ' + this.newYear;
+    this.vehicleChoiced = this.newBrand + ' ' + this.newModel + ' ' + this.newCylindree + 'cc ' + this.newYear;
     this.vehicleChoice.emit(this.vehicleChoiced);
   }
 

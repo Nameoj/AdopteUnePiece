@@ -19,12 +19,10 @@ export class AdminService {
   constructor(private http: HttpClient) { }
 
   getAllAdmins() {
-    console.log('retreiving admins');
     return this.http.get<Admin[]>(`${this.baseUrl}admins`);
   }
 
   createAdmin(admin: Object): Observable<Object> {
-    console.log('creation compte');
     return this.http.post<any>(`${this.baseUrl}signup`, admin)
       .pipe(
         map(
@@ -32,7 +30,6 @@ export class AdminService {
             sessionStorage.setItem(AUTHENTICATED_USER, data.username);
             sessionStorage.setItem(TOKEN, `Bearer ${data.accessToken}`);
             sessionStorage.setItem(ROLE, data.authorities[0].authority);
-            console.log('token enregistré' + data.accessToken + ' ' + data.username);
             return data;
           }
         )
@@ -40,7 +37,6 @@ export class AdminService {
   }
 
   login(admin: Object): Observable<Object> {
-    console.log('signin process....');
     return this.http.post<any>(`${this.baseUrl}signin`, admin)
 
       .pipe(
@@ -49,7 +45,6 @@ export class AdminService {
             sessionStorage.setItem(AUTHENTICATED_USER, data.username);
             sessionStorage.setItem(TOKEN, `Bearer ${data.accessToken}`);
             sessionStorage.setItem(ROLE, data.authorities[0].authority);
-            console.log('token enregistré' + data.accessToken + ' ' + data.username);
             return data;
           }
         )
@@ -57,7 +52,6 @@ export class AdminService {
   }
 
   getAdminDetails(username): Observable<Object> {
-    console.log('admin details retreiving');
     return this.http.get<Admin>(`${this.baseUrl}admin/${username}`);
 
   }
@@ -91,7 +85,6 @@ export class AdminService {
   }
 
   updateAdmin(admin, username): Observable<Object> {
-    console.log('creation compte');
     return this.http.get(`${this.baseUrl}admin/${username}`, admin);
   }
   deleteAdmin(username: String): Observable<Object> {

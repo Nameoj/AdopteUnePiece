@@ -79,8 +79,6 @@ export class PanierComponent implements OnInit {
   }
 
   delete(id, index) {
-    console.log(index);
-    console.log(id);
     this.commandeService.commandes.splice(index, 1);
     this.commandeService.nbArticle --;
     this.initPage();

@@ -40,10 +40,9 @@ export class NavbarComponent implements OnInit {
     this.isLogged = this.buyerService.isUserLoggedIn();
   }
 
-  
+
 
   click() {
-    console.log(this.buyerService.isUserLoggedIn());
     if (this.buyerService.isUserLoggedIn() && this.buyerService.getAuthenticatedRole() === 'ROLE_BUYER') {
       this.router.navigate(['/myaccount/infosperso']);
     } else if (this.buyerService.isUserLoggedIn() && this.buyerService.getAuthenticatedRole() === 'ROLE_SELLER') {
@@ -70,15 +69,10 @@ export class NavbarComponent implements OnInit {
       formValue['email'],
       formValue['password'],
     );
-    console.log(this.registerForm.value);
-    console.log(newUserConnection);
 
     this.buyerService.login(newUserConnection)
       .subscribe(data => {
-        console.log(data), this.buyerService.buyerConnected = data;
-        console.log('buyer logged' + this.buyerService.buyerConnected.username
-          + ' ' + this.buyerService.buyerConnected.authorities[0].authority);
-
+        this.buyerService.buyerConnected = data;
 
         $('#myModal .close').click();
 
@@ -93,8 +87,8 @@ export class NavbarComponent implements OnInit {
         }
       },
         error => {
-          this.submitted = false,
-            console.log('erreur!!!'), console.log(error.status), this.erreurConnection = true;
+          this.submitted = false;
+          this.erreurConnection = true;
         }
       );
 
@@ -104,14 +98,13 @@ export class NavbarComponent implements OnInit {
     this.serviceCommande.nbArticle = 0;
 
     for (let i = 0; i < this.nbArticles; i ++) {
-      console.log(this.serviceCommande.commandes[i].id);
       this.annonceService.undeleteAnnonce(this.serviceCommande.commandes[i].id)
       .subscribe(data => console.log(data));
       }
     this.serviceCommande.commandes = [];
 
     this.nbArticles = 0;
-    
+
     this.buyerService.logout();
 
     this.isLogged = this.buyerService.isUserLoggedIn();

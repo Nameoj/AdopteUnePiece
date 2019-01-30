@@ -63,8 +63,7 @@ export class AdminCompanyEditComponent implements OnInit {
 
     this.sellerService.updateSeller(updatedSellerEdit, this.sellerEdit.username)
       .subscribe(data => {
-        console.log(data), this.sellerService.sellerEdit = data,
-          console.log('seller updated' + this.sellerService.sellerEdit.raisonSociale);
+        this.sellerService.sellerEdit = data;
       });
 
     alert('SUCCESS!! :-)');

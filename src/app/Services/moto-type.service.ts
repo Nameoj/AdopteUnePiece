@@ -36,15 +36,12 @@ export class MotoTypeService {
   }
 
   createBrand(name) {
-    console.log('nouvelle marque créée');
     return this.http.post(`${this.baseUrl}` + `${this.brandUrl}` + `${this.postUrl}`, name);
   }
   createModel(motoModel) {
-    console.log('nouveau modèle créé');
     return this.http.post(`${this.baseUrl}` + `${this.modelUrl}` + `${this.postUrl}`, motoModel);
   }
   createCylinderYear(motoModelInfo) {
-    console.log('nouveau cylindre-année créé');
     return this.http.post(`${this.baseUrl}` + `${this.modelInfoUrl}` + `${this.postUrl}`, motoModelInfo);
   }
 

@@ -21,12 +21,10 @@ export class BuyerService {
   constructor(private http: HttpClient) { }
 
   getAllBuyers() {
-    console.log('retreiving buyers');
     return this.http.get<Buyer[]>(`${this.baseUrl}buyers`);
   }
 
   createBuyer(buyer: Object): Observable<Object> {
-    console.log('creation compte');
     return this.http.post<any>(`${this.baseUrl}signup`, buyer)
       .pipe(
         map(
@@ -34,7 +32,6 @@ export class BuyerService {
             sessionStorage.setItem(AUTHENTICATED_USER, data.username);
             sessionStorage.setItem(TOKEN, `Bearer ${data.accessToken}`);
             sessionStorage.setItem(ROLE, data.authorities[0].authority);
-            console.log('token enregistré' + data.accessToken + ' ' + data.username);
             return data;
           }
         )
@@ -42,7 +39,6 @@ export class BuyerService {
   }
 
   login(buyer: Object): Observable<Object> {
-    console.log('signin process....');
     return this.http.post<any>(`${this.baseUrl}signin`, buyer)
 
       .pipe(
@@ -51,7 +47,6 @@ export class BuyerService {
             sessionStorage.setItem(AUTHENTICATED_USER, data.username);
             sessionStorage.setItem(TOKEN, `Bearer ${data.accessToken}`);
             sessionStorage.setItem(ROLE, data.authorities[0].authority);
-            console.log('token enregistré' + data.accessToken + ' ' + data.username);
             return data;
           }
         )
@@ -59,7 +54,6 @@ export class BuyerService {
   }
 
   getBuyerDetails(username): Observable<Object> {
-    console.log('buyer details retreiving');
     return this.http.get<Buyer>(`${this.baseUrl}buyer/${username}`);
 
   }
@@ -93,7 +87,6 @@ export class BuyerService {
   }
 
   updateBuyer(buyer, username): Observable<Object> {
-    console.log('creation compte');
     return this.http.put(`${this.baseUrl}buyer/${username}`, buyer);
   }
   deleteBuyer(username: String): Observable<Object> {

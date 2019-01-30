@@ -181,12 +181,8 @@ export class TabCreationComponent implements OnInit {
         contentType: false,
         success: function (response) {
           _this.uri = response.fileDownloadUri;
-          console.log(response);
-
-          console.log(_this.uri);
         },
         error: function (error) {
-          console.log(error);
         }
       });
       event.preventDefault();

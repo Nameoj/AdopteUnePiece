@@ -88,16 +88,11 @@ export class DataBaseManagmentComponent implements OnInit {
         break;
       case this.newModel !== '':
         const addModel = new Model(this.newModel_brand, this.newModel);
-        this.motoTypeService.createModel(addModel).subscribe(res => {
-          console.log('front:modèle créée:' + addModel.modelName + ' de marque: ' + addModel.motoBrand);
-        });
+        this.motoTypeService.createModel(addModel).subscribe();
         break;
       case this.newCylinder !== '':
         const addCylinderYear = new CylinderYear(this.newCylinderYear_model, this.newCylinder, this.newYear);
-        this.motoTypeService.createCylinderYear(addCylinderYear).subscribe(res => {
-          console.log('front: cylindre-année créée: ' + addCylinderYear.motoCylinder + '-'
-            + addCylinderYear.motoYear + ', pour le modèle: ' + addCylinderYear.motoModel);
-        });
+        this.motoTypeService.createCylinderYear(addCylinderYear).subscribe();
         break;
     }
   }

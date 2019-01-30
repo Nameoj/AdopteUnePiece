@@ -54,7 +54,7 @@ export class AnnounceListComponent implements OnInit {
     this.announceService.getAnnounces()
       .subscribe(
         data => {
-          this.listAnnonces = data; this.announceService.listAnnonce = data; console.log(this.listAnnonces); if (this.piece) {
+          this.listAnnonces = data; this.announceService.listAnnonce = data; if (this.piece) {
             this.getAnnoncesFiltre();
           }
         });

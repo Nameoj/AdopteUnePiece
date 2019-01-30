@@ -42,7 +42,6 @@ export class CreationCompteComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    
     if (this.registerForm.invalid) {
       return;
     }

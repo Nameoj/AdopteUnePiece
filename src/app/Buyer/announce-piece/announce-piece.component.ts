@@ -30,10 +30,10 @@ export class AnnouncePieceComponent implements OnInit {
   model: String = '';
   cylinder: String = '';
   brand: String = '';
-  image: string = '';
-  description:  string = '';
-  price: string = '';
-  year: string = '';
+  image: String = '';
+  description:  String = '';
+  price: String = '';
+  year: String = '';
 
 
   ngOnInit() {
@@ -69,10 +69,5 @@ export class AnnouncePieceComponent implements OnInit {
       this.commandeService.commandes.push(this.annonce);
       console.log(this.annonce);
       console.log(this.commandeService.commandes);
-      this.router.navigate(['/panier'])
-    });
-    
-
-  }
-
+      this.router.navigate(['/panier']); } ) ; }
 }

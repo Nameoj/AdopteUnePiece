@@ -14,7 +14,6 @@ export class AdminAnnounceDetailsComponent implements OnInit {
   announce;
   arrayForRating;
   arrayForRatingEmpty;
-  
   pieceName: String = '';
   brand: String = '';
   model: String = '';

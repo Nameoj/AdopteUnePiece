@@ -95,12 +95,10 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.serviceCommande.nbArticle = 0;
 
-    for( var i=0; i< this.nbArticles; i ++)
-      {
-        console.log(this.serviceCommande.commandes[i].id);
-        this.annonceService.undeleteAnnonce(this.serviceCommande.commandes[i].id)
-        .subscribe(data => console.log(data))
-
+    for (let i = 0; i < this.nbArticles; i ++) {
+      console.log(this.serviceCommande.commandes[i].id);
+      this.annonceService.undeleteAnnonce(this.serviceCommande.commandes[i].id)
+      .subscribe(data => console.log(data));
       }
     this.serviceCommande.commandes = [];
 

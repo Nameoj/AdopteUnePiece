@@ -35,7 +35,9 @@ let ELEMENT_DATA: Announce[] = [
 })
 export class PanierComponent implements OnInit {
 
-  constructor(private commandeService: CommandesService, private _location: Location, private annonceService: AnnounceService, private router: Router, private categoriesService: CategoriesService ) { }
+  constructor(
+  private commandeService: CommandesService, private annonceService: AnnounceService, private router: Router,
+  private categoriesService: CategoriesService ) { }
 
   dataSource;
   sousTotal = 0;
@@ -48,13 +50,11 @@ export class PanierComponent implements OnInit {
   image;
   etat;
   year;
-  description
+  description;
 
   commandes;
   displayedColumns: string[] = ['pieceName', 'price', 'charge', 'select', 'select2'];
-  ngOnInit() {
-    this.initPage();    
-  }
+  ngOnInit() {this.initPage(); }
 
   returnLastPage() {
     this.categoriesService.piece = '';
@@ -68,8 +68,8 @@ export class PanierComponent implements OnInit {
   }
 
   sousTotaux() {
-    if (ELEMENT_DATA.length == 0) {
-      this.sousTotal = 0; this.total = 0; this.port = 0
+    if (ELEMENT_DATA.length === 0) {
+      this.sousTotal = 0; this.total = 0; this.port = 0;
     }
     for (let i = 0; i < ELEMENT_DATA.length; i++) {
       this.sousTotal += parseInt(ELEMENT_DATA[i].price, 10);
@@ -81,7 +81,7 @@ export class PanierComponent implements OnInit {
   delete(id, index) {
     console.log(index);
     console.log(id);
-    this.commandeService.commandes.splice(index,1);
+    this.commandeService.commandes.splice(index, 1);
     this.commandeService.nbArticle --;
     this.initPage();
     this.annonceService.undeleteAnnonce(id).subscribe(data => console.log(data));

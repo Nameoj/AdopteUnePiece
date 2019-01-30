@@ -1,0 +1,82 @@
+<div class="container sortFilterContainer mt-5">
+  <mat-form-field [color]="options.value.color">
+    <mat-select [(value)]="filterSelect" placeholder="Filtre par :">
+      <mat-option value="rs">Raison sociale</mat-option>
+      <mat-option value="cp">Code postal</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <form [formGroup]="sortCompanyForm" (ngSubmit)="onSubmit()" class="searchForm">
+    <div class="form-group row">
+      <div class="input-group">
+        <input formControlName="filterValue" type="text" class="form-control" id="filterValue">
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-outline-secondary">Rechercher</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="col-md-8 mt-1">
+  <cdk-virtual-scroll-viewport itemSize="100" class="VSviewport">
+    <table class="table table-hover table-striped list">
+      <thead class="head sticky-top">
+        <tr>
+          <th>
+            Raison Sociale
+            <a (click)="sortBy('raisonSociale')"><i class="material-icons float-right trier">keyboard_arrow_down</i></a>
+          </th>
+          <th>
+            Adresse
+          </th>
+          <th>
+            Code Postal
+          </th>
+          <th>
+            Ville
+            <a (click)="sortBy('ville')"><i class="material-icons float-right trier">keyboard_arrow_down</i></a>
+          </th>
+          <th>
+            Tel
+          </th>
+          <th class="centerContainer">
+            Editer
+          </th>
+          <th class="centerContainer">
+            Supprimer
+          </th>
+          <th class="centerContainer">
+            Annonces
+          </th>
+        </tr>
+      </thead>
+      <ng-container *cdkVirtualFor="let seller of sellersObservable | async; let idx = index">
+        <tr>
+          <th>
+            {{seller.raisonSociale}}
+          </th>
+          <th>
+            {{seller.adresse1}}
+          </th>
+          <th>
+            {{seller.codePostal}}
+          </th>
+          <th>
+            {{seller.ville}}
+          </th>
+          <th>
+            {{seller.telephone}}
+          </th>
+          <th class="centerContainer">
+            <a (click)="edit(seller)"><i class="material-icons icons">edit</i></a>
+          </th>
+          <th class="centerContainer">
+            <a (click)="delete(seller.username)"><i class="material-icons icons">delete_sweep</i></a>
+          </th>
+          <th class="centerContainer">
+            <a (click)="seeAnounces(seller.username, idx)"><i class="material-icons icons">remove_red_eye</i></a>
+          </th>
+        </tr>
+      </ng-container>
+    </table>
+  </cdk-virtual-scroll-viewport>
+</div>

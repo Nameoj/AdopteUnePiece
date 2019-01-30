@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+<app-home-background></app-home-background>
+<div class="container marge-top">
+
+  <div class="row">
+    <div class="col-md-4">
+      <app-search-vhl (vehicleChoice)="onVehicleChoice($event)"></app-search-vhl>
+    </div>
+
+    <div class="col-md-4">
+      <app-search-immat></app-search-immat>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          <p class="card-text text-center">{{vehicleChoiced}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 search-bar">
+      <app-search-bar></app-search-bar>
+    </div>
+  </div>
+
+  <div class="row">
+    <app-categories class="col-0 col-md-4"></app-categories>
+    <app-announce-list class="col-12 col-md-8 announceList"></app-announce-list>
+  </div>
+</div>
+
+<app-footer></app-footer>

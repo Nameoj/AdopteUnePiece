@@ -1,0 +1,45 @@
+<div class="col-md-8">
+  <h2 class="raisonSociale">{{seller.raisonSociale}}</h2>
+  <cdk-virtual-scroll-viewport itemSize="100" class="VSviewport">
+    <table class="table table-hover table-striped list">
+      <thead class="head sticky">
+        <tr>
+          <th>
+            Pièces
+          </th>
+          <th>
+            Prix
+          </th>
+          <th>
+            Status
+          </th>
+          <th>
+            Supprimer
+          </th>
+          <th>
+            Détails
+          </th>
+        </tr>
+      </thead>
+      <ng-container *cdkVirtualFor="let announce of announces">
+        <tr>
+          <td>
+            {{announce.pieceName}}
+          </td>
+          <td>
+            {{announce.price}}€
+          </td>
+          <td>
+            En vente
+          </td>
+          <td>
+            <a (click)="delete(announce.id)"><i class="material-icons icons">delete_sweep</i></a>
+          </td>
+          <td>
+            <a (click)="details(announce.id)"><i class="material-icons icons">remove_red_eye</i></a>
+          </td>
+        </tr>
+      </ng-container>
+    </table>
+  </cdk-virtual-scroll-viewport>
+</div>

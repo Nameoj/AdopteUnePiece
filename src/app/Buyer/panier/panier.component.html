@@ -1,0 +1,117 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <h1 class="text-center mt-3">Votre panier</h1>
+  <mat-horizontal-stepper labelPosition="bottom" #stepper class="mt-1">
+    <mat-step>
+      <ng-template matStepLabel>
+        <p>Panier</p>
+      </ng-template>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>
+        <p>Connexion</p>
+      </ng-template>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>
+        <p>Livraison</p>
+      </ng-template>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>
+        <p>Paiement</p>
+      </ng-template>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>
+        <p>Confirmer</p>
+      </ng-template>
+    </mat-step>
+  </mat-horizontal-stepper>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="pieceName">
+      <th mat-header-cell *matHeaderCellDef> Article </th>
+      <td mat-cell *matCellDef="let element"> {{element.pieceName}} {{element.brand}} {{element.model}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef> Prix unitaire </th>
+      <td mat-cell *matCellDef="let element">{{element.price}}<span>€</span></td>
+    </ng-container>
+
+    <ng-container matColumnDef="charge">
+      <th mat-header-cell *matHeaderCellDef> Frais de Port </th>
+      <td mat-cell *matCellDef="let element"> {{element.charge}}<span>€</span> </td>
+    </ng-container>
+
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef=" let element; let i = index"><a (click)="delete(element.id, i)" role="button" class="btn"><i class="material-icons icons">delete_sweep</i></a></td>
+    </ng-container>
+
+    <ng-container matColumnDef="select2">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef=" let element; let i = index"><a (click)="edit(i)" id="modal-703978" href="#modal-container-703978" role="button" class="btn" data-toggle="modal"><i class="material-icons icons">edit</i></a></td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" 
+ 
+    >
+    </tr>
+  </table>
+
+  <div class="total mt-4">
+    <p>Sous total produits TTC: </p>{{sousTotal}}<span>€</span>
+    <hr>
+    <p>Frais de port: </p>{{port}}<span>€</span>
+    <hr>
+    <p class="prix_total">TOTAL TTC À PAYER: </p>{{total}}<span>€</span>
+    <hr>
+  </div>
+
+  <div class="row text-center mt-2 mb-4">
+    <div class="col-12 col-md-6 mt-2">
+      <a (click)="returnLastPage()" class="btn btn-warning btn-lg" role="button" aria-disabled="true">Poursuivre mes
+        achats</a>
+    </div>
+    <div class="col-12 col-md-6 mt-2">
+      <a href="#" class="btn btn-warning btn-lg" role="button" aria-disabled="true">Valider ma commande</a>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
+
+<!-- Modal-->
+        
+        <div class="modal fade position" id="modal-container-703978" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">
+                  {{pieceName}} {{brand}} {{model}}
+                </h5> 
+                <button type="button" class="close" data-dismiss="modal">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <div class="row">
+                    <div class="col 6">
+                        <img class="image_modal" src="{{image}}" placeholder="image">
+                    </div>
+                    <div class="col 6">
+                      Descritpion: {{description}}
+                      <br>
+                      Année: {{year}}
+                      <br>
+                      Etat: {{etat}}/5
+                    </div>
+                  </div>
+            </div>
+          </div>
+        </div>

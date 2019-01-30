@@ -1,0 +1,48 @@
+.head {
+    background-color: #212123;
+    color: white;
+}
+
+.VSviewport {
+    margin: 5vh auto;
+}
+
+.icons {
+    cursor: pointer;
+}
+
+.centerContainer {
+    text-align: center;
+}
+
+/*DEFAULT CSS - MOBILE VERSION  DEFAULT CSS - MOBILE VERSION  DEFAULT CSS - MOBILE VERSION  DEFAULT CSS - MOBILE VERSION*/
+@media (max-width: 576px) {
+    .VSviewport {
+        width: 90vw;
+        height: 50vh;
+    }
+}
+
+/*LANDSCAPE PHONE*/
+@media (min-width: 576px) {
+    .VSviewport {
+        width: 90vw;
+        height: 50vh;
+    }
+}
+
+/*TABLET VERSION*/
+@media (min-width: 768px) {
+    .VSviewport {
+        width: 65vw;
+        height: 50vh;
+    }
+}
+
+/*DESKTOP VERSION*/
+@media (min-width: 1200px) {
+    .VSviewport {
+        width: 72vw;
+        height: 60vh;
+    }
+}

@@ -1,0 +1,47 @@
+<div class="card">
+  <div class="card-body">
+    <div class="announceItem row">
+      <div class="col-lg-4  col-sm-12 announceImage">
+        <img [src]="announce.image" placeholder="image" class="image img-fluid">
+      </div>
+      <div class="col-lg-4 col-sm-12 announceText text">
+        <div class="groupOfText year col-sm-12">
+          <div>
+            Année:
+            <div class="text-muted">
+              {{announce.year}}
+            </div>
+          </div>
+        </div>
+
+        <div class="groupOfText model col-sm-12">
+          <div>
+            Moto:
+          </div>
+          <div class="text-muted">
+            {{announce.brand}} - {{announce.model}} - {{announce.cylinder}}
+          </div>
+        </div>
+
+        <div class="groupOfText type col-sm-12">
+          <div>
+            Type:
+          </div>
+          <div class="text-muted">
+            {{announce.pieceName}}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-sm-12 accessMore">
+        <div class="price">
+          {{announce.price}}€
+        </div>
+        <button class="btn btn-warning" (click)="detailAnnonce(announce)">
+          Voir
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>

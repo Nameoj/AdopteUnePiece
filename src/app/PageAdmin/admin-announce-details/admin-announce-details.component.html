@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+<div class="container piecePage">
+
+  <div class="text-center announcePiecePage">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 text-center announceTitle">
+        {{pieceName}} {{brand}} {{model}} {{cylinder}}
+        <hr />
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 col-xs-12 announceImageDiv">
+          <img class="announceImage col-sm-12" src="{{image}}" placeholder="image">
+        </div>
+
+        <div class="col-lg-4 col-xs-12 announceDescription">
+
+          <p class="announce font-weight-bold">
+            <br>
+            Marque: {{brand}}
+            <br>
+            Modèle: {{model}}
+            <br>
+            Cylindrée: {{cylinder}}
+            <br>
+            Année: {{year}}
+          </p>
+
+          <p> Description: {{description}}</p>
+
+          <p class="announceState">
+            Etat de la pièce:
+          </p>
+          <p class="announceState">
+            <span class="announceRating" *ngFor="let numberOfStarts of arrayForRating">★</span>
+            <span class="announceRating" *ngFor="let numberOfStarts of arrayForRatingEmpty">☆</span>
+            <br class="d-sm-none sautAnnonce">
+          </p>
+        </div>
+        <div class="shop col-lg-4 col-xs-12">
+          <p class="announcePrice">{{price}}€</p>
+        </div>
+      </div>
+
+
+      <div class="btn-group col-lg-2 col-xs-12 retour" data-toggle="buttons">
+        <label type="button" class="btn btn-warning btnRetour" (click)="returnLastPage()">
+          Retour
+        </label>
+      </div>
+    </div>
+
+  </div>
+</div>

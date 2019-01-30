@@ -1,0 +1,15 @@
+.sectionBtn {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+
+.subsectionBtn {
+    background-color: grey;
+    color: white;
+    margin: auto;
+}
+
+.material-icons {
+    vertical-align: text-top;
+}

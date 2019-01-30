@@ -1,0 +1,144 @@
+<div class="col-md-8 mt-5">
+  <form [formGroup]="editCompanyForm" (ngSubmit)="onSubmit()">
+    <!--RAISON SOCIALE-->
+    <div class="form-group row">
+      <label for="colFormLabel" class="label col-md-2 col-form-label">Raison Sociale</label>
+      <div class="col-md-10">
+        <input formControlName="raisonSociale" type="text" class="form-control" id="raisonSociale" [ngClass]="{ 'is-invalid': submitted && f.raisonSociale.errors }" />
+        <div *ngIf="submitted && f.raisonSociale.errors" class="invalid-feedback">
+          <div *ngIf="f.raisonSociale.errors.required">champs requis</div>
+        </div>
+      </div>
+    </div>
+
+    <!--ADRESSE-->
+    <div class="form-group row">
+      <label for="colFormLabel" class="label col-md-2 col-form-label">Adresse</label>
+      <div class="col-md-10">
+        <input formControlName="adresse1" type="text" class="form-control" id="adresse1" [ngClass]="{ 'is-invalid': submitted && f.adresse1.errors }" />
+        <div *ngIf="submitted && f.adresse1.errors" class="invalid-feedback">
+          <div *ngIf="f.adresse1.errors.required">champs requis</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabel" class="label col-md-2 col-form-label">Adresse 2</label>
+      <div class="col-md-10">
+        <input formControlName="adresse2" type="text" class="form-control" id="adresse2" [ngClass]="{ 'is-invalid': submitted && f.adresse2.errors }" />
+        <div *ngIf="submitted && f.adresse2.errors" class="invalid-feedback">
+          <div *ngIf="f.adresse2.errors.required">champs requis</div>
+        </div>
+      </div>
+    </div>
+
+    <!--CODE POSTAL-->
+    <div class="form-group row">
+      <label for="colFormLabel" class="label col-md-2 col-form-label">Code Postal</label>
+      <div class="col-md-6">
+        <input formControlName="codePostal" type="text" class="form-control" id="codePostal" [ngClass]="{ 'is-invalid': submitted && f.codePostal.errors }" />
+        <div *ngIf="submitted && f.codePostal.errors" class="invalid-feedback">
+          <div *ngIf="f.codePostal.errors.required">champs requis</div>
+        </div>
+      </div>
+    </div>
+
+    <!--VILLE-->
+    <div class="form-group row">
+      <label for="colFormLabel" class="label col-md-2 col-form-label">Ville</label>
+      <div class="col-md-10">
+        <input formControlName="ville" type="text" class="form-control" id="ville" [ngClass]="{ 'is-invalid': submitted && f.ville.errors }" />
+        <div *ngIf="submitted && f.ville.errors" class="invalid-feedback">
+          <div *ngIf="f.ville.errors.required">champs requis</div>
+        </div>
+      </div>
+    </div>
+
+    <!--TELEPHONE-->
+    <div class="form-group row">
+      <label for="colFormLabel" class="label col-md-2 col-form-label">Téléphone</label>
+      <div class="col-md-6">
+        <input type="text" formControlName="telephone" class="form-control" id="telephone" [ngClass]="{ 'is-invalid': submitted && f.telephone.errors }" />
+        <div *ngIf="submitted && f.telephone.errors" class="invalid-feedback">
+          <div *ngIf="f.telephone.errors.required">champs requis</div>
+          <div *ngIf="f.telephone.errors.pattern">le numéro doit avoir 10 chiffres</div>
+        </div>
+      </div>
+    </div>
+
+    <!--SIREN-->
+    <div class="form-group row">
+      <label for="colFormLabel" class="label col-md-2 col-form-label">SIREN</label>
+      <div class="col-md-4">
+        <input formControlName="siren" type="text" class="form-control" id="siren" [ngClass]="{ 'is-invalid': submitted && f.siren.errors }" />
+        <div *ngIf="submitted && f.siren.errors" class="invalid-feedback">
+          <div *ngIf="f.siren.errors.required">champs requis</div>
+        </div>
+      </div>
+    </div>
+
+    <!--EMAIL INPUT-->
+    <div class="form-group row">
+      <label for="colFormLabel" class="label col-md-2 col-form-label">Email</label>
+      <div class="col-md-10">
+        <input formControlName="email" type="email" class="form-control" id="email" [ngClass]="{ 'is-invalid': (submitted && f.email.errors) }"
+          disabled />
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">champ requis</div>
+          <div *ngIf="f.email.errors.email">
+            un email valide est requis
+          </div>
+        </div>
+        <!-- <div *ngIf="emailExistant" class="invalid-feedback">
+          cet email est déjà utilisé
+        </div> -->
+      </div>
+    </div>
+
+    <!--NOM GERANT-->
+    <div class="form-group row">
+      <label for="colFormLabel" class="label col-md-2 col-form-label">Nom Gérant</label>
+      <div class="col-md-6">
+        <input type="text" formControlName="nomG" class="form-control" id="nomG" [ngClass]="{ 'is-invalid': submitted && f.nomG.errors }" />
+        <div *ngIf="submitted && f.nomG.errors" class="invalid-feedback">
+          <div *ngIf="f.nomG.errors.required">champs requis</div>
+        </div>
+      </div>
+    </div>
+
+    <!--PRENOM GERANT-->
+    <div class="form-group row">
+      <label for="colFormLabel" class="label col-md-2 col-form-label">Prénom Gérant</label>
+      <div class="col-md-6">
+        <input type="text" formControlName="prenomG" class="form-control" id="prenomG" [ngClass]="{ 'is-invalid': submitted && f.prenomG.errors }" />
+        <div *ngIf="submitted && f.prenomG.errors" class="invalid-feedback">
+          <div *ngIf="f.prenomG.errors.required">champs requis</div>
+        </div>
+      </div>
+    </div>
+
+    <!--TELEPHONE GERANT-->
+    <div class="form-group row">
+      <label for="colFormLabel" class="label col-md-2 col-form-label">Téléphone Gerant</label>
+      <div class="col-md-6">
+        <input type="text" formControlName="telephoneG" class="form-control" id="telephoneG" [ngClass]="{ 'is-invalid': submitted && f.telephoneG.errors }" />
+        <div *ngIf="submitted && f.telephoneG.errors" class="invalid-feedback">
+          <div *ngIf="f.telephoneG.errors.required">champs requis</div>
+          <div *ngIf="f.telephoneG.errors.pattern">le numéro doit avoir 10 chiffres</div>
+        </div>
+      </div>
+    </div>
+
+    <!--EDIT PASSWORD-->
+    <a (click)="displayMdpControl()" class="btn btn-danger mb-2">Modifier mot de passe utilisateur</a>
+
+    <div *ngIf="displayMdp" class="editPasswordContainer">
+      <app-admin-company-password></app-admin-company-password>
+    </div>
+
+    <div>
+      <button type="submit" class="btn btn-warning mb-2">
+        Modifier Compte
+      </button>
+    </div>
+  </form>
+</div>

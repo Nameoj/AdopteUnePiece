@@ -1,0 +1,81 @@
+.test {
+    width: 80%;
+    height: 50px;
+    margin-top:10px;
+    margin-left:50px;
+    font-size:1em;
+    cursor: pointer;
+    font-family:Rubik, Arial, Helvetica, sans-serif;
+    border: 1ch;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.textSouCat {
+    margin-left: 1em;
+    margin-top: 0.8em;
+    outline: 0;
+}
+
+.list {
+    display:none;
+    width:76%;
+    margin-left: 50px;
+}
+
+
+.mat-button {
+    outline: 0;
+}
+
+i {
+    margin-top: 0.5em;
+    outline: 0;
+}
+
+/*Mobile*/
+@media (max-width: 576px) {
+    .list-group-item {
+        width: 50vw;
+    }    
+
+    .mat-button {
+        width: 45vw;
+    }
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+    .list-group-item {
+        width: 35vw;
+    }    
+
+    .mat-button {
+        width: 25vw;
+    }
+
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+    .list-group-item {
+        width: 40vw;
+    }   
+
+    .mat-button {
+        width: 35vw;
+        font-size: 1em;
+    }
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+    .list-group-item {
+        width: 20vw;
+    }   
+
+    .mat-button {
+        width: 15vw;
+        font-size: 1em;
+    }
+}

@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+<div class="container margetop">
+  <div class="row">
+    <div class="col-md-3 d-none d-md-block mt-5 ">
+
+      <a routerLink="/myaccount/infosperso" (click)="getInfosPerso()">
+        <p [ngClass]="{'lien-menu':infosPerso, 'lien-menu-active':!infosPerso}">Informations</p>
+      </a>
+
+      <a routerLink="/myaccount/motdepasse" (click)="getMotdePasse()">
+        <p [ngClass]="{'lien-menu':motDePasse, 'lien-menu-active':!motDePasse}">Mot de Passe</p>
+      </a>
+      <a routerLink="/myaccount/adresses" (click)="getAdresses()">
+        <p [ngClass]="{'lien-menu':adresses, 'lien-menu-active':!adresses}">Adresses</p>
+      </a>
+      <a routerLink="/myaccount/commandes" (click)="getCommandes()">
+        <p [ngClass]="{'lien-menu':commandes, 'lien-menu-active':!commandes}">Commandes</p>
+      </a>
+      <a *ngIf="role == 'ROLE_ADMIN'" routerLink="/admin-home">
+        <p class="lien-menu">Retour Console Admin</p>
+      </a>
+    </div>
+
+    <div class="col-12 d-flex justify-content-center d-md-none mt-5 ">
+
+      <a routerLink="/myaccount/infosperso" (click)="getInfosPerso()">
+        <p [ngClass]="{'lien-menu-md':infosPerso, 'lien-menu-active-md':!infosPerso}">Informations</p>
+      </a>
+
+      <a routerLink="/myaccount/motdepasse" (click)="getMotdePasse()">
+        <p [ngClass]="{'lien-menu-md':motDePasse, 'lien-menu-active-md':!motDePasse}">Mot&nbsp;de&nbsp;Passe</p>
+      </a>
+      <a routerLink="/myaccount/adresses" (click)="getAdresses()">
+        <p [ngClass]="{'lien-menu':adresses, 'lien-menu-active':!adresses}">Adresses</p>
+      </a>
+      <a routerLink="/myaccount/commandes" (click)="getCommandes()">
+        <p [ngClass]="{'lien-menu':commandes, 'lien-menu-active':!commandes}">Commandes</p>
+      </a>
+    </div>
+    <div class="col-md-9 col-sm-12 ">
+
+      <router-outlet></router-outlet>
+    </div>
+
+
+  </div>
+</div>
+
+<footer>
+  <app-footer></app-footer>
+</footer>

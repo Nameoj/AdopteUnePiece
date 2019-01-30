@@ -1,0 +1,79 @@
+.announceText {
+    padding-right:7px;
+    padding-left:15px;
+    border-right:1px solid #dfdfdf;
+}
+/* .groupOfText:not(:last-child){
+    margin:0px 0px 33% 0px;
+} */
+
+.groupOfText{
+    margin-right:30px;
+}
+.image {
+    width:inherit;
+    height:inherit;
+}
+.announceImage{
+    padding:0px;
+    margin-top:auto;
+    margin-bottom:auto;
+}
+.row {
+    margin:0;
+}
+.card-body{
+    padding:1.65rem;
+    padding-bottom: 0%;
+    padding-top: 0%;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.accessMore {
+    margin-top:auto;
+    margin-bottom:auto;
+    text-align:center;
+}
+.price{
+    font-size:2.3em;
+    font-weight: bold;
+}
+.card {
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.btn-warning{
+    background-color:#FFC419;
+    min-width:70px;
+}
+
+.year {
+    margin-top: 50px;
+}
+
+.modele {
+    margin-bottom: 40px;
+}
+
+.type {
+    margin-bottom: 50px;
+}
+
+@media screen and (max-width: 768px) {
+    .image {
+        width: 250px;
+        height: 200px;
+        display: block;
+        margin: auto;
+    }
+
+    .announceText {
+        text-align: center;
+        border: none;
+    }
+
+    .accessMore {
+        text-align: center;
+    }
+}

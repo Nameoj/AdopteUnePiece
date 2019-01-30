@@ -1,0 +1,68 @@
+<div id="card-74095">
+  <div class="card">
+    <a class="card-link collapsed" data-toggle="collapse" data-parent="#card-74095" href="#card-element-616950">
+      <div class="card-header">
+        VEHICULE
+
+        <p class="float-right arrow">&#8964;</p>
+      </div>
+    </a>
+
+    <div id="card-element-616950" class="collapse">
+      <div class="card-body">
+        <div class="input-group mb-3">
+
+          <select [(ngModel)]="brand" class="mb-2" name="brand" id="brand" class="custom-select" id="selectMarque"
+            (change)="onSelectBrand($event.target.value)">
+            <option [value]="Marque">
+              Marque
+            </option>
+            <option *ngFor="let brand of allMotosB" [value]="brand">
+              {{brand}}
+            </option>
+          </select>
+        </div>
+
+        <div class="input-group mb-3">
+          <select [(ngModel)]="newModel" class="custom-select" id="modele" (change)="onSelectModele($event.target.value)"
+            [disabled]="!choixMarque">
+            <option [value]="modele">
+              Modèle
+            </option>
+
+            <option *ngFor="let model of allMotosM" [value]="model">
+              {{model}}
+            </option>
+          </select>
+        </div>
+
+        <div class="input-group mb-3">
+          <select [(ngModel)]="newCylindree" class="custom-select" id="cylindree" (change)="onSelectCylindree($event.target.value)"
+            [disabled]="!choixModele">
+            <option [value]="cylindree">Cylindrée</option>
+
+            <option *ngFor="let cylindree of allMotosC" [value]="cylindree">
+              {{cylindree}}
+            </option>
+          </select>
+        </div>
+
+
+
+        <div class="input-group mb-3">
+          <select [(ngModel)]="newYear" class="custom-select" id="annee" [disabled]="!choixCylindree" (change)="onSelectYear($event.target.value)">
+            <option [value]="annee">Année</option>
+
+            <option *ngFor="let year of allMotosY" [value]="year">{{year}}</option>
+          </select>
+
+
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" data-target="#card-element-616950" data-toggle="collapse" type="button"
+              id="button-addon2" (click)="sendResearch()">Go</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

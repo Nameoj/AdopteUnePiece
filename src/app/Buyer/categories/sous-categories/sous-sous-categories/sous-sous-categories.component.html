@@ -1,0 +1,3 @@
+<span *ngFor="let sousSousCategories of sousCategories.sousSousCategories, let i=index">
+  <a (click)="filtrePiece(sousSousCategories.name) " class="badge badge-outline badge-dark">{{sousSousCategories.name}}</a>
+</span>

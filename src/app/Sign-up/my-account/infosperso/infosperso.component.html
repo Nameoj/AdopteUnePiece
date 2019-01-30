@@ -1,0 +1,75 @@
+<div class="margetop">
+  <div class=" row">
+    <div class="col-12">
+      <div class="titlewline">
+        <div class="titlewline__title">Informations Personnelles <br /></div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 infoPerso">
+      <div *ngIf="registerForm">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="account__box ">
+            <div class="box_inner">
+              <div class="form-group row">
+                <label for="colFormLabel" class="label col-md-3 col-form-label">Email</label>
+                <div class="col-md-6">
+                  <input type="email" formControlName="email" class="form-control" id="email" [ngClass]="{ 'is-invalid': (submitted && f.email.errors) || emailExistant }"
+                    [placeholder]="buyerConnected.email" disabled="disabled" />
+                  <div *ngIf="(submitted && f.email.errors)" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">champ requis</div>
+                    <div *ngIf="f.email.errors.email">
+                      un email valide est requis
+                    </div>
+                  </div>
+                  <div *ngIf="emailExistant" class="invalid-feedback">
+                    cet email est déjà utilisé
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="colFormLabel" class="label col-md-3 col-form-label">Prénom</label>
+                <div class="col-md-6">
+                  <input type="text" formControlName="prenom" class="form-control" id="prenom" [ngClass]="{ 'is-invalid': submitted && f.prenom.errors }"
+                    [placeholder]="buyerConnected.prenom" />
+                  <div *ngIf="submitted && f.prenom.errors" class="invalid-feedback">
+                    <div *ngIf="f.prenom.errors.required">champs requis</div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="colFormLabel" class="label col-md-3 col-form-label">Nom</label>
+                <div class="col-md-6">
+                  <input type="text" formControlName="nom" class="form-control" id="nom" [ngClass]="{ 'is-invalid': submitted && f.nom.errors }"
+                    [placeholder]="buyerConnected.nom" />
+                  <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+                    <div *ngIf="f.nom.errors.required">champs requis</div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="colFormLabel" class="label col-md-3 col-form-label">Téléphone Portable</label>
+                <div class="col-md-6">
+                  <input type="text" formControlName="telephone" class="form-control" id="telephone" [ngClass]="{ 'is-invalid': submitted && f.telephone.errors }"
+                    [placeholder]="buyerConnected.telephone" />
+                  <div *ngIf="submitted && f.telephone.errors" class="invalid-feedback">
+                    <div *ngIf="f.telephone.errors.required">champs requis</div>
+                    <div *ngIf="f.telephone.errors.pattern">le numéro doit avoir 10 chiffres</div>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="submitted" class="form-group row">
+                <div class="col-md-6 offset-md-3">
+                  <p>Mise à jour effectuée</p>
+                </div>
+              </div>
+              <div>
+                <button type="submit" class="btn  mb-2">Validez</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

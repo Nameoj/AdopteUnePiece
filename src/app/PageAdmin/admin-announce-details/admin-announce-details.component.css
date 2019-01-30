@@ -1,0 +1,71 @@
+.piecePage {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 5vh;
+    background-color: white;
+}
+
+.announcePiecePage {
+    margin-bottom: 20px;
+}
+
+.announcePrice {
+    margin-top: 18px !important;
+    font-size: 1.9em;
+    background-color: #f0f0f0;
+    color: red;
+    margin-bottom: 0;
+}
+
+.panier {
+    width: 100%;
+    border-radius: 0px 0px 4px 4px;
+}
+
+.shop {
+    padding-top: 60px;
+    padding-right: 40px; 
+}
+
+.retour {
+    margin-left: 85%;
+}
+
+.announceTitle {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-size: 2.2em;
+}
+
+.announceImage {
+    width: 80vw;
+    box-shadow: 0 28px 16px -26px rgba(0, 0, 0);
+}
+
+.sautAnnonce {
+    margin-bottom: 15px;
+}
+
+
+.announceRating {
+    color: #FF8C00;
+    font-size: 1.5em;
+}
+
+@media screen and (max-width: 769px) {
+    .announceImageDiv {
+        margin-bottom: 25px;
+    }
+    .retour {
+        margin-top: 20px;
+        margin-left: 0;
+    }
+    .btnRetour {
+        width: 100%;
+    }
+    .shop {
+        width: 89%;
+        padding-right: 0;
+        padding-top: 0;
+        margin-left: 15px;
+    }
+}

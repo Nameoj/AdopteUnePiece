@@ -1,0 +1,184 @@
+.navbar {
+    z-index: 600000;
+    height: 90px;
+    background-color: #212123 !important;
+}
+
+.material-icons{
+    font-size: 48px;
+    color: #FFCE11;
+    margin-top: 25px;
+}
+
+.exit {
+    margin-top: 10px;
+    margin-left: 40px;
+}
+
+.compte {
+    margin-left: 40px;
+    cursor: pointer;
+}
+
+.websiteLogo {
+    width: 3em !important;
+    height: 3em !important;
+    margin-left: 30px;
+    background-color: #212123 !important;
+}
+
+.websiteLogoModal {
+    width: 3em !important;
+    height: 3em !important;
+    margin-left: 30px;
+    background-color:white;
+}
+
+@media screen and (max-width: 769px) {
+    .rightLinks {
+        display: inline-block;
+    }
+
+    .navbar {
+        height: auto;
+        color: #212123;
+    }
+
+    .material-icons {
+        margin: auto;
+    }
+
+    .exit {
+        margin: auto;
+    }
+
+    .compte {
+        margin: auto;
+    }
+
+    .numberOfArticles {
+        visibility: hidden;
+    }
+
+    .navbar-brand {
+        font-size: 1em;
+    }
+
+    .websiteLogo {
+        margin-left: 0;
+    }
+}
+
+.adoptPieceSearch {
+    background: url(../../../assets/musica-searcher.png);
+    background-position: center right 2ch;
+    background-repeat: no-repeat;
+    background-size: 1em;
+    border-radius:20px;
+    padding-left:12px;
+    min-width:20ch;
+}
+
+.adoptPieceSearch::placeholder {
+    color: #212123;
+}
+
+.adoptPieceSearch {
+    background-color: #F0F0F0;
+    outline-style: none;
+}
+
+.container-fluid {
+    margin: 0px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
+}
+
+.row {
+    margin: 0px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
+}
+
+.rightLinks {
+    font-weight:normal;
+}
+
+.numberOfArticles {
+    font-size:0.5em;
+    background-color:#FFCE11;
+    color: #212123;
+    border-radius: 50px;
+    padding:2px 5px 2px 5px;
+    position: relative;
+    bottom: 1.3em;
+    bottom: 70px;
+    left: 30px;
+}
+
+.marge-top {
+    margin-top: 15vh;
+}
+
+.modal-right {
+    background-color:#F0F0F0;
+}
+
+.logo {
+    
+    margin-top: 12%;
+    margin-left:5vw;
+}
+
+.text-inscription {
+    margin-left: 25%;
+    width : 50%;
+    margin-top: 10%;
+    font-size: 1.3em;
+}
+
+.btn-warning {
+    margin-left: 25%;
+    margin-bottom: 10%;
+    background-color:#FFC419;
+    color: white;
+}
+
+.modal-dialog{
+  max-width: 1000px;
+}
+
+.facebook {
+    margin : 10% 10% 5% 10%;
+    background-color: #3963C7;
+    color: white;
+    width: 80%;
+    height: 50px;
+    border-radius: .25rem;
+    text-align : center;
+}
+
+.btn-facebook {
+    margin-bottom:0;
+    padding-top : 2%;
+    background-color: #3963C7;
+    color: white; 
+}
+
+.ligne {
+    margin : 5% 10%;
+    height: 3px;
+    background-color: #E5E5E5;
+}
+
+.form-group {
+    margin: 5% 10%;
+}
+
+.btn-connex {
+    margin: 0%;
+}
+
+.erreurConnection{
+margin-top: .25rem;
+font-size: 80%;
+color: #dc3545;
+}

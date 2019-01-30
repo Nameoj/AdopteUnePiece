@@ -1,0 +1,201 @@
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+
+<div class="container">
+  <h6 class="titleSerch">TYPE</h6>
+  <form [formGroup]="creationAnnounce" (ngSubmit)="onSubmit()">
+    <div class="row mt-5">
+      <div class="col-md-4">
+        <div id="card-74095">
+          <div class="card">
+            <a class="card-link collapsed" data-toggle="collapse" data-parent="#card-74095" href="#card-element-616950">
+              <div class="card-header">
+                Véhicule
+                <p class="float-right arrow">&#8964;</p>
+              </div>
+            </a>
+
+            <div id="card-element-616950" class="collapse">
+              <div class="card-body">
+
+                <div class="input-group mb-3 form-group">
+                  <select class="custom-select" id="brand" formControlName="brand" [(ngModel)]="brand" [ngClass]="{ 'is-invalid': submitted && f.brand.errors }"
+                    (change)="onSelectBrand($event.target.value)">
+                    <option [value]="Marque">Marque</option>
+                    <option *ngFor="let brand of allMotosB" value="{{brand}}">{{brand}}</option>
+                  </select>
+                  <div *ngIf="submitted && f.brand.errors" class="invalid-feedback">
+                    <div *ngIf="f.brand.errors.required">champs requis</div>
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+
+                  <select class="custom-select" id="model" formControlName="model" [(ngModel)]="model"
+                  [ngClass]="{ 'is-invalid': submitted && f.model.errors }" (change)="onSelectModele($event.target.value)">
+                    <option [value]="modele">Modèle</option>
+                    <option *ngFor="let model of allMotosM" value="{{model}}">{{model}}</option>
+                  </select>
+                  <div *ngIf="submitted && f.model.errors" class="invalid-feedback">
+                    <div *ngIf="f.model.errors.required">champs requis</div>
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <select class="custom-select" id="cylinder" formControlName="cylinder" [(ngModel)]="cylinder"
+
+                  [ngClass]="{ 'is-invalid': submitted && f.cylinder.errors }" (change)="onSelectCylindree($event.target.value)">
+                    <option [value]="cylindree" >Cylindrée</option>
+
+                    <option *ngFor="let cylindree of allMotosC" value="{{cylindree}}">{{cylindree}}</option>
+                  </select>
+                  <div *ngIf="submitted && f.cylinder.errors" class="invalid-feedback">
+                    <div *ngIf="f.cylinder.errors.required">champs requis</div>
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+
+                  <select class="custom-select" id="year" formControlName="year" [(ngModel)]="year"
+                  [ngClass]="{ 'is-invalid': submitted && f.year.errors }" (change)="onSelectYear($event.target.value)">
+                    <option [value]="annee" >Année</option>
+
+                    <option *ngFor="let year of allMotosY" value="{{year}}">{{year}}</option>
+                  </select>
+                  <div *ngIf="submitted && f.year.errors" class="invalid-feedback">
+                    <div *ngIf="f.year.errors.required">champs requis</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <app-search-immat></app-search-immat>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header text-center titleMoto">
+            <p *ngIf="!brand" class="card-text">Votre moto</p>
+            <p *ngIf="brand" class="card-text">{{brand}} {{model}} {{cylinder}}cc {{year}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="pill">
+
+
+    <div class="note mt-5">
+      <h6 style="color:black">Etat de la piece:</h6>
+      <ngb-rating id="note" class="star" [(rate)]="note"></ngb-rating>
+      <div *ngIf="noInputNote" class="noInput">champs requis</div>
+      <pre>NOTE: <b>{{note}}</b></pre>
+    </div>
+
+    <div class="categorie mt-5">
+      <h6 class="mb-3">PRECISER LA CATEGORIE:</h6>
+      <div class="row firstCate mb-3">
+        <div class="partDisplay">Vous avez choisi le type :
+          <button mat-raised-button *ngIf="pieceName != null" type="button" class="btnCate">{{pieceName}}</button>
+        </div>
+        <div *ngIf="noInputPieceName" class="noInput">champs requis</div>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="card bikeSectionContainer col-md-3" *ngFor="let categorie of motoCategories.categories ; let indexCategorie = index">
+            <div class="card-header" id="headingOne">
+                  <a class="btn btn-link bikeSectionLinkBtn" data-toggle="collapse" href="#collapseCycle+{{indexCategorie}}" aria-expanded="true"
+                    aria-controls="collapseOne">
+                    <button mat-button class="bikeSectionBtn">
+                      {{categorie.name}} 
+                    </button>
+                  </a>
+            </div>
+
+            <div *ngFor="let sousCategorie of categorie.sousCategories ; let i = index" id="collapseCycle+{{indexCategorie}}"
+              class="collapse subSectionCollapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <a class="btn btn-link bikeSubSectionBtn" data-toggle="collapse" href="#collapseCadre+{{indexCategorie}}+{{i}}"
+                  aria-expanded="true" aria-controls="collapseTwo">
+                  <button mat-button class="bikeSubSectionBtn mat-elevation-z4">
+                    <span class="subSectionName">{{sousCategorie.name}}
+                      <i class="material-icons float-right drop">keyboard_arrow_down</i>
+                    </span>
+                  </button>
+                </a>
+              <div *ngFor="let sousSousCategorie of sousCategorie.sousSousCategories" id="collapseCadre+{{indexCategorie}}+{{i}}"
+                class="collapse bikePartCollapse" aria-labelledby="headingTwo" data-parent="#collapseOne">
+                  <button mat-button type="button" class="bikePartsBtn" (click)="getPieceName($event.target.innerText)">
+                    {{sousSousCategorie.name}}
+                  </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-lg-6 col-xs-12">
+          <h6>DESCRIPTION:</h6>
+          <!-- ajout champ pour décrire l'état de la pièce -->
+          <textarea id="description" class="form-control textArea mt-3" formControlName="description" rows="5"
+            aria-label="With textarea" [ngClass]="{ 'is-invalid': submitted && f.description.errors }"></textarea>
+          <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+            <div *ngIf="f.description.errors.required">champs requis</div>
+          </div>
+        </div>
+        <div class="ajoutPhoto offset-lg-1 col-lg-4 col-xs-12">
+          <div class="single-upload">
+            <h6>AJOUTER UNE PHOTO:</h6>
+            <form id="singleUploadForm" name="singleUploadForm">
+              <div *ngIf="noInputUri" class="noInput">champs requis</div>
+              <img [ngClass]="{'validateImage' : uri != null}" [src]="url" height="150" class="mr-5">
+              <input id="singleFileUploadInput" type="file" name="file" class="file-input" required (change)="onSelectFile($event)" />
+              <div class="col-12 text-center mt-5">
+                <button *ngIf="uri == null" type="submit" class="btn btnValid">Valider votre photo</button>
+                <button *ngIf="uri != null" type="submit" class="btn btnValid">Valider votre photo</button>
+              </div>
+            </form>
+            <div class="upload-response">
+              <div id="singleFileUploadError"></div>
+              <div id="singleFileUploadSuccess"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-5">
+        <div class="offset-lg-4 col-lg-2  col-sm-12  priceVente">
+          <h6>PRIX DE VENTE:</h6>
+          <input id="price" class="form-control priceClas" formControlName="price" type="text" [ngClass]="{ 'is-invalid': submitted && f.price.errors }">
+          <span class="priceSign ml-2">€</span>
+          <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+            <div *ngIf="f.price.errors.required">champs requis</div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-12 pricePort">
+          <h6>FRAIS DE PORT:</h6>
+          <input id="charge" class="form-control priceClas" formControlName="charge" type="text" [ngClass]="{ 'is-invalid': submitted && f.charge.errors }">
+          <span class="priceSign ml-2">€</span>
+          <div *ngIf="submitted && f.charge.errors" class="invalid-feedback">
+            <div *ngIf="f.charge.errors.required">champs requis</div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5 mb-3">
+        <div class="col-lg-12 text-center">
+          <button type="submit" class="btn btnValid">Valider votre annonce</button>
+        </div>
+      </div>
+      <div *ngIf="successSubmit" class="alert alert-success alert-dismissible fade show text-center designAlert" role="alert">
+        Votre annonce a bien été crée.
+        <button type="button" class="close" (click)="reinitializeAlert" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

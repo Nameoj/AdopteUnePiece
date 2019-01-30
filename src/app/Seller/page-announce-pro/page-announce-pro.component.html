@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+<div class="seller">
+  <div class="container">
+    <div class="title">
+      <h2>MON ESPACE DE GESTION</h2>
+    </div>
+    <div class="container sellerPage">
+      <div class="row">
+        <div class="col-lg-12">
+          <ngb-tabset>
+            <ngb-tab title="Création annonce">
+              <ng-template ngbTabContent>
+                <app-tab-creation></app-tab-creation>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab title="Mes annonces">
+              <ng-template ngbTabContent>
+                <app-tab-announce></app-tab-announce>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab title="Compte">
+              <ng-template ngbTabContent>
+                <app-tab-compte></app-tab-compte>
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

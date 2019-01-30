@@ -26,6 +26,14 @@ font-weight:bold;
     width: 50%;
 }
 
+.icons {
+    color: black;
+}
+
+.icons:active {
+    outline-style: none;
+}
+
 @media screen and (max-width: 600px)
 
 {

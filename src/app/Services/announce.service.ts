@@ -23,7 +23,6 @@ export class AnnounceService {
   constructor(private http: HttpClient) { }
 
   createAnnounce(announce: Object): Observable<Object> {
-    console.log('creation annonce');
     return this.http.post<any>(`${this.baseUrl}/postAnnounce`, announce);
   }
 

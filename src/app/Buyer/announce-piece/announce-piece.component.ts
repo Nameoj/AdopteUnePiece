@@ -67,7 +67,5 @@ export class AnnouncePieceComponent implements OnInit {
     this.commandeService.nbArticle++;
     this.annonceService.deleteAnnonce(this.annonce['id']).subscribe(data => {
       this.commandeService.commandes.push(this.annonce);
-      console.log(this.annonce);
-      console.log(this.commandeService.commandes);
       this.router.navigate(['/panier']); } ) ; }
 }

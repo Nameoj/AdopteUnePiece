@@ -17,7 +17,6 @@ export class HttpIntercepterService implements HttpInterceptor {
     const token = this.buyerService.getAuthenticatedToken();
     if (token != null) {
       authReq = req.clone({ headers: req.headers.set(TOKEN_HEADER_KEY, token) });
-      console.log(authReq);
     }
     return next.handle(authReq);
   }

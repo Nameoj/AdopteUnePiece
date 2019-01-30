@@ -18,12 +18,10 @@ export class SellerService {
   constructor(private http: HttpClient) { }
 
   createSeller(seller: Object): Observable<Object> {
-    console.log('creation compte seller');
     return this.http.post(`${this.baseUrl}`, seller);
   }
 
   getAllSellers() {
-    console.log('retreiving sellers');
     return this.http.get<Seller[]>(`${this.baseUrl2}/sellers`);
   }
 
@@ -32,12 +30,10 @@ export class SellerService {
   }
 
   updateSeller(seller, username): Observable<Object> {
-    console.log('update seller from seller service called');
     return this.http.put(`${this.baseUrl2}/update/${username}`, seller);
   }
 
   updateSellerMdp(seller, username): Observable<Object> {
-    console.log('update seller MDP from seller service called');
     return this.http.put(`${this.baseUrl2}/updatemdp/${username}`, seller);
   }
 

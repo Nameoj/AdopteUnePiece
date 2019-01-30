@@ -106,7 +106,6 @@ export class AdminCompanyListComponent implements OnInit {
    // tslint:disable-next-line:no-redundant-jsdoc
    */
   applyFilter(filterValue: string) {
-    console.log(filterValue);
     const obj: any[] = this.sellers;
     switch (this.filterSelect) {
       case 'rs':
@@ -117,7 +116,6 @@ export class AdminCompanyListComponent implements OnInit {
         break;
     }
     obj.sort((a, b) => a.distance - b.distance);
-    obj.forEach((a) => console.log('Distance entre ', a.raisonSociale, ' et ', filterValue, ' : ', a.distance));
     obj.map((s) => delete s.distance);
     this.sellers = obj;
 

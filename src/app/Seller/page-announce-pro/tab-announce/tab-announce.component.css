@@ -3,9 +3,11 @@
     padding-left:15px;
     border-right:1px solid #dfdfdf;
 }
-/* .groupOfText:not(:last-child){
-    margin:0px 0px 33% 0px;
-} */
+
+.icons{
+    color: red;
+    font-size: 48px;
+}
 
 .groupOfText{
     margin-right:30px;

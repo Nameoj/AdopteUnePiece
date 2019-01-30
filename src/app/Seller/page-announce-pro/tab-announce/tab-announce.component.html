@@ -1,6 +1,6 @@
 <div class="container">
     <div *ngFor="let announce of listAnnonces">
-        <div class="card">
+        <div class="card" id="{{announce.id}}">
             <div class="card-body">
                 <div class="announceItem row">
                     <div class="col-lg-4  col-sm-12 announceImage">
@@ -36,7 +36,7 @@
 
                         <div class="groupOfText description col-sm-12">
                             <div>
-                                Déscritpion:
+                                Description:
                             </div>
                             <div class="text-muted">
                                 {{announce.description}}
@@ -45,17 +45,13 @@
                     </div>
 
                     <div class="col-lg-4 col-sm-12 accessMore">
-                        <!--                    <div class="description">
-                        <div>
-                            Déscritpion:
-                        </div>
-                        {{announce.description}}
-                    </div> -->
                         <div class="price ">
                             Prix: {{announce.price}}€
+                            <div class="mt-5">
+                                <a mat-button (click)="delete(announce.id)"><i class="material-icons icons">delete_sweep</i></a>
+                            </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

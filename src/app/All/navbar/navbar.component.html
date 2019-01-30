@@ -30,7 +30,7 @@
         </div>
 
         <div class="nav-item  exit offset-sm-1 col-sm-1">
-          <a class="nav-link" *ngIf="buyerService.isUserLoggedIn()" class="deco" (click)="logout()" routerLink="/home">
+          <a class="nav-link" *ngIf="isLogged" class="deco" (click)="logout()" routerLink="/home">
 
             <i class="material-icons">exit_to_app</i>
           </a>

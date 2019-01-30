@@ -1,3 +1,8 @@
+i{
+    font-size:19px;
+    vertical-align: text-top;
+}
+
 .container {
     padding-right:0;
 }
@@ -37,21 +42,24 @@
 }
 
 .arrowHead2{
-    background-color: #f7f7f7;
+    display:flex;
+    flex-direction: row;
+    background-color: white;
     border: 2px #212123;
     font-size: 0.7rem;
     color: #212123;
     background-size: 12px;
-    text-align: center;
 }
 @media screen and (max-width: 768px) {
     .categories {
         margin-left:15px;
     }
+
     .container {
         padding-left:0;
         padding-right:0;
     }
+    
     .sidenav {
         height: 100vh;
         width: 0;

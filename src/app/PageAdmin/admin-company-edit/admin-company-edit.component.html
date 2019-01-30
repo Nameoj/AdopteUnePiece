@@ -80,7 +80,7 @@
     <div class="form-group row">
       <label for="colFormLabel" class="label col-md-2 col-form-label">Email</label>
       <div class="col-md-10">
-        <input formControlName="email" type="email" class="form-control" id="email" [ngClass]="{ 'is-invalid': (submitted && f.email.errors) || emailExistant }"
+        <input formControlName="email" type="email" class="form-control" id="email" [ngClass]="{ 'is-invalid': (submitted && f.email.errors) }"
           disabled />
         <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
           <div *ngIf="f.email.errors.required">champ requis</div>
@@ -88,9 +88,9 @@
             un email valide est requis
           </div>
         </div>
-        <div *ngIf="emailExistant" class="invalid-feedback">
+        <!-- <div *ngIf="emailExistant" class="invalid-feedback">
           cet email est déjà utilisé
-        </div>
+        </div> -->
       </div>
     </div>
 

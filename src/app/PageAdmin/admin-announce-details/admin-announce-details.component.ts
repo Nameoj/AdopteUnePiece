@@ -22,6 +22,7 @@ export class AdminAnnounceDetailsComponent implements OnInit {
   image: String = '';
   description: String = '';
   price: String = '';
+  year: String = '';
 
   constructor(private _location: Location,
     private annonceService: AnnounceService,
@@ -43,6 +44,7 @@ export class AdminAnnounceDetailsComponent implements OnInit {
         this.image = this.announce.image;
         this.description = this.announce.description;
         this.price = this.announce.price;
+        this.year = this.announce.year;
       });
     });
   }

@@ -12,6 +12,7 @@ export class MyAccountComponent implements OnInit {
     motDePasse = true;
     adresses = true;
     commandes = true;
+    role;
 
 
     constructor(private buyerService: BuyerService) { }
@@ -43,7 +44,7 @@ export class MyAccountComponent implements OnInit {
     }
 
     ngOnInit() {
-
+        this.role = this.buyerService.getAuthenticatedRole()
     }
 
 }

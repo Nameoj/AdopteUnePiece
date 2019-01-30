@@ -55,6 +55,16 @@ export class TabCreationComponent implements OnInit {
   annonceForm: FormGroup;
   submitted = false;
   joie;
+  Marque;
+  model;
+  modele;
+  cylinder;
+  cylindree;
+  year;
+  annee;
+  brand;
+
+
 
   brands = ['Honda', 'Kawasaki', 'Suzuki', 'Yamaha'];
   cylinders = ['50cc', '80cc', '125cc', '250cc', '400cc', '500cc', '600cc', '700cc', '800cc', '900cc', '1000cc'];

@@ -29,6 +29,12 @@ export class SearchVhlComponent implements OnInit {
   newYear;
   searchMoto: ResearchMoto;
 
+  brand;
+  Marque;
+  modele;
+  cylindree;
+  annee;
+
   vehicleChoiced: string;
 
   @Output() vehicleChoice = new EventEmitter<string>();

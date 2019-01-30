@@ -16,7 +16,7 @@
       <a routerLink="/myaccount/commandes" (click)="getCommandes()">
         <p [ngClass]="{'lien-menu':commandes, 'lien-menu-active':!commandes}">Commandes</p>
       </a>
-      <a *ngIf="buyerService.getAuthenticatedRole() == 'ROLE_ADMIN'" routerLink="/admin-home">
+      <a *ngIf="role == 'ROLE_ADMIN'" routerLink="/admin-home">
         <p class="lien-menu">Retour Console Admin</p>
       </a>
     </div>

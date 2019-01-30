@@ -40,3 +40,11 @@ p{
     line-height:0.5em;
 }
 }
+
+::ng-deep .mat-step-header .mat-step-icon-selected {
+    background-color: #FFCE11; 
+ }
+
+::ng-deep .mat-step-header .mat-step-icon-state-edit {
+    background-color: #4ee520;
+}

@@ -3,9 +3,15 @@
   <button class="closebtn" (click)="closeNav()">&times;</button>
   <div class="row">
 
-    <div *ngIf="piece" class="categories arrowHead2" (click)="initFiltre()">
+    <div *ngIf="piece" class=" categories arrowHead2 mt-2" (click)="initFiltre()">
+      <div class="ml-2">
       supprimer filtre:
-      <b> {{piece}} </b>
+      <br>
+      <p> {{piece}} </p>
+      </div>
+      <div>
+      <i  class="material-icons col-2">highlight_off</i>   
+      </div> 
     </div>
 
     <div *ngFor="let categories of motoCategories.categories; let index=index">

@@ -99,7 +99,7 @@
       <h6 class="mb-3">PRECISER LA CATEGORIE:</h6>
       <div class="row firstCate mb-3">
         <div class="partDisplay">Vous avez choisi le type :
-          <button *ngIf="pieceName != null" type="button" class="btnCate">{{pieceName}}</button>
+          <button mat-raised-button *ngIf="pieceName != null" type="button" class="btnCate">{{pieceName}}</button>
         </div>
         <div *ngIf="noInputPieceName" class="noInput">champs requis</div>
       </div>

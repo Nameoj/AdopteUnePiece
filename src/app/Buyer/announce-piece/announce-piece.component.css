@@ -50,11 +50,13 @@
     color: #FF8C00;
     font-size: 1.5em;
 }
+
 footer {
     position: relative;
     bottom: 0px;
     width: 100vw;
 }
+
 @media screen and (max-width: 769px) {
     .announceImageDiv {
         margin-bottom: 25px;

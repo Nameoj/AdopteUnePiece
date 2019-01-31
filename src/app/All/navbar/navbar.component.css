@@ -67,6 +67,11 @@
     .websiteLogo {
         margin-left: 0;
     }
+    .burgerIcon {
+        background-color: #FFCE14;
+        margin-right: 3vw;
+    }
+    
 }
 
 .adoptPieceSearch {
@@ -182,3 +187,4 @@ margin-top: .25rem;
 font-size: 80%;
 color: #dc3545;
 }
+

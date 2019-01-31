@@ -1,11 +1,11 @@
 .piecePage {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin-top: 5vh;
+    margin-top: 10vh;
     background-color: white;
 }
 
 .announcePiecePage {
-    margin-bottom: 20px;
+    margin-bottom: 10vh;
 }
 
 .announcePrice {
@@ -50,7 +50,11 @@
     color: #FF8C00;
     font-size: 1.5em;
 }
-
+footer {
+    position: relative;
+    bottom: 0px;
+    width: 100vw;
+}
 @media screen and (max-width: 769px) {
     .announceImageDiv {
         margin-bottom: 25px;
